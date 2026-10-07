@@ -1,0 +1,89 @@
+# Job alert configuration. Edit the profile to match what you're looking for.
+# Secrets (AgentMail key, inbox, recipient) come from environment variables,
+# never from this file.
+
+[profile]
+# A job must contain at least one of these phrases in its title.
+title_include = [
+  "software engineer", "backend engineer", "platform engineer",
+  "full stack engineer", "fullstack engineer", "infrastructure engineer",
+  "machine learning engineer", "data engineer", "site reliability engineer",
+]
+# ...and none of these.
+title_exclude = ["intern", "internship", "director", "vice president", "head of", "manager", "principal"]
+# Each skill mentioned in the posting adds to the score (7 pts each, max 35).
+skills = ["python", "go", "typescript", "kubernetes", "aws", "postgres", "distributed systems", "llm"]
+# Location terms; a remote job passes too when remote_ok = true.
+locations = ["united states", "usa", "us", "new york", "san francisco", "seattle", "remote"]
+location_exclude = []
+remote_ok = true
+prefer_remote = true
+max_age_days = 30
+min_score = 50
+
+[email]
+max_jobs_per_email = 10
+subject_prefix = "[Job Alert]"
+
+[state]
+path = "state/sent.json"
+
+# Company boards, via official public job-board APIs only.
+# source = greenhouse -> https://boards-api.greenhouse.io/v1/boards/<slug>/jobs
+# source = lever      -> https://api.lever.co/v0/postings/<slug>
+# source = ashby      -> https://api.ashbyhq.com/posting-api/job-board/<slug>
+
+[[companies]]
+source = "greenhouse"
+slug = "anthropic"
+name = "Anthropic"
+
+[[companies]]
+source = "greenhouse"
+slug = "stripe"
+name = "Stripe"
+
+[[companies]]
+source = "greenhouse"
+slug = "cloudflare"
+name = "Cloudflare"
+
+[[companies]]
+source = "greenhouse"
+slug = "datadog"
+name = "Datadog"
+
+[[companies]]
+source = "greenhouse"
+slug = "figma"
+name = "Figma"
+
+[[companies]]
+source = "lever"
+slug = "palantir"
+name = "Palantir"
+
+[[companies]]
+source = "lever"
+slug = "plaid"
+name = "Plaid"
+
+[[companies]]
+source = "ashby"
+slug = "openai"
+name = "OpenAI"
+
+[[companies]]
+source = "ashby"
+slug = "notion"
+name = "Notion"
+
+[[companies]]
+source = "ashby"
+slug = "ramp"
+name = "Ramp"
+
+[[companies]]
+source = "ashby"
+slug = "linear"
+name = "Linear"

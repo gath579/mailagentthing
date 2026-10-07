@@ -1,0 +1,79 @@
+name: Job alerts
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "dry-run builds the email without sending; send delivers via AgentMail"
+        type: choice
+        options: [dry-run, send]
+        default: dry-run
+      require_sent:
+        description: "Fail unless at least one job is emailed (manual end-to-end check)"
+        type: boolean
+        default: false
+  # Hourly schedule is intentionally NOT enabled yet. It gets added only after
+  # a manual end-to-end `send` run has succeeded.
+
+permissions:
+  contents: write   # commit state/sent.json back after a verified send
+
+concurrency:
+  group: job-alerts
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Unit tests
+        run: |
+          pip install -q pytest
+          python -m pytest -q
+
+      - name: Run pipeline
+        env:
+          AGENTMAIL_API_KEY: ${{ secrets.AGENTMAIL_API_KEY }}
+          AGENTMAIL_INBOX_ID: ${{ secrets.AGENTMAIL_INBOX_ID }}
+          ALERT_RECIPIENT: ${{ secrets.ALERT_RECIPIENT }}
+        run: |
+          args="--out out"
+          if [ "${{ github.event_name }}" = "schedule" ] || [ "${{ inputs.mode }}" = "send" ]; then
+            args="$args --send"
+          fi
+          if [ "${{ inputs.require_sent }}" = "true" ]; then
+            args="$args --require-sent"
+          fi
+          python -m jobagent $args
+
+      - name: Upload run output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: job-alerts-${{ github.run_id }}
+          path: out/
+          if-no-files-found: ignore
+
+      - name: Commit sent-state
+        run: |
+          if [ -z "$(git status --porcelain -- state/)" ]; then
+            echo "state unchanged"
+            exit 0
+          fi
+          git config user.name "job-alerts-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add state/sent.json
+          git commit -m "Record sent job alerts (run ${{ github.run_id }})"
+          for i in 1 2 3; do
+            git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}" && exit 0
+            sleep $((i * 5))
+          done
+          echo "::error::failed to push state; next run may resend (AgentMail idempotency key covers 24h)"
+          exit 1
