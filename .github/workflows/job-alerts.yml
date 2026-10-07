@@ -4,22 +4,26 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "dry-run builds the email without sending; send delivers via AgentMail"
+        description: "dry-run: score + previews only; send: email via AgentMail; probe: find live employer boards"
         type: choice
-        options: [dry-run, send]
+        options: [dry-run, send, probe]
         default: dry-run
+      max_emails:
+        description: "Max emails this run (blank = config default)"
+        type: string
+        default: ""
       require_sent:
-        description: "Fail unless at least one job is emailed (manual end-to-end check)"
+        description: "Fail unless at least one job is emailed"
         type: boolean
         default: false
   # Pushes to the development branch run a dry run only (never sends).
   push:
     branches: [claude/wizardly-lovelace-451nmf]
   # Hourly schedule is intentionally NOT enabled yet. It gets added only after
-  # a manual end-to-end `send` run has succeeded.
+  # the matching has been reviewed and one real email has been sent and verified.
 
 permissions:
-  contents: write   # commit state/sent.json back after a verified send
+  contents: write   # commit state/sent.json back after sends
 
 concurrency:
   group: job-alerts
@@ -28,7 +32,7 @@ concurrency:
 jobs:
   run:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
 
@@ -41,19 +45,25 @@ jobs:
           pip install -q pytest
           python -m pytest -q
 
-      - name: Run pipeline
+      - name: Run
         env:
           AGENTMAIL_API_KEY: ${{ secrets.AGENTMAIL_API_KEY }}
           AGENTMAIL_INBOX_ID: ${{ secrets.AGENTMAIL_INBOX_ID }}
           ALERT_RECIPIENT: ${{ secrets.ALERT_RECIPIENT }}
+          EVENT: ${{ github.event_name }}
+          MODE: ${{ inputs.mode }}
+          MAX_EMAILS: ${{ inputs.max_emails }}
+          REQUIRE_SENT: ${{ inputs.require_sent }}
         run: |
+          if [ "$MODE" = "probe" ]; then
+            python -m jobagent probe --out out
+            exit 0
+          fi
           args="--out out"
-          if [ "${{ github.event_name }}" = "schedule" ] || [ "${{ inputs.mode }}" = "send" ]; then
-            args="$args --send"
-          fi
-          if [ "${{ inputs.require_sent }}" = "true" ]; then
-            args="$args --require-sent"
-          fi
+          if [ "$EVENT" = "schedule" ]; then args="$args --send --scheduled"; fi
+          if [ "$MODE" = "send" ]; then args="$args --send"; fi
+          if [ -n "$MAX_EMAILS" ]; then args="$args --max-emails $MAX_EMAILS"; fi
+          if [ "$REQUIRE_SENT" = "true" ]; then args="$args --require-sent"; fi
           python -m jobagent $args
 
       - name: Upload run output
@@ -65,6 +75,8 @@ jobs:
           if-no-files-found: ignore
 
       - name: Commit sent-state
+        # always(): jobs already emailed must be recorded even if a later send failed
+        if: always()
         run: |
           if [ -z "$(git status --porcelain -- state/)" ]; then
             echo "state unchanged"

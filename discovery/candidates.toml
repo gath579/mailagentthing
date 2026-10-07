@@ -1,0 +1,38 @@
+# Candidate employers for the discovery probe (`python -m jobagent probe`).
+# Each slug is tried against every supported ATS; only boards that actually
+# respond (and how many design roles they list) end up in config.toml.
+# These are GUESSES to be verified, not a confirmed list.
+
+slugs = [
+  # India product companies / India-heavy teams
+  "razorpay", "cred", "credclub", "meesho", "phonepe", "groww", "zepto", "swiggy", "zomato",
+  "eternal", "blinkit", "flipkart", "myntra", "nykaa", "urbancompany", "urban-company", "dream11",
+  "dreamsports", "sharechat", "mohalla-tech", "moj", "inmobi", "glance", "paytm", "policybazaar",
+  "pbfintech", "cars24", "spinny", "ola", "olaelectric", "ather", "atherenergy", "rapido",
+  "dunzo", "bigbasket", "lenskart", "boat", "mamaearth", "honasa", "upgrad", "unacademy",
+  "physicswallah", "byjus", "vedantu", "eruditus", "simplilearn", "scaler", "interviewbit",
+  "classplus", "teachmint", "leverage-edu", "cuemath", "toddle", "toddleapp", "freshworks",
+  "zoho", "chargebee", "postman", "browserstack", "druva", "hackerrank", "innovaccer",
+  "mindtickle", "sprinklr", "zeta", "zetaglobal", "jupiter", "jupitermoney", "fi", "epifi",
+  "slice", "sliceit", "khatabook", "okcredit", "bharatpe", "mobikwik", "cashfree", "juspay",
+  "setu", "smallcase", "zerodha", "upstox", "indmoney", "navi", "acko", "digit", "plum",
+  "pristyncare", "practo", "healthifyme", "cult", "curefit", "tata1mg", "pharmeasy",
+  "makemytrip", "goibibo", "ixigo", "cleartrip", "oyo", "oyorooms", "housing", "nobroker",
+  "magicpin", "dailyhunt", "verse", "pocketfm", "kukufm", "stage", "zee5", "jiohotstar",
+  "hotstar", "airtel", "jio", "atlan", "hevodata", "hevo", "darwinbox", "leena-ai", "yellow-ai",
+  "haptik", "observeai", "uniphore", "gupshup", "wingify", "vwo", "clevertap", "moengage",
+  "webengage", "netcore", "whatfix", "lambdatest", "testsigma", "kissflow", "zluri", "rocketlane",
+  "spotdraft", "sarvam", "krutrim", "fractal", "tredence", "thoughtworks", "publicissapient",
+  "tekion", "highlevel", "gohighlevel", "turing", "deel", "remote", "rippling",
+  # Global product companies with India design/engineering hubs
+  "atlassian", "intuit", "adobe", "uber", "airbnb", "booking", "expedia", "visa", "mastercard",
+  "paypal", "americanexpress", "walmart", "target", "lowes", "swiggy-careers", "microsoft",
+  "google", "salesforce", "servicenow", "workday", "sap", "oracle", "linkedin", "dropbox",
+  "pinterest", "spotify", "canva", "figma", "miro", "notion", "zendesk", "hubspot", "intercom",
+  "gitlab", "github", "shopify", "stripe", "wise", "revolut", "grab", "gojek", "agoda",
+  "duolingo", "grammarly", "coursera", "udemy", "chegg", "doordash", "instacart", "lyft",
+  "reddit", "discord", "asana", "airtable", "webflow", "framer", "loom", "calendly", "zapier",
+  "automattic", "doist", "toggl", "hotjar", "contentsquare", "mural", "clickup", "monday",
+  "mondaycom", "smartsheet", "freshworksinc", "zomato-careers", "bosch", "siemens", "philips",
+  "ubisoft", "unity", "epicgames", "riotgames", "nykaa-careers", "jar", "fampay", "cred-club",
+]

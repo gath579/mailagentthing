@@ -1,106 +1,165 @@
 """End-to-end pipeline:
 
 discover -> normalize -> source dedup -> filter/score -> notification dedup
--> email generation -> AgentMail send -> verify -> record as sent
+-> per-job analysis/email -> AgentMail send -> record (on message ID) -> verify
 """
 from __future__ import annotations
 
 import json
 import logging
+import re
 from datetime import datetime, timezone
 from pathlib import Path
 
-from .agentmail import AgentMailClient, idempotency_key
+from .agentmail import AgentMailClient, DeliveryError, idempotency_key
 from .config import Config, Secrets
 from .dedupe import dedupe_sources
 from .discovery import discover_jobs
-from .emailgen import build_email
+from .emailgen import build_job_email
+from .models import Job
 from .normalize import normalize_all
 from .scoring import filter_and_score
 from .sources import Fetcher
 from .state import SentStore
 
 log = logging.getLogger(__name__)
+MAX_CONSECUTIVE_FAILURES = 3
 
 
 class PipelineError(RuntimeError):
     pass
 
 
+def _slug(text: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")[:60]
+
+
+def _brief(job: Job) -> dict:
+    return {"tier": job.tier, "score": job.score, "title": job.title, "company": job.company,
+            "location": job.location, "work_mode": job.work_mode or "not stated",
+            "posted_at": job.posted_at.isoformat() if job.posted_at else None,
+            "source": job.source_label, "url": job.url, "reasons": job.reasons, "concerns": job.concerns}
+
+
+def _top_table(jobs: list[Job], n: int = 10) -> str:
+    lines = [f"TOP {min(n, len(jobs))} MATCHES"]
+    for i, j in enumerate(jobs[:n], 1):
+        lines += [
+            f"{i:>2}. [{j.tier}] {j.score:.0f}/100  {j.title} — {j.company}",
+            f"    {j.location or 'location not stated'} · {j.work_mode or 'mode not stated'} · "
+            f"posted {j.posted_at.date() if j.posted_at else 'n/a'} · {j.source_label}",
+            f"    {j.url}",
+            f"    why: {'; '.join(j.reasons)}",
+            f"    concerns: {'; '.join(j.concerns) or 'none detected'}",
+        ]
+    return "\n".join(lines)
+
+
 def run(config: Config, *, send: bool, out_dir: Path, secrets: Secrets | None = None,
         fetchers: dict[str, Fetcher] | None = None, client: AgentMailClient | None = None,
-        require_sent: bool = False, now: datetime | None = None) -> dict:
+        require_sent: bool = False, max_emails: int | None = None, throttle_feeds: bool = False,
+        now: datetime | None = None) -> dict:
     now = now or datetime.now(timezone.utc)
     out_dir.mkdir(parents=True, exist_ok=True)
     summary: dict = {"started_at": now.isoformat(), "mode": "send" if send else "dry-run"}
 
     # 1. Discovery
-    found = discover_jobs(config.companies, fetchers)
-    summary["discovered"] = len(found.postings)
-    summary["boards_ok"] = found.counts
-    summary["boards_failed"] = found.errors
+    found = discover_jobs(config.companies, config.feeds, fetchers, now=now, throttle_feeds=throttle_feeds)
+    summary.update(discovered=len(found.postings), sources_ok=found.counts, sources_failed=found.errors,
+                   feeds_skipped=found.skipped)
 
     # 2. Normalization
-    jobs, norm_errors = normalize_all(found.postings, config.company_names)
-    summary["normalized"] = len(jobs)
-    summary["normalize_errors"] = norm_errors[:20]
+    jobs, norm_errors = normalize_all(found.postings, config.company_names, config.company_sizes)
+    summary.update(normalized=len(jobs), normalize_errors=norm_errors[:20])
 
     # 3. Source deduplication
     jobs = dedupe_sources(jobs)
     summary["after_source_dedup"] = len(jobs)
 
     # 4. Filtering / scoring
-    matched, rejected = filter_and_score(jobs, config.profile, now)
-    summary["matched"] = len(matched)
+    matched, rejected = filter_and_score(jobs, config, now)
     reject_counts: dict[str, int] = {}
     for r in rejected:
-        bucket = r.reason.split(" ")[0]  # title / location / posted / score
+        bucket = r.reason.split(":")[0]
         reject_counts[bucket] = reject_counts.get(bucket, 0) + 1
-    summary["rejected_by_reason"] = reject_counts
+    summary.update(matched=len(matched), rejected_by_reason=reject_counts,
+                   tiers={t: sum(j.tier == t for j in matched) for t in ("Strong", "Good", "Possible")})
+    (out_dir / "matches.json").write_text(json.dumps([_brief(j) for j in matched], indent=2))
+    near = sorted((r for r in rejected if r.reason.startswith(("score", "location", "experience"))),
+                  key=lambda r: -r.job.score)[:25]
+    (out_dir / "near_misses.json").write_text(json.dumps(
+        [{"title": r.job.title, "company": r.job.company, "location": r.job.location, "reason": r.reason,
+          "url": r.job.url} for r in near], indent=2))
 
     # 5. Notification deduplication
     store = SentStore(config.state_path)
     new = store.unsent(matched)
-    batch = new[: config.email.max_jobs_per_email]
-    summary["new_unsent"] = len(new)
-    summary["in_this_email"] = [
-        {"company": j.company, "title": j.title, "location": j.location, "score": j.score,
-         "posted_at": j.posted_at.isoformat() if j.posted_at else None, "url": j.url}
-        for j in batch
-    ]
-    (out_dir / "matches.json").write_text(json.dumps([j.to_dict() for j in matched], indent=2))
+    limit = config.email.max_emails_per_run if max_emails is None else max_emails
+    batch = new[:limit]
+    summary.update(new_unsent=len(new), this_run=len(batch))
 
-    if not batch:
-        log.info("no new matching jobs; nothing to send")
-        summary["sent"] = None
-        if require_sent:
-            raise PipelineError(f"--require-sent: no new matching jobs to send. Summary: {summary}")
+    # 6. Per-job analysis / email generation (previews always written)
+    previews = out_dir / "emails"
+    previews.mkdir(exist_ok=True)
+    emails = []
+    for i, job in enumerate(new[:max(limit, 10)], 1):
+        email = build_job_email(job, config, now)
+        stem = f"{i:02d}-{_slug(job.company)}-{_slug(job.title)}"
+        (previews / f"{stem}.txt").write_text(f"Subject: {email.subject}\n\n{email.text}")
+        (previews / f"{stem}.html").write_text(email.html)
+        if job in batch:
+            emails.append((job, email))
+    table = _top_table(new)
+    (out_dir / "top_matches.txt").write_text(table)
+    print(table)
+
+    if not send or not batch:
+        summary["sent"] = []
+        if send and require_sent:
+            raise PipelineError("--require-sent: no new matching jobs to send")
         return _finish(store, summary, out_dir, persist=False)
 
-    # 6. Analysis / email generation
-    email = build_email(batch, config.email.subject_prefix, now)
-    (out_dir / "email.html").write_text(email.html)
-    (out_dir / "email.txt").write_text(f"Subject: {email.subject}\n\n{email.text}")
-    summary["subject"] = email.subject
-
-    if not send:
-        log.info("dry run: email written to %s, not sent", out_dir)
-        summary["sent"] = None
-        return _finish(store, summary, out_dir, persist=False)
-
-    # 7. Delivery + verification
+    # 7. Delivery: one email per job; record each as soon as AgentMail returns its message ID
     secrets = secrets or Secrets.from_env()
     client = client or AgentMailClient(secrets)
-    key = idempotency_key(secrets.recipient, batch)
-    response = client.send(email, key)
-    log.info("AgentMail accepted message %s", response["message_id"])
-    verified = client.verify(response, email)
-    log.info("verified message %s (labels=%s)", verified["message_id"], verified["labels"])
+    sent, failed, unverified, consecutive = [], [], [], 0
+    for job, email in emails:
+        try:
+            resp = client.send(email, idempotency_key(secrets.recipient, job),
+                               labels=["job-alert", f"{job.tier.lower()}-match"])
+        except DeliveryError as exc:
+            log.error("send failed for %s / %s: %s", job.company, job.title, exc)
+            failed.append({"company": job.company, "title": job.title, "error": str(exc)[:300]})
+            consecutive += 1
+            if consecutive >= MAX_CONSECUTIVE_FAILURES:
+                log.error("stopping after %d consecutive send failures", consecutive)
+                break
+            continue
+        consecutive = 0
+        store.record_sent(job, resp, now)
+        store.save()                     # persist immediately: a later crash must not cause a resend
+        try:
+            verified = client.verify(resp, email)
+            store.mark_verified(job, True)
+            log.info("sent + verified %s for %s / %s (labels=%s)", resp["message_id"], job.company,
+                     job.title, verified["labels"])
+        except DeliveryError as exc:
+            store.mark_verified(job, False, str(exc))
+            unverified.append({"company": job.company, "title": job.title, "message_id": resp["message_id"],
+                               "error": str(exc)[:300]})
+        store.save()
+        sent.append({"company": job.company, "title": job.title, "tier": job.tier,
+                     "message_id": resp["message_id"], "thread_id": resp["thread_id"],
+                     "subject": email.subject})
 
-    # 8. Record as sent (only after verification succeeded)
-    store.record_sent(batch, verified, now)
-    summary["sent"] = {**verified, "jobs": len(batch), "idempotency_key": key}
-    return _finish(store, summary, out_dir, persist=True)
+    summary.update(sent=sent, send_failures=failed, verify_failures=unverified)
+    result = _finish(store, summary, out_dir, persist=True)
+    if failed or unverified:
+        raise DeliveryError(f"{len(failed)} send failure(s), {len(unverified)} verification failure(s); "
+                            f"see run_summary.json")
+    if require_sent and not sent:
+        raise PipelineError("--require-sent: nothing was sent")
+    return result
 
 
 def _finish(store: SentStore, summary: dict, out_dir: Path, persist: bool) -> dict:
@@ -108,7 +167,8 @@ def _finish(store: SentStore, summary: dict, out_dir: Path, persist: bool) -> di
     (out_dir / "run_summary.json").write_text(json.dumps(summary, indent=2))
     if persist:
         store.prune()
-        store.record_run({k: summary.get(k) for k in
-                          ("started_at", "mode", "discovered", "matched", "new_unsent", "sent")})
+        store.record_run({k: summary.get(k) for k in ("started_at", "mode", "discovered", "matched", "new_unsent")}
+                         | {"sent": len(summary.get("sent") or []),
+                            "failed": len(summary.get("send_failures") or [])})
         store.save()
     return summary

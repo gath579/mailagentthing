@@ -29,7 +29,7 @@ class AgentMailClient:
     def _headers(self, extra: dict | None = None) -> dict:
         return {"Authorization": f"Bearer {self.secrets.agentmail_api_key}", **(extra or {})}
 
-    def send(self, email: Email, idempotency_key: str) -> dict:
+    def send(self, email: Email, idempotency_key: str, labels: list[str] | None = None) -> dict:
         inbox = quote(self.secrets.inbox_id, safe="")
         try:
             resp = self._request(
@@ -41,7 +41,7 @@ class AgentMailClient:
                     "subject": email.subject,
                     "text": email.text,
                     "html": email.html,
-                    "labels": ["job-alert"],
+                    "labels": labels or ["job-alert"],
                 },
                 retries=2,  # safe: the idempotency key makes retries return the original send
             )
@@ -91,6 +91,6 @@ class AgentMailClient:
         raise DeliveryError(f"AgentMail verification could not read message back: {last_error}")
 
 
-def idempotency_key(recipient: str, jobs) -> str:
-    material = recipient.lower() + "\n" + "\n".join(sorted(j.fingerprint for j in jobs))
+def idempotency_key(recipient: str, job) -> str:
+    material = f"{recipient.lower()}\n{job.fingerprint}"
     return "jobalert-" + hashlib.sha256(material.encode()).hexdigest()[:40]

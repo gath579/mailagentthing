@@ -10,8 +10,8 @@ from typing import Optional
 class RawPosting:
     """A posting exactly as a source returned it, before normalization."""
 
-    source: str          # e.g. "greenhouse"
-    company_slug: str    # board token / site name used in the API URL
+    source: str          # e.g. "greenhouse", "remotive"
+    company_slug: str    # board slug, or feed query for multi-employer feeds
     payload: dict        # untouched JSON object from the source
 
 
@@ -25,15 +25,22 @@ class Job:
     title: str
     url: str
     location: str = ""
-    remote: bool = False
+    country: str = ""
+    work_mode: str = ""          # "remote" | "hybrid" | "onsite" | "" (not stated)
     department: str = ""
     employment_type: str = ""
     description: str = ""
     posted_at: Optional[datetime] = None
     compensation: str = ""
-    # Filled in by later stages.
+    source_label: str = ""       # human-readable source name for emails
+    company_size: str = ""       # "large" | "mid" | "startup" | "" (from config)
+    # Filled in by scoring.
     score: float = 0.0
+    tier: str = ""
     reasons: list[str] = field(default_factory=list)
+    concerns: list[str] = field(default_factory=list)
+    signals: list[str] = field(default_factory=list)
+    experience: str = ""
     also_seen_at: list[str] = field(default_factory=list)
 
     @property
@@ -53,4 +60,5 @@ class Job:
     def to_dict(self) -> dict:
         d = asdict(self)
         d["posted_at"] = self.posted_at.isoformat() if self.posted_at else None
+        d.pop("description")
         return d

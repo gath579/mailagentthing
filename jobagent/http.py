@@ -18,6 +18,17 @@ class HttpError(RuntimeError):
         self.body = body
 
 
+def get_text(url: str, timeout: float = 30) -> str:
+    req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            return resp.read().decode("utf-8", "replace")
+    except urllib.error.HTTPError as exc:
+        raise HttpError(exc.code, url, exc.read().decode("utf-8", "replace")) from None
+    except (urllib.error.URLError, TimeoutError) as exc:
+        raise HttpError(0, url, repr(exc)) from None
+
+
 def request_json(
     method: str,
     url: str,

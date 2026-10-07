@@ -2,7 +2,8 @@
 
 State lives in a JSON file committed to the repo by the workflow, so it
 survives between ephemeral GitHub Actions runners and is auditable in git.
-A job is recorded only after AgentMail accepted *and* we verified the send.
+A job is recorded as soon as AgentMail returns a message ID for *its own*
+email; a failed delivery is never recorded and stays eligible for retry.
 """
 from __future__ import annotations
 
@@ -20,7 +21,7 @@ RETENTION_DAYS = 180
 class SentStore:
     def __init__(self, path: Path):
         self.path = Path(path)
-        self.data = {"version": 1, "sent": {}, "runs": []}
+        self.data = {"version": 2, "sent": {}, "runs": []}
         if self.path.exists():
             self.data = json.loads(self.path.read_text())
         self._source_keys = {v.get("source_key") for v in self.data["sent"].values()}
@@ -31,20 +32,27 @@ class SentStore:
     def unsent(self, jobs: list[Job]) -> list[Job]:
         return [j for j in jobs if not self.already_sent(j)]
 
-    def record_sent(self, jobs: list[Job], delivery: dict, now: datetime | None = None) -> None:
+    def record_sent(self, job: Job, delivery: dict, now: datetime | None = None) -> None:
         now = now or datetime.now(timezone.utc)
-        for job in jobs:
-            self.data["sent"][job.fingerprint] = {
-                "source_key": job.source_key,
-                "company": job.company,
-                "title": job.title,
-                "url": job.url,
-                "score": job.score,
-                "sent_at": now.isoformat(),
-                "message_id": delivery["message_id"],
-                "thread_id": delivery["thread_id"],
-            }
-            self._source_keys.add(job.source_key)
+        self.data["sent"][job.fingerprint] = {
+            "source_key": job.source_key,
+            "company": job.company,
+            "title": job.title,
+            "url": job.url,
+            "tier": job.tier,
+            "score": job.score,
+            "sent_at": now.isoformat(),
+            "message_id": delivery["message_id"],
+            "thread_id": delivery["thread_id"],
+            "verified": None,
+        }
+        self._source_keys.add(job.source_key)
+
+    def mark_verified(self, job: Job, ok: bool, detail: str = "") -> None:
+        entry = self.data["sent"][job.fingerprint]
+        entry["verified"] = ok
+        if detail:
+            entry["verify_detail"] = detail[:300]
 
     def record_run(self, summary: dict) -> None:
         self.data["runs"] = (self.data["runs"] + [summary])[-50:]

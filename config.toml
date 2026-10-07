@@ -1,84 +1,214 @@
-# Job alert configuration. Edit the profile to match what you're looking for.
-# Secrets (AgentMail key, inbox, recipient) come from environment variables,
-# never from this file.
+# Product Design job scout configuration.
+# Secrets (AgentMail key, inbox, recipient) come from environment variables.
 
+[candidate]
+name = "Gaargee Athavale"
+portfolio = "https://gaargees-portfolio.framer.website/"
+years = "2+"
+intro = "I'm Gaargee Athavale, a product designer and illustrator with 2+ years of experience designing across web and mobile."
+
+# ---------------------------------------------------------------------------
 [profile]
-# A job must contain at least one of these phrases in its title.
-title_include = [
-  "software engineer", "backend engineer", "platform engineer",
-  "full stack engineer", "fullstack engineer", "infrastructure engineer",
-  "machine learning engineer", "data engineer", "site reliability engineer",
+# Junior-to-mid product / UX roles. A title must contain one of these.
+title_core = [
+  "product designer", "product design", "designer product", "ui ux designer", "ux ui designer",
+  "ui ux design", "ux designer", "ui designer", "user experience designer", "user interface designer",
+  "interaction designer", "ixd", "product experience designer", "experience designer",
+  "app designer", "mobile designer",
 ]
-# ...and none of these.
-title_exclude = ["intern", "internship", "director", "vice president", "head of", "manager", "principal", "it systems", "client platform"]
-# Each skill mentioned in the posting adds to the score (7 pts each, max 35).
-skills = ["python", "go", "typescript", "kubernetes", "aws", "postgres", "distributed systems", "llm"]
-# Location terms; a remote job passes too when remote_ok = true.
-locations = ["united states", "usa", "us", "new york", "san francisco", "seattle", "remote"]
-location_exclude = []
-remote_ok = true
-prefer_remote = true
+title_related = ["service designer", "design generalist", "ux design", "ui design"]
+title_exclude = [
+  "senior", "sr", "snr", "staff", "principal", "lead", "leader", "manager", "director", "head",
+  "vp", "vice president", "chief", "intern", "internship", "trainee", "apprentice",
+  "graphic", "brand", "branding", "marketing", "web designer", "web production", "webflow designer",
+  "engineer", "engineering", "developer", "game", "level designer", "instructional",
+  "motion", "content designer", "industrial", "interior", "fashion", "packaging", "print",
+]
+# Excluded unless the title also says "designer" (e.g. "UX Designer & Researcher" is fine).
+title_exclude_unless_designer = ["researcher", "research"]
+experience_target = [2, 4]
+experience_reject_min = 6      # explicit 6+ years requirements are rejected
 max_age_days = 30
 min_score = 50
+strong_score = 75
+good_score = 62
 
+[locations]
+tier1 = ["pune", "mumbai", "navi mumbai", "thane", "bangalore", "bengaluru"]
+tier2 = ["hyderabad"]
+other_india = ["chennai", "kolkata", "ahmedabad", "kochi", "jaipur", "indore", "chandigarh",
+               "coimbatore", "goa", "mysore", "mysuru", "trivandrum", "thiruvananthapuram", "vadodara", "nagpur"]
+deprioritized = ["delhi", "new delhi", "ncr", "delhi ncr", "gurugram", "gurgaon", "noida", "greater noida",
+                 "ghaziabad", "faridabad", "uttar pradesh", "lucknow"]
+# A remote role counts as open to India when its location mentions one of these.
+remote_ok_regions = ["india", "worldwide", "anywhere in the world", "global", "globally", "apac",
+                     "asia", "asia pacific", "south asia", "all countries"]
+
+# ---------------------------------------------------------------------------
+# Role signals: each matched signal adds its weight (capped at 20 total).
+[[signals]]
+name = "end_to_end"
+label = "end-to-end product ownership"
+weight = 4
+patterns = ["end to end", "0 to 1", "zero to one", "concept to launch", "idea to launch", "own the design",
+            "ownership", "own features", "full lifecycle"]
+
+[[signals]]
+name = "problem_definition"
+label = "problem definition"
+weight = 3
+patterns = ["problem definition", "define problems", "defining problems", "problem framing", "frame problems",
+            "problem space", "product discovery", "discovery", "identify problems", "define the problem"]
+
+[[signals]]
+name = "interaction"
+label = "interaction/flow design"
+weight = 3
+patterns = ["interaction design", "user flows", "user flow", "flows", "user journeys", "journeys",
+            "information architecture", "wireframes", "wireframing"]
+
+[[signals]]
+name = "research"
+label = "user research / usability testing"
+weight = 3
+patterns = ["user research", "usability testing", "usability tests", "user testing", "user interviews",
+            "research insights", "talk to users", "user feedback"]
+
+[[signals]]
+name = "figma_prototyping"
+label = "Figma & prototyping"
+weight = 3
+patterns = ["figma", "prototyp*"]
+
+[[signals]]
+name = "design_systems"
+label = "design systems"
+weight = 3
+patterns = ["design system", "design systems", "component library", "design language", "ui kit"]
+
+[[signals]]
+name = "collaboration"
+label = "close PM/engineering collaboration"
+weight = 2
+patterns = ["product managers", "product manager", "engineers", "engineering team", "cross functional",
+            "developers", "stakeholders"]
+
+[[signals]]
+name = "complex"
+label = "complex states/workflows"
+weight = 3
+patterns = ["complex workflows", "complex problems", "complex systems", "edge cases", "error states",
+            "empty states", "states", "permissions", "notifications", "workflows"]
+
+[[signals]]
+name = "consumer"
+label = "consumer / frequently used product"
+weight = 3
+patterns = ["consumer", "b2c", "millions of users", "daily active", "mobile app", "everyday", "end users"]
+
+[[signals]]
+name = "edtech"
+label = "education domain"
+weight = 1
+patterns = ["edtech", "ed tech", "education", "learning", "students", "parents", "teachers", "children", "kids"]
+
+# Weight 0: used only to pick portfolio projects, not for ranking.
+[[signals]]
+name = "ai_automation"
+label = "AI / automation"
+weight = 0
+patterns = ["ai", "artificial intelligence", "llm", "automation", "machine learning", "genai", "generative"]
+
+[[signals]]
+name = "productivity_tools"
+label = "productivity / browser tools"
+weight = 0
+patterns = ["browser extension", "chrome extension", "productivity", "email", "gmail", "workspace tools"]
+
+# Concerns: surfaced in emails, never score points.
+[[concerns]]
+name = "quantitative"
+label = "Expects quantitative / experimentation skills (A/B tests, analytics, SQL) — don't overstate data experience"
+patterns = ["a b test*", "ab test*", "sql", "data analysis", "quantitative", "experimentation", "data driven",
+            "data informed", "analytics"]
+
+[[concerns]]
+name = "enterprise"
+label = "Enterprise / B2B SaaS focus — limited direct enterprise experience"
+patterns = ["enterprise", "b2b saas", "b2b", "saas platform"]
+
+[[concerns]]
+name = "research_heavy"
+label = "Research-heavy expectations — formal research experience is limited"
+patterns = ["lead research", "research strategy", "mixed methods", "research program", "research plans",
+            "plan and conduct research"]
+
+[[concerns]]
+name = "early_stage"
+label = "Early-stage company — check maturity of research/design process"
+patterns = ["seed", "series a", "early stage", "founding designer", "founding team", "pre seed"]
+
+[[concerns]]
+name = "agency"
+label = "Agency / client-services environment rather than an in-house product"
+patterns = ["agency", "client projects", "our clients"]
+
+# ---------------------------------------------------------------------------
+# Portfolio projects: factual statements only. Edit wording here, not in code.
+[[projects]]
+name = "Hapchi"
+always = true
+triggers = ["end_to_end", "problem_definition", "design_systems", "complex", "collaboration", "edtech", "interaction"]
+why = "Hapchi (ed-tech startup): web + mobile work with substantial UI/UX ownership — stakeholder and domain-expert collaboration, competitor research, flows, UI, developer handoff and bug testing. A two-screen Profile/Settings brief grew into a broader system after you identified connected problems across profiles, permissions, child management, progress and notifications."
+pitch = "At Hapchi, an ed-tech startup, I work across web and mobile with substantial UI/UX ownership: collaborating with stakeholders and domain experts, doing competitor research, mapping flows, designing UI, handing off to developers and bug-testing builds. One brief started as two Profile/Settings screens and grew into a broader system once I identified connected problems across profiles, permissions, child management, progress and notifications."
+
+[[projects]]
+name = "PlayStation Remote Downloads"
+triggers = ["complex", "consumer", "problem_definition"]
+why = "PlayStation Remote Downloads (self-initiated case study): diagnostic, system-level thinking about hidden states, delayed failure and feedback."
+pitch = "In a self-initiated case study on PlayStation Remote Downloads, I worked through hidden states, delayed failure and feedback — how a system should tell people what is actually happening."
+
+[[projects]]
+name = "FinalCheck"
+triggers = ["ai_automation", "productivity_tools"]
+why = "FinalCheck: a shipped Gmail/Chrome pre-send review extension built as an experiment with AI-assisted development — shows initiative and interest in where automation should hand off to human review."
+pitch = "I also built and shipped FinalCheck, a Gmail/Chrome pre-send review extension, as an experiment with AI-assisted development and with where automation should hand off to human review."
+
+# ---------------------------------------------------------------------------
 [email]
-max_jobs_per_email = 10
-subject_prefix = "[Job Alert]"
+max_emails_per_run = 10   # remaining new matches roll over to the next hourly run
 
 [state]
 path = "state/sent.json"
 
-# Company boards, via official public job-board APIs only.
-# source = greenhouse -> https://boards-api.greenhouse.io/v1/boards/<slug>/jobs
-# source = lever      -> https://api.lever.co/v0/postings/<slug>
-# source = ashby      -> https://api.ashbyhq.com/posting-api/job-board/<slug>
+# ---------------------------------------------------------------------------
+# Multi-employer feeds (public APIs / RSS). On scheduled runs each is fetched
+# only every `min_interval_hours` to respect the providers' rate guidance.
+[[feeds]]
+source = "remotive"
+query = "design"
+min_interval_hours = 6
 
-[[companies]]
-source = "greenhouse"
-slug = "anthropic"
-name = "Anthropic"
+[[feeds]]
+source = "remoteok"
+query = "design"
+min_interval_hours = 3
 
-[[companies]]
-source = "greenhouse"
-slug = "stripe"
-name = "Stripe"
+[[feeds]]
+source = "jobicy"
+query = "designer"
+min_interval_hours = 6
 
-[[companies]]
-source = "greenhouse"
-slug = "cloudflare"
-name = "Cloudflare"
+[[feeds]]
+source = "himalayas"
+query = "product designer"
+min_interval_hours = 3
 
-[[companies]]
-source = "greenhouse"
-slug = "datadog"
-name = "Datadog"
+[[feeds]]
+source = "weworkremotely"
+query = "remote-design-jobs"
+min_interval_hours = 2
 
-[[companies]]
-source = "greenhouse"
-slug = "figma"
-name = "Figma"
-
-[[companies]]
-source = "lever"
-slug = "palantir"
-name = "Palantir"
-
-[[companies]]
-source = "ashby"
-slug = "openai"
-name = "OpenAI"
-
-[[companies]]
-source = "ashby"
-slug = "notion"
-name = "Notion"
-
-[[companies]]
-source = "ashby"
-slug = "ramp"
-name = "Ramp"
-
-[[companies]]
-source = "ashby"
-slug = "linear"
-name = "Linear"
+# ---------------------------------------------------------------------------
+# Company boards: populated from the discovery probe (discovery/candidates.toml).
+# size = large | mid | startup affects ranking only.

@@ -4,78 +4,84 @@ import pytest
 
 from jobagent.agentmail import AgentMailClient, DeliveryError
 from jobagent.pipeline import PipelineError, run
+from jobagent.probe import run_probe
 from jobagent.state import SentStore
 
 from .conftest import NOW, FakeAgentMail, fake_fetchers
 
 
-def _client(secrets, fake):
-    return AgentMailClient(secrets, request=fake)
+def _run(config, tmp_path, secrets, fake, **kw):
+    return run(config, out_dir=tmp_path / "out", secrets=secrets, fetchers=fake_fetchers(),
+               client=AgentMailClient(secrets, request=fake), now=NOW, **kw)
 
 
-def test_dry_run_sends_nothing_and_records_nothing(config, tmp_path, secrets):
+def test_dry_run_sends_nothing_and_writes_previews(config, tmp_path, secrets):
     fake = FakeAgentMail()
-    summary = run(config, send=False, out_dir=tmp_path / "out", fetchers=fake_fetchers(),
-                  client=_client(secrets, fake), now=NOW)
-    assert summary["matched"] == 3 and summary["sent"] is None
-    assert fake.calls == []
-    assert not config.state_path.exists()
-    assert (tmp_path / "out" / "email.html").exists()
+    summary = _run(config, tmp_path, secrets, fake, send=False)
+    assert summary["matched"] >= 3 and summary["sent"] == []
+    assert fake.calls == [] and not config.state_path.exists()
+    previews = sorted((tmp_path / "out" / "emails").glob("*.txt"))
+    assert len(previews) == summary["new_unsent"]
+    assert previews[0].read_text().startswith("Subject: [")
+    assert "TOP" in (tmp_path / "out" / "top_matches.txt").read_text()
 
 
-def test_send_verifies_and_records(config, tmp_path, secrets):
+def test_one_email_per_job_each_recorded(config, tmp_path, secrets):
     fake = FakeAgentMail()
-    summary = run(config, send=True, out_dir=tmp_path / "out", secrets=secrets,
-                  fetchers=fake_fetchers(), client=_client(secrets, fake), now=NOW)
-
-    send_call, get_call = fake.calls
-    assert send_call["url"] == "https://api.agentmail.to/v0/inboxes/alerts%40agentmail.to/messages/send"
-    assert send_call["headers"]["Authorization"] == "Bearer test-key"
-    assert send_call["headers"]["Idempotency-Key"].startswith("jobalert-")
-    assert send_call["body"]["to"] == ["me@example.com"]
-    assert get_call["method"] == "GET" and "%3Cmsg-1%40agentmail.to%3E" in get_call["url"]
-
-    assert summary["sent"]["message_id"] == "<msg-1@agentmail.to>"
-    assert "sent" in summary["sent"]["labels"]
+    summary = _run(config, tmp_path, secrets, fake, send=True)
+    sends = [c for c in fake.calls if c["method"] == "POST"]
+    assert len(sends) == summary["new_unsent"] == len(summary["sent"]) >= 3
+    assert len({c["headers"]["Idempotency-Key"] for c in sends}) == len(sends)     # per-job keys
+    assert all(c["body"]["subject"].split("]")[0] in ("[Strong Match", "[Good Match", "[Possible Match")
+               for c in sends)
+    assert all(c["url"].endswith("/v0/inboxes/scout%40agentmail.to/messages/send") for c in sends)
     state = json.loads(config.state_path.read_text())
-    assert len(state["sent"]) == 3
-    assert {v["message_id"] for v in state["sent"].values()} == {"<msg-1@agentmail.to>"}
+    assert len(state["sent"]) == len(sends)
+    assert all(v["verified"] is True for v in state["sent"].values())
+    assert len({v["message_id"] for v in state["sent"].values()}) == len(sends)
 
 
-def test_second_run_does_not_resend(config, tmp_path, secrets):
+def test_max_emails_one_then_rest_next_run(config, tmp_path, secrets):
     fake = FakeAgentMail()
-    kw = dict(out_dir=tmp_path / "out", secrets=secrets, fetchers=fake_fetchers(),
-              client=_client(secrets, fake), now=NOW)
-    run(config, send=True, **kw)
-    summary = run(config, send=True, **kw)
-    assert summary["new_unsent"] == 0 and summary["sent"] is None
-    assert len(fake.calls) == 2  # only the first run's send + verify
-    with pytest.raises(PipelineError):
-        run(config, send=True, require_sent=True, **kw)
+    first = _run(config, tmp_path, secrets, fake, send=True, max_emails=1)
+    assert len(first["sent"]) == 1
+    second = _run(config, tmp_path, secrets, fake, send=True)
+    assert len(second["sent"]) == first["new_unsent"] - 1
+    third = _run(config, tmp_path, secrets, fake, send=True)
+    assert third["sent"] == [] and third["new_unsent"] == 0
 
 
-def test_failed_send_records_nothing(config, tmp_path, secrets):
-    fake = FakeAgentMail(send_status=400)
-    with pytest.raises(DeliveryError):
-        run(config, send=True, out_dir=tmp_path / "out", secrets=secrets,
-            fetchers=fake_fetchers(), client=_client(secrets, fake), now=NOW)
-    assert not config.state_path.exists()
+def test_failed_send_is_not_recorded_and_retried_next_run(config, tmp_path, secrets):
+    fake = FakeAgentMail(fail_sends={1})
+    with pytest.raises(DeliveryError, match="1 send failure"):
+        _run(config, tmp_path, secrets, fake, send=True)
+    store = SentStore(config.state_path)
+    summary = json.loads((tmp_path / "out" / "run_summary.json").read_text())
+    failed_title = summary["send_failures"][0]["title"]
+    assert len(store.data["sent"]) == len(summary["sent"])          # successes recorded, failure not
+    retry = _run(config, tmp_path, secrets, FakeAgentMail(), send=True)
+    assert [s["title"] for s in retry["sent"]] == [failed_title]
 
 
-def test_verification_mismatch_records_nothing(config, tmp_path, secrets):
+def test_verification_failure_still_recorded_to_avoid_duplicates(config, tmp_path, secrets):
     fake = FakeAgentMail(tamper_subject=True)
-    with pytest.raises(DeliveryError, match="subject mismatch"):
-        run(config, send=True, out_dir=tmp_path / "out", secrets=secrets,
-            fetchers=fake_fetchers(), client=_client(secrets, fake), now=NOW)
-    assert not config.state_path.exists()
+    with pytest.raises(DeliveryError, match="verification failure"):
+        _run(config, tmp_path, secrets, fake, send=True, max_emails=1)
+    entry = next(iter(json.loads(config.state_path.read_text())["sent"].values()))
+    assert entry["verified"] is False and "subject mismatch" in entry["verify_detail"]
 
 
-def test_batch_limit_defers_rest_to_next_run(config, tmp_path, secrets):
-    config.email.max_jobs_per_email = 2
+def test_require_sent_when_nothing_new(config, tmp_path, secrets):
     fake = FakeAgentMail()
-    kw = dict(out_dir=tmp_path / "out", secrets=secrets, fetchers=fake_fetchers(),
-              client=_client(secrets, fake), now=NOW)
-    first = run(config, send=True, **kw)
-    second = run(config, send=True, **kw)
-    assert first["sent"]["jobs"] == 2 and second["sent"]["jobs"] == 1
-    assert len(SentStore(config.state_path).data["sent"]) == 3
+    _run(config, tmp_path, secrets, fake, send=True)
+    with pytest.raises(PipelineError):
+        _run(config, tmp_path, secrets, fake, send=True, require_sent=True)
+
+
+def test_probe_reports_live_boards(config, tmp_path):
+    cands = tmp_path / "c.toml"
+    cands.write_text('slugs = ["acme"]')
+    found = run_probe(cands, config.feeds, tmp_path / "out", fetchers=fake_fetchers())
+    gh = next(r for r in found if r["source"] == "greenhouse")
+    assert gh["total"] == 4 and gh["design"] == 4 and gh["design_india"] == 3
+    assert (tmp_path / "out" / "probe.json").exists()
