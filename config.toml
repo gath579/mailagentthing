@@ -212,3 +212,466 @@ min_interval_hours = 2
 # ---------------------------------------------------------------------------
 # Company boards: populated from the discovery probe (discovery/candidates.toml).
 # size = large | mid | startup affects ranking only.
+
+# Verified live by the discovery probe (2026-10-07). Re-run `probe` to refresh.
+[[companies]]
+source = "smartrecruiters"
+slug = "servicenow"
+name = "ServiceNow"
+size = "large"
+
+[[companies]]
+source = "ashby"
+slug = "tekion"
+name = "Tekion"
+size = "mid"
+
+[[companies]]
+source = "lever"
+slug = "mindtickle"
+name = "Mindtickle"
+size = "mid"
+
+[[companies]]
+source = "smartrecruiters"
+slug = "mindtickle"
+name = "Mindtickle"
+size = "mid"
+
+[[companies]]
+source = "smartrecruiters"
+slug = "swiggy"
+name = "Swiggy"
+size = "large"
+
+[[companies]]
+source = "ashby"
+slug = "sarvam"
+name = "Sarvam AI"
+size = "startup"
+
+[[companies]]
+source = "lever"
+slug = "gohighlevel"
+name = "HighLevel"
+size = "mid"
+
+[[companies]]
+source = "lever"
+slug = "paytm"
+name = "Paytm"
+size = "large"
+
+[[companies]]
+source = "greenhouse"
+slug = "zetaglobal"
+name = "Zeta Global"
+size = "large"
+
+[[companies]]
+source = "smartrecruiters"
+slug = "freshworks"
+name = "Freshworks"
+size = "large"
+
+[[companies]]
+source = "lever"
+slug = "meesho"
+name = "Meesho"
+size = "large"
+
+[[companies]]
+source = "lever"
+slug = "hevodata"
+name = "Hevo Data"
+size = "startup"
+
+[[companies]]
+source = "greenhouse"
+slug = "hackerrank"
+name = "HackerRank"
+size = "mid"
+
+[[companies]]
+source = "smartrecruiters"
+slug = "hackerrank"
+name = "HackerRank"
+size = "mid"
+
+[[companies]]
+source = "lever"
+slug = "fampay"
+name = "FamPay"
+size = "startup"
+
+[[companies]]
+source = "workable"
+slug = "leena-ai"
+name = "Leena AI"
+size = "startup"
+
+[[companies]]
+source = "greenhouse"
+slug = "stripe"
+name = "Stripe"
+size = "large"
+
+[[companies]]
+source = "greenhouse"
+slug = "figma"
+name = "Figma"
+size = "large"
+
+[[companies]]
+source = "smartrecruiters"
+slug = "wise"
+name = "Wise"
+size = "large"
+
+[[companies]]
+source = "greenhouse"
+slug = "wise"
+name = "Wise"
+size = "large"
+
+[[companies]]
+source = "smartrecruiters"
+slug = "canva"
+name = "Canva"
+size = "large"
+
+[[companies]]
+source = "smartrecruiters"
+slug = "grab"
+name = "Grab"
+size = "large"
+
+[[companies]]
+source = "greenhouse"
+slug = "glance"
+name = "Glance"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "pinterest"
+name = "Pinterest"
+size = "large"
+
+[[companies]]
+source = "greenhouse"
+slug = "instacart"
+name = "Instacart"
+size = "large"
+
+[[companies]]
+source = "greenhouse"
+slug = "discord"
+name = "Discord"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "agoda"
+name = "Agoda"
+size = "large"
+
+[[companies]]
+source = "greenhouse"
+slug = "intercom"
+name = "Intercom"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "asana"
+name = "Asana"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "airbnb"
+name = "Airbnb"
+size = "large"
+
+[[companies]]
+source = "greenhouse"
+slug = "duolingo"
+name = "Duolingo"
+size = "large"
+
+[[companies]]
+source = "greenhouse"
+slug = "reddit"
+name = "Reddit"
+size = "large"
+
+[[companies]]
+source = "ashby"
+slug = "notion"
+name = "Notion"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "smartsheet"
+name = "Smartsheet"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "lyft"
+name = "Lyft"
+size = "large"
+
+[[companies]]
+source = "lever"
+slug = "spotify"
+name = "Spotify"
+size = "large"
+
+[[companies]]
+source = "greenhouse"
+slug = "inmobi"
+name = "InMobi"
+size = "large"
+
+[[companies]]
+source = "greenhouse"
+slug = "observeai"
+name = "Observe.AI"
+size = "startup"
+
+[[companies]]
+source = "ashby"
+slug = "zapier"
+name = "Zapier"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "gitlab"
+name = "GitLab"
+size = "large"
+
+[[companies]]
+source = "ashby"
+slug = "clickup"
+name = "ClickUp"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "thoughtworks"
+name = "Thoughtworks"
+size = "large"
+
+[[companies]]
+source = "lever"
+slug = "contentsquare"
+name = "Contentsquare"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "webflow"
+name = "Webflow"
+size = "mid"
+
+[[companies]]
+source = "ashby"
+slug = "mural"
+name = "Mural"
+size = "mid"
+
+[[companies]]
+source = "lever"
+slug = "fi"
+name = "Fi Money"
+size = "mid"
+
+[[companies]]
+source = "lever"
+slug = "epifi"
+name = "Fi Money"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "stage"
+name = "STAGE"
+size = "startup"
+
+[[companies]]
+source = "greenhouse"
+slug = "druva"
+name = "Druva"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "turing"
+name = "Turing"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "dropbox"
+name = "Dropbox"
+size = "large"
+
+[[companies]]
+source = "lever"
+slug = "zeta"
+name = "Zeta"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "slice"
+name = "slice"
+size = "mid"
+
+[[companies]]
+source = "ashby"
+slug = "miro"
+name = "Miro"
+size = "mid"
+
+[[companies]]
+source = "lever"
+slug = "linkedin"
+name = "LinkedIn"
+size = "large"
+
+[[companies]]
+source = "greenhouse"
+slug = "coursera"
+name = "Coursera"
+size = "large"
+
+[[companies]]
+source = "ashby"
+slug = "spotdraft"
+name = "SpotDraft"
+size = "startup"
+
+[[companies]]
+source = "smartrecruiters"
+slug = "ixigo"
+name = "ixigo"
+size = "mid"
+
+[[companies]]
+source = "lever"
+slug = "pocketfm"
+name = "Pocket FM"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "calendly"
+name = "Calendly"
+size = "mid"
+
+[[companies]]
+source = "lever"
+slug = "cred"
+name = "CRED"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "udemy"
+name = "Udemy"
+size = "large"
+
+[[companies]]
+source = "greenhouse"
+slug = "groww"
+name = "Groww"
+size = "large"
+
+[[companies]]
+source = "ashby"
+slug = "atlan"
+name = "Atlan"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "verse"
+name = "VerSe Innovation"
+size = "mid"
+
+[[companies]]
+source = "lever"
+slug = "eternal"
+name = "Eternal (Zomato)"
+size = "large"
+
+[[companies]]
+source = "greenhouse"
+slug = "airtable"
+name = "Airtable"
+size = "mid"
+
+[[companies]]
+source = "smartrecruiters"
+slug = "unacademy"
+name = "Unacademy"
+size = "mid"
+
+[[companies]]
+source = "ashby"
+slug = "navi"
+name = "Navi"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "remote"
+name = "Remote.com"
+size = "mid"
+
+[[companies]]
+source = "smartrecruiters"
+slug = "cars24"
+name = "CARS24"
+size = "large"
+
+[[companies]]
+source = "smartrecruiters"
+slug = "interviewbit"
+name = "InterviewBit"
+size = "mid"
+
+[[companies]]
+source = "smartrecruiters"
+slug = "upstox"
+name = "Upstox"
+size = "large"
+
+[[companies]]
+source = "smartrecruiters"
+slug = "nobroker"
+name = "NoBroker"
+size = "mid"
+
+[[companies]]
+source = "lever"
+slug = "hevo"
+name = "Hevo Data"
+size = "startup"
+
+[[companies]]
+source = "smartrecruiters"
+slug = "whatfix"
+name = "Whatfix"
+size = "mid"
+
+[[companies]]
+source = "smartrecruiters"
+slug = "uber"
+name = "Uber"
+size = "large"
