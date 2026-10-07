@@ -12,6 +12,9 @@ on:
         description: "Fail unless at least one job is emailed (manual end-to-end check)"
         type: boolean
         default: false
+  # Pushes to the development branch run a dry run only (never sends).
+  push:
+    branches: [claude/wizardly-lovelace-451nmf]
   # Hourly schedule is intentionally NOT enabled yet. It gets added only after
   # a manual end-to-end `send` run has succeeded.
 
