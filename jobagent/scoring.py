@@ -218,7 +218,8 @@ def evaluate(job: Job, config: Config, now: datetime | None = None) -> str | Non
         score += 3 if any(s.name == "early_stage" for s in flagged) else 5
 
     if age_days is not None:
-        score += 5 if age_days <= 3 else 3 if age_days <= 7 else 1 if age_days <= 14 else 0
+        score += (5 if age_days <= 3 else 4 if age_days <= 7 else 3 if age_days <= 14
+                      else 2 if age_days <= 30 else 1 if age_days <= 60 else 0)
         reasons.append(f"Posted {_age_phrase(age_days)}")
     else:
         score += 1

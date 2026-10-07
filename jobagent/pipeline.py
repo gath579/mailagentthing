@@ -85,10 +85,9 @@ def run(config: Config, *, send: bool, out_dir: Path, secrets: Secrets | None = 
     summary.update(matched=len(matched), rejected_by_reason=reject_counts,
                    tiers={t: sum(j.tier == t for j in matched) for t in ("Strong", "Good", "Possible")})
     (out_dir / "matches.json").write_text(json.dumps([_brief(j) for j in matched], indent=2))
-    near = sorted((r for r in rejected if r.reason.startswith(("score", "location", "experience"))),
-                  key=lambda r: -r.job.score)[:25]
-    print("NEAR MISSES (design titles rejected on location/experience/score):")
-    for r in near[:15]:
+    near = [r for r in rejected if not r.reason.startswith("title")]
+    print(f"NEAR MISSES ({len(near)} design-titled roles rejected on location/experience/age/score):")
+    for r in near[:40]:
         print(f"  - {r.job.title} — {r.job.company} | {r.job.location} | {r.reason}")
     (out_dir / "near_misses.json").write_text(json.dumps(
         [{"title": r.job.title, "company": r.job.company, "location": r.job.location, "reason": r.reason,

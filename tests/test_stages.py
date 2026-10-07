@@ -192,8 +192,8 @@ def test_full_fixture_ranking(config):
     jobs, _ = normalize_all(raws, config.company_names, config.company_sizes)
     matched, rejected = filter_and_score(jobs, config, NOW)
     titles = [(j.company, j.title) for j in matched]
-    assert titles[0] == ("Acme", "Product Designer")         # Bengaluru, large org, rich description
-    assert ("Globex", "Product Designer") in titles            # Remotive, worldwide remote
+    # Bengaluru/large org and worldwide-remote (Remotive) are the two strongest fixtures
+    assert set(titles[:2]) == {("Acme", "Product Designer"), ("Globex", "Product Designer")}
     reasons = {(r.job.company, r.job.title): r.reason for r in rejected}
     assert reasons[("Acme", "Senior Product Designer")].startswith("title")
     assert reasons[("Initech", "Product Designer")].startswith(("location", "experience"))
