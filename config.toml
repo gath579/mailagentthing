@@ -10,7 +10,7 @@ title_include = [
   "machine learning engineer", "data engineer", "site reliability engineer",
 ]
 # ...and none of these.
-title_exclude = ["intern", "internship", "director", "vice president", "head of", "manager", "principal"]
+title_exclude = ["intern", "internship", "director", "vice president", "head of", "manager", "principal", "it systems", "client platform"]
 # Each skill mentioned in the posting adds to the score (7 pts each, max 35).
 skills = ["python", "go", "typescript", "kubernetes", "aws", "postgres", "distributed systems", "llm"]
 # Location terms; a remote job passes too when remote_ok = true.
@@ -62,11 +62,6 @@ name = "Figma"
 source = "lever"
 slug = "palantir"
 name = "Palantir"
-
-[[companies]]
-source = "lever"
-slug = "plaid"
-name = "Plaid"
 
 [[companies]]
 source = "ashby"
