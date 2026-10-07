@@ -110,7 +110,8 @@ patterns = ["consumer", "b2c", "millions of users", "daily active", "mobile app"
 name = "edtech"
 label = "education domain"
 weight = 1
-patterns = ["edtech", "ed tech", "education", "learning", "students", "parents", "teachers", "children", "kids"]
+patterns = ["edtech", "ed tech", "education", "e learning", "elearning", "learning platform", "learners",
+            "students", "parents", "teachers", "children", "kids"]
 
 # Weight 0: used only to pick portfolio projects, not for ranking.
 [[signals]]

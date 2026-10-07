@@ -268,3 +268,18 @@ def test_project_selection(config):
 def test_email_escapes_html(config):
     job = _scored(config, title="Product Designer <script>x</script>")
     assert "<script>" not in build_job_email(job, config, NOW).html
+
+
+def test_old_board_posting_flagged_but_old_feed_posting_dropped(config):
+    old = NOW - timedelta(days=150)
+    board = _job(posted_at=old)
+    assert evaluate(board, config, NOW) is None
+    assert any("evergreen" in c for c in board.concerns)
+    feed = _job(source="remotive", location="Remote (Worldwide)", work_mode="remote", posted_at=old)
+    assert evaluate(feed, config, NOW).startswith("posted")
+
+
+def test_machine_learning_is_not_education(config):
+    j = _job(description="2-4 years of experience. Machine learning products. Figma.")
+    evaluate(j, config, NOW)
+    assert "edtech" not in j.signals

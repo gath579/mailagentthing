@@ -17,6 +17,7 @@ from functools import lru_cache
 from .config import Config, Locations, Profile, Signal
 from .models import Job
 from .normalize import canonical_text
+from .sources import FEED_FETCHERS
 
 
 @dataclass
@@ -179,11 +180,15 @@ def evaluate(job: Job, config: Config, now: datetime | None = None) -> str | Non
     else:
         return "title: not a product/UX design role"
 
-    age_days = None
+    age_days, stale = None, False
     if job.posted_at:
         age_days = (now - job.posted_at).total_seconds() / 86400
         if age_days > profile.max_age_days:
-            return f"posted: {age_days:.0f} days ago (> {profile.max_age_days})"
+            # Feeds keep expired ads around; company boards only list open roles,
+            # so an old board posting is flagged (and ranked lower), not dropped.
+            if job.source in FEED_FETCHERS:
+                return f"posted: {age_days:.0f} days ago (> {profile.max_age_days})"
+            stale = True
 
     pts, reason, concern, reject = score_experience(job, profile)
     if reject:
@@ -223,6 +228,10 @@ def evaluate(job: Job, config: Config, now: datetime | None = None) -> str | Non
         reasons.append(f"Posted {_age_phrase(age_days)}")
     else:
         score += 1
+    if stale:
+        score -= 5
+        concerns.append(f"First posted {age_days:.0f} days ago — may be an evergreen or slow-moving opening; "
+                        "confirm it is actively hiring")
     if job.employment_type and re.search(r"contract|freelance|part.?time|temporary", job.employment_type, re.I):
         concerns.append(f"Employment type: {job.employment_type}")
 

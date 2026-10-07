@@ -35,4 +35,20 @@ slugs = [
   "automattic", "doist", "toggl", "hotjar", "contentsquare", "mural", "clickup", "monday",
   "mondaycom", "smartsheet", "freshworksinc", "zomato-careers", "bosch", "siemens", "philips",
   "ubisoft", "unity", "epicgames", "riotgames", "nykaa-careers", "jar", "fampay", "cred-club",
+
+  # Batch 2: more India product companies and global companies that hire remotely worldwide
+  "licious", "porter", "shiprocket", "delhivery", "jumbotail", "ofbusiness", "zetwerk", "udaan", "dealshare",
+  "infra-market", "exotel", "netomi", "yellowai", "rubrik", "nutanix", "harness", "cohesity", "zscaler",
+  "elastic", "mongodb", "hashicorp", "datadog", "cloudflare", "canonical", "kraken", "toptal", "bitwarden",
+  "proton", "mozilla", "wikimedia", "duckduckgo", "posthog", "supabase", "sourcegraph", "1password",
+  "grafanalabs", "oyster", "hubstaff", "close", "ghost", "brave", "consensys", "gitpod", "appwrite", "calcom",
+  "n8n", "airwallex", "plaid", "brex", "mercury", "vercel", "retool", "linear", "replit", "perplexity",
+  "lovable", "clay", "attio", "pitch", "maze", "dovetail", "productboard", "pendo", "amplitude", "mixpanel",
+  "fullstory", "sprinklr-careers", "browserstack-careers", "postmanlabs", "razorpaysoftwareprivatelimited",
+  "phonepe-careers", "groww-careers", "zepto-careers", "swiggy-tech", "cult-fit", "boat-lifestyle",
+  "nykaa-fashion", "inshorts", "dailyhunt-careers", "zoomcar", "bluestone", "pepperfry", "urban-ladder",
+  "lendingkart", "kreditbee", "moneyview", "fibe", "cashkaro", "bookmyshow", "bigtree", "magicbricks",
+  "99acres", "infoedge", "naukri", "shaadi", "peoplegroup", "matrimony", "tataneu", "tatadigital",
+  "reliance-retail", "jiomart", "myntra-careers", "flipkart-careers", "meesho-careers", "ather-energy",
+  "ola-electric", "yulu", "bounce", "blusmart", "rapido-bike", "uber-india",
 ]
