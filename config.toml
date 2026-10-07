@@ -676,3 +676,280 @@ source = "smartrecruiters"
 slug = "uber"
 name = "Uber"
 size = "large"
+
+# Added from probe batch 2 (2026-10-07).
+[[companies]]
+source = "greenhouse"
+slug = "rubrik"
+name = "Rubrik"
+size = "large"
+
+[[companies]]
+source = "lever"
+slug = "netomi"
+name = "Netomi"
+size = "startup"
+
+[[companies]]
+source = "greenhouse"
+slug = "elastic"
+name = "Elastic"
+size = "large"
+
+[[companies]]
+source = "greenhouse"
+slug = "razorpaysoftwareprivatelimited"
+name = "Razorpay"
+size = "large"
+
+[[companies]]
+source = "lever"
+slug = "porter"
+name = "Porter"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "porter"
+name = "Porter"
+size = "mid"
+
+[[companies]]
+source = "smartrecruiters"
+slug = "lendingkart"
+name = "Lendingkart"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "brex"
+name = "Brex"
+size = "large"
+
+[[companies]]
+source = "ashby"
+slug = "airwallex"
+name = "Airwallex"
+size = "large"
+
+[[companies]]
+source = "greenhouse"
+slug = "datadog"
+name = "Datadog"
+size = "large"
+
+[[companies]]
+source = "greenhouse"
+slug = "canonical"
+name = "Canonical"
+size = "large"
+
+[[companies]]
+source = "ashby"
+slug = "lovable"
+name = "Lovable"
+size = "startup"
+
+[[companies]]
+source = "greenhouse"
+slug = "lovable"
+name = "Lovable"
+size = "startup"
+
+[[companies]]
+source = "ashby"
+slug = "perplexity"
+name = "Perplexity"
+size = "mid"
+
+[[companies]]
+source = "ashby"
+slug = "linear"
+name = "Linear"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "mercury"
+name = "Mercury"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "zscaler"
+name = "Zscaler"
+size = "large"
+
+[[companies]]
+source = "greenhouse"
+slug = "vercel"
+name = "Vercel"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "proton"
+name = "Proton"
+size = "mid"
+
+[[companies]]
+source = "ashby"
+slug = "replit"
+name = "Replit"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "bitwarden"
+name = "Bitwarden"
+size = "mid"
+
+[[companies]]
+source = "ashby"
+slug = "n8n"
+name = "n8n"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "cloudflare"
+name = "Cloudflare"
+size = "large"
+
+[[companies]]
+source = "greenhouse"
+slug = "mixpanel"
+name = "Mixpanel"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "consensys"
+name = "Consensys"
+size = "mid"
+
+[[companies]]
+source = "ashby"
+slug = "consensys"
+name = "Consensys"
+size = "mid"
+
+[[companies]]
+source = "ashby"
+slug = "amplitude"
+name = "Amplitude"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "mongodb"
+name = "MongoDB"
+size = "large"
+
+[[companies]]
+source = "ashby"
+slug = "plaid"
+name = "Plaid"
+size = "large"
+
+[[companies]]
+source = "greenhouse"
+slug = "wikimedia"
+name = "Wikimedia Foundation"
+size = "mid"
+
+[[companies]]
+source = "ashby"
+slug = "dovetail"
+name = "Dovetail"
+size = "startup"
+
+[[companies]]
+source = "greenhouse"
+slug = "grafanalabs"
+name = "Grafana Labs"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "mozilla"
+name = "Mozilla"
+size = "large"
+
+[[companies]]
+source = "ashby"
+slug = "1password"
+name = "1Password"
+size = "mid"
+
+[[companies]]
+source = "ashby"
+slug = "supabase"
+name = "Supabase"
+size = "mid"
+
+[[companies]]
+source = "ashby"
+slug = "attio"
+name = "Attio"
+size = "startup"
+
+[[companies]]
+source = "lever"
+slug = "toptal"
+name = "Toptal"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "pendo"
+name = "Pendo"
+size = "mid"
+
+[[companies]]
+source = "ashby"
+slug = "oyster"
+name = "Oyster"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "brave"
+name = "Brave"
+size = "mid"
+
+[[companies]]
+source = "ashby"
+slug = "posthog"
+name = "PostHog"
+size = "mid"
+
+[[companies]]
+source = "ashby"
+slug = "fullstory"
+name = "FullStory"
+size = "mid"
+
+[[companies]]
+source = "ashby"
+slug = "close"
+name = "Close"
+size = "startup"
+
+[[companies]]
+source = "greenhouse"
+slug = "ghost"
+name = "Ghost"
+size = "startup"
+
+[[companies]]
+source = "ashby"
+slug = "ghost"
+name = "Ghost"
+size = "startup"
+
+[[companies]]
+source = "ashby"
+slug = "hubstaff"
+name = "Hubstaff"
+size = "startup"
