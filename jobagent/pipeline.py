@@ -163,7 +163,7 @@ def run(config: Config, *, send: bool, out_dir: Path, secrets: Secrets | None = 
               f"tier={job.tier} score={job.score} send_status={send_status(job, config)}\n"
               f"link={job.link_status} ({job.link_detail})\nlocation={job.location} mode={job.work_mode or 'n/a'} "
               f"posted={job.posted_at} experience={job.experience}\nsignals={job.signals}\n"
-              f"also_seen_at={job.also_seen_at}\nDESCRIPTION (first 2500 chars):\n{job.description[:2500]}\n"
+              f"also_seen_at={job.also_seen_at}\nDESCRIPTION (first 6000 chars):\n{job.description[:6000]}\n"
               f"{'-' * 78}\nEMAIL\nSubject: {email.subject}\n\n{email.text}\n{'=' * 78}")
     table = _top_table(new, config)
     groups = {"WILL SEND": [], "CONDITIONAL": [], "NOT SENT (link)": []}

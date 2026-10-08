@@ -155,6 +155,21 @@ label = "Early-stage company — check maturity of research/design process"
 patterns = ["seed", "series a", "early stage", "founding designer", "founding team", "pre seed"]
 
 [[concerns]]
+name = "tv_platform"
+label = "Includes TV / 10-foot UI — no TV work in your portfolio yet"
+patterns = ["connected tv", "smart tv", "living room", "ten feet", "10 foot", "10 ft", "android tv", "tv app"]
+
+[[concerns]]
+name = "ai_native"
+label = "AI-native expectations — present FinalCheck as an experiment; don't overstate AI expertise"
+patterns = ["ai fluency", "ai as a design material", "agentic", "generative ai", "genai", "llm", "ai native"]
+
+[[concerns]]
+name = "small_team"
+label = "Small design team — less built-in mentorship and research infrastructure"
+patterns = ["design team is small", "small design team", "team of one", "first designer", "solo designer"]
+
+[[concerns]]
 name = "agency"
 label = "Agency / client-services environment rather than an in-house product"
 patterns = ["agency", "client projects", "our clients"]
@@ -982,4 +997,11 @@ size = "startup"
 source = "ashby"
 slug = "hubstaff"
 name = "Hubstaff"
+size = "startup"
+
+# Added 2026-10-08: Globalli's own board (seen via UX Jobs / Himalayas).
+[[companies]]
+source = "greenhouse"
+slug = "globalli"
+name = "Globalli"
 size = "startup"

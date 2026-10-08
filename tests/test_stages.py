@@ -393,3 +393,25 @@ def test_senior_feed_role_does_not_merge_into_board_role():
     board = Job(source="lever", source_id="1", company="Acme", title="Product Designer", url="https://a/1")
     feed = Job(source="remoteok", source_id="9", company="Acme", title="Senior Product Designer", url="https://r/9")
     assert len(dedupe_sources([board, feed])) == 2
+
+
+def test_feed_record_with_direct_link_beats_aggregator_page():
+    via_uxjobs = Job(source="uxjobs", source_id="x", company="Globalli", title="Junior Product Designer",
+                     url="https://job-boards.greenhouse.io/globalli/jobs/5241585007",
+                     location="Remote - India, Pakistan", description="short")
+    via_himalayas = Job(source="himalayas", source_id="h", company="Globalli", title="Product Designer",
+                        url="https://himalayas.app/companies/globalli/jobs/product-designer",
+                        location="Remote (India, Pakistan)", description="long description " * 20)
+    out = dedupe_sources([via_himalayas, via_uxjobs])
+    assert len(out) == 1
+    assert out[0].url == "https://job-boards.greenhouse.io/globalli/jobs/5241585007"
+    assert out[0].description.startswith("long description")           # richer text kept
+    assert "https://himalayas.app/companies/globalli/jobs/product-designer" in out[0].also_seen_at
+
+
+def test_tv_ai_small_team_concerns(config):
+    job = _job(description="2-4 years of experience. Our design team is small. Design for connected TV with "
+                           "AI fluency. Figma prototyping.")
+    evaluate(job, config, NOW)
+    text = " ".join(job.concerns)
+    assert "TV / 10-foot" in text and "AI-native" in text and "Small design team" in text

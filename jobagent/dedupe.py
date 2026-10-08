@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import re
+from urllib.parse import urlparse
 
 from .models import Job
 from .normalize import canonical_text
@@ -37,9 +38,20 @@ def _is_board(job: Job) -> bool:
     return job.source in BOARD_FETCHERS
 
 
+AGGREGATOR_HOSTS = ("himalayas.app", "remoteok.com", "remotive.com", "jobicy.com", "weworkremotely.com",
+                    "uxjobs.io")
+
+
+def _direct_url(job: Job) -> bool:
+    """True when the job's URL is the employer's own posting rather than an aggregator page."""
+    host = urlparse(job.url).netloc.lower()
+    return bool(host) and not any(host == h or host.endswith("." + h) for h in AGGREGATOR_HOSTS)
+
+
 def _richness(job: Job) -> tuple:
-    # The employer's own ATS posting always beats an aggregator copy.
-    return (_is_board(job), len(job.description), bool(job.compensation), bool(job.posted_at))
+    # The employer's own posting (company board, or a feed record carrying the direct ATS link)
+    # always beats an aggregator-page copy; then the fuller record wins.
+    return (_is_board(job), _direct_url(job), len(job.description), bool(job.compensation), bool(job.posted_at))
 
 
 def dedupe_sources(jobs: list[Job]) -> list[Job]:
@@ -76,6 +88,9 @@ def dedupe_sources(jobs: list[Job]) -> list[Job]:
             for url in [other.url, *other.also_seen_at]:
                 if url and url != winner.url and url not in winner.also_seen_at:
                     winner.also_seen_at.append(url)
+        fullest = max(group, key=lambda j: len(j.description))
+        if len(fullest.description) > len(winner.description):
+            winner.description = fullest.description     # same role: keep the richer text for analysis
         dates = [j.posted_at for j in group if j.posted_at]
         if dates:
             winner.posted_at = min(dates)

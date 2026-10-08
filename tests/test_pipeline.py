@@ -11,6 +11,7 @@ from .conftest import NOW, FakeAgentMail, fake_fetchers, fake_link_checker
 
 
 def _run(config, tmp_path, secrets, fake, link_checker=None, **kw):
+    kw.setdefault("max_emails", 100)   # tests that care about the per-run cap pass it explicitly
     return run(config, out_dir=tmp_path / "out", secrets=secrets, fetchers=fake_fetchers(),
                client=AgentMailClient(secrets, request=fake), now=NOW,
                link_checker=link_checker or fake_link_checker(), **kw)
