@@ -28,7 +28,12 @@ title_exclude = [
 title_exclude_unless_designer = ["researcher", "research"]
 experience_target = [2, 4]
 experience_reject_min = 6      # explicit 6+ years requirements are rejected
-max_age_days = 90             # company boards delist closed roles; recency only affects ranking
+# Listing age bands: 0-fresh_days highest priority; up to normal_days normal;
+# up to stale_days deprioritized + needs confirmation it is active; older: excluded
+# unless confirmed active in [[verified]].
+fresh_days = 30
+normal_days = 90
+stale_days = 180
 min_score = 50
 strong_score = 75
 good_score = 62
@@ -178,6 +183,26 @@ pitch = "I also built and shipped FinalCheck, a Gmail/Chrome pre-send review ext
 # ---------------------------------------------------------------------------
 [email]
 max_emails_per_run = 10   # remaining new matches roll over to the next hourly run
+# Only these tiers are emailed automatically. Possible matches appear in dry-run reports only.
+send_tiers = ["Strong", "Good"]
+# Before sending, the posting URL must load and show no closed/expired markers.
+require_live_link = true
+
+# ---------------------------------------------------------------------------
+[verification]
+valid_days = 14   # how long an active_confirmed_on date counts as current
+
+# Manual verifications. Conditional matches (India eligibility unconfirmed, or a
+# 91+ day old listing) are never emailed automatically. Record what you have
+# confirmed here and the next run treats the job accordingly. Match by `url`.
+#   india_eligible = true | false   (false rejects the job)
+#   active_confirmed_on = "YYYY-MM-DD"  (valid for verification.valid_days)
+# Example:
+# [[verified]]
+# url = "https://bitwarden.com/careers/8013629003/?gh_jid=8013629003"
+# india_eligible = true
+# active_confirmed_on = "2026-10-08"
+# note = "Recruiter confirmed India hiring by email"
 
 [state]
 path = "state/sent.json"

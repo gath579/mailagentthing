@@ -41,6 +41,10 @@ class Job:
     concerns: list[str] = field(default_factory=list)
     signals: list[str] = field(default_factory=list)
     experience: str = ""
+    age_days: Optional[float] = None
+    conditional: list[str] = field(default_factory=list)   # reasons it must not be auto-sent
+    link_status: str = ""        # live | closed | redirected | unverified | "" (not checked)
+    link_detail: str = ""
     also_seen_at: list[str] = field(default_factory=list)
 
     @property

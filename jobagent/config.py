@@ -57,7 +57,9 @@ class Profile:
     title_exclude_unless_designer: list[str] = field(default_factory=list)
     experience_target: list[int] = field(default_factory=lambda: [2, 4])
     experience_reject_min: int = 6
-    max_age_days: int = 30
+    fresh_days: int = 30
+    normal_days: int = 90
+    stale_days: int = 180
     min_score: float = 50.0
     strong_score: float = 75.0
     good_score: float = 62.0
@@ -75,6 +77,22 @@ class Locations:
 @dataclass
 class EmailSettings:
     max_emails_per_run: int = 10
+    send_tiers: list[str] = field(default_factory=lambda: ["Strong", "Good"])
+    require_live_link: bool = True
+
+
+@dataclass
+class Verification:
+    url: str
+    india_eligible: bool | None = None
+    active_confirmed_on: str = ""
+    note: str = ""
+
+    def active_confirmed(self, now, valid_days: int) -> bool:
+        if not self.active_confirmed_on:
+            return False
+        from datetime import date
+        return (now.date() - date.fromisoformat(self.active_confirmed_on)).days <= valid_days
 
 
 @dataclass
@@ -89,6 +107,8 @@ class Config:
     companies: list[Company]
     feeds: list[Feed]
     state_path: Path
+    verified: dict[str, Verification] = field(default_factory=dict)
+    verification_valid_days: int = 14
 
     @property
     def company_names(self) -> dict[str, str]:
@@ -161,4 +181,6 @@ def load_config(path: str | Path) -> Config:
         companies=companies,
         feeds=feeds,
         state_path=state_path,
+        verified={v["url"]: Verification(**v) for v in data.get("verified", [])},
+        verification_valid_days=data.get("verification", {}).get("valid_days", 14),
     )

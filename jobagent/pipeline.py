@@ -16,6 +16,7 @@ from .config import Config, Secrets
 from .dedupe import dedupe_sources
 from .discovery import discover_jobs
 from .emailgen import build_job_email
+from .linkcheck import check as default_link_check, check_all
 from .models import Job
 from .normalize import normalize_all
 from .scoring import filter_and_score
@@ -34,18 +35,32 @@ def _slug(text: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")[:60]
 
 
+def send_status(job: Job, config: Config) -> str:
+    """Why a matched job will or won't be emailed automatically."""
+    if job.tier not in config.email.send_tiers:
+        return f"report only ({job.tier} tier is not auto-sent)"
+    if job.conditional:
+        return "CONDITIONAL: " + "; ".join(job.conditional)
+    if config.email.require_live_link and job.link_status != "live":
+        return f"NOT SENT: link {job.link_status or 'not checked'} ({job.link_detail})"
+    return "WILL SEND"
+
+
 def _brief(job: Job) -> dict:
     return {"tier": job.tier, "score": job.score, "title": job.title, "company": job.company,
+            "conditional": job.conditional, "link_status": job.link_status, "link_detail": job.link_detail,
             "location": job.location, "work_mode": job.work_mode or "not stated",
             "posted_at": job.posted_at.isoformat() if job.posted_at else None,
             "source": job.source_label, "url": job.url, "reasons": job.reasons, "concerns": job.concerns}
 
 
-def _top_table(jobs: list[Job], n: int = 10) -> str:
+def _top_table(jobs: list[Job], config: Config, n: int = 10) -> str:
     lines = [f"TOP {min(n, len(jobs))} MATCHES"]
     for i, j in enumerate(jobs[:n], 1):
         lines += [
             f"{i:>2}. [{j.tier}] {j.score:.0f}/100  {j.title} — {j.company}",
+            f"    status: {send_status(j, config)}",
+            f"    link: {j.link_status} — {j.link_detail}",
             f"    {j.location or 'location not stated'} · {j.work_mode or 'mode not stated'} · "
             f"posted {j.posted_at.date() if j.posted_at else 'n/a'} · {j.source_label}",
             f"    {j.url}",
@@ -58,7 +73,7 @@ def _top_table(jobs: list[Job], n: int = 10) -> str:
 def run(config: Config, *, send: bool, out_dir: Path, secrets: Secrets | None = None,
         fetchers: dict[str, Fetcher] | None = None, client: AgentMailClient | None = None,
         require_sent: bool = False, max_emails: int | None = None, throttle_feeds: bool = False,
-        now: datetime | None = None) -> dict:
+        now: datetime | None = None, link_checker=default_link_check) -> dict:
     now = now or datetime.now(timezone.utc)
     out_dir.mkdir(parents=True, exist_ok=True)
     summary: dict = {"started_at": now.isoformat(), "mode": "send" if send else "dry-run"}
@@ -84,7 +99,7 @@ def run(config: Config, *, send: bool, out_dir: Path, secrets: Secrets | None = 
         reject_counts[bucket] = reject_counts.get(bucket, 0) + 1
     summary.update(matched=len(matched), rejected_by_reason=reject_counts,
                    tiers={t: sum(j.tier == t for j in matched) for t in ("Strong", "Good", "Possible")})
-    (out_dir / "matches.json").write_text(json.dumps([_brief(j) for j in matched], indent=2))
+    (out_dir / "matches.json").write_text("[]")
     near = [r for r in rejected if not r.reason.startswith("title")]
     print(f"NEAR MISSES ({len(near)} design-titled roles rejected on location/experience/age/score):")
     for r in near[:40]:
@@ -96,22 +111,35 @@ def run(config: Config, *, send: bool, out_dir: Path, secrets: Secrets | None = 
     # 5. Notification deduplication
     store = SentStore(config.state_path)
     new = store.unsent(matched)
+
+    # 5b. Direct posting-link verification (only matters for jobs that could be sent,
+    #     but checked for all new matches so the dry-run report shows it)
+    check_all(new, link_checker)
+    eligible = [j for j in new if send_status(j, config) == "WILL SEND"]
     limit = config.email.max_emails_per_run if max_emails is None else max_emails
-    batch = new[:limit]
-    summary.update(new_unsent=len(new), this_run=len(batch))
+    batch = eligible[:limit]
+    summary.update(new_unsent=len(new), sendable=len(eligible), this_run=len(batch),
+                   conditional=sum(bool(j.conditional) for j in new),
+                   report_only=sum(j.tier not in config.email.send_tiers for j in new),
+                   link_status={s: sum(j.link_status == s for j in new)
+                                for s in ("live", "closed", "redirected", "unverified")})
 
     # 6. Per-job analysis / email generation (previews always written)
     previews = out_dir / "emails"
     previews.mkdir(exist_ok=True)
     emails = []
-    for i, job in enumerate(new[:max(limit, 10)], 1):
+    batch_ids = {id(j) for j in batch}
+    preview_jobs = new[:10] + [j for j in batch if j not in new[:10]]
+    for i, job in enumerate(preview_jobs, 1):
         email = build_job_email(job, config, now)
         stem = f"{i:02d}-{_slug(job.company)}-{_slug(job.title)}"
         (previews / f"{stem}.txt").write_text(f"Subject: {email.subject}\n\n{email.text}")
         (previews / f"{stem}.html").write_text(email.html)
-        if job in batch:
+        if id(job) in batch_ids:
             emails.append((job, email))
-    table = _top_table(new)
+    (out_dir / "matches.json").write_text(json.dumps([_brief(j) | {"send_status": send_status(j, config)}
+                                                      for j in new], indent=2))
+    table = _top_table(new, config)
     (out_dir / "top_matches.txt").write_text(table)
     print(table)
 

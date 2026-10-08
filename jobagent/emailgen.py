@@ -107,6 +107,8 @@ def build_job_email(job: Job, config: Config, now: datetime | None = None) -> Em
         ("Location", job.location or "Not stated"), ("Work mode", _work_mode(job)),
         ("Posted", _posted(job, now)), ("Experience asked", job.experience or "Not stated"),
         ("Source", job.source_label),
+        ("Posting link", {"live": f"Checked {now.strftime('%d %b %Y %H:%M UTC')}: page loads and lists this role",
+                          "": "Not checked"}.get(job.link_status, f"{job.link_status}: {job.link_detail}")),
         ("Fit", f"{job.tier} match · score {job.score:.0f}/100"),
     ]
     if job.compensation:

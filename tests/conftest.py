@@ -154,3 +154,12 @@ class FakeAgentMail:
                 raise HttpError(404, url, "not found")
             return self.stored[mid]
         raise AssertionError(f"unexpected call {method} {url}")
+
+
+def fake_link_checker(closed: set[str] | None = None):
+    """Pretends every posting page is live unless its URL is in `closed`."""
+    def check(job):
+        if closed and job.url in closed:
+            return "closed", "page says “no longer accepting applications”"
+        return "live", "HTTP 200, title present (fake)"
+    return check

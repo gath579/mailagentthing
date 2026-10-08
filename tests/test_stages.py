@@ -270,13 +270,65 @@ def test_email_escapes_html(config):
     assert "<script>" not in build_job_email(job, config, NOW).html
 
 
-def test_old_board_posting_flagged_but_old_feed_posting_dropped(config):
-    old = NOW - timedelta(days=150)
-    board = _job(posted_at=old)
-    assert evaluate(board, config, NOW) is None
-    assert any("evergreen" in c for c in board.concerns)
-    feed = _job(source="remotive", location="Remote (Worldwide)", work_mode="remote", posted_at=old)
-    assert evaluate(feed, config, NOW).startswith("posted")
+@pytest.mark.parametrize("days,expect", [
+    (10, "fresh"), (60, "normal"), (120, "conditional"), (200, "rejected"), (3424, "rejected"),
+])
+def test_age_bands(config, days, expect):
+    job = _job(posted_at=NOW - timedelta(days=days))
+    reason = evaluate(job, config, NOW)
+    if expect == "rejected":
+        assert reason.startswith("posted") and "not confirmed active" in reason
+        return
+    assert reason is None
+    if expect == "conditional":
+        assert any("confirm it is still actively hiring" in c for c in job.conditional)
+    else:
+        assert job.conditional == []
+    if expect == "fresh":
+        assert any("(fresh)" in r for r in job.reasons)
+
+
+def test_fresh_outranks_normal_outranks_stale(config):
+    scores = []
+    for days in (5, 60, 120):
+        j = _job(posted_at=NOW - timedelta(days=days))
+        evaluate(j, config, NOW)
+        scores.append(j.score)
+    assert scores[0] > scores[1] > scores[2]
+
+
+def test_verified_active_unlocks_old_listing(config):
+    from jobagent.config import Verification
+    job = _job(posted_at=NOW - timedelta(days=200))
+    config.verified[job.url] = Verification(url=job.url, active_confirmed_on="2026-10-05")
+    assert evaluate(job, config, NOW) is None and job.conditional == []
+    config.verified[job.url] = Verification(url=job.url, active_confirmed_on="2026-08-01")  # too old
+    assert evaluate(_job(posted_at=NOW - timedelta(days=200)), config, NOW).startswith("posted")
+
+
+def test_remote_without_region_is_capped_and_conditional(config):
+    rich = ("2-4 years of experience. End to end ownership, problem definition, user flows, usability testing, "
+            "Figma prototyping, design system, product managers, complex workflows, consumer mobile app.")
+    job = _job(location="Remote", work_mode="remote", description=rich)
+    assert evaluate(job, config, NOW) is None
+    assert job.tier == "Good"                      # capped, even though the score is Strong-level
+    assert job.score >= config.profile.strong_score
+    assert any("India eligibility unconfirmed" in c for c in job.conditional)
+    assert any("India eligibility unconfirmed" in c for c in job.concerns)
+
+
+def test_remote_eligibility_verification(config):
+    from jobagent.config import Verification
+    job = _job(location="Remote", work_mode="remote")
+    config.verified[job.url] = Verification(url=job.url, india_eligible=True)
+    assert evaluate(job, config, NOW) is None and job.conditional == []
+    config.verified[job.url] = Verification(url=job.url, india_eligible=False)
+    assert evaluate(_job(location="Remote", work_mode="remote"), config, NOW).startswith("location")
+
+
+def test_remote_with_india_region_is_not_conditional(config):
+    job = _job(location="Remote (India)", work_mode="remote")
+    assert evaluate(job, config, NOW) is None and job.conditional == []
 
 
 def test_machine_learning_is_not_education(config):
