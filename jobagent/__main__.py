@@ -4,6 +4,7 @@ python -m jobagent                          dry run: score + write email preview
 python -m jobagent --send                   send one email per new matching job
 python -m jobagent --send --max-emails 1    send exactly one (first real test)
 python -m jobagent probe                    discover which candidate employer boards exist
+python -m jobagent investigate              check specialist sites for permitted feeds
 """
 from __future__ import annotations
 
@@ -20,7 +21,7 @@ from .probe import run_probe
 
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(prog="jobagent", description="Product design job scout → AgentMail")
-    ap.add_argument("command", nargs="?", default="run", choices=["run", "probe"])
+    ap.add_argument("command", nargs="?", default="run", choices=["run", "probe", "investigate"])
     ap.add_argument("--config", default="config.toml")
     ap.add_argument("--candidates", default="discovery/candidates.toml")
     ap.add_argument("--send", action="store_true",
@@ -36,6 +37,10 @@ def main(argv: list[str] | None = None) -> int:
 
     logging.basicConfig(level=logging.DEBUG if args.verbose else logging.INFO,
                         format="%(asctime)s %(levelname)s %(name)s: %(message)s")
+    if args.command == "investigate":
+        from .investigate import investigate
+        investigate()
+        return 0
     config = load_config(args.config)
     if args.command == "probe":
         found = run_probe(Path(args.candidates), config.feeds, Path(args.out))

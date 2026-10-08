@@ -1,0 +1,136 @@
+"""Investigate whether specialist design-job sites offer an accessible, permitted feed.
+
+For each site this checks, without crawling listings:
+  * robots.txt (full text) and whether our candidate paths are disallowed
+  * home/jobs pages: status, advertised RSS/Atom links, JSON-LD JobPosting count
+  * common feed / sitemap / API paths
+  * terms-of-service sentences mentioning scraping / crawling / automated access
+"""
+from __future__ import annotations
+
+import json
+import re
+import urllib.error
+import urllib.request
+from urllib.parse import urljoin, urlparse
+from urllib.robotparser import RobotFileParser
+
+from .http import USER_AGENT
+
+SITES = {
+    "role.com": {
+        "base": "https://role.com",
+        "pages": ["/", "/jobs", "/jobs/product-designer"],
+        "feeds": ["/feed", "/rss", "/rss.xml", "/feed.xml", "/jobs.rss", "/sitemap.xml", "/api/jobs"],
+        "terms": ["/terms", "/terms-of-service", "/tos", "/legal/terms"],
+    },
+    "uxjobs.io": {
+        "base": "https://uxjobs.io",
+        "pages": ["/", "/jobs"],
+        "feeds": ["/feed", "/rss", "/rss.xml", "/feed.xml", "/jobs/feed", "/sitemap.xml", "/api/jobs"],
+        "terms": ["/terms", "/terms-of-service", "/tos", "/legal"],
+    },
+    "uxdesign.com product-ux-design-jobs": {
+        "base": "https://uxdesign.com",
+        "pages": ["/product-ux-design-jobs"],
+        "feeds": ["/product-ux-design-jobs/feed", "/feed", "/rss", "/sitemap.xml"],
+        "terms": ["/terms", "/terms-of-service", "/privacy-terms"],
+    },
+    "UX Jobs Weekly (Substack)": {
+        "base": "https://uxjobs.substack.com",
+        "pages": ["/"],
+        "feeds": ["/feed"],
+        "terms": ["https://substack.com/tos"],
+    },
+    "uxness.in": {
+        "base": "https://uxness.in",
+        "pages": ["/", "/jobs", "/jobs/"],
+        "feeds": ["/feed", "/jobs/feed", "/?feed=job_feed", "/job-feed", "/sitemap.xml",
+                  "/wp-json/wp/v2/job-listings?per_page=1", "/wp-json/wp/v2/job_listing?per_page=1"],
+        "terms": ["/terms", "/terms-and-conditions", "/terms-of-service", "/privacy-policy"],
+    },
+}
+
+_ALT_RE = re.compile(r"<link[^>]+type=[\"']application/(rss|atom)\+xml[\"'][^>]*>", re.I)
+_HREF_RE = re.compile(r"href=[\"']([^\"']+)", re.I)
+_LD_RE = re.compile(r"<script[^>]+application/ld\+json[^>]*>(.*?)</script>", re.I | re.S)
+_TAG_RE = re.compile(r"<[^>]+>")
+_POLICY_RE = re.compile(r"[^.]{0,200}\b(scrap\w*|crawl\w*|spider\w*|robot\w*|automated (?:means|access|tools|systems)"
+                        r"|data mining|harvest\w*|bots?)\b[^.]{0,200}\.", re.I)
+
+
+def _get(url: str, limit: int = 400_000) -> dict:
+    req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT, "Accept": "*/*"})
+    try:
+        with urllib.request.urlopen(req, timeout=25) as resp:
+            body = resp.read(limit).decode("utf-8", "replace")
+            return {"status": resp.status, "final_url": resp.geturl(),
+                    "type": resp.headers.get("Content-Type", ""), "body": body}
+    except urllib.error.HTTPError as exc:
+        return {"status": exc.code, "final_url": url, "type": exc.headers.get("Content-Type", ""), "body": ""}
+    except Exception as exc:  # noqa: BLE001
+        return {"status": 0, "final_url": url, "type": "", "body": "", "error": repr(exc)[:200]}
+
+
+def _ld_jobpostings(html: str) -> int:
+    count = 0
+    for block in _LD_RE.findall(html):
+        try:
+            data = json.loads(block)
+        except ValueError:
+            continue
+        items = data if isinstance(data, list) else data.get("@graph", [data]) if isinstance(data, dict) else []
+        count += sum(1 for i in items if isinstance(i, dict) and i.get("@type") == "JobPosting")
+    return count
+
+
+def _describe(r: dict) -> str:
+    body = r["body"]
+    kind = "xml-feed" if re.search(r"<(rss|feed|urlset|sitemapindex)\b", body[:2000]) else \
+        "json" if body.lstrip()[:1] in "[{" and body.strip() else "html" if "<html" in body[:2000].lower() else "other"
+    extra = ""
+    if kind == "xml-feed":
+        extra = f" items={len(re.findall(r'<(item|entry|url)>', body))}"
+        titles = re.findall(r"<title>(?:<!\[CDATA\[)?(.*?)(?:\]\]>)?</title>", body)[1:4]
+        if titles:
+            extra += f" sample_titles={titles}"
+    return f"{r['status']} {kind} {r['type'][:40]} len={len(body)}{extra}" + (f" err={r.get('error')}" if r.get("error") else "")
+
+
+def investigate() -> str:
+    out = []
+    for name, cfg in SITES.items():
+        base = cfg["base"]
+        out.append(f"\n{'=' * 70}\n{name}  ({base})")
+        robots = _get(urljoin(base, "/robots.txt"), 20_000)
+        rp = RobotFileParser()
+        rp.parse(robots["body"].splitlines())
+        out.append(f"robots.txt: {robots['status']}")
+        out.append("  | " + "\n  | ".join(robots["body"].strip().splitlines()[:40]) if robots["body"].strip() else "  (empty)")
+        for path in cfg["pages"]:
+            url = urljoin(base, path)
+            r = _get(url)
+            alts = [urljoin(r["final_url"], h) for tag in _ALT_RE.finditer(r["body"])
+                    for h in _HREF_RE.findall(tag.group(0))]
+            out.append(f"PAGE {path}: {_describe(r)} final={r['final_url']} robots_allowed={rp.can_fetch('*', url)}"
+                       f" ld_jobpostings={_ld_jobpostings(r['body'])} next_data={'__NEXT_DATA__' in r['body']}"
+                       f" alt_feeds={alts[:5]}")
+            for alt in alts[:3]:
+                out.append(f"  ALT {alt}: {_describe(_get(alt))}")
+        for path in cfg["feeds"]:
+            url = urljoin(base, path)
+            out.append(f"FEED {path}: {_describe(_get(url))} robots_allowed={rp.can_fetch('*', url)}")
+        for path in cfg["terms"]:
+            url = path if path.startswith("http") else urljoin(base, path)
+            r = _get(url)
+            if r["status"] != 200:
+                out.append(f"TERMS {path}: {r['status']}")
+                continue
+            text = re.sub(r"\s+", " ", _TAG_RE.sub(" ", r["body"]))
+            clauses = list(dict.fromkeys(m.group(0).strip() for m in _POLICY_RE.finditer(text)))[:6]
+            out.append(f"TERMS {path}: 200 len={len(text)} automated-access clauses={len(clauses)}")
+            out += [f"  > {c[:400]}" for c in clauses]
+            break
+    report = "\n".join(out)
+    print(report)
+    return report
