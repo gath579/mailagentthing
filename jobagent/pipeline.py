@@ -73,7 +73,8 @@ def _top_table(jobs: list[Job], config: Config, n: int = 10) -> str:
 def run(config: Config, *, send: bool, out_dir: Path, secrets: Secrets | None = None,
         fetchers: dict[str, Fetcher] | None = None, client: AgentMailClient | None = None,
         require_sent: bool = False, max_emails: int | None = None, throttle_feeds: bool = False,
-        now: datetime | None = None, link_checker=default_link_check) -> dict:
+        now: datetime | None = None, link_checker=default_link_check,
+        only_urls: list[str] | None = None, show_urls: list[str] | None = None) -> dict:
     now = now or datetime.now(timezone.utc)
     out_dir.mkdir(parents=True, exist_ok=True)
     summary: dict = {"started_at": now.isoformat(), "mode": "send" if send else "dry-run"}
@@ -116,6 +117,19 @@ def run(config: Config, *, send: bool, out_dir: Path, secrets: Secrets | None = 
     #     but checked for all new matches so the dry-run report shows it)
     check_all(new, link_checker)
     eligible = [j for j in new if send_status(j, config) == "WILL SEND"]
+    if only_urls:
+        wanted = {u.strip() for u in only_urls if u.strip()}
+        targeted = [j for j in new if j.url in wanted or wanted & set(j.also_seen_at)]
+        found = {j.url for j in targeted} | {u for j in targeted for u in j.also_seen_at}
+        problems = [f"{u}: not among this run's new matches (already sent, rejected, or not found)"
+                    for u in wanted if u not in found]
+        problems += [f"{j.url}: {send_status(j, config)}" for j in targeted if j not in eligible]
+        for line in problems:
+            print(f"ONLY-URL CHECK FAILED: {line}")
+        if problems and send:
+            raise PipelineError("--only-url target(s) are not sendable; nothing was sent: " + " | ".join(problems))
+        eligible = [j for j in targeted if j in eligible]
+        print(f"ONLY-URL: restricted to {len(eligible)} job(s): " + ", ".join(f"{j.title} — {j.company}" for j in eligible))
     limit = config.email.max_emails_per_run if max_emails is None else max_emails
     batch = eligible[:limit]
     summary.update(new_unsent=len(new), sendable=len(eligible), this_run=len(batch),
@@ -139,6 +153,18 @@ def run(config: Config, *, send: bool, out_dir: Path, secrets: Secrets | None = 
             emails.append((job, email))
     (out_dir / "matches.json").write_text(json.dumps([_brief(j) | {"send_status": send_status(j, config)}
                                                       for j in new], indent=2))
+    for url in show_urls or []:
+        job = next((j for j in new if j.url == url or url in j.also_seen_at), None)
+        if job is None:
+            print(f"\nSHOW {url}: not among this run's new matches")
+            continue
+        email = build_job_email(job, config, now)
+        print(f"\n{'=' * 78}\nSHOW {job.title} — {job.company}\n"
+              f"tier={job.tier} score={job.score} send_status={send_status(job, config)}\n"
+              f"link={job.link_status} ({job.link_detail})\nlocation={job.location} mode={job.work_mode or 'n/a'} "
+              f"posted={job.posted_at} experience={job.experience}\nsignals={job.signals}\n"
+              f"also_seen_at={job.also_seen_at}\nDESCRIPTION (first 2500 chars):\n{job.description[:2500]}\n"
+              f"{'-' * 78}\nEMAIL\nSubject: {email.subject}\n\n{email.text}\n{'=' * 78}")
     table = _top_table(new, config)
     groups = {"WILL SEND": [], "CONDITIONAL": [], "NOT SENT (link)": []}
     for j in new:

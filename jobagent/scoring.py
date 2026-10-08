@@ -264,10 +264,15 @@ def evaluate(job: Job, config: Config, now: datetime | None = None) -> str | Non
     if india_unconfirmed and job.tier == "Strong":
         job.tier = "Good"   # cap: eligibility unknown can't be a strong match
     exp = parse_experience(f"{job.title}\n{job.description}")
-    if exp and exp[0] > profile.experience_target[1] and job.tier != "Possible":
-        job.tier = "Possible"   # explicit requirement above the 2-4 year target: report only
-        job.concerns.append(f"Capped at Possible: asks for {exp[0]}+ years, above your "
-                            f"{profile.experience_target[0]}–{profile.experience_target[1]} year target")
+    target_lo, target_hi = profile.experience_target
+    if exp and job.tier != "Possible":
+        lo, hi, snippet = exp
+        # Above target, or a band starting at the top of the target and running well past it
+        # (e.g. "4 to 7 years" against a 2-4 target): report only, never auto-sent.
+        if lo > target_hi or (lo >= target_hi and hi is not None and hi >= target_hi + 2):
+            job.tier = "Possible"
+            job.concerns.append(f"Capped at Possible: asks for “{snippet}”, mostly above your "
+                                f"{target_lo}–{target_hi} year target")
     job.conditional = conditional
     return None
 

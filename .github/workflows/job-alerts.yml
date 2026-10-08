@@ -12,6 +12,14 @@ on:
         description: "Max emails this run (blank = config default)"
         type: string
         default: ""
+      only_url:
+        description: "Send only this posting URL (blank = all sendable jobs)"
+        type: string
+        default: ""
+      show_urls:
+        description: "Space-separated posting URLs to print full analysis + email for"
+        type: string
+        default: ""
       require_sent:
         description: "Fail unless at least one job is emailed"
         type: boolean
@@ -54,6 +62,8 @@ jobs:
           MODE: ${{ inputs.mode }}
           MAX_EMAILS: ${{ inputs.max_emails }}
           REQUIRE_SENT: ${{ inputs.require_sent }}
+          ONLY_URL: ${{ inputs.only_url }}
+          SHOW_URLS: ${{ inputs.show_urls }}
         run: |
           if [ "$MODE" = "investigate" ]; then
             python -m jobagent investigate | tee out-investigate.txt
@@ -68,7 +78,10 @@ jobs:
           if [ "$MODE" = "send" ]; then args="$args --send"; fi
           if [ -n "$MAX_EMAILS" ]; then args="$args --max-emails $MAX_EMAILS"; fi
           if [ "$REQUIRE_SENT" = "true" ]; then args="$args --require-sent"; fi
-          python -m jobagent $args
+          set -- $args
+          if [ -n "$ONLY_URL" ]; then set -- "$@" --only-url "$ONLY_URL"; fi
+          for u in $SHOW_URLS; do set -- "$@" --show-url "$u"; done
+          python -m jobagent "$@"
 
       - name: Upload run output
         if: always()

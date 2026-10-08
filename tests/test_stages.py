@@ -354,3 +354,42 @@ def test_five_plus_years_capped_at_possible(config):
     job = _job(location="Remote (India)", work_mode="remote", description=rich)
     assert evaluate(job, config, NOW) is None
     assert job.tier == "Possible" and any("Capped at Possible" in c for c in job.concerns)
+
+
+@pytest.mark.parametrize("req,tier_cap", [("4 to 7 years of experience", "Possible"),
+                                          ("4-8 years of experience", "Possible"),
+                                          ("4+ years of experience", None),
+                                          ("3-5 years of experience", None)])
+def test_experience_band_caps(config, req, tier_cap):
+    rich = (f"{req}. End to end ownership, problem definition, user flows, usability testing, "
+            "Figma prototyping, design system, product managers, complex workflows, consumer mobile app.")
+    job = _job(location="Pune, India", work_mode="hybrid", description=rich)
+    assert evaluate(job, config, NOW) is None
+    if tier_cap:
+        assert job.tier == tier_cap
+    else:
+        assert job.tier in ("Strong", "Good")
+
+
+def test_aggregator_copy_merges_into_board_posting():
+    board = Job(source="greenhouse", source_id="5241585007", company="Globalli", title="Junior Product Designer",
+                url="https://job-boards.greenhouse.io/globalli/jobs/5241585007", location="Remote - India, Pakistan",
+                description="short")
+    feed = Job(source="himalayas", source_id="g1", company="Globalli", title="Product Designer",
+               url="https://himalayas.app/companies/globalli/jobs/product-designer",
+               location="Remote (India, Pakistan)", description="a much longer aggregator description " * 5)
+    out = dedupe_sources([feed, board])
+    assert len(out) == 1 and out[0] is board                     # employer's own posting wins
+    assert "https://himalayas.app/companies/globalli/jobs/product-designer" in out[0].also_seen_at
+
+
+def test_two_board_levels_stay_separate():
+    a = Job(source="greenhouse", source_id="1", company="Acme", title="Product Designer", url="https://a/1")
+    b = Job(source="greenhouse", source_id="2", company="Acme", title="Junior Product Designer", url="https://a/2")
+    assert len(dedupe_sources([a, b])) == 2
+
+
+def test_senior_feed_role_does_not_merge_into_board_role():
+    board = Job(source="lever", source_id="1", company="Acme", title="Product Designer", url="https://a/1")
+    feed = Job(source="remoteok", source_id="9", company="Acme", title="Senior Product Designer", url="https://r/9")
+    assert len(dedupe_sources([board, feed])) == 2

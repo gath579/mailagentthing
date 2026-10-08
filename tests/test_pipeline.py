@@ -123,3 +123,24 @@ def test_conditional_remote_job_not_sent(config, tmp_path, secrets):
     hooli = next(m for m in json.loads((tmp_path / "out" / "matches.json").read_text())
                  if m["company"] == "Nowhere Region Co")
     assert hooli["send_status"].startswith("CONDITIONAL") and "India eligibility unconfirmed" in hooli["send_status"]
+
+
+def test_only_url_sends_exactly_that_job(config, tmp_path, secrets):
+    fake = FakeAgentMail()
+    target = "https://example.test/lever/lv-1"          # UI/UX Designer, Pune hybrid (fixture)
+    dry = _run(config, tmp_path, secrets, FakeAgentMail(), send=False)
+    assert dry["sendable"] >= 2                            # several would go out without the filter
+    summary = _run(config, tmp_path, secrets, fake, send=True, only_urls=[target], max_emails=1)
+    sends = [c for c in fake.calls if c["method"] == "POST"]
+    assert len(sends) == 1 and len(summary["sent"]) == 1
+    assert target in sends[0]["body"]["text"]
+    state = json.loads(config.state_path.read_text())
+    assert [v["url"] for v in state["sent"].values()] == [target]
+
+
+def test_only_url_for_unsendable_job_sends_nothing(config, tmp_path, secrets):
+    fake = FakeAgentMail()
+    possible = "https://example.test/lever/lv-2"           # Gurugram on-site -> Possible tier
+    with pytest.raises(PipelineError, match="not sendable"):
+        _run(config, tmp_path, secrets, fake, send=True, only_urls=[possible])
+    assert fake.calls == [] and not config.state_path.exists()

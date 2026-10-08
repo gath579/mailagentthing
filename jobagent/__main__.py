@@ -31,6 +31,10 @@ def main(argv: list[str] | None = None) -> int:
                     help="exit non-zero unless at least one job was emailed")
     ap.add_argument("--scheduled", action="store_true",
                     help="scheduled run: throttle feeds to their min_interval_hours")
+    ap.add_argument("--only-url", action="append", default=[],
+                    help="send only the job with this posting URL (repeatable); fails if it isn't sendable")
+    ap.add_argument("--show-url", action="append", default=[],
+                    help="print full analysis and email text for this posting URL (repeatable)")
     ap.add_argument("--out", default="out", help="directory for previews and run summary")
     ap.add_argument("-v", "--verbose", action="store_true")
     args = ap.parse_args(argv)
@@ -50,7 +54,8 @@ def main(argv: list[str] | None = None) -> int:
         return 0 if found else 1
 
     summary = run(config, send=args.send, out_dir=Path(args.out), require_sent=args.require_sent,
-                  max_emails=args.max_emails, throttle_feeds=args.scheduled)
+                  max_emails=args.max_emails, throttle_feeds=args.scheduled,
+                  only_urls=args.only_url, show_urls=args.show_url)
     print(json.dumps({k: v for k, v in summary.items() if k != "normalize_errors"}, indent=2))
     return 0
 
