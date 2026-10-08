@@ -38,8 +38,8 @@ def main(argv: list[str] | None = None) -> int:
     logging.basicConfig(level=logging.DEBUG if args.verbose else logging.INFO,
                         format="%(asctime)s %(levelname)s %(name)s: %(message)s")
     if args.command == "investigate":
-        from .investigate import third
-        third()
+        from .investigate import uxjobs_shape
+        uxjobs_shape()
         return 0
     config = load_config(args.config)
     if args.command == "probe":

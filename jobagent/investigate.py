@@ -247,3 +247,35 @@ def third() -> str:
     report = "\n".join(out)
     print(report)
     return report
+
+
+def uxjobs_shape() -> str:
+    """Print the field layout of the job list embedded in jobs.uxjobs.io's public home page."""
+    r = _get("https://jobs.uxjobs.io/", 5_000_000)
+    blocks = re.findall(r"<script\b[^>]*type=[\"']application/json[\"'][^>]*>(.*?)</script>", r["body"], re.S)
+    out = [f"uxjobs home: {r['status']} len={len(r['body'])} json blocks={len(blocks)}"]
+    for b in blocks:
+        try:
+            data = json.loads(b)
+        except ValueError as exc:
+            out.append(f"  block not JSON: {exc}")
+            continue
+        if isinstance(data, list):
+            keys = {}
+            for item in data:
+                if isinstance(item, dict):
+                    for k in item:
+                        keys[k] = keys.get(k, 0) + 1
+            out.append(f"  list len={len(data)} key counts={keys}")
+            for item in data[:4]:
+                out.append("  sample: " + json.dumps(item)[:700])
+            design = [i for i in data if isinstance(i, dict) and re.search(r"product designer|ux designer|ui ux|ux/ui|interaction",
+                                                                             str(i.get('t', '')), re.I)]
+            out.append(f"  product/ux designer titles={len(design)}")
+            for item in design[:6]:
+                out.append("  design sample: " + json.dumps(item)[:400])
+        else:
+            out.append(f"  {type(data).__name__}: {json.dumps(data)[:300]}")
+    report = "\n".join(out)
+    print(report)
+    return report
