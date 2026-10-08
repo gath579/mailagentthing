@@ -134,3 +134,74 @@ def investigate() -> str:
     report = "\n".join(out)
     print(report)
     return report
+
+
+# ---- second pass: page structure of the promising sources ------------------------
+
+DEEP = {
+    "role.com": ["https://role.com/sitemap.xml", "https://role.com/jobs"],
+    "uxjobs.io": ["https://jobs.uxjobs.io/robots.txt", "https://jobs.uxjobs.io/sitemap-index.xml",
+                  "https://jobs.uxjobs.io/sitemap-0.xml", "https://jobs.uxjobs.io/rss.xml",
+                  "https://jobs.uxjobs.io/feed.xml", "https://jobs.uxjobs.io/"],
+    "uxdesign.com": ["https://uxdesign.com/product-ux-design-jobs/"],
+}
+_A_RE = re.compile(r"<a\b[^>]*href=[\"']([^\"'#]+)", re.I)
+_IFRAME_RE = re.compile(r"<iframe\b[^>]*src=[\"']([^\"']+)", re.I)
+_SCRIPT_SRC_RE = re.compile(r"<script\b[^>]*src=[\"']([^\"']+)", re.I)
+_JSON_SCRIPT_RE = re.compile(r"<script\b[^>]*type=[\"']application/json[\"'][^>]*>(.{0,300})", re.I | re.S)
+_LOC_RE = re.compile(r"<loc>(.*?)</loc>")
+
+
+def _structure(url: str) -> list[str]:
+    r = _get(url, 2_000_000)
+    out = [f"-- {url}: {_describe(r)} final={r['final_url']}"]
+    body = r["body"]
+    if not body:
+        return out
+    if "<loc>" in body:
+        locs = _LOC_RE.findall(body)
+        out.append(f"   sitemap locs={len(locs)} sample={locs[:8]}")
+        return out
+    if url.endswith("robots.txt") and "<html" not in body[:500].lower():
+        out.append("   robots: " + " | ".join(body.strip().splitlines()[:15]))
+        return out
+    host = urlparse(r["final_url"]).netloc
+    links = [urljoin(r["final_url"], h) for h in _A_RE.findall(body)]
+    internal = [l for l in links if urlparse(l).netloc == host]
+    external = [l for l in links if urlparse(l).netloc and urlparse(l).netloc != host]
+    seg = {}
+    for l in internal:
+        first = "/" + (urlparse(l).path.strip("/").split("/")[0] if urlparse(l).path.strip("/") else "")
+        seg[first] = seg.get(first, 0) + 1
+    ext_hosts = {}
+    for l in external:
+        ext_hosts[urlparse(l).netloc] = ext_hosts.get(urlparse(l).netloc, 0) + 1
+    out.append(f"   links internal={len(internal)} by first segment={dict(sorted(seg.items(), key=lambda kv: -kv[1])[:10])}")
+    out.append(f"   external link hosts={dict(sorted(ext_hosts.items(), key=lambda kv: -kv[1])[:10])}")
+    job_like = [l for l in links if re.search(r"/(job|jobs|position|positions|role|roles|opening)s?/[^/?]+", l)]
+    out.append(f"   job-like links={len(job_like)} sample={list(dict.fromkeys(job_like))[:6]}")
+    out.append(f"   iframes={_IFRAME_RE.findall(body)[:5]}")
+    out.append(f"   script hosts={sorted({urlparse(urljoin(url, s)).netloc for s in _SCRIPT_SRC_RE.findall(body)})[:12]}")
+    blobs = _JSON_SCRIPT_RE.findall(body)
+    out.append(f"   json script blocks={len(blobs)} first={[b[:150] for b in blobs[:2]]}")
+    text = re.sub(r"\s+", " ", _TAG_RE.sub(" ", body))
+    out.append(f"   text sample: {text[:600]}")
+    if job_like:
+        sample = list(dict.fromkeys(job_like))[0]
+        jr = _get(sample)
+        out.append(f"   SAMPLE JOB PAGE {sample}: {_describe(jr)} ld_jobpostings={_ld_jobpostings(jr['body'])}"
+                   f" robots_ok=see above")
+        jt = re.sub(r"\s+", " ", _TAG_RE.sub(" ", jr["body"]))
+        out.append(f"   job text sample: {jt[:500]}")
+    return out
+
+
+def deep() -> str:
+    out = []
+    for name, urls in DEEP.items():
+        out.append(f"\n{'#' * 70}\nDEEP {name}")
+        for u in urls:
+            out += _structure(u)
+    report = "\n".join(out)
+    print(report)
+    return report
