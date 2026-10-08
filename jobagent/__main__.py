@@ -38,7 +38,10 @@ def main(argv: list[str] | None = None) -> int:
     logging.basicConfig(level=logging.DEBUG if args.verbose else logging.INFO,
                         format="%(asctime)s %(levelname)s %(name)s: %(message)s")
     if args.command == "investigate":
-        from .investigate import uxjobs_shape
+        from .investigate import deep, investigate, third, uxjobs_shape
+        investigate()
+        deep()
+        third()
         uxjobs_shape()
         return 0
     config = load_config(args.config)

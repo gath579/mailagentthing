@@ -6,12 +6,20 @@ Two kinds:
   Greenhouse, Lever, Ashby, SmartRecruiters, Workable, Recruitee.
 * Multi-employer feeds with public APIs/RSS intended for re-use:
   Remotive, RemoteOK, Jobicy, Himalayas, We Work Remotely.
+* UX Jobs (jobs.uxjobs.io), a design-specialist board. Its robots.txt allows
+  general user-agents everywhere except /api/ (blocked here too) and only bars
+  named AI-training crawlers; its terms have no automated-access clause. We read
+  the public job index embedded in its home page (at most every few hours) and
+  the job pages of a small pre-filtered set of candidates.
   (Their terms ask for attribution/links back; emails name the source and
   link to the original posting.)
 
 Not used, because their terms forbid automated access and they offer no public
 job API: LinkedIn, Naukri, Indeed, Glassdoor, Wellfound, Instahyre, Dribbble,
-Behance.
+Behance, uxdesign.com (terms bar "automated tools, bots, or scraping").
+Not used because they are not reliably reachable: UX Jobs Weekly on Substack
+(403 to automated clients), uxness.in (429, no feed). role.com is a general
+10k-job board with no design index, so it would require bulk crawling.
 """
 from __future__ import annotations
 
@@ -121,7 +129,55 @@ def fetch_weworkremotely(query: str) -> list[dict]:
     return items
 
 
+_UXJOBS_JSON_RE = re.compile(r"<script\b[^>]*type=[\"']application/json[\"'][^>]*>(.*?)</script>", re.S)
+_LD_RE = re.compile(r"<script[^>]+application/ld\+json[^>]*>(.*?)</script>", re.I | re.S)
+_UXJOBS_SKIP_SENIORITY = re.compile(r"senior|lead|principal|staff|director|head|manager|intern", re.I)
+UXJOBS_MAX_DETAIL = 60
+
+
+def _uxjobs_candidate(item: dict) -> bool:
+    """Cheap pre-filter so only plausible roles get a job-page fetch."""
+    return (bool(DESIGN_HINT.search(item.get("r", "")))
+            and not _UXJOBS_SKIP_SENIORITY.search(f"{item.get('sen', '')} {item.get('r', '')}")
+            and (item.get("c") == "IN" or bool(item.get("rm"))))
+
+
+def _jobposting_ld(html: str) -> dict:
+    import json
+    for block in _LD_RE.findall(html):
+        try:
+            data = json.loads(block)
+        except ValueError:
+            continue
+        for d in (data if isinstance(data, list) else [data]):
+            if isinstance(d, dict) and d.get("@type") == "JobPosting":
+                return d
+    return {}
+
+
+def fetch_uxjobs(query: str) -> list[dict]:
+    import json
+    html = get_text("https://jobs.uxjobs.io/")
+    jobs: list[dict] = []
+    for block in _UXJOBS_JSON_RE.findall(html):
+        try:
+            data = json.loads(block)
+        except ValueError:
+            continue
+        if isinstance(data, list) and data and isinstance(data[0], dict) and "u" in data[0]:
+            jobs = data
+            break
+    candidates = [j for j in jobs if _uxjobs_candidate(j)][:UXJOBS_MAX_DETAIL]
+    for j in candidates:
+        try:
+            j["_detail"] = _jobposting_ld(get_text(f"https://jobs.uxjobs.io/jobs/{quote(j['s'])}/"))
+        except Exception:  # noqa: BLE001 - detail is optional
+            j["_detail"] = {}
+    return jobs
+
+
 FEED_FETCHERS: dict[str, Fetcher] = {
+    "uxjobs": fetch_uxjobs,
     "remotive": fetch_remotive,
     "remoteok": fetch_remoteok,
     "jobicy": fetch_jobicy,

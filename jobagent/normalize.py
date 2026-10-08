@@ -28,6 +28,7 @@ SOURCE_LABELS = {
     "jobicy": "Jobicy (jobicy.com)",
     "himalayas": "Himalayas (himalayas.app)",
     "weworkremotely": "We Work Remotely (weworkremotely.com)",
+    "uxjobs": "UX Jobs (jobs.uxjobs.io)",
 }
 
 
@@ -258,10 +259,39 @@ def _weworkremotely(p: dict, _: str) -> Job:
     )
 
 
+def _uxjobs(p: dict, _: str) -> Job:
+    d = p.get("_detail") or {}
+    company = p.get("co", "")
+    title = p.get("t", "")
+    suffix = f" - {company}"
+    if company and title.endswith(suffix):
+        title = title[: -len(suffix)]
+    regions = d.get("applicantLocationRequirements") or []
+    if isinstance(regions, dict):
+        regions = [regions]
+    region_names = ", ".join(r.get("name", "") for r in regions if isinstance(r, dict) and r.get("name"))
+    remote = bool(p.get("rm")) or d.get("jobLocationType") == "TELECOMMUTE"
+    location = p.get("l", "")
+    if remote:
+        location = f"Remote ({region_names})" if region_names else (location if "remote" in location.lower()
+                                                                     else f"Remote ({location})" if location else "Remote")
+    return Job(
+        source="uxjobs", source_id=p.get("s", ""), company=company, title=title.strip(), url=p.get("u", ""),
+        location=location, country=p.get("c", ""),
+        work_mode=infer_work_mode("remote" if remote else p.get("wp", ""), location),
+        department=p.get("sp", ""), employment_type=d.get("employmentType", "") if isinstance(
+            d.get("employmentType"), str) else "",
+        description=html_to_text(d.get("description", "")),
+        posted_at=parse_datetime(d.get("datePosted")),
+        compensation=p.get("sal", "") or "",
+        also_seen_at=[f"https://jobs.uxjobs.io/jobs/{p.get('s', '')}/"],
+    )
+
+
 _NORMALIZERS = {
     "greenhouse": _greenhouse, "lever": _lever, "ashby": _ashby, "smartrecruiters": _smartrecruiters,
     "workable": _workable, "recruitee": _recruitee, "remotive": _remotive, "remoteok": _remoteok,
-    "jobicy": _jobicy, "himalayas": _himalayas, "weworkremotely": _weworkremotely,
+    "jobicy": _jobicy, "himalayas": _himalayas, "weworkremotely": _weworkremotely, "uxjobs": _uxjobs,
 }
 
 

@@ -74,6 +74,17 @@ REMOTIVE_JOBS = [
 ]
 
 FEED_SAMPLES = {
+    "uxjobs": [{"s": "product-designer-acme-in-x1", "u": "https://example.test/ashby/uxj-1",
+                "t": "Product Designer - Acme India", "r": "product designer", "co": "Acme India",
+                "l": "Pune, IN", "c": "IN", "rm": 0, "wp": "hybrid", "sen": "Mid-level", "sal": "",
+                "_detail": {"@type": "JobPosting", "datePosted": iso(2),
+                            "description": "<p>2-4 years of experience. Figma prototyping, user flows.</p>"}},
+               {"s": "product-designer-remote-x2", "u": "https://example.test/gh/remote-x2",
+                "t": "Product Designer - Zed", "r": "product designer", "co": "Zed", "l": "Remote", "c": "",
+                "rm": 1, "sen": "Mid-level", "sal": "",
+                "_detail": {"jobLocationType": "TELECOMMUTE", "datePosted": iso(1),
+                            "applicantLocationRequirements": [{"@type": "Country", "name": "India"}],
+                            "description": "<p>Design systems</p>"}}],
     "remoteok": [{"legal": "notice"}, {"id": "7", "position": "UX Designer", "company": "Acme", "location": "Worldwide",
                                       "url": "https://example.test/rok/7", "epoch": int(NOW.timestamp()) - 3600,
                                       "description": "<p>Figma prototyping</p>"}],

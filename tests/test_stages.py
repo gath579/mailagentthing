@@ -35,7 +35,8 @@ def test_discovery_boards_and_feeds(config):
 def test_discovery_isolates_failures_and_raises_when_all_fail(config):
     result = discover_jobs(config.companies, config.feeds, fake_fetchers(fail={"lever"}), now=NOW)
     assert "lever/globex-in" in result.errors and result.postings
-    everything = {"greenhouse", "lever", "ashby", "remotive", "remoteok", "jobicy", "himalayas", "weworkremotely"}
+    everything = {"greenhouse", "lever", "ashby", "remotive", "remoteok", "jobicy", "himalayas", "weworkremotely",
+                  "uxjobs"}
     with pytest.raises(DiscoveryError):
         discover_jobs(config.companies, config.feeds, fake_fetchers(fail=everything), now=NOW)
 
@@ -81,6 +82,16 @@ def test_normalize_every_source(source, payload, title, mode):
     job = normalize(RawPosting(source, "slug", payload))
     assert job.title == title and job.url and job.work_mode == mode
     assert job.source_label
+
+
+def test_uxjobs_normalization():
+    hybrid = normalize(RawPosting("uxjobs", "design", FEED_SAMPLES["uxjobs"][0]))
+    assert (hybrid.title, hybrid.company, hybrid.work_mode) == ("Product Designer", "Acme India", "hybrid")
+    assert hybrid.url == "https://example.test/ashby/uxj-1"                  # employer's own posting
+    assert hybrid.also_seen_at == ["https://jobs.uxjobs.io/jobs/product-designer-acme-in-x1/"]
+    assert hybrid.posted_at == NOW - timedelta(days=2) and "Figma" in hybrid.description
+    remote = normalize(RawPosting("uxjobs", "design", FEED_SAMPLES["uxjobs"][1]))
+    assert remote.location == "Remote (India)" and remote.work_mode == "remote"
 
 
 def test_feed_specifics():
