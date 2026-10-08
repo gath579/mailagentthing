@@ -346,3 +346,11 @@ def test_machine_learning_is_not_education(config):
     j = _job(description="2-4 years of experience. Machine learning products. Figma.")
     evaluate(j, config, NOW)
     assert "edtech" not in j.signals
+
+
+def test_five_plus_years_capped_at_possible(config):
+    rich = ("5+ years of experience. End to end ownership, problem definition, user flows, usability testing, "
+            "Figma prototyping, design system, product managers, complex workflows, consumer mobile app.")
+    job = _job(location="Remote (India)", work_mode="remote", description=rich)
+    assert evaluate(job, config, NOW) is None
+    assert job.tier == "Possible" and any("Capped at Possible" in c for c in job.concerns)

@@ -140,6 +140,15 @@ def run(config: Config, *, send: bool, out_dir: Path, secrets: Secrets | None = 
     (out_dir / "matches.json").write_text(json.dumps([_brief(j) | {"send_status": send_status(j, config)}
                                                       for j in new], indent=2))
     table = _top_table(new, config)
+    groups = {"WILL SEND": [], "CONDITIONAL": [], "NOT SENT (link)": []}
+    for j in new:
+        st = send_status(j, config)
+        key = "WILL SEND" if st == "WILL SEND" else "CONDITIONAL" if st.startswith("CONDITIONAL") \
+            else "NOT SENT (link)" if st.startswith("NOT SENT") else None
+        if key:
+            groups[key].append(f"  [{j.tier} {j.score:.0f}] {j.title} — {j.company} | {j.location} | "
+                               f"{j.work_mode or 'mode n/a'} | {j.url}" + ("" if key == "WILL SEND" else f"\n      {st}"))
+    table += "".join(f"\n\n{k} ({len(v)}):\n" + "\n".join(v) for k, v in groups.items())
     (out_dir / "top_matches.txt").write_text(table)
     print(table)
 
