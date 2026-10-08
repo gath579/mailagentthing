@@ -205,3 +205,45 @@ def deep() -> str:
     report = "\n".join(out)
     print(report)
     return report
+
+
+# ---- third pass: policy text + search behaviour ------------------------------------
+
+def third() -> str:
+    out = ["\n" + "%" * 70 + "\nTHIRD PASS"]
+    r = _get("https://jobs.uxjobs.io/robots.txt", 20_000)
+    out.append("uxjobs robots.txt FULL:\n" + r["body"])
+    for q in ("https://role.com/jobs?q=product+designer", "https://role.com/jobs?search=product+designer",
+              "https://role.com/jobs?keywords=product+designer", "https://role.com/search?q=product+designer"):
+        rr = _get(q)
+        titles = re.findall(r'href="(/jobs/[^"]+)"', rr["body"])
+        design = [t for t in titles if re.search(r"design|ux|ui-", t)]
+        out.append(f"role.com {q}: {rr['status']} job links={len(titles)} design-like={len(design)} sample={design[:5]}")
+    rt = _get("https://role.com/terms")
+    text = re.sub(r"\s+", " ", _TAG_RE.sub(" ", rt["body"]))
+    for kw in ("automat", "scrap", "crawl", "robot", "bot", "harvest", "copy", "reproduc", "commercial", "personal"):
+        for m in re.finditer(rf"[^.]{{0,180}}{kw}[^.]{{0,180}}\.", text, re.I):
+            out.append(f"  role terms [{kw}]: {m.group(0).strip()[:360]}")
+            break
+    page = _get("https://uxdesign.com/product-ux-design-jobs/")
+    legal = sorted(set(u for u in _A_RE.findall(page["body"]) if "/legal" in u))
+    out.append(f"uxdesign legal links: {legal}")
+    for u in legal[:4]:
+        lr = _get(urljoin("https://uxdesign.com", u))
+        lt = re.sub(r"\s+", " ", _TAG_RE.sub(" ", lr["body"]))
+        clauses = list(dict.fromkeys(m.group(0).strip() for m in _POLICY_RE.finditer(lt)))[:5]
+        out.append(f"  {u}: {lr['status']} clauses={len(clauses)}")
+        out += [f"    > {c[:360]}" for c in clauses]
+    listings = sorted(set(u for u in _A_RE.findall(page["body"]) if "/product-ux-design-job-listing/" in u))
+    out.append(f"uxdesign listings ({len(listings)}): {listings[:8]}")
+    if listings:
+        jr = _get(urljoin("https://uxdesign.com", listings[0]))
+        jt = re.sub(r"\s+", " ", _TAG_RE.sub(" ", jr["body"]))
+        ext = [h for h in _A_RE.findall(jr["body"]) if "uxdesign.com" not in h and h.startswith("http")]
+        out.append(f"  sample listing: {jr['status']} ld_jobpostings={_ld_jobpostings(jr['body'])} "
+                   f"external links={ext[:6]}")
+        i = jt.find("Product UX Design Jobs")
+        out.append(f"  text: {jt[max(0, i):max(0, i) + 700]}")
+    report = "\n".join(out)
+    print(report)
+    return report
