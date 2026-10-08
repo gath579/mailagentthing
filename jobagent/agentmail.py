@@ -91,6 +91,12 @@ class AgentMailClient:
         raise DeliveryError(f"AgentMail verification could not read message back: {last_error}")
 
 
+def list_inboxes(api_key: str, base_url: str = "https://api.agentmail.to", request=request_json) -> list[dict]:
+    """Inboxes visible to this API key (GET /v0/inboxes)."""
+    resp = request("GET", f"{base_url.rstrip('/')}/v0/inboxes", headers={"Authorization": f"Bearer {api_key}"})
+    return resp.get("inboxes", []) if isinstance(resp, dict) else []
+
+
 def idempotency_key(recipient: str, job) -> str:
     material = f"{recipient.lower()}\n{job.fingerprint}"
     return "jobalert-" + hashlib.sha256(material.encode()).hexdigest()[:40]

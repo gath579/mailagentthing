@@ -145,3 +145,14 @@ def test_only_url_for_unsendable_job_sends_nothing(config, tmp_path, secrets):
     with pytest.raises(PipelineError, match="not sendable"):
         _run(config, tmp_path, secrets, fake, send=True, only_urls=[possible])
     assert fake.calls == [] and not config.state_path.exists()
+
+
+def test_list_inboxes_uses_bearer_key():
+    from jobagent.agentmail import list_inboxes
+    calls = []
+
+    def fake(method, url, headers=None, **kw):
+        calls.append((method, url, headers))
+        return {"count": 1, "inboxes": [{"inbox_id": "scout@agentmail.to", "email": "scout@agentmail.to"}]}
+    assert list_inboxes("k", request=fake)[0]["inbox_id"] == "scout@agentmail.to"
+    assert calls == [("GET", "https://api.agentmail.to/v0/inboxes", {"Authorization": "Bearer k"})]

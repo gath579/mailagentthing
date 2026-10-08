@@ -21,7 +21,7 @@ from .probe import run_probe
 
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(prog="jobagent", description="Product design job scout → AgentMail")
-    ap.add_argument("command", nargs="?", default="run", choices=["run", "probe", "investigate"])
+    ap.add_argument("command", nargs="?", default="run", choices=["run", "probe", "investigate", "inboxes"])
     ap.add_argument("--config", default="config.toml")
     ap.add_argument("--candidates", default="discovery/candidates.toml")
     ap.add_argument("--send", action="store_true",
@@ -41,6 +41,18 @@ def main(argv: list[str] | None = None) -> int:
 
     logging.basicConfig(level=logging.DEBUG if args.verbose else logging.INFO,
                         format="%(asctime)s %(levelname)s %(name)s: %(message)s")
+    if args.command == "inboxes":
+        import os
+        from .agentmail import list_inboxes
+        key = os.environ.get("AGENTMAIL_API_KEY")
+        if not key:
+            print("AGENTMAIL_API_KEY is not set")
+            return 1
+        inboxes = list_inboxes(key, os.environ.get("AGENTMAIL_BASE_URL", "https://api.agentmail.to"))
+        print(f"{len(inboxes)} inbox(es) on this AgentMail account:")
+        for ib in inboxes:
+            print(f"  inbox_id={ib.get('inbox_id')}  email={ib.get('email', '')}  name={ib.get('display_name', '')}")
+        return 0
     if args.command == "investigate":
         from .investigate import deep, investigate, third, uxjobs_shape
         investigate()
