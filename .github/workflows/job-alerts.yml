@@ -6,7 +6,7 @@ on:
       mode:
         description: "dry-run: score + previews only; send: email via AgentMail; probe: find live employer boards"
         type: choice
-        options: [dry-run, send, probe, investigate, inboxes]
+        options: [dry-run, send, probe, investigate, inboxes, diagnose]
         default: dry-run
       max_emails:
         description: "Max emails this run (blank = config default)"
@@ -65,6 +65,10 @@ jobs:
           ONLY_URL: ${{ inputs.only_url }}
           SHOW_URLS: ${{ inputs.show_urls }}
         run: |
+          if [ "$MODE" = "diagnose" ]; then
+            python -m jobagent diagnose
+            exit 0
+          fi
           if [ "$MODE" = "inboxes" ]; then
             python -m jobagent inboxes
             exit 0

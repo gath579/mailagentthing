@@ -21,7 +21,7 @@ from .probe import run_probe
 
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(prog="jobagent", description="Product design job scout → AgentMail")
-    ap.add_argument("command", nargs="?", default="run", choices=["run", "probe", "investigate", "inboxes"])
+    ap.add_argument("command", nargs="?", default="run", choices=["run", "probe", "investigate", "inboxes", "diagnose"])
     ap.add_argument("--config", default="config.toml")
     ap.add_argument("--candidates", default="discovery/candidates.toml")
     ap.add_argument("--send", action="store_true",
@@ -41,6 +41,9 @@ def main(argv: list[str] | None = None) -> int:
 
     logging.basicConfig(level=logging.DEBUG if args.verbose else logging.INFO,
                         format="%(asctime)s %(levelname)s %(name)s: %(message)s")
+    if args.command == "diagnose":
+        from .diagnose import diagnose
+        return diagnose()
     if args.command == "inboxes":
         import os
         from .agentmail import list_inboxes
