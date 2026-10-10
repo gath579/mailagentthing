@@ -66,6 +66,7 @@ jobs:
           SHOW_URLS: ${{ inputs.show_urls }}
         run: |
           if [ "$MODE" = "diagnose" ]; then
+            pip install -q agentmail || echo "agentmail SDK install failed"
             python -m jobagent diagnose
             exit 0
           fi

@@ -16,9 +16,18 @@ def _shape(name: str, value: str) -> str:
             f"starts with 'Bearer '={v.strip().lower().startswith('bearer ')}")
 
 
-def _status(method: str, url: str, key: str) -> str:
+SDK_HEADERS = {   # what the official `agentmail` Python SDK v2 sends
+    "User-Agent": "agentmail/2.0.13", "X-Fern-Language": "Python", "X-Fern-SDK-Name": "agentmail",
+    "X-Fern-SDK-Version": "2.0.13",
+}
+
+
+def _status(method: str, url: str, key: str | None, extra: dict | None = None) -> str:
+    headers = dict(extra or {})
+    if key is not None:
+        headers["Authorization"] = f"Bearer {key}"
     try:
-        resp = request_json(method, url, headers={"Authorization": f"Bearer {key}"}, retries=0, timeout=20)
+        resp = request_json(method, url, headers=headers, retries=0, timeout=20)
     except HttpError as exc:
         body = exc.body[:160].replace(key, "***") if key else exc.body[:160]
         return f"HTTP {exc.status} {body}"
@@ -45,4 +54,32 @@ def diagnose() -> int:
             if inbox:
                 print(f"[key {label}] {region} GET /v0/inboxes/<inbox> -> "
                       f"{_status('GET', f'{base}/v0/inboxes/{quote(inbox.strip(), safe=chr(64))}', k)}")
+    base = ENDPOINTS["US (api.agentmail.to)"]
+    url = f"{base}/v0/inboxes"
+    print("--- baselines (tell a gateway/UA block apart from a rejected key) ---")
+    print(f"no Authorization header -> {_status('GET', url, None)}")
+    print(f"garbage key 'am_invalid_diagnostic' -> {_status('GET', url, 'am_invalid_diagnostic')}")
+    print(f"real key, our User-Agent -> {_status('GET', url, clean)}")
+    print(f"real key, SDK User-Agent + X-Fern headers -> {_status('GET', url, clean, SDK_HEADERS)}")
+    _sdk_check(clean, inbox.strip())
     return 0
+
+
+def _sdk_check(key: str, inbox: str) -> None:
+    """Same read through the official SDK, if installed (pip install agentmail)."""
+    try:
+        from agentmail import AgentMail  # type: ignore
+    except ImportError:
+        print("official agentmail SDK: not installed (skipped)")
+        return
+    client = AgentMail(api_key=key)
+    for label, call in (("inboxes.list()", lambda: client.inboxes.list()),
+                        ("inboxes.get(<inbox>)", lambda: client.inboxes.get(inbox))):
+        try:
+            resp = call()
+            n = len(getattr(resp, "inboxes", None) or []) if label.startswith("inboxes.list") else 1
+            print(f"official SDK {label} -> OK ({n} inbox(es))")
+        except Exception as exc:  # noqa: BLE001 - diagnostic only
+            code = getattr(exc, "status_code", "?")
+            body = str(getattr(exc, "body", "") or exc)[:160].replace(key, "***")
+            print(f"official SDK {label} -> {type(exc).__name__} status={code} {body}")
