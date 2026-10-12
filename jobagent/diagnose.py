@@ -1,6 +1,7 @@
 """Read-only AgentMail credential diagnostics. Never sends mail; never prints secret values."""
 from __future__ import annotations
 
+import hashlib
 import os
 from urllib.parse import quote
 
@@ -36,11 +37,18 @@ def _status(method: str, url: str, key: str | None, extra: dict | None = None) -
     return "HTTP 200"
 
 
+def _fingerprint(key: str) -> str:
+    """Non-reversible identity of the key, so two runs show whether the secret changed."""
+    k = key.strip()
+    prefix = k.split("_", 1)[0] + "_" if "_" in k[:8] else "(no short prefix)"
+    return f"prefix={prefix} sha256[:10]={hashlib.sha256(k.encode()).hexdigest()[:10]}"
+
+
 def diagnose() -> int:
     key = os.environ.get("AGENTMAIL_API_KEY", "")
     inbox = os.environ.get("AGENTMAIL_INBOX_ID", "")
     recipient = os.environ.get("ALERT_RECIPIENT", "")
-    print(_shape("AGENTMAIL_API_KEY", key))
+    print(_shape("AGENTMAIL_API_KEY", key) + f" {_fingerprint(key)}")
     print(_shape("AGENTMAIL_INBOX_ID", inbox) + f" looks like an email address={'@' in inbox} "
           f"domain={inbox.split('@', 1)[1] if '@' in inbox else '(none)'}")
     print(_shape("ALERT_RECIPIENT", recipient) + f" looks like an email address={'@' in recipient}")
