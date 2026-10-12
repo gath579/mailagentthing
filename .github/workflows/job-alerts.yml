@@ -55,7 +55,7 @@ jobs:
 
       - name: Run
         env:
-          AGENTMAIL_API_KEY: ${{ secrets.AGENTMAIL_API_KEY }}
+          AGENTMAIL_API_KEY: ${{ secrets.AGENTMAIL_API_KEY_2 || secrets.AGENTMAIL_API_KEY }}
           AGENTMAIL_INBOX_ID: ${{ secrets.AGENTMAIL_INBOX_ID }}
           ALERT_RECIPIENT: ${{ secrets.ALERT_RECIPIENT }}
           EVENT: ${{ github.event_name }}
