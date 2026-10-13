@@ -27,8 +27,11 @@ on:
   # Pushes to the development branch run a dry run only (never sends).
   push:
     branches: [claude/wizardly-lovelace-451nmf]
-  # Hourly schedule is intentionally NOT enabled yet. It gets added only after
-  # the matching has been reviewed and one real email has been sent and verified.
+  # Hourly: discover, score and email new Strong/Good matches. Enabled after the first
+  # real email was sent, verified and confirmed received. GitHub only runs schedules
+  # from the default branch, so this takes effect once merged to main.
+  schedule:
+    - cron: "17 * * * *"
 
 permissions:
   contents: write   # commit state/sent.json back after sends
