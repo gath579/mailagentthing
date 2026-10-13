@@ -5,9 +5,9 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "dry-run: score + previews only; send: email via AgentMail; probe: find live employer boards"
+        description: "dry-run: score + previews only; send: email via AgentMail; scheduled: hourly send (used by the external timer); probe: find live employer boards"
         type: choice
-        options: [dry-run, send, probe, investigate, inboxes, diagnose]
+        options: [dry-run, send, scheduled, probe, investigate, inboxes, diagnose]
         default: dry-run
       max_emails:
         description: "Max emails this run (blank = config default)"
@@ -87,7 +87,7 @@ jobs:
             exit 0
           fi
           args="--out out"
-          if [ "$EVENT" = "schedule" ]; then args="$args --send --scheduled"; fi
+          if [ "$EVENT" = "schedule" ] || [ "$MODE" = "scheduled" ]; then args="$args --send --scheduled"; fi
           if [ "$MODE" = "send" ]; then args="$args --send"; fi
           if [ -n "$MAX_EMAILS" ]; then args="$args --max-emails $MAX_EMAILS"; fi
           if [ "$REQUIRE_SENT" = "true" ]; then args="$args --require-sent"; fi
