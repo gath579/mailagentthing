@@ -1,5 +1,6 @@
 name: Job alerts
 
+
 on:
   workflow_dispatch:
     inputs:
