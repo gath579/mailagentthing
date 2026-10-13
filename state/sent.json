@@ -17,9 +17,54 @@
       "new_unsent": 110,
       "sent": 1,
       "started_at": "2026-10-12T17:59:18.031242+00:00"
+    },
+    {
+      "discovered": 14687,
+      "failed": 0,
+      "matched": 115,
+      "mode": "send",
+      "new_unsent": 114,
+      "sent": 8,
+      "started_at": "2026-10-13T09:31:17.106707+00:00"
     }
   ],
   "sent": {
+    "bosch group|ui designer|bangalore in": {
+      "company": "Bosch Group",
+      "message_id": "<010001a1349b5b01-fa7f1ca7-3361-4618-9d30-8de726e2dbbb-000000@email.amazonses.com>",
+      "score": 70.0,
+      "sent_at": "2026-10-13T09:31:17.106707+00:00",
+      "source_key": "uxjobs:bosch group:ui-designer-bosch-group-zokz53",
+      "thread_id": "1df88dc9-6b06-4d59-8a12-cbb7c7239468",
+      "tier": "Good",
+      "title": "UI Designer",
+      "url": "https://jobs.smartrecruiters.com/BoschGroup/744000154986318",
+      "verified": true
+    },
+    "bosch group|ux designer|bangalore in": {
+      "company": "Bosch Group",
+      "message_id": "<010001a1349b5d1b-8130d811-1476-4ee4-85c5-a9ab2fed09a1-000000@email.amazonses.com>",
+      "score": 68.0,
+      "sent_at": "2026-10-13T09:31:17.106707+00:00",
+      "source_key": "uxjobs:bosch group:ux-designer-bosch-group-vsps2o",
+      "thread_id": "97124f85-8fb9-41ed-a008-a11a66d79084",
+      "tier": "Good",
+      "title": "UX Designer",
+      "url": "https://jobs.smartrecruiters.com/BoschGroup/744000154383185",
+      "verified": true
+    },
+    "entermotion|product designer|remote worldwide": {
+      "company": "Entermotion",
+      "message_id": "<010001a1349b5f36-32532daa-9205-496d-b07d-3da966a2eb4f-000000@email.amazonses.com>",
+      "score": 64.0,
+      "sent_at": "2026-10-13T09:31:17.106707+00:00",
+      "source_key": "uxjobs:entermotion:product-designer-entermotion-2zmfxo",
+      "thread_id": "e269f776-895f-4774-9541-b9d46e716262",
+      "tier": "Good",
+      "title": "Product Designer",
+      "url": "https://entermotion.breezy.hr/p/3ce16af7f896-product-designer",
+      "verified": true
+    },
     "glance|ux designer|bangalore": {
       "company": "Glance",
       "message_id": "<010001a131455c27-38204b0a-6147-4c89-9569-ab7e0a87c01a-000000@email.amazonses.com>",
@@ -30,6 +75,66 @@
       "tier": "Strong",
       "title": "UX Designer",
       "url": "https://job-boards.greenhouse.io/glance/jobs/8090486",
+      "verified": true
+    },
+    "globalli|junior product designer|remote india pakistan": {
+      "company": "Globalli",
+      "message_id": "<010001a1349b55fc-ab326725-4ce9-41a6-9ad1-f009c90dff44-000000@email.amazonses.com>",
+      "score": 84.0,
+      "sent_at": "2026-10-13T09:31:17.106707+00:00",
+      "source_key": "greenhouse:globalli:5241585007",
+      "thread_id": "6b444d9d-acb6-42b6-984e-022ba6550adb",
+      "tier": "Strong",
+      "title": "Junior Product Designer",
+      "url": "https://job-boards.greenhouse.io/globalli/jobs/5241585007",
+      "verified": true
+    },
+    "jito|product designer|remote worldwide but must be willing to attend regular est meetings": {
+      "company": "Jito",
+      "message_id": "<010001a1349b6422-de023e7e-6403-45da-8dda-1acce21fc24a-000000@email.amazonses.com>",
+      "score": 64.0,
+      "sent_at": "2026-10-13T09:31:17.106707+00:00",
+      "source_key": "uxjobs:jito:product-designer-jito-gxvonb",
+      "thread_id": "96560427-3406-4809-a210-97a33548dd63",
+      "tier": "Good",
+      "title": "Product Designer",
+      "url": "https://jobs.lever.co/jito/97151aba-e3eb-483d-b56c-34711b873760",
+      "verified": true
+    },
+    "particle41|ui ux designer|india remote": {
+      "company": "Particle41",
+      "message_id": "<010001a1349b61d0-02be884a-d51b-4988-85ee-f4b19c732bfd-000000@email.amazonses.com>",
+      "score": 64.0,
+      "sent_at": "2026-10-13T09:31:17.106707+00:00",
+      "source_key": "uxjobs:particle41:ui-ux-designer-particle41-zsmsr6",
+      "thread_id": "a63ec068-f809-46c4-aafe-95dd911f09e5",
+      "tier": "Good",
+      "title": "UI/UX Designer",
+      "url": "https://job-boards.greenhouse.io/particle41llc/jobs/5432621008",
+      "verified": true
+    },
+    "servicenow|ui ux designer|hyderabad india": {
+      "company": "ServiceNow",
+      "message_id": "<010001a1349b53a5-fdfe42ba-2cb0-45d5-a5f3-a6bd9d84e616-000000@email.amazonses.com>",
+      "score": 85.0,
+      "sent_at": "2026-10-13T09:31:17.106707+00:00",
+      "source_key": "smartrecruiters:servicenow:744000154931529",
+      "thread_id": "06308306-8f0d-444b-a40f-b982e66bafe9",
+      "tier": "Strong",
+      "title": "UI/UX Designer",
+      "url": "https://jobs.smartrecruiters.com/ServiceNow/744000154931529-ui-ux-designer",
+      "verified": true
+    },
+    "simply vyapar apps private|product designer|bangalore": {
+      "company": "SIMPLY VYAPAR APPS PRIVATE",
+      "message_id": "<010001a1349b58bd-b4e6808a-e37f-46a9-be24-a02a89104652-000000@email.amazonses.com>",
+      "score": 74.0,
+      "sent_at": "2026-10-13T09:31:17.106707+00:00",
+      "source_key": "uxjobs:simply vyapar apps private:product-designer-simply-vyapar-apps-private-t91hv5",
+      "thread_id": "cfa7ed65-7099-46e4-a750-adbfaaabebdd",
+      "tier": "Good",
+      "title": "Product Designer",
+      "url": "https://vyaparapp.keka.com/careers/jobdetails/132996",
       "verified": true
     }
   },
