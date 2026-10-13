@@ -1,0 +1,123 @@
+name: Job alerts
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "dry-run: score + previews only; send: email via AgentMail; probe: find live employer boards"
+        type: choice
+        options: [dry-run, send, probe, investigate, inboxes, diagnose]
+        default: dry-run
+      max_emails:
+        description: "Max emails this run (blank = config default)"
+        type: string
+        default: ""
+      only_url:
+        description: "Send only this posting URL (blank = all sendable jobs)"
+        type: string
+        default: ""
+      show_urls:
+        description: "Space-separated posting URLs to print full analysis + email for"
+        type: string
+        default: ""
+      require_sent:
+        description: "Fail unless at least one job is emailed"
+        type: boolean
+        default: false
+  # Pushes to the development branch run a dry run only (never sends).
+  push:
+    branches: [claude/wizardly-lovelace-451nmf]
+  # Hourly: discover, score and email new Strong/Good matches. Enabled after the first
+  # real email was sent, verified and confirmed received. GitHub only runs schedules
+  # from the default branch, so this takes effect once merged to main.
+  schedule:
+    - cron: "17 * * * *"
+
+permissions:
+  contents: write   # commit state/sent.json back after sends
+
+concurrency:
+  group: job-alerts
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Unit tests
+        run: |
+          pip install -q pytest
+          python -m pytest -q
+
+      - name: Run
+        env:
+          AGENTMAIL_API_KEY: ${{ secrets.AGENTMAIL_API_KEY_2 || secrets.AGENTMAIL_API_KEY }}
+          AGENTMAIL_INBOX_ID: ${{ secrets.AGENTMAIL_INBOX_ID }}
+          ALERT_RECIPIENT: ${{ secrets.ALERT_RECIPIENT }}
+          EVENT: ${{ github.event_name }}
+          MODE: ${{ inputs.mode }}
+          MAX_EMAILS: ${{ inputs.max_emails }}
+          REQUIRE_SENT: ${{ inputs.require_sent }}
+          ONLY_URL: ${{ inputs.only_url }}
+          SHOW_URLS: ${{ inputs.show_urls }}
+        run: |
+          if [ "$MODE" = "diagnose" ]; then
+            pip install -q agentmail || echo "agentmail SDK install failed"
+            python -m jobagent diagnose
+            exit 0
+          fi
+          if [ "$MODE" = "inboxes" ]; then
+            python -m jobagent inboxes
+            exit 0
+          fi
+          if [ "$MODE" = "investigate" ]; then
+            python -m jobagent investigate | tee out-investigate.txt
+            exit 0
+          fi
+          if [ "$MODE" = "probe" ]; then
+            python -m jobagent probe --out out
+            exit 0
+          fi
+          args="--out out"
+          if [ "$EVENT" = "schedule" ]; then args="$args --send --scheduled"; fi
+          if [ "$MODE" = "send" ]; then args="$args --send"; fi
+          if [ -n "$MAX_EMAILS" ]; then args="$args --max-emails $MAX_EMAILS"; fi
+          if [ "$REQUIRE_SENT" = "true" ]; then args="$args --require-sent"; fi
+          set -- $args
+          if [ -n "$ONLY_URL" ]; then set -- "$@" --only-url "$ONLY_URL"; fi
+          for u in $SHOW_URLS; do set -- "$@" --show-url "$u"; done
+          python -m jobagent "$@"
+
+      - name: Upload run output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: job-alerts-${{ github.run_id }}
+          path: out/
+          if-no-files-found: ignore
+
+      - name: Commit sent-state
+        # always(): jobs already emailed must be recorded even if a later send failed
+        if: always()
+        run: |
+          if [ -z "$(git status --porcelain -- state/)" ]; then
+            echo "state unchanged"
+            exit 0
+          fi
+          git config user.name "job-alerts-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add state/sent.json
+          git commit -m "Record sent job alerts (run ${{ github.run_id }})"
+          for i in 1 2 3; do
+            git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}" && exit 0
+            sleep $((i * 5))
+          done
+          echo "::error::failed to push state; next run may resend (AgentMail idempotency key covers 24h)"
+          exit 1

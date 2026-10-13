@@ -1,0 +1,1007 @@
+# Product Design job scout configuration.
+# Secrets (AgentMail key, inbox, recipient) come from environment variables.
+
+[candidate]
+name = "Gaargee Athavale"
+portfolio = "https://gaargees-portfolio.framer.website/"
+years = "2+"
+intro = "I'm Gaargee Athavale, a product designer and illustrator with 2+ years of experience designing across web and mobile."
+
+# ---------------------------------------------------------------------------
+[profile]
+# Junior-to-mid product / UX roles. A title must contain one of these.
+title_core = [
+  "product designer", "product design", "designer product", "ui ux designer", "ux ui designer",
+  "ui ux design", "ux designer", "ui designer", "user experience designer", "user interface designer",
+  "interaction designer", "ixd", "product experience designer", "experience designer",
+  "app designer", "mobile designer",
+]
+title_related = ["service designer", "design generalist", "ux design", "ui design"]
+title_exclude = [
+  "senior", "sr", "snr", "staff", "principal", "lead", "leader", "manager", "director", "head",
+  "vp", "vice president", "chief", "intern", "internship", "trainee", "apprentice",
+  "graphic", "brand", "branding", "marketing", "web designer", "web production", "webflow designer",
+  "engineer", "engineering", "developer", "game", "level designer", "instructional",
+  "motion", "content designer", "industrial", "interior", "fashion", "packaging", "print",
+]
+# Excluded unless the title also says "designer" (e.g. "UX Designer & Researcher" is fine).
+title_exclude_unless_designer = ["researcher", "research"]
+experience_target = [2, 4]
+experience_reject_min = 6      # explicit 6+ years requirements are rejected
+# Listing age bands: 0-fresh_days highest priority; up to normal_days normal;
+# up to stale_days deprioritized + needs confirmation it is active; older: excluded
+# unless confirmed active in [[verified]].
+fresh_days = 30
+normal_days = 90
+stale_days = 180
+min_score = 50
+strong_score = 75
+good_score = 62
+
+[locations]
+tier1 = ["pune", "mumbai", "navi mumbai", "thane", "bangalore", "bengaluru"]
+tier2 = ["hyderabad"]
+other_india = ["chennai", "kolkata", "ahmedabad", "kochi", "jaipur", "indore", "chandigarh",
+               "coimbatore", "goa", "mysore", "mysuru", "trivandrum", "thiruvananthapuram", "vadodara", "nagpur"]
+deprioritized = ["delhi", "new delhi", "ncr", "delhi ncr", "gurugram", "gurgaon", "noida", "greater noida",
+                 "ghaziabad", "faridabad", "uttar pradesh", "lucknow"]
+# A remote role counts as open to India when its location mentions one of these.
+remote_ok_regions = ["india", "worldwide", "anywhere in the world", "global", "globally", "apac",
+                     "asia", "asia pacific", "south asia", "all countries"]
+
+# ---------------------------------------------------------------------------
+# Role signals: each matched signal adds its weight (capped at 20 total).
+[[signals]]
+name = "end_to_end"
+label = "end-to-end product ownership"
+weight = 4
+patterns = ["end to end", "0 to 1", "zero to one", "concept to launch", "idea to launch", "own the design",
+            "ownership", "own features", "full lifecycle"]
+
+[[signals]]
+name = "problem_definition"
+label = "problem definition"
+weight = 3
+patterns = ["problem definition", "define problems", "defining problems", "problem framing", "frame problems",
+            "problem space", "product discovery", "discovery", "identify problems", "define the problem"]
+
+[[signals]]
+name = "interaction"
+label = "interaction/flow design"
+weight = 3
+patterns = ["interaction design", "user flows", "user flow", "flows", "user journeys", "journeys",
+            "information architecture", "wireframes", "wireframing"]
+
+[[signals]]
+name = "research"
+label = "user research / usability testing"
+weight = 3
+patterns = ["user research", "usability testing", "usability tests", "user testing", "user interviews",
+            "research insights", "talk to users", "user feedback"]
+
+[[signals]]
+name = "figma_prototyping"
+label = "Figma & prototyping"
+weight = 3
+patterns = ["figma", "prototyp*"]
+
+[[signals]]
+name = "design_systems"
+label = "design systems"
+weight = 3
+patterns = ["design system", "design systems", "component library", "design language", "ui kit"]
+
+[[signals]]
+name = "collaboration"
+label = "close PM/engineering collaboration"
+weight = 2
+patterns = ["product managers", "product manager", "engineers", "engineering team", "cross functional",
+            "developers", "stakeholders"]
+
+[[signals]]
+name = "complex"
+label = "complex states/workflows"
+weight = 3
+patterns = ["complex workflows", "complex problems", "complex systems", "edge cases", "error states",
+            "empty states", "states", "permissions", "notifications", "workflows"]
+
+[[signals]]
+name = "consumer"
+label = "consumer / frequently used product"
+weight = 3
+patterns = ["consumer", "b2c", "millions of users", "daily active", "mobile app", "everyday", "end users"]
+
+[[signals]]
+name = "edtech"
+label = "education domain"
+weight = 1
+patterns = ["edtech", "ed tech", "education", "e learning", "elearning", "learning platform", "learners",
+            "students", "parents", "teachers", "children", "kids"]
+
+# Weight 0: used only to pick portfolio projects, not for ranking.
+[[signals]]
+name = "ai_automation"
+label = "AI / automation"
+weight = 0
+patterns = ["ai", "artificial intelligence", "llm", "automation", "machine learning", "genai", "generative"]
+
+[[signals]]
+name = "productivity_tools"
+label = "productivity / browser tools"
+weight = 0
+patterns = ["browser extension", "chrome extension", "productivity", "email", "gmail", "workspace tools"]
+
+# Concerns: surfaced in emails, never score points.
+[[concerns]]
+name = "quantitative"
+label = "Expects quantitative / experimentation skills (A/B tests, analytics, SQL) — don't overstate data experience"
+patterns = ["a b test*", "ab test*", "sql", "data analysis", "quantitative", "experimentation", "data driven",
+            "data informed", "analytics"]
+
+[[concerns]]
+name = "enterprise"
+label = "Enterprise / B2B SaaS focus — limited direct enterprise experience"
+patterns = ["enterprise", "b2b saas", "b2b", "saas platform"]
+
+[[concerns]]
+name = "research_heavy"
+label = "Research-heavy expectations — formal research experience is limited"
+patterns = ["lead research", "research strategy", "mixed methods", "research program", "research plans",
+            "plan and conduct research"]
+
+[[concerns]]
+name = "early_stage"
+label = "Early-stage company — check maturity of research/design process"
+patterns = ["seed", "series a", "early stage", "founding designer", "founding team", "pre seed"]
+
+[[concerns]]
+name = "tv_platform"
+label = "Includes TV / 10-foot UI — no TV work in your portfolio yet"
+patterns = ["connected tv", "smart tv", "living room", "ten feet", "10 foot", "10 ft", "android tv", "tv app"]
+
+[[concerns]]
+name = "ai_native"
+label = "AI-native expectations — present FinalCheck as an experiment; don't overstate AI expertise"
+patterns = ["ai fluency", "ai as a design material", "agentic", "generative ai", "genai", "llm", "ai native"]
+
+[[concerns]]
+name = "small_team"
+label = "Small design team — less built-in mentorship and research infrastructure"
+patterns = ["design team is small", "small design team", "team of one", "first designer", "solo designer"]
+
+[[concerns]]
+name = "agency"
+label = "Agency / client-services environment rather than an in-house product"
+patterns = ["agency", "client projects", "our clients"]
+
+# ---------------------------------------------------------------------------
+# Portfolio projects: factual statements only. Edit wording here, not in code.
+[[projects]]
+name = "Hapchi"
+always = true
+triggers = ["end_to_end", "problem_definition", "design_systems", "complex", "collaboration", "edtech", "interaction"]
+why = "Hapchi (ed-tech startup): web + mobile work with substantial UI/UX ownership — stakeholder and domain-expert collaboration, competitor research, flows, UI, developer handoff and bug testing. A two-screen Profile/Settings brief grew into a broader system after you identified connected problems across profiles, permissions, child management, progress and notifications."
+pitch = "At Hapchi, an ed-tech startup, I work across web and mobile with substantial UI/UX ownership: collaborating with stakeholders and domain experts, doing competitor research, mapping flows, designing UI, handing off to developers and bug-testing builds. One brief started as two Profile/Settings screens and grew into a broader system once I identified connected problems across profiles, permissions, child management, progress and notifications."
+
+[[projects]]
+name = "PlayStation Remote Downloads"
+triggers = ["complex", "consumer", "problem_definition"]
+why = "PlayStation Remote Downloads (self-initiated case study): diagnostic, system-level thinking about hidden states, delayed failure and feedback."
+pitch = "In a self-initiated case study on PlayStation Remote Downloads, I worked through hidden states, delayed failure and feedback — how a system should tell people what is actually happening."
+
+[[projects]]
+name = "FinalCheck"
+triggers = ["ai_automation", "productivity_tools"]
+why = "FinalCheck: a shipped Gmail/Chrome pre-send review extension built as an experiment with AI-assisted development — shows initiative and interest in where automation should hand off to human review."
+pitch = "I also built and shipped FinalCheck, a Gmail/Chrome pre-send review extension, as an experiment with AI-assisted development and with where automation should hand off to human review."
+
+# ---------------------------------------------------------------------------
+[email]
+max_emails_per_run = 10   # remaining new matches roll over to the next hourly run
+# Only these tiers are emailed automatically. Possible matches appear in dry-run reports only.
+send_tiers = ["Strong", "Good"]
+# Before sending, the posting URL must load and show no closed/expired markers.
+require_live_link = true
+
+# ---------------------------------------------------------------------------
+[verification]
+valid_days = 14   # how long an active_confirmed_on date counts as current
+
+# Manual verifications. Conditional matches (India eligibility unconfirmed, or a
+# 91+ day old listing) are never emailed automatically. Record what you have
+# confirmed here and the next run treats the job accordingly. Match by `url`.
+#   india_eligible = true | false   (false rejects the job)
+#   active_confirmed_on = "YYYY-MM-DD"  (valid for verification.valid_days)
+# Example:
+# [[verified]]
+# url = "https://bitwarden.com/careers/8013629003/?gh_jid=8013629003"
+# india_eligible = true
+# active_confirmed_on = "2026-10-08"
+# note = "Recruiter confirmed India hiring by email"
+
+[state]
+path = "state/sent.json"
+
+# ---------------------------------------------------------------------------
+# Multi-employer feeds (public APIs / RSS). On scheduled runs each is fetched
+# only every `min_interval_hours` to respect the providers' rate guidance.
+[[feeds]]
+source = "uxjobs"            # design-specialist board; index read at most every 6h
+query = "design"
+min_interval_hours = 6
+
+[[feeds]]
+source = "remotive"
+query = "design"
+min_interval_hours = 6
+
+[[feeds]]
+source = "remoteok"
+query = "design"
+min_interval_hours = 3
+
+[[feeds]]
+source = "jobicy"
+query = "designer"
+min_interval_hours = 6
+
+[[feeds]]
+source = "himalayas"
+query = "product designer"
+min_interval_hours = 3
+
+[[feeds]]
+source = "weworkremotely"
+query = "remote-design-jobs"
+min_interval_hours = 2
+
+# ---------------------------------------------------------------------------
+# Company boards: populated from the discovery probe (discovery/candidates.toml).
+# size = large | mid | startup affects ranking only.
+
+# Verified live by the discovery probe (2026-10-07). Re-run `probe` to refresh.
+[[companies]]
+source = "smartrecruiters"
+slug = "servicenow"
+name = "ServiceNow"
+size = "large"
+
+[[companies]]
+source = "ashby"
+slug = "tekion"
+name = "Tekion"
+size = "mid"
+
+[[companies]]
+source = "lever"
+slug = "mindtickle"
+name = "Mindtickle"
+size = "mid"
+
+[[companies]]
+source = "smartrecruiters"
+slug = "mindtickle"
+name = "Mindtickle"
+size = "mid"
+
+[[companies]]
+source = "smartrecruiters"
+slug = "swiggy"
+name = "Swiggy"
+size = "large"
+
+[[companies]]
+source = "ashby"
+slug = "sarvam"
+name = "Sarvam AI"
+size = "startup"
+
+[[companies]]
+source = "lever"
+slug = "gohighlevel"
+name = "HighLevel"
+size = "mid"
+
+[[companies]]
+source = "lever"
+slug = "paytm"
+name = "Paytm"
+size = "large"
+
+[[companies]]
+source = "greenhouse"
+slug = "zetaglobal"
+name = "Zeta Global"
+size = "large"
+
+[[companies]]
+source = "smartrecruiters"
+slug = "freshworks"
+name = "Freshworks"
+size = "large"
+
+[[companies]]
+source = "lever"
+slug = "meesho"
+name = "Meesho"
+size = "large"
+
+[[companies]]
+source = "lever"
+slug = "hevodata"
+name = "Hevo Data"
+size = "startup"
+
+[[companies]]
+source = "greenhouse"
+slug = "hackerrank"
+name = "HackerRank"
+size = "mid"
+
+[[companies]]
+source = "smartrecruiters"
+slug = "hackerrank"
+name = "HackerRank"
+size = "mid"
+
+[[companies]]
+source = "lever"
+slug = "fampay"
+name = "FamPay"
+size = "startup"
+
+[[companies]]
+source = "workable"
+slug = "leena-ai"
+name = "Leena AI"
+size = "startup"
+
+[[companies]]
+source = "greenhouse"
+slug = "stripe"
+name = "Stripe"
+size = "large"
+
+[[companies]]
+source = "greenhouse"
+slug = "figma"
+name = "Figma"
+size = "large"
+
+[[companies]]
+source = "smartrecruiters"
+slug = "wise"
+name = "Wise"
+size = "large"
+
+[[companies]]
+source = "greenhouse"
+slug = "wise"
+name = "Wise"
+size = "large"
+
+[[companies]]
+source = "smartrecruiters"
+slug = "canva"
+name = "Canva"
+size = "large"
+
+[[companies]]
+source = "smartrecruiters"
+slug = "grab"
+name = "Grab"
+size = "large"
+
+[[companies]]
+source = "greenhouse"
+slug = "glance"
+name = "Glance"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "pinterest"
+name = "Pinterest"
+size = "large"
+
+[[companies]]
+source = "greenhouse"
+slug = "instacart"
+name = "Instacart"
+size = "large"
+
+[[companies]]
+source = "greenhouse"
+slug = "discord"
+name = "Discord"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "agoda"
+name = "Agoda"
+size = "large"
+
+[[companies]]
+source = "greenhouse"
+slug = "intercom"
+name = "Intercom"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "asana"
+name = "Asana"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "airbnb"
+name = "Airbnb"
+size = "large"
+
+[[companies]]
+source = "greenhouse"
+slug = "duolingo"
+name = "Duolingo"
+size = "large"
+
+[[companies]]
+source = "greenhouse"
+slug = "reddit"
+name = "Reddit"
+size = "large"
+
+[[companies]]
+source = "ashby"
+slug = "notion"
+name = "Notion"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "smartsheet"
+name = "Smartsheet"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "lyft"
+name = "Lyft"
+size = "large"
+
+[[companies]]
+source = "lever"
+slug = "spotify"
+name = "Spotify"
+size = "large"
+
+[[companies]]
+source = "greenhouse"
+slug = "inmobi"
+name = "InMobi"
+size = "large"
+
+[[companies]]
+source = "greenhouse"
+slug = "observeai"
+name = "Observe.AI"
+size = "startup"
+
+[[companies]]
+source = "ashby"
+slug = "zapier"
+name = "Zapier"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "gitlab"
+name = "GitLab"
+size = "large"
+
+[[companies]]
+source = "ashby"
+slug = "clickup"
+name = "ClickUp"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "thoughtworks"
+name = "Thoughtworks"
+size = "large"
+
+[[companies]]
+source = "lever"
+slug = "contentsquare"
+name = "Contentsquare"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "webflow"
+name = "Webflow"
+size = "mid"
+
+[[companies]]
+source = "ashby"
+slug = "mural"
+name = "Mural"
+size = "mid"
+
+[[companies]]
+source = "lever"
+slug = "fi"
+name = "Fi Money"
+size = "mid"
+
+[[companies]]
+source = "lever"
+slug = "epifi"
+name = "Fi Money"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "stage"
+name = "STAGE"
+size = "startup"
+
+[[companies]]
+source = "greenhouse"
+slug = "druva"
+name = "Druva"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "turing"
+name = "Turing"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "dropbox"
+name = "Dropbox"
+size = "large"
+
+[[companies]]
+source = "lever"
+slug = "zeta"
+name = "Zeta"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "slice"
+name = "slice"
+size = "mid"
+
+[[companies]]
+source = "ashby"
+slug = "miro"
+name = "Miro"
+size = "mid"
+
+[[companies]]
+source = "lever"
+slug = "linkedin"
+name = "LinkedIn"
+size = "large"
+
+[[companies]]
+source = "greenhouse"
+slug = "coursera"
+name = "Coursera"
+size = "large"
+
+[[companies]]
+source = "ashby"
+slug = "spotdraft"
+name = "SpotDraft"
+size = "startup"
+
+[[companies]]
+source = "smartrecruiters"
+slug = "ixigo"
+name = "ixigo"
+size = "mid"
+
+[[companies]]
+source = "lever"
+slug = "pocketfm"
+name = "Pocket FM"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "calendly"
+name = "Calendly"
+size = "mid"
+
+[[companies]]
+source = "lever"
+slug = "cred"
+name = "CRED"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "udemy"
+name = "Udemy"
+size = "large"
+
+[[companies]]
+source = "greenhouse"
+slug = "groww"
+name = "Groww"
+size = "large"
+
+[[companies]]
+source = "ashby"
+slug = "atlan"
+name = "Atlan"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "verse"
+name = "VerSe Innovation"
+size = "mid"
+
+[[companies]]
+source = "lever"
+slug = "eternal"
+name = "Eternal (Zomato)"
+size = "large"
+
+[[companies]]
+source = "greenhouse"
+slug = "airtable"
+name = "Airtable"
+size = "mid"
+
+[[companies]]
+source = "smartrecruiters"
+slug = "unacademy"
+name = "Unacademy"
+size = "mid"
+
+[[companies]]
+source = "ashby"
+slug = "navi"
+name = "Navi"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "remote"
+name = "Remote.com"
+size = "mid"
+
+[[companies]]
+source = "smartrecruiters"
+slug = "cars24"
+name = "CARS24"
+size = "large"
+
+[[companies]]
+source = "smartrecruiters"
+slug = "interviewbit"
+name = "InterviewBit"
+size = "mid"
+
+[[companies]]
+source = "smartrecruiters"
+slug = "upstox"
+name = "Upstox"
+size = "large"
+
+[[companies]]
+source = "smartrecruiters"
+slug = "nobroker"
+name = "NoBroker"
+size = "mid"
+
+[[companies]]
+source = "lever"
+slug = "hevo"
+name = "Hevo Data"
+size = "startup"
+
+[[companies]]
+source = "smartrecruiters"
+slug = "whatfix"
+name = "Whatfix"
+size = "mid"
+
+[[companies]]
+source = "smartrecruiters"
+slug = "uber"
+name = "Uber"
+size = "large"
+
+# Added from probe batch 2 (2026-10-07).
+[[companies]]
+source = "greenhouse"
+slug = "rubrik"
+name = "Rubrik"
+size = "large"
+
+[[companies]]
+source = "lever"
+slug = "netomi"
+name = "Netomi"
+size = "startup"
+
+[[companies]]
+source = "greenhouse"
+slug = "elastic"
+name = "Elastic"
+size = "large"
+
+[[companies]]
+source = "greenhouse"
+slug = "razorpaysoftwareprivatelimited"
+name = "Razorpay"
+size = "large"
+
+[[companies]]
+source = "lever"
+slug = "porter"
+name = "Porter"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "porter"
+name = "Porter"
+size = "mid"
+
+[[companies]]
+source = "smartrecruiters"
+slug = "lendingkart"
+name = "Lendingkart"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "brex"
+name = "Brex"
+size = "large"
+
+[[companies]]
+source = "ashby"
+slug = "airwallex"
+name = "Airwallex"
+size = "large"
+
+[[companies]]
+source = "greenhouse"
+slug = "datadog"
+name = "Datadog"
+size = "large"
+
+[[companies]]
+source = "greenhouse"
+slug = "canonical"
+name = "Canonical"
+size = "large"
+
+[[companies]]
+source = "ashby"
+slug = "lovable"
+name = "Lovable"
+size = "startup"
+
+[[companies]]
+source = "greenhouse"
+slug = "lovable"
+name = "Lovable"
+size = "startup"
+
+[[companies]]
+source = "ashby"
+slug = "perplexity"
+name = "Perplexity"
+size = "mid"
+
+[[companies]]
+source = "ashby"
+slug = "linear"
+name = "Linear"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "mercury"
+name = "Mercury"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "zscaler"
+name = "Zscaler"
+size = "large"
+
+[[companies]]
+source = "greenhouse"
+slug = "vercel"
+name = "Vercel"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "proton"
+name = "Proton"
+size = "mid"
+
+[[companies]]
+source = "ashby"
+slug = "replit"
+name = "Replit"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "bitwarden"
+name = "Bitwarden"
+size = "mid"
+
+[[companies]]
+source = "ashby"
+slug = "n8n"
+name = "n8n"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "cloudflare"
+name = "Cloudflare"
+size = "large"
+
+[[companies]]
+source = "greenhouse"
+slug = "mixpanel"
+name = "Mixpanel"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "consensys"
+name = "Consensys"
+size = "mid"
+
+[[companies]]
+source = "ashby"
+slug = "consensys"
+name = "Consensys"
+size = "mid"
+
+[[companies]]
+source = "ashby"
+slug = "amplitude"
+name = "Amplitude"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "mongodb"
+name = "MongoDB"
+size = "large"
+
+[[companies]]
+source = "ashby"
+slug = "plaid"
+name = "Plaid"
+size = "large"
+
+[[companies]]
+source = "greenhouse"
+slug = "wikimedia"
+name = "Wikimedia Foundation"
+size = "mid"
+
+[[companies]]
+source = "ashby"
+slug = "dovetail"
+name = "Dovetail"
+size = "startup"
+
+[[companies]]
+source = "greenhouse"
+slug = "grafanalabs"
+name = "Grafana Labs"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "mozilla"
+name = "Mozilla"
+size = "large"
+
+[[companies]]
+source = "ashby"
+slug = "1password"
+name = "1Password"
+size = "mid"
+
+[[companies]]
+source = "ashby"
+slug = "supabase"
+name = "Supabase"
+size = "mid"
+
+[[companies]]
+source = "ashby"
+slug = "attio"
+name = "Attio"
+size = "startup"
+
+[[companies]]
+source = "lever"
+slug = "toptal"
+name = "Toptal"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "pendo"
+name = "Pendo"
+size = "mid"
+
+[[companies]]
+source = "ashby"
+slug = "oyster"
+name = "Oyster"
+size = "mid"
+
+[[companies]]
+source = "greenhouse"
+slug = "brave"
+name = "Brave"
+size = "mid"
+
+[[companies]]
+source = "ashby"
+slug = "posthog"
+name = "PostHog"
+size = "mid"
+
+[[companies]]
+source = "ashby"
+slug = "fullstory"
+name = "FullStory"
+size = "mid"
+
+[[companies]]
+source = "ashby"
+slug = "close"
+name = "Close"
+size = "startup"
+
+[[companies]]
+source = "greenhouse"
+slug = "ghost"
+name = "Ghost"
+size = "startup"
+
+[[companies]]
+source = "ashby"
+slug = "ghost"
+name = "Ghost"
+size = "startup"
+
+[[companies]]
+source = "ashby"
+slug = "hubstaff"
+name = "Hubstaff"
+size = "startup"
+
+# Added 2026-10-08: Globalli's own board (seen via UX Jobs / Himalayas).
+[[companies]]
+source = "greenhouse"
+slug = "globalli"
+name = "Globalli"
+size = "startup"

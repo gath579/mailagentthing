@@ -1,0 +1,37 @@
+{
+  "runs": [
+    {
+      "discovered": 14714,
+      "failed": 1,
+      "matched": 105,
+      "mode": "send",
+      "new_unsent": 105,
+      "sent": 0,
+      "started_at": "2026-10-09T04:11:44.376335+00:00"
+    },
+    {
+      "discovered": 14664,
+      "failed": 0,
+      "matched": 110,
+      "mode": "send",
+      "new_unsent": 110,
+      "sent": 1,
+      "started_at": "2026-10-12T17:59:18.031242+00:00"
+    }
+  ],
+  "sent": {
+    "glance|ux designer|bangalore": {
+      "company": "Glance",
+      "message_id": "<010001a131455c27-38204b0a-6147-4c89-9569-ab7e0a87c01a-000000@email.amazonses.com>",
+      "score": 79.0,
+      "sent_at": "2026-10-12T17:59:18.031242+00:00",
+      "source_key": "greenhouse:glance:8090486",
+      "thread_id": "a3419a5a-69c7-49f3-af90-66a96ac7d0f1",
+      "tier": "Strong",
+      "title": "UX Designer",
+      "url": "https://job-boards.greenhouse.io/glance/jobs/8090486",
+      "verified": true
+    }
+  },
+  "version": 2
+}
