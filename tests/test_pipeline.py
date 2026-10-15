@@ -156,3 +156,24 @@ def test_list_inboxes_uses_bearer_key():
         return {"count": 1, "inboxes": [{"inbox_id": "scout@agentmail.to", "email": "scout@agentmail.to"}]}
     assert list_inboxes("k", request=fake)[0]["inbox_id"] == "scout@agentmail.to"
     assert calls == [("GET", "https://api.agentmail.to/v0/inboxes", {"Authorization": "Bearer k"})]
+
+
+def test_scheduled_runs_remember_feed_fetches(config, tmp_path, secrets):
+    from datetime import timedelta
+    first = _run(config, tmp_path, secrets, FakeAgentMail(), send=True, throttle_feeds=True)
+    assert first["feeds_skipped"] == []                                  # nothing fetched before -> all due
+    fetched = json.loads(config.state_path.read_text())["feeds_fetched"]
+    assert set(fetched) == {f"{f.source}/{f.query}" for f in config.feeds}
+    # an hour later nothing new is sendable; 6h feeds are skipped and the idle run writes no state
+    before = config.state_path.read_text()
+    later = run(config, out_dir=tmp_path / "out2", secrets=secrets, fetchers=fake_fetchers(),
+                client=AgentMailClient(secrets, request=FakeAgentMail()), now=NOW + timedelta(hours=1),
+                link_checker=fake_link_checker(), send=True, throttle_feeds=True, max_emails=100)
+    six_hourly = {f"{f.source}/{f.query}" for f in config.feeds if f.min_interval_hours >= 6}
+    assert six_hourly and six_hourly <= set(later["feeds_skipped"]) and later["sent"] == []
+    # a run 6 hours later (even if started late) fetches them again and records it
+    much_later = run(config, out_dir=tmp_path / "out3", secrets=secrets, fetchers=fake_fetchers(),
+                     client=AgentMailClient(secrets, request=FakeAgentMail()), now=NOW + timedelta(hours=6),
+                     link_checker=fake_link_checker(), send=True, throttle_feeds=True, max_emails=100)
+    assert not six_hourly & set(much_later["feeds_skipped"])
+    assert config.state_path.read_text() != before

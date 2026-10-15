@@ -54,6 +54,14 @@ class SentStore:
         if detail:
             entry["verify_detail"] = detail[:300]
 
+    def feed_fetch_times(self) -> dict[str, str]:
+        return dict(self.data.get("feeds_fetched", {}))
+
+    def record_feed_fetches(self, labels: list[str], now: datetime) -> None:
+        fetched = self.data.setdefault("feeds_fetched", {})
+        for label in labels:
+            fetched[label] = now.isoformat()
+
     def record_run(self, summary: dict) -> None:
         self.data["runs"] = (self.data["runs"] + [summary])[-50:]
 

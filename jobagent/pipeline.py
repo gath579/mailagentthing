@@ -79,8 +79,13 @@ def run(config: Config, *, send: bool, out_dir: Path, secrets: Secrets | None = 
     out_dir.mkdir(parents=True, exist_ok=True)
     summary: dict = {"started_at": now.isoformat(), "mode": "send" if send else "dry-run"}
 
+    store = SentStore(config.state_path)
+
     # 1. Discovery
-    found = discover_jobs(config.companies, config.feeds, fetchers, now=now, throttle_feeds=throttle_feeds)
+    found = discover_jobs(config.companies, config.feeds, fetchers, now=now, throttle_feeds=throttle_feeds,
+                          feed_last_fetched=store.feed_fetch_times())
+    if send:   # remember successful feed fetches so the throttle survives late/irregular scheduled runs
+        store.record_feed_fetches(found.fetched_feeds, now)
     summary.update(discovered=len(found.postings), sources_ok=found.counts, sources_failed=found.errors,
                    feeds_skipped=found.skipped)
 
@@ -110,7 +115,6 @@ def run(config: Config, *, send: bool, out_dir: Path, secrets: Secrets | None = 
           "url": r.job.url} for r in near], indent=2))
 
     # 5. Notification deduplication
-    store = SentStore(config.state_path)
     new = store.unsent(matched)
 
     # 5b. Direct posting-link verification (only matters for jobs that could be sent,
@@ -182,7 +186,8 @@ def run(config: Config, *, send: bool, out_dir: Path, secrets: Secrets | None = 
         summary["sent"] = []
         if send and require_sent:
             raise PipelineError("--require-sent: no new matching jobs to send")
-        return _finish(store, summary, out_dir, persist=False)
+        # persist only when feed fetch times changed, so idle runs don't create a commit each time
+        return _finish(store, summary, out_dir, persist=send and bool(found.fetched_feeds))
 
     # 7. Delivery: one email per job; record each as soon as AgentMail returns its message ID
     secrets = secrets or Secrets.from_env()
