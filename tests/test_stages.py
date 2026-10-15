@@ -41,11 +41,16 @@ def test_discovery_isolates_failures_and_raises_when_all_fail(config):
         discover_jobs(config.companies, config.feeds, fake_fetchers(fail=everything), now=NOW)
 
 
-def test_feed_throttle_only_on_scheduled_runs(config):
+def test_feed_throttle_uses_last_fetch_time(config):
     six = Feed("remotive", "design", 6)
-    assert feed_due(six, NOW.replace(hour=12)) and not feed_due(six, NOW.replace(hour=13))
-    result = discover_jobs([], config.feeds, fake_fetchers(), now=NOW.replace(hour=13), throttle_feeds=True)
+    assert feed_due(six, NOW, None)                                    # never fetched -> due
+    assert not feed_due(six, NOW, NOW - timedelta(hours=2))
+    assert feed_due(six, NOW, NOW - timedelta(hours=5, minutes=50))     # late scheduled run still counts
+    recent = {"remotive/design": (NOW - timedelta(hours=1)).isoformat()}
+    result = discover_jobs([], config.feeds, fake_fetchers(), now=NOW, throttle_feeds=True, feed_last_fetched=recent)
     assert "remotive/design" in result.skipped and "remotive/design" not in result.counts
+    unthrottled = discover_jobs([], config.feeds, fake_fetchers(), now=NOW, feed_last_fetched=recent)
+    assert "remotive/design" in unthrottled.fetched_feeds
 
 
 # ---- normalization -----------------------------------------------------------
