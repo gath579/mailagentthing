@@ -230,6 +230,19 @@ def test_sent_store_roundtrip(tmp_path):
     assert again.data["sent"][job.fingerprint]["verified"] is True
 
 
+def test_sent_store_catches_same_posting_under_renamed_company(tmp_path):
+    store = SentStore(tmp_path / "s.json")
+    url = "https://vyaparapp.keka.com/careers/jobdetails/132996"
+    store.record_sent(_job(source="uxjobs", source_id="a", company="Simply Vyapar Apps Private", url=url),
+                      {"message_id": "m", "thread_id": "t"}, NOW)
+    store.save()
+    again = SentStore(tmp_path / "s.json")
+    renamed = _job(source="uxjobs", source_id="b", company="Vyapar", url="http://www." + url[8:] + "/#apply")
+    assert again.already_sent(renamed)
+    assert not again.already_sent(_job(source="uxjobs", source_id="c", company="Other", url="https://other.test/1"))
+    assert not again.already_sent(_job(source="uxjobs", source_id="d", company="Vyapar", title="UX Researcher", url=url))
+
+
 def test_sent_store_prunes_old_entries(tmp_path):
     store = SentStore(tmp_path / "s.json")
     store.record_sent(_job(), {"message_id": "m", "thread_id": "t"}, NOW - timedelta(days=400))
