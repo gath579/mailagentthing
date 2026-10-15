@@ -1,4 +1,12 @@
 {
+  "feeds_fetched": {
+    "himalayas/product designer": "2026-10-15T16:56:28.826287+00:00",
+    "jobicy/designer": "2026-10-15T16:56:28.826287+00:00",
+    "remoteok/design": "2026-10-15T16:56:28.826287+00:00",
+    "remotive/design": "2026-10-15T16:56:28.826287+00:00",
+    "uxjobs/design": "2026-10-15T16:56:28.826287+00:00",
+    "weworkremotely/remote-design-jobs": "2026-10-15T16:56:28.826287+00:00"
+  },
   "runs": [
     {
       "discovered": 14714,
@@ -26,6 +34,15 @@
       "new_unsent": 114,
       "sent": 8,
       "started_at": "2026-10-13T09:31:17.106707+00:00"
+    },
+    {
+      "discovered": 14685,
+      "failed": 0,
+      "matched": 110,
+      "mode": "send",
+      "new_unsent": 104,
+      "sent": 2,
+      "started_at": "2026-10-15T16:56:28.826287+00:00"
     }
   ],
   "sent": {
@@ -101,6 +118,18 @@
       "url": "https://jobs.lever.co/jito/97151aba-e3eb-483d-b56c-34711b873760",
       "verified": true
     },
+    "monks|ux ui designer contract|gurugram": {
+      "company": "Monks",
+      "message_id": "<010001a1407eed4d-be4a8849-9d66-48c5-9b27-15cc42446649-000000@email.amazonses.com>",
+      "score": 63.0,
+      "sent_at": "2026-10-15T16:56:28.826287+00:00",
+      "source_key": "uxjobs:monks:ux-ui-designer-contract-monks-dna365",
+      "thread_id": "fc8621f4-56f5-4838-8a38-5fb47843bf77",
+      "tier": "Good",
+      "title": "UX/UI Designer- Contract",
+      "url": "https://www.monks.com/careers/6223966004/job?gh_jid=6223966004",
+      "verified": true
+    },
     "particle41|ui ux designer|india remote": {
       "company": "Particle41",
       "message_id": "<010001a1349b61d0-02be884a-d51b-4988-85ee-f4b19c732bfd-000000@email.amazonses.com>",
@@ -132,6 +161,18 @@
       "sent_at": "2026-10-13T09:31:17.106707+00:00",
       "source_key": "uxjobs:simply vyapar apps private:product-designer-simply-vyapar-apps-private-t91hv5",
       "thread_id": "cfa7ed65-7099-46e4-a750-adbfaaabebdd",
+      "tier": "Good",
+      "title": "Product Designer",
+      "url": "https://vyaparapp.keka.com/careers/jobdetails/132996",
+      "verified": true
+    },
+    "vyapar|product designer|bangalore": {
+      "company": "Vyapar",
+      "message_id": "<010001a1407ee6be-cb5bca37-7ed0-4ddb-adcf-c9af1888e428-000000@email.amazonses.com>",
+      "score": 73.0,
+      "sent_at": "2026-10-15T16:56:28.826287+00:00",
+      "source_key": "uxjobs:vyapar:product-designer-vyapar-t91hv5",
+      "thread_id": "9de40717-11c0-45df-a974-e9451285d563",
       "tier": "Good",
       "title": "Product Designer",
       "url": "https://vyaparapp.keka.com/careers/jobdetails/132996",
