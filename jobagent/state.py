@@ -18,6 +18,22 @@ from .models import Job
 RETENTION_DAYS = 180
 
 
+def canonical_url(url: str | None) -> str:
+    """Posting URL compared case-insensitively, ignoring scheme, fragment and a trailing slash."""
+    u = (url or "").strip().lower().split("#", 1)[0]
+    for prefix in ("https://", "http://"):
+        if u.startswith(prefix):
+            u = u[len(prefix):]
+    if u.startswith("www."):
+        u = u[4:]
+    return u.rstrip("/")
+
+
+def _url_key(url: str | None, title: str | None) -> tuple[str, str]:
+    # Same link *and* same title: some boards point several roles at one generic careers page.
+    return canonical_url(url), " ".join((title or "").lower().split())
+
+
 class SentStore:
     def __init__(self, path: Path):
         self.path = Path(path)
@@ -25,9 +41,12 @@ class SentStore:
         if self.path.exists():
             self.data = json.loads(self.path.read_text())
         self._source_keys = {v.get("source_key") for v in self.data["sent"].values()}
+        self._urls = {_url_key(v.get("url"), v.get("title")) for v in self.data["sent"].values() if v.get("url")}
 
     def already_sent(self, job: Job) -> bool:
-        return job.fingerprint in self.data["sent"] or job.source_key in self._source_keys
+        # The URL check catches the same posting re-listed under a renamed company (aggregators do this).
+        return (job.fingerprint in self.data["sent"] or job.source_key in self._source_keys
+                or (bool(job.url) and _url_key(job.url, job.title) in self._urls))
 
     def unsent(self, jobs: list[Job]) -> list[Job]:
         return [j for j in jobs if not self.already_sent(j)]
@@ -47,6 +66,8 @@ class SentStore:
             "verified": None,
         }
         self._source_keys.add(job.source_key)
+        if job.url:
+            self._urls.add(_url_key(job.url, job.title))
 
     def mark_verified(self, job: Job, ok: bool, detail: str = "") -> None:
         entry = self.data["sent"][job.fingerprint]
