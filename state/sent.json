@@ -1,11 +1,11 @@
 {
   "feeds_fetched": {
-    "himalayas/product designer": "2026-10-15T21:28:56.584747+00:00",
-    "jobicy/designer": "2026-10-15T16:56:28.826287+00:00",
-    "remoteok/design": "2026-10-15T21:28:56.584747+00:00",
-    "remotive/design": "2026-10-15T16:56:28.826287+00:00",
-    "uxjobs/design": "2026-10-15T16:56:28.826287+00:00",
-    "weworkremotely/remote-design-jobs": "2026-10-15T21:28:56.584747+00:00"
+    "himalayas/product designer": "2026-10-16T00:23:58.806745+00:00",
+    "jobicy/designer": "2026-10-16T00:23:58.806745+00:00",
+    "remoteok/design": "2026-10-16T00:23:58.806745+00:00",
+    "remotive/design": "2026-10-16T00:23:58.806745+00:00",
+    "uxjobs/design": "2026-10-16T00:23:58.806745+00:00",
+    "weworkremotely/remote-design-jobs": "2026-10-16T00:23:58.806745+00:00"
   },
   "runs": [
     {
@@ -52,9 +52,30 @@
       "new_unsent": 6,
       "sent": 0,
       "started_at": "2026-10-15T21:28:56.584747+00:00"
+    },
+    {
+      "discovered": 14703,
+      "failed": 0,
+      "matched": 115,
+      "mode": "send",
+      "new_unsent": 107,
+      "sent": 1,
+      "started_at": "2026-10-16T00:23:58.806745+00:00"
     }
   ],
   "sent": {
+    "accellor|ui ux designer|hyderabad": {
+      "company": "Accellor",
+      "message_id": "<010001a14218b137-e6864d99-8eb9-4dc9-8c7e-dc1fae4ca947-000000@email.amazonses.com>",
+      "score": 80.0,
+      "sent_at": "2026-10-16T00:23:58.806745+00:00",
+      "source_key": "uxjobs:accellor:ui-ux-designer-accellor-wnqztx",
+      "thread_id": "63a114d4-1be6-499a-8806-1fff1f23e7ae",
+      "tier": "Strong",
+      "title": "UI/UX Designer",
+      "url": "https://jobs.gem.com/accellor/am9icG9zdDrwNK_3bUq5KPb7I7UZvPBP",
+      "verified": true
+    },
     "bosch group|ui designer|bangalore in": {
       "company": "Bosch Group",
       "message_id": "<010001a1349b5b01-fa7f1ca7-3361-4618-9d30-8de726e2dbbb-000000@email.amazonses.com>",
