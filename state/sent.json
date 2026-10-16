@@ -1,11 +1,11 @@
 {
   "feeds_fetched": {
-    "himalayas/product designer": "2026-10-16T05:51:06.276852+00:00",
-    "jobicy/designer": "2026-10-16T00:23:58.806745+00:00",
-    "remoteok/design": "2026-10-16T05:51:06.276852+00:00",
-    "remotive/design": "2026-10-16T00:23:58.806745+00:00",
-    "uxjobs/design": "2026-10-16T00:23:58.806745+00:00",
-    "weworkremotely/remote-design-jobs": "2026-10-16T05:51:06.276852+00:00"
+    "himalayas/product designer": "2026-10-16T11:21:30.495737+00:00",
+    "jobicy/designer": "2026-10-16T11:21:30.495737+00:00",
+    "remoteok/design": "2026-10-16T11:21:30.495737+00:00",
+    "remotive/design": "2026-10-16T11:21:30.495737+00:00",
+    "uxjobs/design": "2026-10-16T11:21:30.495737+00:00",
+    "weworkremotely/remote-design-jobs": "2026-10-16T11:21:30.495737+00:00"
   },
   "runs": [
     {
@@ -70,6 +70,15 @@
       "new_unsent": 6,
       "sent": 0,
       "started_at": "2026-10-16T05:51:06.276852+00:00"
+    },
+    {
+      "discovered": 14672,
+      "failed": 0,
+      "matched": 113,
+      "mode": "send",
+      "new_unsent": 104,
+      "sent": 1,
+      "started_at": "2026-10-16T11:21:30.495737+00:00"
     }
   ],
   "sent": {
@@ -155,6 +164,18 @@
       "tier": "Good",
       "title": "Product Designer",
       "url": "https://jobs.lever.co/jito/97151aba-e3eb-483d-b56c-34711b873760",
+      "verified": true
+    },
+    "minerva project|product designer|remote worldwide": {
+      "company": "Minerva Project",
+      "message_id": "<010001a1447296ee-ec81e3f0-370c-4e9b-966c-6b277858001f-000000@email.amazonses.com>",
+      "score": 64.0,
+      "sent_at": "2026-10-16T11:21:30.495737+00:00",
+      "source_key": "uxjobs:minerva project:product-designer-minerva-project-qslbxh",
+      "thread_id": "4683609a-5ad2-43aa-8e52-1939d9a3344e",
+      "tier": "Good",
+      "title": "Product Designer",
+      "url": "https://minerva-project.breezy.hr/p/16caca3b823c-product-designer",
       "verified": true
     },
     "monks|ux ui designer contract|gurugram": {
