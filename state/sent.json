@@ -5,7 +5,7 @@
     "remoteok/design": "2026-10-17T21:27:15.389385+00:00",
     "remotive/design": "2026-10-17T21:27:15.389385+00:00",
     "uxjobs/design": "2026-10-17T21:27:15.389385+00:00",
-    "weworkremotely/remote-design-jobs": "2026-10-17T21:27:15.389385+00:00"
+    "weworkremotely/remote-design-jobs": "2026-10-18T00:01:41.064963+00:00"
   },
   "runs": [
     {
@@ -160,6 +160,15 @@
       "new_unsent": 98,
       "sent": 0,
       "started_at": "2026-10-17T21:27:15.389385+00:00"
+    },
+    {
+      "discovered": 11106,
+      "failed": 0,
+      "matched": 7,
+      "mode": "send",
+      "new_unsent": 6,
+      "sent": 0,
+      "started_at": "2026-10-18T00:01:41.064963+00:00"
     }
   ],
   "sent": {
