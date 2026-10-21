@@ -9,6 +9,10 @@ sending we load the posting page itself. Result:
   redirected  sent somewhere that no longer identifies this job
   unverified  could not confirm (blocked, timeout, client-rendered page, ...)
 
+Known ATS hosts that render the posting with JavaScript (Oracle Cloud HCM,
+iCIMS, Workday, ...) never show the title in their HTML; a 200 there with no
+closed marker and no redirect away from the job counts as live.
+
 Only `live` jobs are emailed when email.require_live_link is true.
 """
 from __future__ import annotations
@@ -32,6 +36,12 @@ CLOSED_MARKERS = [
     "position is no longer available", "role has been filled",
     "this posting is closed", "job posting is no longer", "opening is no longer",
 ]
+# ATS domains whose job pages are client-rendered: the title is never in the raw HTML.
+CLIENT_RENDERED_ATS = (
+    "oraclecloud.com", "icims.com", "myworkdayjobs.com", "myworkdaysite.com", "successfactors.com",
+    "successfactors.eu", "taleo.net", "darwinbox.in", "keka.com", "zohorecruit.com", "zohorecruit.in",
+    "freshteam.com", "bamboohr.com", "jobvite.com", "eightfold.ai",
+)
 _TITLE_STOP = {"and", "the", "of", "for", "a", "an", "to", "in", "at", "with", "ii", "iii", "i"}
 
 
@@ -45,7 +55,18 @@ def _identifies_job(original: str, final: str, job: Job) -> bool:
     if final.rstrip("/") == original.rstrip("/"):
         return True
     ident = str(job.source_id)
-    return bool(ident) and ident in final
+    if ident and ident in final:
+        return True
+    # Aggregator records carry their own id; fall back to the job id at the end of the posting URL
+    # (e.g. Oracle HCM rewrites /sites/CX/job/97579 to /sites/CX_2001/job/97579).
+    tail = urlparse(original).path.rstrip("/").rsplit("/", 1)[-1]
+    return len(tail) >= 4 and any(ch.isdigit() for ch in tail) and \
+        urlparse(final).path.rstrip("/").endswith("/" + tail)
+
+
+def _client_rendered_ats(url: str) -> bool:
+    host = urlparse(url).netloc.lower()
+    return any(host == d or host.endswith("." + d) for d in CLIENT_RENDERED_ATS)
 
 
 def _title_on_page(title: str, page_text: str) -> bool:
@@ -77,6 +98,9 @@ def check(job: Job) -> tuple[str, str]:
     if not _identifies_job(job.url, final, job):
         return "redirected", f"redirected to {urlparse(final).netloc}{urlparse(final).path}"
     if not _title_on_page(job.title, text):
+        if _client_rendered_ats(final):
+            return "live", (f"HTTP 200 on {urlparse(final).netloc} — client-rendered ATS page "
+                            "(title not in HTML; no closed marker or redirect)")
         return "unverified", "page loads but the job title isn't in its HTML (client-rendered or generic page)"
     return "live", f"HTTP 200, title present ({urlparse(final).netloc})"
 

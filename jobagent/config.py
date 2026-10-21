@@ -79,6 +79,8 @@ class EmailSettings:
     max_emails_per_run: int = 10
     send_tiers: list[str] = field(default_factory=lambda: ["Strong", "Good"])
     require_live_link: bool = True
+    # Possible-tier matches at or above this score are also emailed (None = never).
+    possible_min_score: float | None = None
 
 
 @dataclass

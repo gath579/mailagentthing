@@ -177,3 +177,22 @@ def test_scheduled_runs_remember_feed_fetches(config, tmp_path, secrets):
                      link_checker=fake_link_checker(), send=True, throttle_feeds=True, max_emails=100)
     assert not six_hourly & set(much_later["feeds_skipped"])
     assert config.state_path.read_text() != before
+
+
+def test_top_possible_matches_are_sendable(config):
+    from jobagent.models import Job
+    from jobagent.pipeline import send_status
+
+    def job(score, tier="Possible"):
+        j = Job(source="lever", source_id=str(score), company="Acme", title="UX Designer", url=f"https://x/{score}")
+        j.tier, j.score, j.link_status, j.link_detail = tier, score, "live", "ok"
+        return j
+    config.email.possible_min_score = 65
+    assert send_status(job(71), config) == "WILL SEND"
+    assert send_status(job(65), config) == "WILL SEND"
+    assert send_status(job(62), config).startswith("report only (Possible below 65")
+    unverified = job(70)
+    unverified.link_status = "unverified"
+    assert send_status(unverified, config).startswith("NOT SENT: link unverified")
+    config.email.possible_min_score = None
+    assert send_status(job(90), config).startswith("report only (Possible tier")

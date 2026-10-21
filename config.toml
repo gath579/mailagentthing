@@ -198,8 +198,9 @@ pitch = "I also built and shipped FinalCheck, a Gmail/Chrome pre-send review ext
 # ---------------------------------------------------------------------------
 [email]
 max_emails_per_run = 10   # remaining new matches roll over to the next hourly run
-# Only these tiers are emailed automatically. Possible matches appear in dry-run reports only.
+# These tiers are emailed automatically, plus Possible matches scoring possible_min_score or more.
 send_tiers = ["Strong", "Good"]
+possible_min_score = 65
 # Before sending, the posting URL must load and show no closed/expired markers.
 require_live_link = true
 
