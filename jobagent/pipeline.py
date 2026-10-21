@@ -37,7 +37,11 @@ def _slug(text: str) -> str:
 
 def send_status(job: Job, config: Config) -> str:
     """Why a matched job will or won't be emailed automatically."""
-    if job.tier not in config.email.send_tiers:
+    floor = config.email.possible_min_score
+    top_possible = job.tier == "Possible" and floor is not None and job.score >= floor
+    if job.tier not in config.email.send_tiers and not top_possible:
+        if job.tier == "Possible" and floor is not None:
+            return f"report only (Possible below {floor:.0f})"
         return f"report only ({job.tier} tier is not auto-sent)"
     if job.conditional:
         return "CONDITIONAL: " + "; ".join(job.conditional)

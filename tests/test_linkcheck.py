@@ -43,3 +43,30 @@ def test_network_failure_is_unverified(monkeypatch):
         raise TimeoutError()
     monkeypatch.setattr(linkcheck, "_fetch", boom)
     assert linkcheck.check(_job())[0] == "unverified"
+
+
+ORACLE = "https://efpv.fa.us6.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/job/8136"
+
+
+def test_client_rendered_ats_page_counts_as_live(monkeypatch):
+    monkeypatch.setattr(linkcheck, "_fetch", lambda u: (200, u, "<html><div id=root></div></html>"))
+    status, detail = linkcheck.check(_job(source="uxjobs", source_id="ux-designer-ii-infoblox", url=ORACLE))
+    assert status == "live" and "client-rendered" in detail
+
+
+def test_client_rendered_ats_still_honours_closed_markers(monkeypatch):
+    page = "<html><div id=root></div><p>This job is no longer available</p></html>"
+    monkeypatch.setattr(linkcheck, "_fetch", lambda u: (200, u, page))
+    assert linkcheck.check(_job(source="uxjobs", source_id="x", url=ORACLE))[0] == "closed"
+
+
+def test_oracle_site_rewrite_keeps_job_identity(monkeypatch):
+    url = "https://emit.fa.ca3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX/job/97579"
+    final = "https://emit.fa.ca3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2001/job/97579"
+    monkeypatch.setattr(linkcheck, "_fetch", lambda u: (200, final, "<html><div id=root></div></html>"))
+    assert linkcheck.check(_job(source="uxjobs", source_id="ui-ux-designer-wsp", url=url))[0] == "live"
+
+
+def test_unknown_host_without_title_stays_unverified(monkeypatch):
+    monkeypatch.setattr(linkcheck, "_fetch", lambda u: (200, u, "<html><div id=root></div></html>"))
+    assert linkcheck.check(_job(url="https://careers.example.com/jobs/8136"))[0] == "unverified"
