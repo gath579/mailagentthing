@@ -1,11 +1,11 @@
 {
   "feeds_fetched": {
-    "himalayas/product designer": "2026-10-21T10:38:02.900683+00:00",
-    "jobicy/designer": "2026-10-21T07:37:47.922301+00:00",
-    "remoteok/design": "2026-10-21T10:38:02.900683+00:00",
-    "remotive/design": "2026-10-21T07:37:47.922301+00:00",
-    "uxjobs/design": "2026-10-21T07:37:47.922301+00:00",
-    "weworkremotely/remote-design-jobs": "2026-10-21T10:38:02.900683+00:00"
+    "himalayas/product designer": "2026-10-21T10:40:46.966079+00:00",
+    "jobicy/designer": "2026-10-21T10:40:46.966079+00:00",
+    "remoteok/design": "2026-10-21T10:40:46.966079+00:00",
+    "remotive/design": "2026-10-21T10:40:46.966079+00:00",
+    "uxjobs/design": "2026-10-21T10:40:46.966079+00:00",
+    "weworkremotely/remote-design-jobs": "2026-10-21T10:40:46.966079+00:00"
   },
   "runs": [
     {
@@ -340,6 +340,15 @@
       "new_unsent": 6,
       "sent": 0,
       "started_at": "2026-10-21T10:38:02.900683+00:00"
+    },
+    {
+      "discovered": 14840,
+      "failed": 0,
+      "matched": 108,
+      "mode": "send",
+      "new_unsent": 98,
+      "sent": 2,
+      "started_at": "2026-10-21T10:40:46.966079+00:00"
     }
   ],
   "sent": {
@@ -413,6 +422,18 @@
       "tier": "Strong",
       "title": "Junior Product Designer",
       "url": "https://job-boards.greenhouse.io/globalli/jobs/5241585007",
+      "verified": true
+    },
+    "infoblox|ux designer ii|pune maharashtra india": {
+      "company": "Infoblox",
+      "message_id": "<010001a15e0d0ea3-f486a02e-c1cd-405e-9ad5-68c49da74d90-000000@email.amazonses.com>",
+      "score": 62.0,
+      "sent_at": "2026-10-21T10:40:46.966079+00:00",
+      "source_key": "uxjobs:infoblox:ux-designer-ii-infoblox-tzxgdh",
+      "thread_id": "7e37a4ff-cb89-4d7b-ab7b-61d1cec382b5",
+      "tier": "Good",
+      "title": "UX Designer II",
+      "url": "https://efpv.fa.us6.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/job/8136",
       "verified": true
     },
     "jito|product designer|remote worldwide but must be willing to attend regular est meetings": {
@@ -497,6 +518,18 @@
       "tier": "Good",
       "title": "Product Designer",
       "url": "https://vyaparapp.keka.com/careers/jobdetails/132996",
+      "verified": true
+    },
+    "wsp|ui ux designer|bengaluru karnataka india": {
+      "company": "WSP",
+      "message_id": "<010001a15e0d0c8b-b49e9436-a93f-4d61-8331-70456c256ed6-000000@email.amazonses.com>",
+      "score": 71.0,
+      "sent_at": "2026-10-21T10:40:46.966079+00:00",
+      "source_key": "uxjobs:wsp:ui-ux-designer-wsp-903e1b",
+      "thread_id": "076a3f69-0457-40f1-8ed2-602c06cad17a",
+      "tier": "Possible",
+      "title": "UI-UX Designer",
+      "url": "https://emit.fa.ca3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX/job/97579",
       "verified": true
     }
   },
