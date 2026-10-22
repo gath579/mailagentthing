@@ -517,3 +517,26 @@ def test_parse_feed_tolerates_html_entities_and_bare_ampersands():
     item = parse_feed(xml)[0]
     assert item["title"] == "UI & UX Designer at R&D Co" and item["link"] == "https://x.test/1?a=1&b=2"
     assert item["description"] == "Remote\u00a0role \u2014 India"
+
+
+@pytest.mark.parametrize("url,title,expected", [
+    ("https://jobfound.org/job/jiostar-is-hiring-for-product-designer-design-systems-bengaluru-karnataka-india-india-21-october-2026",
+     "Product Designer - Design Systems", "Bengaluru Karnataka India"),
+    ("https://jobfound.org/job/highlightta-is-hiring-for-product-designer-united-states-remote-usa-21-october-2026",
+     "Product Designer", "United States Remote USA"),
+    ("https://jobfound.org/job/capco-is-hiring-for-ui-ux-designer-pune-bengaluru-bengaluru-karnataka-india-india-22-october-2026",
+     "UI/UX Designer -Pune/Bengaluru", "Bengaluru Karnataka India"),
+    ("https://jobfound.org/job/x", "Product Designer", ""),
+])
+def test_jobfound_location_from_url(url, title, expected):
+    from jobagent.normalize import _jobfound_location
+    assert _jobfound_location(url, title) == expected
+
+
+def test_jobfound_us_remote_job_is_not_sendable(config):
+    entry = {"title": "Product Designer", "id": "jf-1", "author": "HighlightTA", "updated": NOW.isoformat(),
+             "link": "https://jobfound.org/job/highlightta-is-hiring-for-product-designer-united-states-remote-usa-21-october-2026",
+             "summary": "3+ years. Figma, prototyping, design systems, user flows."}
+    job = normalize(RawPosting("jobfound", "all", entry))
+    assert "USA" in job.location and job.work_mode == "remote"
+    assert evaluate(job, config, NOW) is not None          # rejected: remote limited to the US

@@ -347,8 +347,34 @@ def _feed_job(source: str, p: dict, *, company: str = "", location: str = "", re
     )
 
 
+_MONTHS = "january|february|march|april|may|june|july|august|september|october|november|december"
+_JOBFOUND_SLUG = re.compile(rf"-is-hiring-for-(.+?)-\d{{1,2}}-(?:{_MONTHS})-\d{{4}}/?$")
+
+
+def _slugify(text: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
+
+
+def _jobfound_location(url: str, title: str) -> str:
+    """jobfound puts the location in the URL: .../<company>-is-hiring-for-<title>-<location>-<dd>-<month>-<yyyy>."""
+    m = _JOBFOUND_SLUG.search(url.lower())
+    if not m:
+        return ""
+    rest = m.group(1)
+    t = _slugify(title)
+    if t and rest.startswith(t):
+        rest = rest[len(t):].strip("-")
+    words = [w for w in rest.split("-") if w]
+    # drop a repeated country token ("...-india-india", "...-usa-usa")
+    if len(words) >= 2 and words[-1] == words[-2]:
+        words.pop()
+    return " ".join(w.upper() if w in ("usa", "uk", "uae") else w.capitalize() for w in words)
+
+
 def _jobfound(p: dict, _: str) -> Job:
-    return _feed_job("jobfound", p)
+    title, _company = _split_at_company(p.get("title", ""))
+    location = p.get("location") or _jobfound_location(p.get("link", ""), title)
+    return _feed_job("jobfound", p, location=location)
 
 
 def _nodesk(p: dict, _: str) -> Job:
