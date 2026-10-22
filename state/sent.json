@@ -1,11 +1,15 @@
 {
   "feeds_fetched": {
-    "himalayas/product designer": "2026-10-22T13:46:53.265130+00:00",
-    "jobicy/designer": "2026-10-22T13:46:53.265130+00:00",
-    "remoteok/design": "2026-10-22T13:46:53.265130+00:00",
-    "remotive/design": "2026-10-22T13:46:53.265130+00:00",
-    "uxjobs/design": "2026-10-22T13:46:53.265130+00:00",
-    "weworkremotely/remote-design-jobs": "2026-10-22T13:46:53.265130+00:00"
+    "himalayas/product designer": "2026-10-22T15:48:57.275680+00:00",
+    "jobfound/all": "2026-10-22T15:48:57.275680+00:00",
+    "jobicy/designer": "2026-10-22T15:48:57.275680+00:00",
+    "jobspresso/design": "2026-10-22T15:48:57.275680+00:00",
+    "nodesk/design": "2026-10-22T15:48:57.275680+00:00",
+    "remoteok/design": "2026-10-22T15:48:57.275680+00:00",
+    "remotive/design": "2026-10-22T15:48:57.275680+00:00",
+    "uxjobs/design": "2026-10-22T15:48:57.275680+00:00",
+    "weworkremotely/remote-design-jobs": "2026-10-22T15:48:57.275680+00:00",
+    "workingnomads/design": "2026-10-22T15:48:57.275680+00:00"
   },
   "runs": [
     {
@@ -403,6 +407,15 @@
       "new_unsent": 99,
       "sent": 1,
       "started_at": "2026-10-22T13:46:53.265130+00:00"
+    },
+    {
+      "discovered": 15636,
+      "failed": 0,
+      "matched": 117,
+      "mode": "send",
+      "new_unsent": 106,
+      "sent": 7,
+      "started_at": "2026-10-22T15:48:57.275680+00:00"
     }
   ],
   "sent": {
@@ -442,6 +455,18 @@
       "url": "https://jobs.smartrecruiters.com/BoschGroup/744000154383185",
       "verified": true
     },
+    "capco|ui ux designer pune bengaluru|bengaluru karnataka india": {
+      "company": "Capco",
+      "message_id": "<010001a1644dd9aa-19d3dbeb-fc75-4af0-a8cc-87fb27ac22c6-000000@email.amazonses.com>",
+      "score": 82.0,
+      "sent_at": "2026-10-22T15:48:57.275680+00:00",
+      "source_key": "jobfound:capco:urn:jobfound:job:6ad9acf1002ff48e7ceb",
+      "thread_id": "671cc55d-5016-45e2-8630-b0cfe834c7d9",
+      "tier": "Strong",
+      "title": "UI/UX Designer -Pune/Bengaluru",
+      "url": "https://jobfound.org/job/capco-is-hiring-for-ui-ux-designer-pune-bengaluru-bengaluru-karnataka-india-india-22-october-2026",
+      "verified": true
+    },
     "capco|ui ux designer pune bengaluru|india bengaluru": {
       "company": "Capco",
       "message_id": "<010001a163dde2e6-496ff38e-4c75-4b72-9ced-95c6daab2cc5-000000@email.amazonses.com>",
@@ -454,6 +479,18 @@
       "url": "https://job-boards.greenhouse.io/capco/jobs/8280665",
       "verified": true
     },
+    "codewalla|product designer|chennai tamil nadu india": {
+      "company": "Codewalla",
+      "message_id": "<010001a1644dddea-39ff24cf-78d1-4f85-a63f-f573acf5d0be-000000@email.amazonses.com>",
+      "score": 78.0,
+      "sent_at": "2026-10-22T15:48:57.275680+00:00",
+      "source_key": "jobfound:codewalla:urn:jobfound:job:6ad906830010173f1e82",
+      "thread_id": "e1d2fedd-da0e-41bd-8d9a-962691bf8a00",
+      "tier": "Possible",
+      "title": "Product Designer",
+      "url": "https://jobfound.org/job/codewalla-is-hiring-for-product-designer-chennai-tamil-nadu-india-india-21-october-2026",
+      "verified": true
+    },
     "entermotion|product designer|remote worldwide": {
       "company": "Entermotion",
       "message_id": "<010001a1349b5f36-32532daa-9205-496d-b07d-3da966a2eb4f-000000@email.amazonses.com>",
@@ -464,6 +501,18 @@
       "tier": "Good",
       "title": "Product Designer",
       "url": "https://entermotion.breezy.hr/p/3ce16af7f896-product-designer",
+      "verified": true
+    },
+    "fluid touch pte ltd|ui ux designer|hyderabad telangana india": {
+      "company": "Fluid Touch Pte Ltd",
+      "message_id": "<010001a1644ddc3c-54a56a40-c190-449c-a4ed-d82988a210b7-000000@email.amazonses.com>",
+      "score": 82.0,
+      "sent_at": "2026-10-22T15:48:57.275680+00:00",
+      "source_key": "jobfound:fluid touch pte ltd:urn:jobfound:job:6ad9068600298e51bd25",
+      "thread_id": "d3c6f10b-d4b0-48a0-9efe-44efd3c4d86f",
+      "tier": "Strong",
+      "title": "UI/UX Designer",
+      "url": "https://jobfound.org/job/fluid-touch-pte-ltd-is-hiring-for-ui-ux-designer-hyderabad-telangana-india-india-21-october-2026",
       "verified": true
     },
     "glance|ux designer|bangalore": {
@@ -500,6 +549,18 @@
       "tier": "Good",
       "title": "UX Designer II",
       "url": "https://efpv.fa.us6.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/job/8136",
+      "verified": true
+    },
+    "jiostar|product designer design systems|bengaluru karnataka india": {
+      "company": "JioStar",
+      "message_id": "<010001a1644dd369-d1345a09-f100-40b5-b808-a2ea602a0109-000000@email.amazonses.com>",
+      "score": 88.0,
+      "sent_at": "2026-10-22T15:48:57.275680+00:00",
+      "source_key": "jobfound:jiostar:urn:jobfound:job:6ad906850009890e2685",
+      "thread_id": "f2048800-87fe-4b54-94b0-c2fe2dd5650c",
+      "tier": "Strong",
+      "title": "Product Designer - Design Systems",
+      "url": "https://jobfound.org/job/jiostar-is-hiring-for-product-designer-design-systems-bengaluru-karnataka-india-india-21-october-2026",
       "verified": true
     },
     "jito|product designer|remote worldwide but must be willing to attend regular est meetings": {
@@ -572,6 +633,42 @@
       "tier": "Good",
       "title": "Product Designer",
       "url": "https://vyaparapp.keka.com/careers/jobdetails/132996",
+      "verified": true
+    },
+    "the ri8 click|ui ux designer vadodara location only|vadodara gujarat india": {
+      "company": "The Ri8 Click",
+      "message_id": "<010001a1644ddfd4-b57304b7-a72c-4ad6-a573-46d858ef68d0-000000@email.amazonses.com>",
+      "score": 71.0,
+      "sent_at": "2026-10-22T15:48:57.275680+00:00",
+      "source_key": "jobfound:the ri8 click:urn:jobfound:job:6ad90689002e2176eceb",
+      "thread_id": "aa0c96e4-8be6-48bd-b686-d89863fde617",
+      "tier": "Possible",
+      "title": "UI/UX Designer ( Vadodara Location ONLY )",
+      "url": "https://jobfound.org/job/the-ri8-click-is-hiring-for-ui-ux-designer-vadodara-location-only-vadodara-gujarat-india-india-21-october-2026",
+      "verified": true
+    },
+    "versatile club employer of record|product designer contract 6 months|bengaluru karnataka india": {
+      "company": "Versatile Club Employer of Record",
+      "message_id": "<010001a1644dd79a-de6abeb4-2b2f-457b-a072-f00d3dd31167-000000@email.amazonses.com>",
+      "score": 86.0,
+      "sent_at": "2026-10-22T15:48:57.275680+00:00",
+      "source_key": "jobfound:versatile club employer of record:urn:jobfound:job:6ad9068c003bde725ede",
+      "thread_id": "34b499de-89a1-422a-89aa-3e37afbf8a6e",
+      "tier": "Strong",
+      "title": "Product Designer (Contract \u2013 6 Months)",
+      "url": "https://jobfound.org/job/versatile-club-employer-of-record-is-hiring-for-product-designer-contract-6-months-bengaluru-karnataka-india-india-21-october-2026",
+      "verified": true
+    },
+    "versatile club employer of record|product designer|bengaluru karnataka india": {
+      "company": "Versatile Club Employer of Record",
+      "message_id": "<010001a1644dd54f-20473981-4354-4c3d-b863-b2dbbeb739bd-000000@email.amazonses.com>",
+      "score": 86.0,
+      "sent_at": "2026-10-22T15:48:57.275680+00:00",
+      "source_key": "jobfound:versatile club employer of record:urn:jobfound:job:6ad9acf40017566d9ce3",
+      "thread_id": "403ed4e5-024f-4876-820c-23ed0da88d90",
+      "tier": "Strong",
+      "title": "Product Designer",
+      "url": "https://jobfound.org/job/versatile-club-employer-of-record-is-hiring-for-product-designer-bengaluru-karnataka-india-india-22-october-2026",
       "verified": true
     },
     "vyapar|product designer|bangalore": {
