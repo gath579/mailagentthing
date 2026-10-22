@@ -540,3 +540,14 @@ def test_jobfound_us_remote_job_is_not_sendable(config):
     job = normalize(RawPosting("jobfound", "all", entry))
     assert "USA" in job.location and job.work_mode == "remote"
     assert evaluate(job, config, NOW) is not None          # rejected: remote limited to the US
+
+
+@pytest.mark.parametrize("location", ["Chennai, Tamil Nadu, India", "Gurugram, India"])
+def test_unlisted_and_deprioritized_cities_capped_at_possible(config, location):
+    desc = ("2-4 years of experience. Own features end to end, user flows, user research, usability testing, "
+            "Figma prototyping, design system, work closely with PMs and engineers.")
+    job = _job(location=location, work_mode="hybrid", description=desc)
+    assert evaluate(job, config, NOW) is None
+    assert job.tier == "Possible" and any("priority or fallback cities" in c for c in job.concerns)
+    pune = _job(location="Pune, India", work_mode="hybrid", description=desc)
+    assert evaluate(pune, config, NOW) is None and pune.tier in ("Strong", "Good")
