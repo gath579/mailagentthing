@@ -16,6 +16,7 @@ from pathlib import Path
 from .models import Job
 
 RETENTION_DAYS = 180
+SAME_ROLE_DAYS = 60
 
 
 def canonical_url(url: str | None) -> str:
@@ -27,6 +28,11 @@ def canonical_url(url: str | None) -> str:
     if u.startswith("www."):
         u = u[4:]
     return u.rstrip("/")
+
+
+def _company_title(company: str | None, title: str | None) -> str:
+    from .normalize import canonical_text
+    return f"{canonical_text(company or '')}|{canonical_text(title or '')}"
 
 
 def _url_key(url: str | None, title: str | None) -> tuple[str, str]:
@@ -42,14 +48,24 @@ class SentStore:
             self.data = json.loads(self.path.read_text())
         self._source_keys = {v.get("source_key") for v in self.data["sent"].values()}
         self._urls = {_url_key(v.get("url"), v.get("title")) for v in self.data["sent"].values() if v.get("url")}
+        self._company_titles = {_company_title(v.get("company"), v.get("title")): v.get("sent_at", "")
+                                for v in self.data["sent"].values()}
 
-    def already_sent(self, job: Job) -> bool:
+    def already_sent(self, job: Job, now: datetime | None = None) -> bool:
         # The URL check catches the same posting re-listed under a renamed company (aggregators do this).
-        return (job.fingerprint in self.data["sent"] or job.source_key in self._source_keys
-                or (bool(job.url) and _url_key(job.url, job.title) in self._urls))
+        if (job.fingerprint in self.data["sent"] or job.source_key in self._source_keys
+                or (bool(job.url) and _url_key(job.url, job.title) in self._urls)):
+            return True
+        # Same company + same title emailed recently: aggregators format the location differently
+        # ("India, Bengaluru" vs "Bengaluru Karnataka India"), so the fingerprint alone misses it.
+        sent_at = self._company_titles.get(_company_title(job.company, job.title))
+        if not sent_at:
+            return False
+        now = now or datetime.now(timezone.utc)
+        return now - datetime.fromisoformat(sent_at) <= timedelta(days=SAME_ROLE_DAYS)
 
-    def unsent(self, jobs: list[Job]) -> list[Job]:
-        return [j for j in jobs if not self.already_sent(j)]
+    def unsent(self, jobs: list[Job], now: datetime | None = None) -> list[Job]:
+        return [j for j in jobs if not self.already_sent(j, now)]
 
     def record_sent(self, job: Job, delivery: dict, now: datetime | None = None) -> None:
         now = now or datetime.now(timezone.utc)
@@ -68,6 +84,7 @@ class SentStore:
         self._source_keys.add(job.source_key)
         if job.url:
             self._urls.add(_url_key(job.url, job.title))
+        self._company_titles[_company_title(job.company, job.title)] = now.isoformat()
 
     def mark_verified(self, job: Job, ok: bool, detail: str = "") -> None:
         entry = self.data["sent"][job.fingerprint]

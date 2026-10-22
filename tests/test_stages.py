@@ -551,3 +551,18 @@ def test_unlisted_and_deprioritized_cities_capped_at_possible(config, location):
     assert job.tier == "Possible" and any("priority or fallback cities" in c for c in job.concerns)
     pune = _job(location="Pune, India", work_mode="hybrid", description=desc)
     assert evaluate(pune, config, NOW) is None and pune.tier in ("Strong", "Good")
+
+
+def test_same_company_and_title_from_another_source_is_not_resent(tmp_path):
+    store = SentStore(tmp_path / "s.json")
+    store.record_sent(_job(source="uxjobs", source_id="a", company="Capco", title="UI/UX Designer -Pune/Bengaluru",
+                           location="India, Bengaluru", url="https://job-boards.greenhouse.io/capco/jobs/8280665"),
+                      {"message_id": "m", "thread_id": "t"}, NOW)
+    store.save()
+    again = SentStore(tmp_path / "s.json")
+    relisted = _job(source="jobfound", source_id="b", company="Capco", title="UI/UX Designer -Pune/Bengaluru",
+                    location="Bengaluru Karnataka India", url="https://jobfound.org/job/capco-x")
+    assert again.already_sent(relisted, NOW + timedelta(days=1))
+    assert not again.already_sent(relisted, NOW + timedelta(days=61))      # a re-opened role months later
+    assert not again.already_sent(_job(source="jobfound", source_id="c", company="Capco", title="Product Designer",
+                                       url="https://jobfound.org/job/capco-y"), NOW)

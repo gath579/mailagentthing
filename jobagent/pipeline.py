@@ -119,7 +119,7 @@ def run(config: Config, *, send: bool, out_dir: Path, secrets: Secrets | None = 
           "url": r.job.url} for r in near], indent=2))
 
     # 5. Notification deduplication
-    new = store.unsent(matched)
+    new = store.unsent(matched, now)
 
     # 5b. Direct posting-link verification (only matters for jobs that could be sent,
     #     but checked for all new matches so the dry-run report shows it)
