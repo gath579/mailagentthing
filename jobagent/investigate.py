@@ -18,6 +18,12 @@ from urllib.robotparser import RobotFileParser
 from .http import USER_AGENT
 
 SITES = {
+    "cutshort.io": {
+        "base": "https://cutshort.io",
+        "pages": ["/", "/jobs", "/jobs/ui-ux-designer-jobs", "/jobs/product-designer-jobs"],
+        "feeds": ["/sitemap.xml", "/jobs/rss", "/feed", "/rss", "/api/jobs"],
+        "terms": ["/terms", "/terms-of-use", "/terms-and-conditions", "/tnc", "/legal/terms"],
+    },
     "role.com": {
         "base": "https://role.com",
         "pages": ["/", "/jobs", "/jobs/product-designer"],

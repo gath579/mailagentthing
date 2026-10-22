@@ -4,6 +4,10 @@ Two kinds:
 
 * Company boards (one employer each) via official public ATS job-board APIs:
   Greenhouse, Lever, Ashby, SmartRecruiters, Workable, Recruitee.
+* Workday career sites (one employer each): the JSON endpoints the public
+  career site itself calls (/wday/cxs/<tenant>/<site>/jobs and the job detail),
+  which include the full job description. Searched for "designer" only, with a
+  bounded number of detail requests per run.
 * Multi-employer feeds with public APIs/RSS intended for re-use:
   Remotive, RemoteOK, Jobicy, Himalayas, We Work Remotely.
 * UX Jobs (jobs.uxjobs.io), a design-specialist board. Its robots.txt allows
@@ -15,7 +19,7 @@ Two kinds:
   link to the original posting.)
 
 Not used, because their terms forbid automated access and they offer no public
-job API: LinkedIn, Naukri, Indeed, Glassdoor, Wellfound, Instahyre, Dribbble,
+job API: LinkedIn (jobs and posts), Naukri, Indeed, Glassdoor, Wellfound, Instahyre, Dribbble,
 Behance, uxdesign.com (terms bar "automated tools, bots, or scraping").
 Not used because they are not reliably reachable: UX Jobs Weekly on Substack
 (403 to automated clients), uxness.in (429, no feed). role.com is a general
@@ -28,7 +32,7 @@ import xml.etree.ElementTree as ET
 from typing import Callable
 from urllib.parse import quote, urlencode
 
-from .http import get_json, get_text
+from .http import get_json, get_text, request_json
 from .models import RawPosting
 
 Fetcher = Callable[[str], list[dict]]
@@ -84,6 +88,41 @@ def fetch_workable(account: str) -> list[dict]:
 def fetch_recruitee(company: str) -> list[dict]:
     data = get_json(f"https://{quote(company)}.recruitee.com/api/offers/")
     return data.get("offers", [])
+
+
+WORKDAY_SEARCH = "designer"
+WORKDAY_MAX_LISTINGS = 100     # paged 20 at a time
+WORKDAY_MAX_DETAILS = 30       # job-detail requests per site per run
+
+
+def fetch_workday(key: str) -> list[dict]:
+    """`key` is "<host>/<site>", e.g. "adobe.wd5.myworkdayjobs.com/external_experienced"."""
+    host, site = key.strip("/").split("/", 1)
+    tenant = host.split(".")[0]
+    base = f"https://{host}/wday/cxs/{tenant}/{site}"
+    listings: list[dict] = []
+    offset = 0
+    while offset < WORKDAY_MAX_LISTINGS:
+        page = request_json("POST", f"{base}/jobs", body={
+            "appliedFacets": {}, "limit": 20, "offset": offset, "searchText": WORKDAY_SEARCH}, retries=1)
+        batch = (page or {}).get("jobPostings") or []
+        listings += batch
+        if len(batch) < 20 or offset + 20 >= (page or {}).get("total", 0):
+            break
+        offset += 20
+    out = []
+    for item in [i for i in listings if DESIGN_HINT.search(i.get("title", ""))][:WORKDAY_MAX_DETAILS]:
+        path = item.get("externalPath") or ""
+        if not path:
+            continue
+        try:
+            detail = get_json(f"{base}{path}", retries=1) or {}
+        except Exception:  # noqa: BLE001 - keep the listing; scoring copes with a short description
+            detail = {}
+        out.append({"listing": item, "detail": detail.get("jobPostingInfo") or {},
+                    "organization": (detail.get("hiringOrganization") or {}).get("name", ""),
+                    "public_url": f"https://{host}/{site}{path}"})
+    return out
 
 
 BOARD_FETCHERS: dict[str, Fetcher] = {
@@ -185,7 +224,9 @@ FEED_FETCHERS: dict[str, Fetcher] = {
     "weworkremotely": fetch_weworkremotely,
 }
 
-ALL_FETCHERS: dict[str, Fetcher] = {**BOARD_FETCHERS, **FEED_FETCHERS}
+# Workday keys are "<host>/<site>", not plain slugs, so it isn't probed slug-by-slug like the other boards.
+COMPANY_FETCHERS: dict[str, Fetcher] = {**BOARD_FETCHERS, "workday": fetch_workday}
+ALL_FETCHERS: dict[str, Fetcher] = {**COMPANY_FETCHERS, **FEED_FETCHERS}
 
 
 def fetch(source: str, key: str, fetchers: dict[str, Fetcher] | None = None) -> list[RawPosting]:

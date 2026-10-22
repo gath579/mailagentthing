@@ -50,8 +50,10 @@ def _summarize(source: str, key: str, fetchers) -> dict:
 
 
 def run_probe(candidates_path: Path, feeds: list[Feed], out_dir: Path, fetchers=None) -> list[dict]:
-    slugs = tomllib.loads(candidates_path.read_text())["slugs"]
+    candidates = tomllib.loads(candidates_path.read_text())
+    slugs = candidates["slugs"]
     tasks = [(s, slug) for slug in dict.fromkeys(slugs) for s in BOARD_FETCHERS]
+    tasks += [("workday", key) for key in dict.fromkeys(candidates.get("workday", []))]
     tasks += [(f.source, f.query) for f in feeds]
     with ThreadPoolExecutor(max_workers=16) as pool:
         results = list(pool.map(lambda t: _summarize(t[0], t[1], fetchers or ALL_FETCHERS), tasks))
@@ -63,7 +65,7 @@ def run_probe(candidates_path: Path, feeds: list[Feed], out_dir: Path, fetchers=
     (out_dir / "probe.json").write_text(json.dumps(found, indent=2))
     lines = [f"{'source':16} {'key':24} {'total':>6} {'design':>6} {'IN':>4}  sample"]
     for r in found:
-        if r["source"] in BOARD_FETCHERS and r["design"] == 0:
+        if r["source"] in BOARD_FETCHERS | {"workday": None} and r["design"] == 0:
             continue  # live board, but no design roles right now: keep in probe.json only
         lines.append(f"{r['source']:16} {r['key']:24} {r['total']:>6} {r['design']:>6} {r['design_india']:>4}  "
                      + (r['sample_design'][0] if r['sample_design'] else ""))

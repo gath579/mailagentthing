@@ -1,4 +1,4 @@
-from datetime import timedelta
+from datetime import datetime, timedelta, timezone
 
 import pytest
 
@@ -433,3 +433,48 @@ def test_tv_ai_small_team_concerns(config):
     evaluate(job, config, NOW)
     text = " ".join(job.concerns)
     assert "TV / 10-foot" in text and "AI-native" in text and "Small design team" in text
+
+
+# ---- Workday -----------------------------------------------------------------
+
+def test_workday_fetch_and_normalize(monkeypatch):
+    from jobagent import sources
+
+    calls = []
+    listing = {"title": "Product Designer", "externalPath": "/job/Bangalore/Product-Designer_R123",
+               "locationsText": "Bangalore", "postedOn": "Posted 3 Days Ago", "bulletFields": ["R123"]}
+    other = {"title": "Software Engineer", "externalPath": "/job/Pune/SWE_R9", "locationsText": "Pune"}
+
+    def fake_post(method, url, body=None, **kw):
+        calls.append((method, url, body))
+        return {"total": 2, "jobPostings": [listing, other]}
+
+    def fake_get(url, **kw):
+        calls.append(("GET", url, None))
+        return {"jobPostingInfo": {
+            "title": "Product Designer", "jobReqId": "R123", "location": "Bangalore",
+            "additionalLocations": ["Pune"], "startDate": "2026-10-18", "timeType": "Full time",
+            "jobDescription": "<p>2-4 years of experience. Figma, prototyping, design systems.</p>",
+            "externalUrl": "https://acme.wd5.myworkdayjobs.com/External/job/Bangalore/Product-Designer_R123"},
+            "hiringOrganization": {"name": "Acme India"}}
+
+    monkeypatch.setattr(sources, "request_json", fake_post)
+    monkeypatch.setattr(sources, "get_json", fake_get)
+    raws = sources.fetch("workday", "acme.wd5.myworkdayjobs.com/External")
+    assert calls[0][1] == "https://acme.wd5.myworkdayjobs.com/wday/cxs/acme/External/jobs"
+    assert calls[0][2]["searchText"] == "designer"
+    assert [c[1] for c in calls if c[0] == "GET"] == [
+        "https://acme.wd5.myworkdayjobs.com/wday/cxs/acme/External/job/Bangalore/Product-Designer_R123"]
+    job = normalize(raws[0], {"acme.wd5.myworkdayjobs.com/External": "Acme"})
+    assert (job.source, job.source_id, job.company, job.title) == ("workday", "R123", "Acme", "Product Designer")
+    assert job.location == "Bangalore; Pune" and "Figma" in job.description
+    assert job.url.endswith("/job/Bangalore/Product-Designer_R123") and job.posted_at.date().isoformat() == "2026-10-18"
+    assert job.source_label.startswith("Workday")
+
+
+def test_workday_relative_posted_date():
+    from jobagent.normalize import _workday_posted
+    assert _workday_posted({}, {"postedOn": "Posted Today"}).date() == datetime.now(timezone.utc).date()
+    age = datetime.now(timezone.utc) - _workday_posted({"postedOn": "Posted 30+ Days Ago"}, {})
+    assert abs(age - timedelta(days=30)) < timedelta(seconds=5)
+    assert _workday_posted({}, {}) is None

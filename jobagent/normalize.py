@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import html
 import re
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
 from typing import Optional
 
@@ -29,6 +29,7 @@ SOURCE_LABELS = {
     "himalayas": "Himalayas (himalayas.app)",
     "weworkremotely": "We Work Remotely (weworkremotely.com)",
     "uxjobs": "UX Jobs (jobs.uxjobs.io)",
+    "workday": "Workday (company career site)",
 }
 
 
@@ -288,10 +289,43 @@ def _uxjobs(p: dict, _: str) -> Job:
     )
 
 
+_POSTED_AGO = re.compile(r"posted\s+(today|yesterday|(\d+)\+?\s+days?\s+ago)", re.I)
+
+
+def _workday_posted(info: dict, listing: dict) -> Optional[datetime]:
+    start = parse_datetime(info.get("startDate"))
+    if start:
+        return start
+    m = _POSTED_AGO.search(info.get("postedOn") or listing.get("postedOn") or "")
+    if not m:
+        return None
+    word = m.group(1).lower()
+    days = 0 if word == "today" else 1 if word == "yesterday" else int(m.group(2))
+    return datetime.now(timezone.utc) - timedelta(days=days)
+
+
+def _workday(p: dict, company: str) -> Job:
+    info, listing = p.get("detail") or {}, p.get("listing") or {}
+    locations = [info.get("location") or listing.get("locationsText", "")] + list(info.get("additionalLocations") or [])
+    location = "; ".join(loc for loc in locations if loc)
+    title = (info.get("title") or listing.get("title", "")).strip()
+    return Job(
+        source="workday", source_id=str(info.get("jobReqId") or (listing.get("bulletFields") or [""])[0]
+                                        or listing.get("externalPath", "")),
+        company=company, title=title, url=info.get("externalUrl") or p.get("public_url", ""),
+        location=location, country=((info.get("country") or {}).get("descriptor") or ""),
+        work_mode=infer_work_mode(info.get("remoteType", ""), location, title),
+        employment_type=info.get("timeType", "") or "",
+        description=html_to_text(info.get("jobDescription", "")),
+        posted_at=_workday_posted(info, listing),
+    )
+
+
 _NORMALIZERS = {
     "greenhouse": _greenhouse, "lever": _lever, "ashby": _ashby, "smartrecruiters": _smartrecruiters,
     "workable": _workable, "recruitee": _recruitee, "remotive": _remotive, "remoteok": _remoteok,
     "jobicy": _jobicy, "himalayas": _himalayas, "weworkremotely": _weworkremotely, "uxjobs": _uxjobs,
+    "workday": _workday,
 }
 
 
