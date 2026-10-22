@@ -1,15 +1,15 @@
 {
   "feeds_fetched": {
-    "himalayas/product designer": "2026-10-22T15:48:57.275680+00:00",
-    "jobfound/all": "2026-10-22T15:48:57.275680+00:00",
-    "jobicy/designer": "2026-10-22T15:48:57.275680+00:00",
-    "jobspresso/design": "2026-10-22T15:48:57.275680+00:00",
-    "nodesk/design": "2026-10-22T15:48:57.275680+00:00",
-    "remoteok/design": "2026-10-22T15:48:57.275680+00:00",
-    "remotive/design": "2026-10-22T15:48:57.275680+00:00",
-    "uxjobs/design": "2026-10-22T15:48:57.275680+00:00",
-    "weworkremotely/remote-design-jobs": "2026-10-22T18:31:49.205435+00:00",
-    "workingnomads/design": "2026-10-22T15:48:57.275680+00:00"
+    "himalayas/product designer": "2026-10-22T22:19:41.885758+00:00",
+    "jobfound/all": "2026-10-22T22:19:41.885758+00:00",
+    "jobicy/designer": "2026-10-22T22:19:41.885758+00:00",
+    "jobspresso/design": "2026-10-22T22:19:41.885758+00:00",
+    "nodesk/design": "2026-10-22T22:19:41.885758+00:00",
+    "remoteok/design": "2026-10-22T22:19:41.885758+00:00",
+    "remotive/design": "2026-10-22T22:19:41.885758+00:00",
+    "uxjobs/design": "2026-10-22T22:19:41.885758+00:00",
+    "weworkremotely/remote-design-jobs": "2026-10-22T22:19:41.885758+00:00",
+    "workingnomads/design": "2026-10-22T22:19:41.885758+00:00"
   },
   "runs": [
     {
@@ -425,6 +425,15 @@
       "new_unsent": 6,
       "sent": 0,
       "started_at": "2026-10-22T18:31:49.205435+00:00"
+    },
+    {
+      "discovered": 15373,
+      "failed": 0,
+      "matched": 110,
+      "mode": "send",
+      "new_unsent": 97,
+      "sent": 0,
+      "started_at": "2026-10-22T22:19:41.885758+00:00"
     }
   ],
   "sent": {
