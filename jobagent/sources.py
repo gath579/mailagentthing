@@ -178,12 +178,36 @@ def _local(tag: str) -> str:
     return tag.rsplit("}", 1)[-1]
 
 
+_XML_ENTITIES = {"amp", "lt", "gt", "quot", "apos"}
+_ENTITY_RE = re.compile(r"&(#\d+|#x[0-9a-fA-F]+|[A-Za-z][A-Za-z0-9]*);")
+_BARE_AMP_RE = re.compile(r"&(?!#\d+;|#x[0-9a-fA-F]+;|[A-Za-z][A-Za-z0-9]*;)")
+_BAD_XML_CHARS = re.compile(r"[\x00-\x08\x0b\x0c\x0e-\x1f]")
+
+
+def _sanitize_xml(text: str) -> str:
+    """Make real-world feeds parseable: HTML named entities (&nbsp; ...), bare '&' and control chars."""
+    import html.entities
+
+    def entity(m: re.Match) -> str:
+        name = m.group(1)
+        if name.startswith("#") or name in _XML_ENTITIES:
+            return m.group(0)
+        cp = html.entities.name2codepoint.get(name)
+        return f"&#{cp};" if cp else f"&amp;{name};"
+    text = _BAD_XML_CHARS.sub("", text)
+    text = _BARE_AMP_RE.sub("&amp;", text)
+    return _ENTITY_RE.sub(entity, text)
+
+
 def parse_feed(xml_text: str) -> list[dict]:
     """RSS <item> or Atom <entry> elements as flat dicts keyed by local tag name.
 
     Atom links become "link" (href); nested author/name becomes "author".
     """
-    root = ET.fromstring(xml_text)
+    try:
+        root = ET.fromstring(xml_text)
+    except ET.ParseError:
+        root = ET.fromstring(_sanitize_xml(xml_text))
     out = []
     for el in root.iter():
         if _local(el.tag) not in ("item", "entry"):

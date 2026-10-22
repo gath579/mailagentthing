@@ -1026,3 +1026,72 @@ source = "greenhouse"
 slug = "globalli"
 name = "Globalli"
 size = "startup"
+
+# Workday career sites (verified live by the probe 2026-10-22). Searched for "designer";
+# companies with India design/engineering teams.
+
+[[companies]]
+source = "workday"
+slug = "adobe.wd5.myworkdayjobs.com/external_experienced"
+name = "Adobe"
+size = "large"
+
+[[companies]]
+source = "workday"
+slug = "autodesk.wd1.myworkdayjobs.com/Ext"
+name = "Autodesk"
+size = "large"
+
+[[companies]]
+source = "workday"
+slug = "paypal.wd1.myworkdayjobs.com/jobs"
+name = "PayPal"
+size = "large"
+
+[[companies]]
+source = "workday"
+slug = "lowes.wd5.myworkdayjobs.com/LWS_External_CS"
+name = "Lowe's"
+size = "large"
+
+[[companies]]
+source = "workday"
+slug = "philips.wd3.myworkdayjobs.com/jobs-and-careers"
+name = "Philips"
+size = "large"
+
+[[companies]]
+source = "workday"
+slug = "pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers"
+name = "PwC"
+size = "large"
+
+[[companies]]
+source = "workday"
+slug = "kla.wd1.myworkdayjobs.com/Search"
+name = "KLA"
+size = "large"
+
+[[companies]]
+source = "workday"
+slug = "warnerbros.wd5.myworkdayjobs.com/global"
+name = "Warner Bros. Discovery"
+size = "large"
+
+[[companies]]
+source = "workday"
+slug = "pg.wd5.myworkdayjobs.com/1000"
+name = "Procter & Gamble"
+size = "large"
+
+[[companies]]
+source = "workday"
+slug = "unilever.wd3.myworkdayjobs.com/Unilever_Experienced_Professionals"
+name = "Unilever"
+size = "large"
+
+[[companies]]
+source = "workday"
+slug = "ouryahoo.wd5.myworkdayjobs.com/careers"
+name = "Yahoo"
+size = "large"

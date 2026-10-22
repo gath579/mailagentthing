@@ -507,3 +507,13 @@ def test_workingnomads_normalizer():
          "category_name": "Design", "location": "India", "pub_date": "2026-10-18T00:00:00", "description": "<b>Figma</b>"}
     job = normalize(RawPosting("workingnomads", "design", p))
     assert (job.company, job.location, job.work_mode, job.description) == ("X", "Remote (India)", "remote", "Figma")
+
+
+def test_parse_feed_tolerates_html_entities_and_bare_ampersands():
+    from jobagent.sources import parse_feed
+    xml = ("<rss><channel><item><title>UI &amp; UX Designer at R&D Co</title>"
+           "<link>https://x.test/1?a=1&b=2</link><description>Remote&nbsp;role &mdash; India\x0b</description>"
+           "</item></channel></rss>")
+    item = parse_feed(xml)[0]
+    assert item["title"] == "UI & UX Designer at R&D Co" and item["link"] == "https://x.test/1?a=1&b=2"
+    assert item["description"] == "Remote\u00a0role \u2014 India"
