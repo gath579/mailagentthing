@@ -256,6 +256,26 @@ source = "weworkremotely"
 query = "remote-design-jobs"
 min_interval_hours = 2
 
+[[feeds]]
+source = "jobfound"          # Atom feed advertised in its robots.txt
+query = "all"
+min_interval_hours = 3
+
+[[feeds]]
+source = "workingnomads"     # public API; filtered to design category/titles
+query = "design"
+min_interval_hours = 3
+
+[[feeds]]
+source = "nodesk"
+query = "design"
+min_interval_hours = 3
+
+[[feeds]]
+source = "jobspresso"        # robots.txt asks for a 3s crawl delay; one request per run
+query = "design"
+min_interval_hours = 6
+
 # ---------------------------------------------------------------------------
 # Company boards: populated from the discovery probe (discovery/candidates.toml).
 # size = large | mid | startup affects ranking only.

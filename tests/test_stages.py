@@ -35,8 +35,7 @@ def test_discovery_boards_and_feeds(config):
 def test_discovery_isolates_failures_and_raises_when_all_fail(config):
     result = discover_jobs(config.companies, config.feeds, fake_fetchers(fail={"lever"}), now=NOW)
     assert "lever/globex-in" in result.errors and result.postings
-    everything = {"greenhouse", "lever", "ashby", "remotive", "remoteok", "jobicy", "himalayas", "weworkremotely",
-                  "uxjobs"}
+    everything = {c.source for c in config.companies} | {f.source for f in config.feeds}
     with pytest.raises(DiscoveryError):
         discover_jobs(config.companies, config.feeds, fake_fetchers(fail=everything), now=NOW)
 
@@ -478,3 +477,33 @@ def test_workday_relative_posted_date():
     age = datetime.now(timezone.utc) - _workday_posted({"postedOn": "Posted 30+ Days Ago"}, {})
     assert abs(age - timedelta(days=30)) < timedelta(seconds=5)
     assert _workday_posted({}, {}) is None
+
+
+def test_parse_feed_rss_and_atom_and_feed_normalizers():
+    from jobagent.sources import parse_feed
+    rss = """<rss xmlns:job_listing="https://example/job"><channel><title>x</title>
+      <item><title>Product Designer at Acme</title><link>https://nodesk.co/remote-jobs/acme-pd/</link>
+      <guid>n1</guid><pubDate>Mon, 19 Oct 2026 10:00:00 +0000</pubDate>
+      <description>&lt;p&gt;3+ years. Figma.&lt;/p&gt;</description>
+      <job_listing:location>India</job_listing:location></item></channel></rss>"""
+    atom = """<feed xmlns="http://www.w3.org/2005/Atom"><title>Jobfound</title>
+      <entry><title>UX Designer</title><id>jf-9</id><link rel="alternate" href="https://jobfound.org/job/ux-9"/>
+      <author><name>Globex</name></author><updated>2026-10-20T08:00:00Z</updated>
+      <summary>Hybrid role in Pune. 2-4 years.</summary></entry></feed>"""
+    item = parse_feed(rss)[0]
+    assert item["title"] == "Product Designer at Acme" and item["location"] == "India"
+    entry = parse_feed(atom)[0]
+    assert entry["link"] == "https://jobfound.org/job/ux-9" and entry["author"] == "Globex"
+    nd = normalize(RawPosting("nodesk", "design", item))
+    assert (nd.title, nd.company, nd.work_mode) == ("Product Designer", "Acme", "remote")
+    assert nd.location == "Remote (India)" and "Figma" in nd.description and nd.posted_at.day == 19
+    jf = normalize(RawPosting("jobfound", "all", entry))
+    assert (jf.title, jf.company, jf.url) == ("UX Designer", "Globex", "https://jobfound.org/job/ux-9")
+    assert jf.work_mode == "hybrid" and jf.posted_at.day == 20
+
+
+def test_workingnomads_normalizer():
+    p = {"url": "https://www.workingnomads.com/jobs/ui-designer-x", "title": "UI Designer", "company_name": "X",
+         "category_name": "Design", "location": "India", "pub_date": "2026-10-18T00:00:00", "description": "<b>Figma</b>"}
+    job = normalize(RawPosting("workingnomads", "design", p))
+    assert (job.company, job.location, job.work_mode, job.description) == ("X", "Remote (India)", "remote", "Figma")

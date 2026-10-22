@@ -10,6 +10,11 @@ Two kinds:
   bounded number of detail requests per run.
 * Multi-employer feeds with public APIs/RSS intended for re-use:
   Remotive, RemoteOK, Jobicy, Himalayas, We Work Remotely.
+* More remote boards that publish feeds/APIs for reuse (robots.txt allows them,
+  terms have no automated-access clause): jobfound.org (Atom feed advertised in
+  its robots.txt; /api/ is disallowed there and not used), Working Nomads
+  (public /api/exposed_jobs/), NoDesk (design RSS), Jobspresso (job RSS,
+  crawl-delay respected by reading one feed URL per run).
 * UX Jobs (jobs.uxjobs.io), a design-specialist board. Its robots.txt allows
   general user-agents everywhere except /api/ (blocked here too) and only bars
   named AI-training crawlers; its terms have no automated-access clause. We read
@@ -19,7 +24,8 @@ Two kinds:
   link to the original posting.)
 
 Not used, because their terms forbid automated access and they offer no public
-job API: LinkedIn (jobs and posts), Naukri, Indeed, Glassdoor, Wellfound, Instahyre, Dribbble,
+job API: LinkedIn (jobs and posts), Naukri, Indeed, Cutshort ("automated access,
+bots, scraping ... data extraction" restricted), hiddenroles.co ("not to scrape"), Glassdoor, Wellfound, Instahyre, Dribbble,
 Behance, uxdesign.com (terms bar "automated tools, bots, or scraping").
 Not used because they are not reliably reachable: UX Jobs Weekly on Substack
 (403 to automated clients), uxness.in (429, no feed). role.com is a general
@@ -168,6 +174,59 @@ def fetch_weworkremotely(query: str) -> list[dict]:
     return items
 
 
+def _local(tag: str) -> str:
+    return tag.rsplit("}", 1)[-1]
+
+
+def parse_feed(xml_text: str) -> list[dict]:
+    """RSS <item> or Atom <entry> elements as flat dicts keyed by local tag name.
+
+    Atom links become "link" (href); nested author/name becomes "author".
+    """
+    root = ET.fromstring(xml_text)
+    out = []
+    for el in root.iter():
+        if _local(el.tag) not in ("item", "entry"):
+            continue
+        rec: dict[str, str] = {}
+        for child in el:
+            name = _local(child.tag)
+            if name == "link" and child.get("href"):
+                if child.get("rel", "alternate") == "alternate":
+                    rec["link"] = child.get("href")
+                continue
+            if name == "author" and len(child):
+                rec["author"] = " ".join((c.text or "").strip() for c in child if _local(c.tag) == "name")
+                continue
+            text = (child.text or "").strip()
+            if text and name not in rec:
+                rec[name] = text
+        out.append(rec)
+    return out
+
+
+def fetch_jobfound(query: str) -> list[dict]:
+    # Atom feed advertised in jobfound.org's robots.txt
+    return parse_feed(get_text("https://jobfound.org/feeds/jobs"))
+
+
+def fetch_workingnomads(query: str) -> list[dict]:
+    data = get_json("https://www.workingnomads.com/api/exposed_jobs/")
+    items = data if isinstance(data, list) else []
+    q = query.lower()
+    return [i for i in items if q in (i.get("category_name") or "").lower() or DESIGN_HINT.search(i.get("title", ""))]
+
+
+def fetch_nodesk(query: str) -> list[dict]:
+    # query is a NoDesk category, e.g. "design"
+    return parse_feed(get_text(f"https://nodesk.co/remote-jobs/{quote(query)}/index.xml"))
+
+
+def fetch_jobspresso(query: str) -> list[dict]:
+    items = parse_feed(get_text("https://jobspresso.co/feed/?post_type=job_listing"))
+    return [i for i in items if DESIGN_HINT.search(i.get("title", ""))]
+
+
 _UXJOBS_JSON_RE = re.compile(r"<script\b[^>]*type=[\"']application/json[\"'][^>]*>(.*?)</script>", re.S)
 _LD_RE = re.compile(r"<script[^>]+application/ld\+json[^>]*>(.*?)</script>", re.I | re.S)
 _UXJOBS_SKIP_SENIORITY = re.compile(r"senior|lead|principal|staff|director|head|manager|intern", re.I)
@@ -216,6 +275,10 @@ def fetch_uxjobs(query: str) -> list[dict]:
 
 
 FEED_FETCHERS: dict[str, Fetcher] = {
+    "jobfound": fetch_jobfound,
+    "workingnomads": fetch_workingnomads,
+    "nodesk": fetch_nodesk,
+    "jobspresso": fetch_jobspresso,
     "uxjobs": fetch_uxjobs,
     "remotive": fetch_remotive,
     "remoteok": fetch_remoteok,

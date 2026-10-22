@@ -30,6 +30,10 @@ SOURCE_LABELS = {
     "weworkremotely": "We Work Remotely (weworkremotely.com)",
     "uxjobs": "UX Jobs (jobs.uxjobs.io)",
     "workday": "Workday (company career site)",
+    "jobfound": "Jobfound (jobfound.org)",
+    "workingnomads": "Working Nomads (workingnomads.com)",
+    "nodesk": "NoDesk (nodesk.co)",
+    "jobspresso": "Jobspresso (jobspresso.co)",
 }
 
 
@@ -321,11 +325,57 @@ def _workday(p: dict, company: str) -> Job:
     )
 
 
+def _split_at_company(title: str) -> tuple[str, str]:
+    """'Product Designer at Acme' -> ('Product Designer', 'Acme')."""
+    head, sep, tail = title.rpartition(" at ")
+    return (head.strip(), tail.strip()) if sep and head else (title.strip(), "")
+
+
+def _feed_job(source: str, p: dict, *, company: str = "", location: str = "", remote: bool = False) -> Job:
+    title, at_company = _split_at_company(p.get("title", ""))
+    company = company or p.get("company") or p.get("author") or at_company
+    description = html_to_text(p.get("encoded") or p.get("content") or p.get("description") or p.get("summary") or "")
+    location = location or p.get("location", "")
+    if remote and "remote" not in location.lower():
+        location = f"Remote ({location})" if location else "Remote"
+    return Job(
+        source=source, source_id=p.get("id") or p.get("guid") or p.get("link", ""), company=company.strip(),
+        title=title, url=p.get("link", ""), location=location,
+        work_mode="remote" if remote else infer_work_mode("", location, title, description[:500]),
+        description=description,
+        posted_at=parse_datetime(p.get("published") or p.get("pubDate") or p.get("updated") or p.get("date")),
+    )
+
+
+def _jobfound(p: dict, _: str) -> Job:
+    return _feed_job("jobfound", p)
+
+
+def _nodesk(p: dict, _: str) -> Job:
+    return _feed_job("nodesk", p, remote=True)
+
+
+def _jobspresso(p: dict, _: str) -> Job:
+    return _feed_job("jobspresso", p, remote=True)
+
+
+def _workingnomads(p: dict, _: str) -> Job:
+    location = p.get("location", "")
+    return Job(
+        source="workingnomads", source_id=p.get("url", ""), company=p.get("company_name", ""),
+        title=(p.get("title") or "").strip(), url=p.get("url", ""),
+        location=f"Remote ({location})" if location else "Remote", work_mode="remote",
+        department=p.get("category_name", ""), description=html_to_text(p.get("description", "")),
+        posted_at=parse_datetime(p.get("pub_date")),
+    )
+
+
 _NORMALIZERS = {
     "greenhouse": _greenhouse, "lever": _lever, "ashby": _ashby, "smartrecruiters": _smartrecruiters,
     "workable": _workable, "recruitee": _recruitee, "remotive": _remotive, "remoteok": _remoteok,
     "jobicy": _jobicy, "himalayas": _himalayas, "weworkremotely": _weworkremotely, "uxjobs": _uxjobs,
-    "workday": _workday,
+    "workday": _workday, "jobfound": _jobfound, "workingnomads": _workingnomads, "nodesk": _nodesk,
+    "jobspresso": _jobspresso,
 }
 
 

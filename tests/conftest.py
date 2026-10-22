@@ -112,7 +112,8 @@ def fake_fetchers(fail: set[str] | None = None):
             return [p for p in items if "legal" not in p] if source == "remoteok" else items
         return fetch
 
-    return {s: make(s) for s in list(data) + ["smartrecruiters", "workable", "recruitee"]}
+    return {s: make(s) for s in list(data) + ["smartrecruiters", "workable", "recruitee", "workday",
+                                              "jobfound", "workingnomads", "nodesk", "jobspresso"]}
 
 
 @pytest.fixture
