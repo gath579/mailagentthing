@@ -4,8 +4,17 @@ Two kinds:
 
 * Company boards (one employer each) via official public ATS job-board APIs:
   Greenhouse, Lever, Ashby, SmartRecruiters, Workable, Recruitee.
+* Workday career sites (one employer each): the JSON endpoints the public
+  career site itself calls (/wday/cxs/<tenant>/<site>/jobs and the job detail),
+  which include the full job description. Searched for "designer" only, with a
+  bounded number of detail requests per run.
 * Multi-employer feeds with public APIs/RSS intended for re-use:
   Remotive, RemoteOK, Jobicy, Himalayas, We Work Remotely.
+* More remote boards that publish feeds/APIs for reuse (robots.txt allows them,
+  terms have no automated-access clause): jobfound.org (Atom feed advertised in
+  its robots.txt; /api/ is disallowed there and not used), Working Nomads
+  (public /api/exposed_jobs/), NoDesk (design RSS), Jobspresso (job RSS,
+  crawl-delay respected by reading one feed URL per run).
 * UX Jobs (jobs.uxjobs.io), a design-specialist board. Its robots.txt allows
   general user-agents everywhere except /api/ (blocked here too) and only bars
   named AI-training crawlers; its terms have no automated-access clause. We read
@@ -15,7 +24,8 @@ Two kinds:
   link to the original posting.)
 
 Not used, because their terms forbid automated access and they offer no public
-job API: LinkedIn, Naukri, Indeed, Glassdoor, Wellfound, Instahyre, Dribbble,
+job API: LinkedIn (jobs and posts), Naukri, Indeed, Cutshort ("automated access,
+bots, scraping ... data extraction" restricted), hiddenroles.co ("not to scrape"), Glassdoor, Wellfound, Instahyre, Dribbble,
 Behance, uxdesign.com (terms bar "automated tools, bots, or scraping").
 Not used because they are not reliably reachable: UX Jobs Weekly on Substack
 (403 to automated clients), uxness.in (429, no feed). role.com is a general
@@ -28,7 +38,7 @@ import xml.etree.ElementTree as ET
 from typing import Callable
 from urllib.parse import quote, urlencode
 
-from .http import get_json, get_text
+from .http import get_json, get_text, request_json
 from .models import RawPosting
 
 Fetcher = Callable[[str], list[dict]]
@@ -86,6 +96,41 @@ def fetch_recruitee(company: str) -> list[dict]:
     return data.get("offers", [])
 
 
+WORKDAY_SEARCH = "designer"
+WORKDAY_MAX_LISTINGS = 100     # paged 20 at a time
+WORKDAY_MAX_DETAILS = 30       # job-detail requests per site per run
+
+
+def fetch_workday(key: str) -> list[dict]:
+    """`key` is "<host>/<site>", e.g. "adobe.wd5.myworkdayjobs.com/external_experienced"."""
+    host, site = key.strip("/").split("/", 1)
+    tenant = host.split(".")[0]
+    base = f"https://{host}/wday/cxs/{tenant}/{site}"
+    listings: list[dict] = []
+    offset = 0
+    while offset < WORKDAY_MAX_LISTINGS:
+        page = request_json("POST", f"{base}/jobs", body={
+            "appliedFacets": {}, "limit": 20, "offset": offset, "searchText": WORKDAY_SEARCH}, retries=1)
+        batch = (page or {}).get("jobPostings") or []
+        listings += batch
+        if len(batch) < 20 or offset + 20 >= (page or {}).get("total", 0):
+            break
+        offset += 20
+    out = []
+    for item in [i for i in listings if DESIGN_HINT.search(i.get("title", ""))][:WORKDAY_MAX_DETAILS]:
+        path = item.get("externalPath") or ""
+        if not path:
+            continue
+        try:
+            detail = get_json(f"{base}{path}", retries=1) or {}
+        except Exception:  # noqa: BLE001 - keep the listing; scoring copes with a short description
+            detail = {}
+        out.append({"listing": item, "detail": detail.get("jobPostingInfo") or {},
+                    "organization": (detail.get("hiringOrganization") or {}).get("name", ""),
+                    "public_url": f"https://{host}/{site}{path}"})
+    return out
+
+
 BOARD_FETCHERS: dict[str, Fetcher] = {
     "greenhouse": fetch_greenhouse,
     "lever": fetch_lever,
@@ -127,6 +172,83 @@ def fetch_weworkremotely(query: str) -> list[dict]:
     for item in root.iter("item"):
         items.append({child.tag: (child.text or "") for child in item})
     return items
+
+
+def _local(tag: str) -> str:
+    return tag.rsplit("}", 1)[-1]
+
+
+_XML_ENTITIES = {"amp", "lt", "gt", "quot", "apos"}
+_ENTITY_RE = re.compile(r"&(#\d+|#x[0-9a-fA-F]+|[A-Za-z][A-Za-z0-9]*);")
+_BARE_AMP_RE = re.compile(r"&(?!#\d+;|#x[0-9a-fA-F]+;|[A-Za-z][A-Za-z0-9]*;)")
+_BAD_XML_CHARS = re.compile(r"[\x00-\x08\x0b\x0c\x0e-\x1f]")
+
+
+def _sanitize_xml(text: str) -> str:
+    """Make real-world feeds parseable: HTML named entities (&nbsp; ...), bare '&' and control chars."""
+    import html.entities
+
+    def entity(m: re.Match) -> str:
+        name = m.group(1)
+        if name.startswith("#") or name in _XML_ENTITIES:
+            return m.group(0)
+        cp = html.entities.name2codepoint.get(name)
+        return f"&#{cp};" if cp else f"&amp;{name};"
+    text = _BAD_XML_CHARS.sub("", text)
+    text = _BARE_AMP_RE.sub("&amp;", text)
+    return _ENTITY_RE.sub(entity, text)
+
+
+def parse_feed(xml_text: str) -> list[dict]:
+    """RSS <item> or Atom <entry> elements as flat dicts keyed by local tag name.
+
+    Atom links become "link" (href); nested author/name becomes "author".
+    """
+    try:
+        root = ET.fromstring(xml_text)
+    except ET.ParseError:
+        root = ET.fromstring(_sanitize_xml(xml_text))
+    out = []
+    for el in root.iter():
+        if _local(el.tag) not in ("item", "entry"):
+            continue
+        rec: dict[str, str] = {}
+        for child in el:
+            name = _local(child.tag)
+            if name == "link" and child.get("href"):
+                if child.get("rel", "alternate") == "alternate":
+                    rec["link"] = child.get("href")
+                continue
+            if name == "author" and len(child):
+                rec["author"] = " ".join((c.text or "").strip() for c in child if _local(c.tag) == "name")
+                continue
+            text = (child.text or "").strip()
+            if text and name not in rec:
+                rec[name] = text
+        out.append(rec)
+    return out
+
+
+def fetch_jobfound(query: str) -> list[dict]:
+    # Atom feed advertised in jobfound.org's robots.txt
+    return parse_feed(get_text("https://jobfound.org/feeds/jobs"))
+
+
+def fetch_workingnomads(query: str) -> list[dict]:
+    data = get_json("https://www.workingnomads.com/api/exposed_jobs/")
+    items = data if isinstance(data, list) else []
+    q = query.lower()
+    return [i for i in items if q in (i.get("category_name") or "").lower() or DESIGN_HINT.search(i.get("title", ""))]
+
+
+def fetch_nodesk(query: str) -> list[dict]:
+    # query is a NoDesk category, e.g. "design"
+    return parse_feed(get_text(f"https://nodesk.co/remote-jobs/{quote(query)}/index.xml"))
+
+
+def fetch_jobspresso(query: str) -> list[dict]:
+    items = parse_feed(get_text("https://jobspresso.co/feed/?post_type=job_listing"))
+    return [i for i in items if DESIGN_HINT.search(i.get("title", ""))]
 
 
 _UXJOBS_JSON_RE = re.compile(r"<script\b[^>]*type=[\"']application/json[\"'][^>]*>(.*?)</script>", re.S)
@@ -177,6 +299,10 @@ def fetch_uxjobs(query: str) -> list[dict]:
 
 
 FEED_FETCHERS: dict[str, Fetcher] = {
+    "jobfound": fetch_jobfound,
+    "workingnomads": fetch_workingnomads,
+    "nodesk": fetch_nodesk,
+    "jobspresso": fetch_jobspresso,
     "uxjobs": fetch_uxjobs,
     "remotive": fetch_remotive,
     "remoteok": fetch_remoteok,
@@ -185,7 +311,9 @@ FEED_FETCHERS: dict[str, Fetcher] = {
     "weworkremotely": fetch_weworkremotely,
 }
 
-ALL_FETCHERS: dict[str, Fetcher] = {**BOARD_FETCHERS, **FEED_FETCHERS}
+# Workday keys are "<host>/<site>", not plain slugs, so it isn't probed slug-by-slug like the other boards.
+COMPANY_FETCHERS: dict[str, Fetcher] = {**BOARD_FETCHERS, "workday": fetch_workday}
+ALL_FETCHERS: dict[str, Fetcher] = {**COMPANY_FETCHERS, **FEED_FETCHERS}
 
 
 def fetch(source: str, key: str, fetchers: dict[str, Fetcher] | None = None) -> list[RawPosting]:

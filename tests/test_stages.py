@@ -1,4 +1,4 @@
-from datetime import timedelta
+from datetime import datetime, timedelta, timezone
 
 import pytest
 
@@ -35,8 +35,7 @@ def test_discovery_boards_and_feeds(config):
 def test_discovery_isolates_failures_and_raises_when_all_fail(config):
     result = discover_jobs(config.companies, config.feeds, fake_fetchers(fail={"lever"}), now=NOW)
     assert "lever/globex-in" in result.errors and result.postings
-    everything = {"greenhouse", "lever", "ashby", "remotive", "remoteok", "jobicy", "himalayas", "weworkremotely",
-                  "uxjobs"}
+    everything = {c.source for c in config.companies} | {f.source for f in config.feeds}
     with pytest.raises(DiscoveryError):
         discover_jobs(config.companies, config.feeds, fake_fetchers(fail=everything), now=NOW)
 
@@ -433,3 +432,122 @@ def test_tv_ai_small_team_concerns(config):
     evaluate(job, config, NOW)
     text = " ".join(job.concerns)
     assert "TV / 10-foot" in text and "AI-native" in text and "Small design team" in text
+
+
+# ---- Workday -----------------------------------------------------------------
+
+def test_workday_fetch_and_normalize(monkeypatch):
+    from jobagent import sources
+
+    calls = []
+    listing = {"title": "Product Designer", "externalPath": "/job/Bangalore/Product-Designer_R123",
+               "locationsText": "Bangalore", "postedOn": "Posted 3 Days Ago", "bulletFields": ["R123"]}
+    other = {"title": "Software Engineer", "externalPath": "/job/Pune/SWE_R9", "locationsText": "Pune"}
+
+    def fake_post(method, url, body=None, **kw):
+        calls.append((method, url, body))
+        return {"total": 2, "jobPostings": [listing, other]}
+
+    def fake_get(url, **kw):
+        calls.append(("GET", url, None))
+        return {"jobPostingInfo": {
+            "title": "Product Designer", "jobReqId": "R123", "location": "Bangalore",
+            "additionalLocations": ["Pune"], "startDate": "2026-10-18", "timeType": "Full time",
+            "jobDescription": "<p>2-4 years of experience. Figma, prototyping, design systems.</p>",
+            "externalUrl": "https://acme.wd5.myworkdayjobs.com/External/job/Bangalore/Product-Designer_R123"},
+            "hiringOrganization": {"name": "Acme India"}}
+
+    monkeypatch.setattr(sources, "request_json", fake_post)
+    monkeypatch.setattr(sources, "get_json", fake_get)
+    raws = sources.fetch("workday", "acme.wd5.myworkdayjobs.com/External")
+    assert calls[0][1] == "https://acme.wd5.myworkdayjobs.com/wday/cxs/acme/External/jobs"
+    assert calls[0][2]["searchText"] == "designer"
+    assert [c[1] for c in calls if c[0] == "GET"] == [
+        "https://acme.wd5.myworkdayjobs.com/wday/cxs/acme/External/job/Bangalore/Product-Designer_R123"]
+    job = normalize(raws[0], {"acme.wd5.myworkdayjobs.com/External": "Acme"})
+    assert (job.source, job.source_id, job.company, job.title) == ("workday", "R123", "Acme", "Product Designer")
+    assert job.location == "Bangalore; Pune" and "Figma" in job.description
+    assert job.url.endswith("/job/Bangalore/Product-Designer_R123") and job.posted_at.date().isoformat() == "2026-10-18"
+    assert job.source_label.startswith("Workday")
+
+
+def test_workday_relative_posted_date():
+    from jobagent.normalize import _workday_posted
+    assert _workday_posted({}, {"postedOn": "Posted Today"}).date() == datetime.now(timezone.utc).date()
+    age = datetime.now(timezone.utc) - _workday_posted({"postedOn": "Posted 30+ Days Ago"}, {})
+    assert abs(age - timedelta(days=30)) < timedelta(seconds=5)
+    assert _workday_posted({}, {}) is None
+
+
+def test_parse_feed_rss_and_atom_and_feed_normalizers():
+    from jobagent.sources import parse_feed
+    rss = """<rss xmlns:job_listing="https://example/job"><channel><title>x</title>
+      <item><title>Product Designer at Acme</title><link>https://nodesk.co/remote-jobs/acme-pd/</link>
+      <guid>n1</guid><pubDate>Mon, 19 Oct 2026 10:00:00 +0000</pubDate>
+      <description>&lt;p&gt;3+ years. Figma.&lt;/p&gt;</description>
+      <job_listing:location>India</job_listing:location></item></channel></rss>"""
+    atom = """<feed xmlns="http://www.w3.org/2005/Atom"><title>Jobfound</title>
+      <entry><title>UX Designer</title><id>jf-9</id><link rel="alternate" href="https://jobfound.org/job/ux-9"/>
+      <author><name>Globex</name></author><updated>2026-10-20T08:00:00Z</updated>
+      <summary>Hybrid role in Pune. 2-4 years.</summary></entry></feed>"""
+    item = parse_feed(rss)[0]
+    assert item["title"] == "Product Designer at Acme" and item["location"] == "India"
+    entry = parse_feed(atom)[0]
+    assert entry["link"] == "https://jobfound.org/job/ux-9" and entry["author"] == "Globex"
+    nd = normalize(RawPosting("nodesk", "design", item))
+    assert (nd.title, nd.company, nd.work_mode) == ("Product Designer", "Acme", "remote")
+    assert nd.location == "Remote (India)" and "Figma" in nd.description and nd.posted_at.day == 19
+    jf = normalize(RawPosting("jobfound", "all", entry))
+    assert (jf.title, jf.company, jf.url) == ("UX Designer", "Globex", "https://jobfound.org/job/ux-9")
+    assert jf.work_mode == "hybrid" and jf.posted_at.day == 20
+
+
+def test_workingnomads_normalizer():
+    p = {"url": "https://www.workingnomads.com/jobs/ui-designer-x", "title": "UI Designer", "company_name": "X",
+         "category_name": "Design", "location": "India", "pub_date": "2026-10-18T00:00:00", "description": "<b>Figma</b>"}
+    job = normalize(RawPosting("workingnomads", "design", p))
+    assert (job.company, job.location, job.work_mode, job.description) == ("X", "Remote (India)", "remote", "Figma")
+
+
+def test_parse_feed_tolerates_html_entities_and_bare_ampersands():
+    from jobagent.sources import parse_feed
+    xml = ("<rss><channel><item><title>UI &amp; UX Designer at R&D Co</title>"
+           "<link>https://x.test/1?a=1&b=2</link><description>Remote&nbsp;role &mdash; India\x0b</description>"
+           "</item></channel></rss>")
+    item = parse_feed(xml)[0]
+    assert item["title"] == "UI & UX Designer at R&D Co" and item["link"] == "https://x.test/1?a=1&b=2"
+    assert item["description"] == "Remote\u00a0role \u2014 India"
+
+
+@pytest.mark.parametrize("url,title,expected", [
+    ("https://jobfound.org/job/jiostar-is-hiring-for-product-designer-design-systems-bengaluru-karnataka-india-india-21-october-2026",
+     "Product Designer - Design Systems", "Bengaluru Karnataka India"),
+    ("https://jobfound.org/job/highlightta-is-hiring-for-product-designer-united-states-remote-usa-21-october-2026",
+     "Product Designer", "United States Remote USA"),
+    ("https://jobfound.org/job/capco-is-hiring-for-ui-ux-designer-pune-bengaluru-bengaluru-karnataka-india-india-22-october-2026",
+     "UI/UX Designer -Pune/Bengaluru", "Bengaluru Karnataka India"),
+    ("https://jobfound.org/job/x", "Product Designer", ""),
+])
+def test_jobfound_location_from_url(url, title, expected):
+    from jobagent.normalize import _jobfound_location
+    assert _jobfound_location(url, title) == expected
+
+
+def test_jobfound_us_remote_job_is_not_sendable(config):
+    entry = {"title": "Product Designer", "id": "jf-1", "author": "HighlightTA", "updated": NOW.isoformat(),
+             "link": "https://jobfound.org/job/highlightta-is-hiring-for-product-designer-united-states-remote-usa-21-october-2026",
+             "summary": "3+ years. Figma, prototyping, design systems, user flows."}
+    job = normalize(RawPosting("jobfound", "all", entry))
+    assert "USA" in job.location and job.work_mode == "remote"
+    assert evaluate(job, config, NOW) is not None          # rejected: remote limited to the US
+
+
+@pytest.mark.parametrize("location", ["Chennai, Tamil Nadu, India", "Gurugram, India"])
+def test_unlisted_and_deprioritized_cities_capped_at_possible(config, location):
+    desc = ("2-4 years of experience. Own features end to end, user flows, user research, usability testing, "
+            "Figma prototyping, design system, work closely with PMs and engineers.")
+    job = _job(location=location, work_mode="hybrid", description=desc)
+    assert evaluate(job, config, NOW) is None
+    assert job.tier == "Possible" and any("priority or fallback cities" in c for c in job.concerns)
+    pune = _job(location="Pune, India", work_mode="hybrid", description=desc)
+    assert evaluate(pune, config, NOW) is None and pune.tier in ("Strong", "Good")

@@ -256,6 +256,26 @@ source = "weworkremotely"
 query = "remote-design-jobs"
 min_interval_hours = 2
 
+[[feeds]]
+source = "jobfound"          # Atom feed advertised in its robots.txt
+query = "all"
+min_interval_hours = 3
+
+[[feeds]]
+source = "workingnomads"     # public API; filtered to design category/titles
+query = "design"
+min_interval_hours = 3
+
+[[feeds]]
+source = "nodesk"
+query = "design"
+min_interval_hours = 3
+
+[[feeds]]
+source = "jobspresso"        # robots.txt asks for a 3s crawl delay; one request per run
+query = "design"
+min_interval_hours = 6
+
 # ---------------------------------------------------------------------------
 # Company boards: populated from the discovery probe (discovery/candidates.toml).
 # size = large | mid | startup affects ranking only.
@@ -1006,3 +1026,72 @@ source = "greenhouse"
 slug = "globalli"
 name = "Globalli"
 size = "startup"
+
+# Workday career sites (verified live by the probe 2026-10-22). Searched for "designer";
+# companies with India design/engineering teams.
+
+[[companies]]
+source = "workday"
+slug = "adobe.wd5.myworkdayjobs.com/external_experienced"
+name = "Adobe"
+size = "large"
+
+[[companies]]
+source = "workday"
+slug = "autodesk.wd1.myworkdayjobs.com/Ext"
+name = "Autodesk"
+size = "large"
+
+[[companies]]
+source = "workday"
+slug = "paypal.wd1.myworkdayjobs.com/jobs"
+name = "PayPal"
+size = "large"
+
+[[companies]]
+source = "workday"
+slug = "lowes.wd5.myworkdayjobs.com/LWS_External_CS"
+name = "Lowe's"
+size = "large"
+
+[[companies]]
+source = "workday"
+slug = "philips.wd3.myworkdayjobs.com/jobs-and-careers"
+name = "Philips"
+size = "large"
+
+[[companies]]
+source = "workday"
+slug = "pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers"
+name = "PwC"
+size = "large"
+
+[[companies]]
+source = "workday"
+slug = "kla.wd1.myworkdayjobs.com/Search"
+name = "KLA"
+size = "large"
+
+[[companies]]
+source = "workday"
+slug = "warnerbros.wd5.myworkdayjobs.com/global"
+name = "Warner Bros. Discovery"
+size = "large"
+
+[[companies]]
+source = "workday"
+slug = "pg.wd5.myworkdayjobs.com/1000"
+name = "Procter & Gamble"
+size = "large"
+
+[[companies]]
+source = "workday"
+slug = "unilever.wd3.myworkdayjobs.com/Unilever_Experienced_Professionals"
+name = "Unilever"
+size = "large"
+
+[[companies]]
+source = "workday"
+slug = "ouryahoo.wd5.myworkdayjobs.com/careers"
+name = "Yahoo"
+size = "large"

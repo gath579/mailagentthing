@@ -6,7 +6,7 @@ import tomllib
 from dataclasses import dataclass, field
 from pathlib import Path
 
-from .sources import BOARD_FETCHERS, FEED_FETCHERS
+from .sources import COMPANY_FETCHERS, FEED_FETCHERS
 
 
 @dataclass
@@ -152,7 +152,7 @@ def load_config(path: str | Path) -> Config:
 
     companies = [Company(**c) for c in data.get("companies", [])]
     for c in companies:
-        if c.source not in BOARD_FETCHERS:
+        if c.source not in COMPANY_FETCHERS:
             raise ValueError(f"Unknown board source {c.source!r} for {c.slug}")
     feeds = [Feed(**f) for f in data.get("feeds", [])]
     for f in feeds:

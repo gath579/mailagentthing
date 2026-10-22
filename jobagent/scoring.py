@@ -91,6 +91,8 @@ def score_experience(job: Job, profile: Profile) -> tuple[float, str | None, str
 # ---- location / work mode ----------------------------------------------------
 
 REMOTE_UNSTATED = "Remote (hiring region not stated)"
+OTHER_CITY = "isn’t one of your priority cities"
+DEPRIORITIZED_CITY = "is a deprioritized location"
 INDIA_UNCONFIRMED = "India eligibility unconfirmed — remote role with no stated hiring region (not assumed worldwide)"
 
 _SPLIT_RE = re.compile(r"[;|/\n]|\bor\b", re.I)
@@ -129,10 +131,10 @@ def _segment_score(seg: str, job: Job, loc: Locations):
     if (city := first(c, loc.tier2)):
         return (15 if mode == "hybrid" else 12), f"Acceptable city: {city.title()}{mode_txt}", unstated
     if (city := first(c, loc.deprioritized)):
-        return 3, f"{city.title()}{mode_txt}", f"{city.title()} is a deprioritized location"
+        return 3, f"{city.title()}{mode_txt}", f"{city.title()} {DEPRIORITIZED_CITY}"
     if (city := first(c, loc.other_india)):
         return (10 if mode == "hybrid" else 8), f"{city.title()}{mode_txt}", \
-            f"{city.title()} isn’t one of your priority cities"
+            f"{city.title()} {OTHER_CITY}"
     return 12, f"India{mode_txt}", "City not specified"
 
 
@@ -208,6 +210,7 @@ def evaluate(job: Job, config: Config, now: datetime | None = None) -> str | Non
     pts, reason, concern, reject = score_location(job, config.locations)
     if reject:
         return reject
+    unlisted_city = bool(concern) and (concern.endswith(OTHER_CITY) or concern.endswith(DEPRIORITIZED_CITY))
     if verified and verified.india_eligible is False:
         return "location: manually confirmed not open to India"
     india_unconfirmed = reason == REMOTE_UNSTATED and not (verified and verified.india_eligible)
@@ -263,6 +266,9 @@ def evaluate(job: Job, config: Config, now: datetime | None = None) -> str | Non
                 else "Good" if job.score >= profile.good_score else "Possible")
     if india_unconfirmed and job.tier == "Strong":
         job.tier = "Good"   # cap: eligibility unknown can't be a strong match
+    if unlisted_city and job.tier != "Possible":
+        job.tier = "Possible"   # outside Pune/Mumbai/Bengaluru/Hyderabad: never Strong/Good
+        job.concerns.append("Capped at Possible: not in your priority or fallback cities")
     exp = parse_experience(f"{job.title}\n{job.description}")
     target_lo, target_hi = profile.experience_target
     if exp and job.tier != "Possible":

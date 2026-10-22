@@ -18,6 +18,48 @@ from urllib.robotparser import RobotFileParser
 from .http import USER_AGENT
 
 SITES = {
+    "jobfound.org": {
+        "base": "https://jobfound.org",
+        "pages": ["/", "/jobs", "/remote-jobs"],
+        "feeds": ["/feed", "/rss", "/rss.xml", "/feed.xml", "/jobs.rss", "/sitemap.xml", "/api/jobs"],
+        "terms": ["/terms", "/terms-of-service", "/tos", "/terms-and-conditions", "/legal"],
+    },
+    "hiddenroles.co": {
+        "base": "https://hiddenroles.co",
+        "pages": ["/", "/jobs"],
+        "feeds": ["/feed", "/rss", "/rss.xml", "/feed.xml", "/jobs.rss", "/sitemap.xml", "/api/jobs"],
+        "terms": ["/terms", "/terms-of-service", "/tos", "/terms-and-conditions", "/legal"],
+    },
+    "workingnomads.com": {
+        "base": "https://www.workingnomads.com",
+        "pages": ["/jobs?category=design"],
+        "feeds": ["/api/exposed_jobs/", "/jobsapi/feed", "/feed", "/sitemap.xml"],
+        "terms": ["/terms", "/terms-of-service", "/privacy"],
+    },
+    "arbeitnow.com": {
+        "base": "https://www.arbeitnow.com",
+        "pages": ["/"],
+        "feeds": ["/api/job-board-api", "/feed"],
+        "terms": ["/terms", "/terms-of-service", "/privacy"],
+    },
+    "jobspresso.co": {
+        "base": "https://jobspresso.co",
+        "pages": ["/remote-design-jobs/"],
+        "feeds": ["/feed/?post_type=job_listing", "/feed/", "/sitemap.xml"],
+        "terms": ["/terms-of-service/", "/terms/", "/privacy-policy/"],
+    },
+    "nodesk.co": {
+        "base": "https://nodesk.co",
+        "pages": ["/remote-jobs/design/"],
+        "feeds": ["/remote-jobs/design/index.xml", "/remote-jobs/index.xml", "/feed", "/sitemap.xml"],
+        "terms": ["/terms/", "/legal/terms/", "/privacy/"],
+    },
+    "cutshort.io": {
+        "base": "https://cutshort.io",
+        "pages": ["/", "/jobs", "/jobs/ui-ux-designer-jobs", "/jobs/product-designer-jobs"],
+        "feeds": ["/sitemap.xml", "/jobs/rss", "/feed", "/rss", "/api/jobs"],
+        "terms": ["/terms", "/terms-of-use", "/terms-and-conditions", "/tnc", "/legal/terms"],
+    },
     "role.com": {
         "base": "https://role.com",
         "pages": ["/", "/jobs", "/jobs/product-designer"],

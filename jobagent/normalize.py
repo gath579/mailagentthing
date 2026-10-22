@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import html
 import re
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
 from typing import Optional
 
@@ -29,6 +29,11 @@ SOURCE_LABELS = {
     "himalayas": "Himalayas (himalayas.app)",
     "weworkremotely": "We Work Remotely (weworkremotely.com)",
     "uxjobs": "UX Jobs (jobs.uxjobs.io)",
+    "workday": "Workday (company career site)",
+    "jobfound": "Jobfound (jobfound.org)",
+    "workingnomads": "Working Nomads (workingnomads.com)",
+    "nodesk": "NoDesk (nodesk.co)",
+    "jobspresso": "Jobspresso (jobspresso.co)",
 }
 
 
@@ -288,10 +293,115 @@ def _uxjobs(p: dict, _: str) -> Job:
     )
 
 
+_POSTED_AGO = re.compile(r"posted\s+(today|yesterday|(\d+)\+?\s+days?\s+ago)", re.I)
+
+
+def _workday_posted(info: dict, listing: dict) -> Optional[datetime]:
+    start = parse_datetime(info.get("startDate"))
+    if start:
+        return start
+    m = _POSTED_AGO.search(info.get("postedOn") or listing.get("postedOn") or "")
+    if not m:
+        return None
+    word = m.group(1).lower()
+    days = 0 if word == "today" else 1 if word == "yesterday" else int(m.group(2))
+    return datetime.now(timezone.utc) - timedelta(days=days)
+
+
+def _workday(p: dict, company: str) -> Job:
+    info, listing = p.get("detail") or {}, p.get("listing") or {}
+    locations = [info.get("location") or listing.get("locationsText", "")] + list(info.get("additionalLocations") or [])
+    location = "; ".join(loc for loc in locations if loc)
+    title = (info.get("title") or listing.get("title", "")).strip()
+    return Job(
+        source="workday", source_id=str(info.get("jobReqId") or (listing.get("bulletFields") or [""])[0]
+                                        or listing.get("externalPath", "")),
+        company=company, title=title, url=info.get("externalUrl") or p.get("public_url", ""),
+        location=location, country=((info.get("country") or {}).get("descriptor") or ""),
+        work_mode=infer_work_mode(info.get("remoteType", ""), location, title),
+        employment_type=info.get("timeType", "") or "",
+        description=html_to_text(info.get("jobDescription", "")),
+        posted_at=_workday_posted(info, listing),
+    )
+
+
+def _split_at_company(title: str) -> tuple[str, str]:
+    """'Product Designer at Acme' -> ('Product Designer', 'Acme')."""
+    head, sep, tail = title.rpartition(" at ")
+    return (head.strip(), tail.strip()) if sep and head else (title.strip(), "")
+
+
+def _feed_job(source: str, p: dict, *, company: str = "", location: str = "", remote: bool = False) -> Job:
+    title, at_company = _split_at_company(p.get("title", ""))
+    company = company or p.get("company") or p.get("author") or at_company
+    description = html_to_text(p.get("encoded") or p.get("content") or p.get("description") or p.get("summary") or "")
+    location = location or p.get("location", "")
+    if remote and "remote" not in location.lower():
+        location = f"Remote ({location})" if location else "Remote"
+    return Job(
+        source=source, source_id=p.get("id") or p.get("guid") or p.get("link", ""), company=company.strip(),
+        title=title, url=p.get("link", ""), location=location,
+        work_mode="remote" if remote else infer_work_mode("", location, title, description[:500]),
+        description=description,
+        posted_at=parse_datetime(p.get("published") or p.get("pubDate") or p.get("updated") or p.get("date")),
+    )
+
+
+_MONTHS = "january|february|march|april|may|june|july|august|september|october|november|december"
+_JOBFOUND_SLUG = re.compile(rf"-is-hiring-for-(.+?)-\d{{1,2}}-(?:{_MONTHS})-\d{{4}}/?$")
+
+
+def _slugify(text: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
+
+
+def _jobfound_location(url: str, title: str) -> str:
+    """jobfound puts the location in the URL: .../<company>-is-hiring-for-<title>-<location>-<dd>-<month>-<yyyy>."""
+    m = _JOBFOUND_SLUG.search(url.lower())
+    if not m:
+        return ""
+    rest = m.group(1)
+    t = _slugify(title)
+    if t and rest.startswith(t):
+        rest = rest[len(t):].strip("-")
+    words = [w for w in rest.split("-") if w]
+    # drop a repeated country token ("...-india-india", "...-usa-usa")
+    if len(words) >= 2 and words[-1] == words[-2]:
+        words.pop()
+    return " ".join(w.upper() if w in ("usa", "uk", "uae") else w.capitalize() for w in words)
+
+
+def _jobfound(p: dict, _: str) -> Job:
+    title, _company = _split_at_company(p.get("title", ""))
+    location = p.get("location") or _jobfound_location(p.get("link", ""), title)
+    return _feed_job("jobfound", p, location=location)
+
+
+def _nodesk(p: dict, _: str) -> Job:
+    return _feed_job("nodesk", p, remote=True)
+
+
+def _jobspresso(p: dict, _: str) -> Job:
+    return _feed_job("jobspresso", p, remote=True)
+
+
+def _workingnomads(p: dict, _: str) -> Job:
+    location = p.get("location", "")
+    return Job(
+        source="workingnomads", source_id=p.get("url", ""), company=p.get("company_name", ""),
+        title=(p.get("title") or "").strip(), url=p.get("url", ""),
+        location=f"Remote ({location})" if location else "Remote", work_mode="remote",
+        department=p.get("category_name", ""), description=html_to_text(p.get("description", "")),
+        posted_at=parse_datetime(p.get("pub_date")),
+    )
+
+
 _NORMALIZERS = {
     "greenhouse": _greenhouse, "lever": _lever, "ashby": _ashby, "smartrecruiters": _smartrecruiters,
     "workable": _workable, "recruitee": _recruitee, "remotive": _remotive, "remoteok": _remoteok,
     "jobicy": _jobicy, "himalayas": _himalayas, "weworkremotely": _weworkremotely, "uxjobs": _uxjobs,
+    "workday": _workday, "jobfound": _jobfound, "workingnomads": _workingnomads, "nodesk": _nodesk,
+    "jobspresso": _jobspresso,
 }
 
 
