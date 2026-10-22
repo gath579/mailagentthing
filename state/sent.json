@@ -1,11 +1,11 @@
 {
   "feeds_fetched": {
-    "himalayas/product designer": "2026-10-22T07:33:22.342011+00:00",
-    "jobicy/designer": "2026-10-22T07:33:22.342011+00:00",
-    "remoteok/design": "2026-10-22T07:33:22.342011+00:00",
-    "remotive/design": "2026-10-22T07:33:22.342011+00:00",
-    "uxjobs/design": "2026-10-22T07:33:22.342011+00:00",
-    "weworkremotely/remote-design-jobs": "2026-10-22T07:33:22.342011+00:00"
+    "himalayas/product designer": "2026-10-22T13:46:53.265130+00:00",
+    "jobicy/designer": "2026-10-22T13:46:53.265130+00:00",
+    "remoteok/design": "2026-10-22T13:46:53.265130+00:00",
+    "remotive/design": "2026-10-22T13:46:53.265130+00:00",
+    "uxjobs/design": "2026-10-22T13:46:53.265130+00:00",
+    "weworkremotely/remote-design-jobs": "2026-10-22T13:46:53.265130+00:00"
   },
   "runs": [
     {
@@ -394,6 +394,15 @@
       "new_unsent": 96,
       "sent": 0,
       "started_at": "2026-10-22T07:33:22.342011+00:00"
+    },
+    {
+      "discovered": 14995,
+      "failed": 0,
+      "matched": 110,
+      "mode": "send",
+      "new_unsent": 99,
+      "sent": 1,
+      "started_at": "2026-10-22T13:46:53.265130+00:00"
     }
   ],
   "sent": {
@@ -431,6 +440,18 @@
       "tier": "Good",
       "title": "UX Designer",
       "url": "https://jobs.smartrecruiters.com/BoschGroup/744000154383185",
+      "verified": true
+    },
+    "capco|ui ux designer pune bengaluru|india bengaluru": {
+      "company": "Capco",
+      "message_id": "<010001a163dde2e6-496ff38e-4c75-4b72-9ced-95c6daab2cc5-000000@email.amazonses.com>",
+      "score": 67.0,
+      "sent_at": "2026-10-22T13:46:53.265130+00:00",
+      "source_key": "uxjobs:capco:ui-ux-designer-pune-bengaluru-capco-tgcvo8",
+      "thread_id": "f5b6ddef-e4ff-4c8b-874a-edcdf952c088",
+      "tier": "Good",
+      "title": "UI/UX Designer -Pune/Bengaluru",
+      "url": "https://job-boards.greenhouse.io/capco/jobs/8280665",
       "verified": true
     },
     "entermotion|product designer|remote worldwide": {
