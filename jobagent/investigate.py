@@ -18,6 +18,12 @@ from urllib.robotparser import RobotFileParser
 from .http import USER_AGENT
 
 SITES = {
+    "naukri.com": {
+        "base": "https://www.naukri.com",
+        "pages": ["/", "/ui-ux-designer-jobs-in-pune", "/product-designer-jobs"],
+        "feeds": ["/rss", "/feed", "/sitemap.xml", "/jobapi/v3/search"],
+        "terms": ["/termsconditions", "/terms-conditions", "/privacypolicy"],
+    },
     "jobfound.org": {
         "base": "https://jobfound.org",
         "pages": ["/", "/jobs", "/remote-jobs"],
