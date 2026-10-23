@@ -1,26 +1,17 @@
 {
   "feeds_fetched": {
-    "himalayas/product designer": "2026-10-23T18:20:00.069937+00:00",
-    "jobfound/all": "2026-10-23T18:20:00.069937+00:00",
-    "jobicy/designer": "2026-10-23T13:25:08.125404+00:00",
-    "jobspresso/design": "2026-10-23T13:25:08.125404+00:00",
-    "nodesk/design": "2026-10-23T18:20:00.069937+00:00",
-    "remoteok/design": "2026-10-23T18:20:00.069937+00:00",
-    "remotive/design": "2026-10-23T13:25:08.125404+00:00",
-    "uxjobs/design": "2026-10-23T13:25:08.125404+00:00",
-    "weworkremotely/remote-design-jobs": "2026-10-23T18:20:00.069937+00:00",
-    "workingnomads/design": "2026-10-23T18:20:00.069937+00:00"
+    "himalayas/product designer": "2026-10-23T22:08:39.972515+00:00",
+    "jobfound/all": "2026-10-23T22:08:39.972515+00:00",
+    "jobicy/designer": "2026-10-23T22:08:39.972515+00:00",
+    "jobspresso/design": "2026-10-23T22:08:39.972515+00:00",
+    "nodesk/design": "2026-10-23T22:08:39.972515+00:00",
+    "remoteok/design": "2026-10-23T22:08:39.972515+00:00",
+    "remotive/design": "2026-10-23T22:08:39.972515+00:00",
+    "uxjobs/design": "2026-10-23T22:08:39.972515+00:00",
+    "weworkremotely/remote-design-jobs": "2026-10-23T22:08:39.972515+00:00",
+    "workingnomads/design": "2026-10-23T22:08:39.972515+00:00"
   },
   "runs": [
-    {
-      "discovered": 14664,
-      "failed": 0,
-      "matched": 110,
-      "mode": "send",
-      "new_unsent": 110,
-      "sent": 1,
-      "started_at": "2026-10-12T17:59:18.031242+00:00"
-    },
     {
       "discovered": 14687,
       "failed": 0,
@@ -461,9 +452,30 @@
       "new_unsent": 12,
       "sent": 4,
       "started_at": "2026-10-23T18:20:00.069937+00:00"
+    },
+    {
+      "discovered": 15471,
+      "failed": 0,
+      "matched": 113,
+      "mode": "send",
+      "new_unsent": 99,
+      "sent": 4,
+      "started_at": "2026-10-23T22:08:39.972515+00:00"
     }
   ],
   "sent": {
+    "abuem workifying llp|fresher ui ux cum product designer remote|karnataka india": {
+      "company": "Abuem Workifying LLP",
+      "message_id": "<010001a16acfb854-c690d688-ac8f-462a-9aad-7dbfbaa8bc37-000000@email.amazonses.com>",
+      "score": 79.0,
+      "sent_at": "2026-10-23T22:08:39.972515+00:00",
+      "source_key": "jobfound:abuem workifying llp:urn:jobfound:job:6adba9af003d73227fe3",
+      "thread_id": "0f392f91-0f6a-4048-83d0-cce03ad9ceb2",
+      "tier": "Strong",
+      "title": "Fresher UI/UX cum Product Designer (Remote)",
+      "url": "https://jobfound.org/job/abuem-workifying-llp-is-hiring-for-fresher-ui-ux-cum-product-designer-remote-karnataka-india-india-23-october-2026",
+      "verified": true
+    },
     "accellor|ui ux designer|hyderabad": {
       "company": "Accellor",
       "message_id": "<010001a14218b137-e6864d99-8eb9-4dc9-8c7e-dc1fae4ca947-000000@email.amazonses.com>",
@@ -546,6 +558,18 @@
       "tier": "Strong",
       "title": "Product Designer",
       "url": "https://jobfound.org/job/dailyrounds-marrow-is-hiring-for-product-designer-bengaluru-karnataka-india-india-23-october-2026",
+      "verified": true
+    },
+    "developer bazaar technologies|ui ux designer|indore madhya pradesh india": {
+      "company": "Developer Bazaar Technologies",
+      "message_id": "<010001a16acfbf5c-f0642bdb-eff1-4f10-ac30-7851e2947a8e-000000@email.amazonses.com>",
+      "score": 69.0,
+      "sent_at": "2026-10-23T22:08:39.972515+00:00",
+      "source_key": "jobfound:developer bazaar technologies:urn:jobfound:job:6adba9b200185337351e",
+      "thread_id": "4c6494f0-0915-4598-a96f-c8891f5da1fe",
+      "tier": "Possible",
+      "title": "UI/UX Designer",
+      "url": "https://jobfound.org/job/developer-bazaar-technologies-is-hiring-for-ui-ux-designer-indore-madhya-pradesh-india-india-23-october-2026",
       "verified": true
     },
     "entermotion|product designer|remote worldwide": {
@@ -690,6 +714,30 @@
       "tier": "Good",
       "title": "UI/UX Designer",
       "url": "https://job-boards.greenhouse.io/particle41llc/jobs/5432621008",
+      "verified": true
+    },
+    "pinegap ai|product designer|bengaluru karnataka india": {
+      "company": "PineGap.ai",
+      "message_id": "<010001a16acfbaca-c76d2118-babb-4e1e-ad7e-87162b54a83d-000000@email.amazonses.com>",
+      "score": 77.0,
+      "sent_at": "2026-10-23T22:08:39.972515+00:00",
+      "source_key": "jobfound:pinegap.ai:urn:jobfound:job:6adba9ae0016404bbafc",
+      "thread_id": "1aa10a5a-7eaa-4b1b-8149-3cf0eb260084",
+      "tier": "Strong",
+      "title": "Product Designer",
+      "url": "https://jobfound.org/job/pinegap-ai-is-hiring-for-product-designer-bengaluru-karnataka-india-india-23-october-2026",
+      "verified": true
+    },
+    "route mobile limited|product designer|mumbai metropolitan region india": {
+      "company": "Route Mobile Limited",
+      "message_id": "<010001a16acfbcfb-ecd97dc4-1901-40c4-9cde-74c9346dfb08-000000@email.amazonses.com>",
+      "score": 72.0,
+      "sent_at": "2026-10-23T22:08:39.972515+00:00",
+      "source_key": "jobfound:route mobile limited:urn:jobfound:job:6adba9ac0031858fac19",
+      "thread_id": "8dbcac58-eaad-4b6a-af06-93a7b054d7b0",
+      "tier": "Good",
+      "title": "Product Designer",
+      "url": "https://jobfound.org/job/route-mobile-limited-is-hiring-for-product-designer-mumbai-metropolitan-region-india-23-october-2026",
       "verified": true
     },
     "servicenow|ui ux designer|hyderabad india": {
