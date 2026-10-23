@@ -1,26 +1,17 @@
 {
   "feeds_fetched": {
-    "himalayas/product designer": "2026-10-23T13:25:08.125404+00:00",
-    "jobfound/all": "2026-10-23T13:25:08.125404+00:00",
+    "himalayas/product designer": "2026-10-23T18:20:00.069937+00:00",
+    "jobfound/all": "2026-10-23T18:20:00.069937+00:00",
     "jobicy/designer": "2026-10-23T13:25:08.125404+00:00",
     "jobspresso/design": "2026-10-23T13:25:08.125404+00:00",
-    "nodesk/design": "2026-10-23T13:25:08.125404+00:00",
-    "remoteok/design": "2026-10-23T13:25:08.125404+00:00",
+    "nodesk/design": "2026-10-23T18:20:00.069937+00:00",
+    "remoteok/design": "2026-10-23T18:20:00.069937+00:00",
     "remotive/design": "2026-10-23T13:25:08.125404+00:00",
     "uxjobs/design": "2026-10-23T13:25:08.125404+00:00",
-    "weworkremotely/remote-design-jobs": "2026-10-23T13:25:08.125404+00:00",
-    "workingnomads/design": "2026-10-23T13:25:08.125404+00:00"
+    "weworkremotely/remote-design-jobs": "2026-10-23T18:20:00.069937+00:00",
+    "workingnomads/design": "2026-10-23T18:20:00.069937+00:00"
   },
   "runs": [
-    {
-      "discovered": 14714,
-      "failed": 1,
-      "matched": 105,
-      "mode": "send",
-      "new_unsent": 105,
-      "sent": 0,
-      "started_at": "2026-10-09T04:11:44.376335+00:00"
-    },
     {
       "discovered": 14664,
       "failed": 0,
@@ -461,6 +452,15 @@
       "new_unsent": 96,
       "sent": 0,
       "started_at": "2026-10-23T13:25:08.125404+00:00"
+    },
+    {
+      "discovered": 11670,
+      "failed": 0,
+      "matched": 13,
+      "mode": "send",
+      "new_unsent": 12,
+      "sent": 4,
+      "started_at": "2026-10-23T18:20:00.069937+00:00"
     }
   ],
   "sent": {
@@ -534,6 +534,18 @@
       "tier": "Possible",
       "title": "Product Designer",
       "url": "https://jobfound.org/job/codewalla-is-hiring-for-product-designer-chennai-tamil-nadu-india-india-21-october-2026",
+      "verified": true
+    },
+    "dailyrounds marrow|product designer|bengaluru karnataka india": {
+      "company": "DailyRounds / Marrow",
+      "message_id": "<010001a169fe6431-9b0fc745-ac42-43a7-a6e2-f3537ad05e99-000000@email.amazonses.com>",
+      "score": 84.0,
+      "sent_at": "2026-10-23T18:20:00.069937+00:00",
+      "source_key": "jobfound:dailyrounds / marrow:urn:jobfound:job:6adafe43002bb4ca74f7",
+      "thread_id": "d93f8600-0c48-4c69-b12d-2e263fc6f09e",
+      "tier": "Strong",
+      "title": "Product Designer",
+      "url": "https://jobfound.org/job/dailyrounds-marrow-is-hiring-for-product-designer-bengaluru-karnataka-india-india-23-october-2026",
       "verified": true
     },
     "entermotion|product designer|remote worldwide": {
@@ -620,6 +632,18 @@
       "url": "https://jobs.lever.co/jito/97151aba-e3eb-483d-b56c-34711b873760",
       "verified": true
     },
+    "maayasthra|ui ux designer|chennai tamil nadu india": {
+      "company": "Maayasthra",
+      "message_id": "<010001a169fe6ab3-6e49b3ff-4c3a-4cae-8d84-ec73b78f6135-000000@email.amazonses.com>",
+      "score": 73.0,
+      "sent_at": "2026-10-23T18:20:00.069937+00:00",
+      "source_key": "jobfound:maayasthra:urn:jobfound:job:6adb53e900222d996a1a",
+      "thread_id": "ecf329be-647a-4f9f-97e6-c4a290fb1545",
+      "tier": "Possible",
+      "title": "UI/UX Designer",
+      "url": "https://jobfound.org/job/maayasthra-is-hiring-for-ui-ux-designer-chennai-tamil-nadu-india-india-23-october-2026",
+      "verified": true
+    },
     "minerva project|product designer|remote worldwide": {
       "company": "Minerva Project",
       "message_id": "<010001a1447296ee-ec81e3f0-370c-4e9b-966c-6b277858001f-000000@email.amazonses.com>",
@@ -642,6 +666,18 @@
       "tier": "Good",
       "title": "UX/UI Designer- Contract",
       "url": "https://www.monks.com/careers/6223966004/job?gh_jid=6223966004",
+      "verified": true
+    },
+    "more retail private limited|product designer|bengaluru karnataka india": {
+      "company": "More Retail Private Limited",
+      "message_id": "<010001a169fe5c84-f088249f-6102-4e57-b105-ae9ae03da8e0-000000@email.amazonses.com>",
+      "score": 86.0,
+      "sent_at": "2026-10-23T18:20:00.069937+00:00",
+      "source_key": "jobfound:more retail private limited:urn:jobfound:job:6adb53e700321c2aa743",
+      "thread_id": "998dbd87-8a0e-4ff9-81e6-ac4a27afd8ec",
+      "tier": "Strong",
+      "title": "Product Designer",
+      "url": "https://jobfound.org/job/more-retail-private-limited-is-hiring-for-product-designer-bengaluru-karnataka-india-india-23-october-2026",
       "verified": true
     },
     "particle41|ui ux designer|india remote": {
@@ -678,6 +714,18 @@
       "tier": "Good",
       "title": "Product Designer",
       "url": "https://vyaparapp.keka.com/careers/jobdetails/132996",
+      "verified": true
+    },
+    "slice|product designer|bengaluru karnataka india": {
+      "company": "slice",
+      "message_id": "<010001a169fe6770-19ea79de-8ceb-4333-8c1a-e84884dbdc3f-000000@email.amazonses.com>",
+      "score": 82.0,
+      "sent_at": "2026-10-23T18:20:00.069937+00:00",
+      "source_key": "jobfound:slice:urn:jobfound:job:6adb53ee0007e370c888",
+      "thread_id": "d59e22c5-0f83-47cf-8730-06c08142a2db",
+      "tier": "Strong",
+      "title": "Product Designer",
+      "url": "https://jobfound.org/job/slice-is-hiring-for-product-designer-bengaluru-karnataka-india-india-23-october-2026",
       "verified": true
     },
     "the ri8 click|ui ux designer vadodara location only|vadodara gujarat india": {
