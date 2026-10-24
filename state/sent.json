@@ -1,26 +1,17 @@
 {
   "feeds_fetched": {
-    "himalayas/product designer": "2026-10-23T22:08:39.972515+00:00",
-    "jobfound/all": "2026-10-23T22:08:39.972515+00:00",
-    "jobicy/designer": "2026-10-23T22:08:39.972515+00:00",
-    "jobspresso/design": "2026-10-23T22:08:39.972515+00:00",
-    "nodesk/design": "2026-10-23T22:08:39.972515+00:00",
-    "remoteok/design": "2026-10-23T22:08:39.972515+00:00",
-    "remotive/design": "2026-10-23T22:08:39.972515+00:00",
-    "uxjobs/design": "2026-10-23T22:08:39.972515+00:00",
-    "weworkremotely/remote-design-jobs": "2026-10-24T00:40:44.259481+00:00",
-    "workingnomads/design": "2026-10-23T22:08:39.972515+00:00"
+    "himalayas/product designer": "2026-10-24T05:51:26.520329+00:00",
+    "jobfound/all": "2026-10-24T05:51:26.520329+00:00",
+    "jobicy/designer": "2026-10-24T05:51:26.520329+00:00",
+    "jobspresso/design": "2026-10-24T05:51:26.520329+00:00",
+    "nodesk/design": "2026-10-24T05:51:26.520329+00:00",
+    "remoteok/design": "2026-10-24T05:51:26.520329+00:00",
+    "remotive/design": "2026-10-24T05:51:26.520329+00:00",
+    "uxjobs/design": "2026-10-24T05:51:26.520329+00:00",
+    "weworkremotely/remote-design-jobs": "2026-10-24T05:51:26.520329+00:00",
+    "workingnomads/design": "2026-10-24T05:51:26.520329+00:00"
   },
   "runs": [
-    {
-      "discovered": 14685,
-      "failed": 0,
-      "matched": 110,
-      "mode": "send",
-      "new_unsent": 104,
-      "sent": 2,
-      "started_at": "2026-10-15T16:56:28.826287+00:00"
-    },
     {
       "discovered": 11230,
       "failed": 0,
@@ -461,6 +452,15 @@
       "new_unsent": 6,
       "sent": 0,
       "started_at": "2026-10-24T00:40:44.259481+00:00"
+    },
+    {
+      "discovered": 15478,
+      "failed": 0,
+      "matched": 111,
+      "mode": "send",
+      "new_unsent": 96,
+      "sent": 1,
+      "started_at": "2026-10-24T05:51:26.520329+00:00"
     }
   ],
   "sent": {
@@ -786,6 +786,18 @@
       "tier": "Possible",
       "title": "UI/UX Designer ( Vadodara Location ONLY )",
       "url": "https://jobfound.org/job/the-ri8-click-is-hiring-for-ui-ux-designer-vadodara-location-only-vadodara-gujarat-india-india-21-october-2026",
+      "verified": true
+    },
+    "tiaa|associate ux design in|mumbai ind": {
+      "company": "TIAA",
+      "message_id": "<010001a16c776718-f9515b4c-67fd-4b98-a3ea-c7c3277c25cb-000000@email.amazonses.com>",
+      "score": 64.0,
+      "sent_at": "2026-10-24T05:51:26.520329+00:00",
+      "source_key": "uxjobs:tiaa:associate-ux-design-in-tiaa-ucgm30",
+      "thread_id": "eba442e5-98ad-4543-94cb-7b7227de06f3",
+      "tier": "Good",
+      "title": "Associate - UX Design - IN",
+      "url": "https://tiaa.wd1.myworkdayjobs.com/Search/job/Mumbai-IND/Associate---UX-Design---IN_R261000172",
       "verified": true
     },
     "versatile club employer of record|product designer contract 6 months|bengaluru karnataka india": {
