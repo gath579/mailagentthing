@@ -1,26 +1,17 @@
 {
   "feeds_fetched": {
-    "himalayas/product designer": "2026-10-25T11:25:20.022774+00:00",
-    "jobfound/all": "2026-10-25T11:25:20.022774+00:00",
-    "jobicy/designer": "2026-10-25T06:06:25.570205+00:00",
-    "jobspresso/design": "2026-10-25T06:06:25.570205+00:00",
-    "nodesk/design": "2026-10-25T11:25:20.022774+00:00",
-    "remoteok/design": "2026-10-25T11:25:20.022774+00:00",
-    "remotive/design": "2026-10-25T06:06:25.570205+00:00",
-    "uxjobs/design": "2026-10-25T06:06:25.570205+00:00",
-    "weworkremotely/remote-design-jobs": "2026-10-25T11:25:20.022774+00:00",
-    "workingnomads/design": "2026-10-25T11:25:20.022774+00:00"
+    "himalayas/product designer": "2026-10-25T16:15:42.224203+00:00",
+    "jobfound/all": "2026-10-25T16:15:42.224203+00:00",
+    "jobicy/designer": "2026-10-25T16:15:42.224203+00:00",
+    "jobspresso/design": "2026-10-25T16:15:42.224203+00:00",
+    "nodesk/design": "2026-10-25T16:15:42.224203+00:00",
+    "remoteok/design": "2026-10-25T16:15:42.224203+00:00",
+    "remotive/design": "2026-10-25T16:15:42.224203+00:00",
+    "uxjobs/design": "2026-10-25T16:15:42.224203+00:00",
+    "weworkremotely/remote-design-jobs": "2026-10-25T16:15:42.224203+00:00",
+    "workingnomads/design": "2026-10-25T16:15:42.224203+00:00"
   },
   "runs": [
-    {
-      "discovered": 14682,
-      "failed": 0,
-      "matched": 107,
-      "mode": "send",
-      "new_unsent": 97,
-      "sent": 0,
-      "started_at": "2026-10-17T06:56:00.377955+00:00"
-    },
     {
       "discovered": 11221,
       "failed": 0,
@@ -461,6 +452,15 @@
       "new_unsent": 7,
       "sent": 0,
       "started_at": "2026-10-25T11:25:20.022774+00:00"
+    },
+    {
+      "discovered": 15514,
+      "failed": 0,
+      "matched": 107,
+      "mode": "send",
+      "new_unsent": 94,
+      "sent": 3,
+      "started_at": "2026-10-25T16:15:42.224203+00:00"
     }
   ],
   "sent": {
@@ -752,6 +752,30 @@
       "url": "https://jobfound.org/job/pinegap-ai-is-hiring-for-product-designer-bengaluru-karnataka-india-india-23-october-2026",
       "verified": true
     },
+    "purplemerit|product designer ui|india": {
+      "company": "PurpleMerit",
+      "message_id": "<010001a173d94fbb-005d5e35-d91c-406a-bab5-f5e33aef3605-000000@email.amazonses.com>",
+      "score": 69.0,
+      "sent_at": "2026-10-25T16:15:42.224203+00:00",
+      "source_key": "jobfound:purplemerit:urn:jobfound:job:6adda023002c578f3615",
+      "thread_id": "580a06a7-c6cf-4137-bb6c-b7052cc85ff3",
+      "tier": "Good",
+      "title": "Product Designer (UI)",
+      "url": "https://jobfound.org/job/purplemerit-is-hiring-for-product-designer-ui-india-india-25-october-2026",
+      "verified": true
+    },
+    "purplemerit|product designer|india": {
+      "company": "PurpleMerit",
+      "message_id": "<010001a173d94da5-ef47e732-236c-4785-a1c3-b6cf8b270d45-000000@email.amazonses.com>",
+      "score": 72.0,
+      "sent_at": "2026-10-25T16:15:42.224203+00:00",
+      "source_key": "jobfound:purplemerit:urn:jobfound:job:6adcf8af002eaff02263",
+      "thread_id": "511f86f9-815b-4c59-b583-622424fcc3fc",
+      "tier": "Good",
+      "title": "Product Designer",
+      "url": "https://jobfound.org/job/purplemerit-is-hiring-for-product-designer-india-india-24-october-2026",
+      "verified": true
+    },
     "route mobile limited|product designer|mumbai metropolitan region india": {
       "company": "Route Mobile Limited",
       "message_id": "<010001a16acfbcfb-ecd97dc4-1901-40c4-9cde-74c9346dfb08-000000@email.amazonses.com>",
@@ -870,6 +894,18 @@
       "tier": "Possible",
       "title": "UI-UX Designer",
       "url": "https://emit.fa.ca3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX/job/97579",
+      "verified": true
+    },
+    "x technologies|ui ux designer|india": {
+      "company": "X Technologies",
+      "message_id": "<010001a173d94b78-4e4578ae-c367-4ea8-8281-1f6ebb0628ba-000000@email.amazonses.com>",
+      "score": 92.0,
+      "sent_at": "2026-10-25T16:15:42.224203+00:00",
+      "source_key": "jobfound:x technologies:urn:jobfound:job:6addf480000e8a46cf97",
+      "thread_id": "6d2177de-b8c3-496d-aa9c-ef57ff0f7c8d",
+      "tier": "Strong",
+      "title": "UI/UX Designer",
+      "url": "https://jobfound.org/job/x-technologies-is-hiring-for-ui-ux-designer-india-india-25-october-2026",
       "verified": true
     }
   },
