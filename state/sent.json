@@ -8,19 +8,10 @@
     "remoteok/design": "2026-10-24T23:12:41.428556+00:00",
     "remotive/design": "2026-10-24T20:47:09.241737+00:00",
     "uxjobs/design": "2026-10-24T20:47:09.241737+00:00",
-    "weworkremotely/remote-design-jobs": "2026-10-24T23:12:41.428556+00:00",
+    "weworkremotely/remote-design-jobs": "2026-10-25T01:09:14.987351+00:00",
     "workingnomads/design": "2026-10-24T23:12:41.428556+00:00"
   },
   "runs": [
-    {
-      "discovered": 14669,
-      "failed": 0,
-      "matched": 111,
-      "mode": "send",
-      "new_unsent": 101,
-      "sent": 0,
-      "started_at": "2026-10-16T19:56:57.478792+00:00"
-    },
     {
       "discovered": 11214,
       "failed": 0,
@@ -461,6 +452,15 @@
       "new_unsent": 7,
       "sent": 0,
       "started_at": "2026-10-24T23:12:41.428556+00:00"
+    },
+    {
+      "discovered": 11358,
+      "failed": 0,
+      "matched": 7,
+      "mode": "send",
+      "new_unsent": 6,
+      "sent": 0,
+      "started_at": "2026-10-25T01:09:14.987351+00:00"
     }
   ],
   "sent": {
