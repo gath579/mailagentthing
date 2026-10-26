@@ -1,26 +1,17 @@
 {
   "feeds_fetched": {
-    "himalayas/product designer": "2026-10-26T00:22:16.621945+00:00",
-    "jobfound/all": "2026-10-26T00:22:16.621945+00:00",
-    "jobicy/designer": "2026-10-26T00:22:16.621945+00:00",
-    "jobspresso/design": "2026-10-26T00:22:16.621945+00:00",
-    "nodesk/design": "2026-10-26T00:22:16.621945+00:00",
-    "remoteok/design": "2026-10-26T00:22:16.621945+00:00",
-    "remotive/design": "2026-10-26T00:22:16.621945+00:00",
-    "uxjobs/design": "2026-10-26T00:22:16.621945+00:00",
-    "weworkremotely/remote-design-jobs": "2026-10-26T00:22:16.621945+00:00",
-    "workingnomads/design": "2026-10-26T00:22:16.621945+00:00"
+    "himalayas/product designer": "2026-10-26T06:11:36.431060+00:00",
+    "jobfound/all": "2026-10-26T06:11:36.431060+00:00",
+    "jobicy/designer": "2026-10-26T06:11:36.431060+00:00",
+    "jobspresso/design": "2026-10-26T06:11:36.431060+00:00",
+    "nodesk/design": "2026-10-26T06:11:36.431060+00:00",
+    "remoteok/design": "2026-10-26T06:11:36.431060+00:00",
+    "remotive/design": "2026-10-26T06:11:36.431060+00:00",
+    "uxjobs/design": "2026-10-26T06:11:36.431060+00:00",
+    "weworkremotely/remote-design-jobs": "2026-10-26T06:11:36.431060+00:00",
+    "workingnomads/design": "2026-10-26T06:11:36.431060+00:00"
   },
   "runs": [
-    {
-      "discovered": 14814,
-      "failed": 0,
-      "matched": 108,
-      "mode": "send",
-      "new_unsent": 98,
-      "sent": 0,
-      "started_at": "2026-10-17T21:27:15.389385+00:00"
-    },
     {
       "discovered": 11106,
       "failed": 0,
@@ -461,6 +452,15 @@
       "new_unsent": 93,
       "sent": 0,
       "started_at": "2026-10-26T00:22:16.621945+00:00"
+    },
+    {
+      "discovered": 15572,
+      "failed": 0,
+      "matched": 111,
+      "mode": "send",
+      "new_unsent": 97,
+      "sent": 4,
+      "started_at": "2026-10-26T06:11:36.431060+00:00"
     }
   ],
   "sent": {
@@ -572,6 +572,18 @@
       "url": "https://jobfound.org/job/developer-bazaar-technologies-is-hiring-for-ui-ux-designer-indore-madhya-pradesh-india-india-23-october-2026",
       "verified": true
     },
+    "differentai|ux designer|bengaluru india": {
+      "company": "Differentai",
+      "message_id": "<010001a176d693c1-dadda3a3-be8c-43c8-8ae8-796563407d18-000000@email.amazonses.com>",
+      "score": 81.0,
+      "sent_at": "2026-10-26T06:11:36.431060+00:00",
+      "source_key": "uxjobs:differentai:ux-designer-differentai-f1rzrd",
+      "thread_id": "a7f3697d-4949-4d13-abfd-3798f4700150",
+      "tier": "Strong",
+      "title": "UX Designer",
+      "url": "https://ats.rippling.com/differentai/jobs/ec0bd627-3bab-43e0-9604-ffd792dd7ee6",
+      "verified": true
+    },
     "entegris|specialist ux designer|pune india": {
       "company": "Entegris",
       "message_id": "<010001a171ab8346-756d562a-43d3-4143-a9f8-845e500bd5aa-000000@email.amazonses.com>",
@@ -632,6 +644,18 @@
       "url": "https://job-boards.greenhouse.io/globalli/jobs/5241585007",
       "verified": true
     },
+    "heymarvin|product designer|remote in": {
+      "company": "Heymarvin",
+      "message_id": "<010001a176d695fe-8203be99-1c8f-4ce6-b6ca-526676a2977c-000000@email.amazonses.com>",
+      "score": 79.0,
+      "sent_at": "2026-10-26T06:11:36.431060+00:00",
+      "source_key": "uxjobs:heymarvin:product-designer-heymarvin-eiwddl",
+      "thread_id": "0da9054a-9cfc-46ae-9ab7-3eea7432676e",
+      "tier": "Strong",
+      "title": "Product Designer",
+      "url": "https://ats.rippling.com/heymarvin/jobs/a446aa95-c37d-49e4-b07c-60821eda7735",
+      "verified": true
+    },
     "infoblox|ux designer ii|pune maharashtra india": {
       "company": "Infoblox",
       "message_id": "<010001a15e0d0ea3-f486a02e-c1cd-405e-9ad5-68c49da74d90-000000@email.amazonses.com>",
@@ -668,6 +692,18 @@
       "url": "https://jobs.lever.co/jito/97151aba-e3eb-483d-b56c-34711b873760",
       "verified": true
     },
+    "koru|ui ux designer|remote in": {
+      "company": "Koru",
+      "message_id": "<010001a176d691f4-bbdbdd01-c29a-43e4-aee4-fc5f74481f97-000000@email.amazonses.com>",
+      "score": 92.0,
+      "sent_at": "2026-10-26T06:11:36.431060+00:00",
+      "source_key": "uxjobs:koru:ui-ux-designer-koru-erkabn",
+      "thread_id": "9116d7d8-d3d0-4f42-b5ac-5b1ecbac17ea",
+      "tier": "Strong",
+      "title": "UI/UX Designer",
+      "url": "https://apply.workable.com/koru/j/065A1572C5/",
+      "verified": true
+    },
     "maayasthra|ui ux designer|chennai tamil nadu india": {
       "company": "Maayasthra",
       "message_id": "<010001a169fe6ab3-6e49b3ff-4c3a-4cae-8d84-ec73b78f6135-000000@email.amazonses.com>",
@@ -690,6 +726,18 @@
       "tier": "Good",
       "title": "Required product designer indian handicraft and furniture",
       "url": "https://jobfound.org/job/mars-art-craft-pvt-ltd-is-hiring-for-required-product-designer-indian-handicraft-and-furniture-jodhpur-rajasthan-india-india-24-october-2026",
+      "verified": true
+    },
+    "medvirtual|ui ux designer|remote india": {
+      "company": "Medvirtual",
+      "message_id": "<010001a176d6979e-ffde4f6a-72fb-447e-8a0c-da715e500614-000000@email.amazonses.com>",
+      "score": 64.0,
+      "sent_at": "2026-10-26T06:11:36.431060+00:00",
+      "source_key": "uxjobs:medvirtual:ui-ux-designer-medvirtual-vlipuf",
+      "thread_id": "36b1ec5b-2bc1-451e-99d5-34a9f0280bca",
+      "tier": "Good",
+      "title": "UI/UX Designer",
+      "url": "https://apply.workable.com/medvirtual/j/E220A25C3D/",
       "verified": true
     },
     "minerva project|product designer|remote worldwide": {
