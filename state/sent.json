@@ -1,26 +1,17 @@
 {
   "feeds_fetched": {
-    "himalayas/product designer": "2026-10-26T19:17:55.972156+00:00",
-    "jobfound/all": "2026-10-26T19:17:55.972156+00:00",
+    "himalayas/product designer": "2026-10-26T23:51:58.382810+00:00",
+    "jobfound/all": "2026-10-26T23:51:58.382810+00:00",
     "jobicy/designer": "2026-10-26T19:17:55.972156+00:00",
     "jobspresso/design": "2026-10-26T19:17:55.972156+00:00",
-    "nodesk/design": "2026-10-26T19:17:55.972156+00:00",
-    "remoteok/design": "2026-10-26T19:17:55.972156+00:00",
+    "nodesk/design": "2026-10-26T23:51:58.382810+00:00",
+    "remoteok/design": "2026-10-26T23:51:58.382810+00:00",
     "remotive/design": "2026-10-26T19:17:55.972156+00:00",
     "uxjobs/design": "2026-10-26T19:17:55.972156+00:00",
-    "weworkremotely/remote-design-jobs": "2026-10-26T19:17:55.972156+00:00",
-    "workingnomads/design": "2026-10-26T19:17:55.972156+00:00"
+    "weworkremotely/remote-design-jobs": "2026-10-26T23:51:58.382810+00:00",
+    "workingnomads/design": "2026-10-26T23:51:58.382810+00:00"
   },
   "runs": [
-    {
-      "discovered": 11241,
-      "failed": 0,
-      "matched": 7,
-      "mode": "send",
-      "new_unsent": 6,
-      "sent": 0,
-      "started_at": "2026-10-18T09:36:29.143276+00:00"
-    },
     {
       "discovered": 14899,
       "failed": 0,
@@ -461,6 +452,15 @@
       "new_unsent": 94,
       "sent": 0,
       "started_at": "2026-10-26T19:17:55.972156+00:00"
+    },
+    {
+      "discovered": 11559,
+      "failed": 0,
+      "matched": 11,
+      "mode": "send",
+      "new_unsent": 10,
+      "sent": 2,
+      "started_at": "2026-10-26T23:51:58.382810+00:00"
     }
   ],
   "sent": {
@@ -656,6 +656,18 @@
       "url": "https://ats.rippling.com/heymarvin/jobs/a446aa95-c37d-49e4-b07c-60821eda7735",
       "verified": true
     },
+    "indmoney|product designer|bangalore urban karnataka india": {
+      "company": "INDmoney",
+      "message_id": "<010001a17aa16018-1c5ee5e0-9e4e-4b48-9063-fdc18c09810c-000000@email.amazonses.com>",
+      "score": 88.0,
+      "sent_at": "2026-10-26T23:51:58.382810+00:00",
+      "source_key": "jobfound:indmoney:urn:jobfound:job:6adf489b0012b435797e",
+      "thread_id": "bfe70b3c-5fdd-4132-9874-e077b00c4c36",
+      "tier": "Strong",
+      "title": "Product Designer",
+      "url": "https://jobfound.org/job/indmoney-is-hiring-for-product-designer-bangalore-urban-karnataka-india-india-26-october-2026",
+      "verified": true
+    },
     "infoblox|ux designer ii|pune maharashtra india": {
       "company": "Infoblox",
       "message_id": "<010001a15e0d0ea3-f486a02e-c1cd-405e-9ad5-68c49da74d90-000000@email.amazonses.com>",
@@ -834,6 +846,18 @@
       "tier": "Good",
       "title": "Product Designer",
       "url": "https://jobfound.org/job/purplemerit-is-hiring-for-product-designer-india-india-24-october-2026",
+      "verified": true
+    },
+    "pw physicswallah|product designer|noida uttar pradesh india": {
+      "company": "PW (PhysicsWallah)",
+      "message_id": "<010001a17aa165db-597da111-7a17-43f8-aeea-db5e1ed30e92-000000@email.amazonses.com>",
+      "score": 73.0,
+      "sent_at": "2026-10-26T23:51:58.382810+00:00",
+      "source_key": "jobfound:pw (physicswallah):urn:jobfound:job:6adf9d2300116be2215c",
+      "thread_id": "55e3bbed-981a-4fe0-a89e-3002323eb8fe",
+      "tier": "Possible",
+      "title": "Product Designer",
+      "url": "https://jobfound.org/job/pw-physicswallah-is-hiring-for-product-designer-noida-uttar-pradesh-india-india-26-october-2026",
       "verified": true
     },
     "route mobile limited|product designer|mumbai metropolitan region india": {
