@@ -1,26 +1,17 @@
 {
   "feeds_fetched": {
-    "himalayas/product designer": "2026-10-27T05:01:35.879880+00:00",
-    "jobfound/all": "2026-10-27T05:01:35.879880+00:00",
+    "himalayas/product designer": "2026-10-27T10:32:13.651409+00:00",
+    "jobfound/all": "2026-10-27T10:32:13.651409+00:00",
     "jobicy/designer": "2026-10-27T05:01:35.879880+00:00",
     "jobspresso/design": "2026-10-27T05:01:35.879880+00:00",
-    "nodesk/design": "2026-10-27T05:01:35.879880+00:00",
-    "remoteok/design": "2026-10-27T05:01:35.879880+00:00",
+    "nodesk/design": "2026-10-27T10:32:13.651409+00:00",
+    "remoteok/design": "2026-10-27T10:32:13.651409+00:00",
     "remotive/design": "2026-10-27T05:01:35.879880+00:00",
     "uxjobs/design": "2026-10-27T05:01:35.879880+00:00",
-    "weworkremotely/remote-design-jobs": "2026-10-27T05:01:35.879880+00:00",
-    "workingnomads/design": "2026-10-27T05:01:35.879880+00:00"
+    "weworkremotely/remote-design-jobs": "2026-10-27T10:32:13.651409+00:00",
+    "workingnomads/design": "2026-10-27T10:32:13.651409+00:00"
   },
   "runs": [
-    {
-      "discovered": 11233,
-      "failed": 0,
-      "matched": 7,
-      "mode": "send",
-      "new_unsent": 6,
-      "sent": 0,
-      "started_at": "2026-10-18T17:22:14.550114+00:00"
-    },
     {
       "discovered": 14819,
       "failed": 0,
@@ -461,6 +452,15 @@
       "new_unsent": 97,
       "sent": 2,
       "started_at": "2026-10-27T05:01:35.879880+00:00"
+    },
+    {
+      "discovered": 11537,
+      "failed": 0,
+      "matched": 16,
+      "mode": "send",
+      "new_unsent": 13,
+      "sent": 4,
+      "started_at": "2026-10-27T10:32:13.651409+00:00"
     }
   ],
   "sent": {
@@ -620,6 +620,18 @@
       "url": "https://entermotion.breezy.hr/p/3ce16af7f896-product-designer",
       "verified": true
     },
+    "envision next|associate ui ux designer in thane navi mumbai vashi panvel|panvel maharashtra india": {
+      "company": "Envision Next",
+      "message_id": "<010001a17cebb37c-07aa9e63-7b77-42c1-b636-d9e6ee1241a4-000000@email.amazonses.com>",
+      "score": 73.0,
+      "sent_at": "2026-10-27T10:32:13.651409+00:00",
+      "source_key": "jobfound:envision next:urn:jobfound:job:6adff274000712097d82",
+      "thread_id": "5b6d134b-cbad-493c-85cf-05d1ad3ceec7",
+      "tier": "Good",
+      "title": "Associate UI/UX Designer in Thane, Navi Mumbai, Vashi, Panvel",
+      "url": "https://jobfound.org/job/envision-next-is-hiring-for-associate-ui-ux-designer-in-thane-navi-mumbai-vashi-panvel-panvel-maharashtra-india-india-27-october-2026",
+      "verified": true
+    },
     "fluid touch pte ltd|ui ux designer|hyderabad telangana india": {
       "company": "Fluid Touch Pte Ltd",
       "message_id": "<010001a1644ddc3c-54a56a40-c190-449c-a4ed-d82988a210b7-000000@email.amazonses.com>",
@@ -654,6 +666,18 @@
       "tier": "Strong",
       "title": "Junior Product Designer",
       "url": "https://job-boards.greenhouse.io/globalli/jobs/5241585007",
+      "verified": true
+    },
+    "growth cx|junior ui ux designer|kochi kerala india": {
+      "company": "growth.cx",
+      "message_id": "<010001a17cebacfe-8ebd4d45-177b-41da-b405-c6105e099bb8-000000@email.amazonses.com>",
+      "score": 75.0,
+      "sent_at": "2026-10-27T10:32:13.651409+00:00",
+      "source_key": "jobfound:growth.cx:urn:jobfound:job:6ae0456e001ad3172068",
+      "thread_id": "57eefc38-a429-49b2-9bcf-951f355d073b",
+      "tier": "Strong",
+      "title": "Junior UI/UX Designer",
+      "url": "https://jobfound.org/job/growth-cx-is-hiring-for-junior-ui-ux-designer-kochi-kerala-india-india-27-october-2026",
       "verified": true
     },
     "heymarvin|product designer|remote in": {
@@ -750,6 +774,18 @@
       "tier": "Possible",
       "title": "UI/UX Designer",
       "url": "https://jobfound.org/job/maayasthra-is-hiring-for-ui-ux-designer-chennai-tamil-nadu-india-india-23-october-2026",
+      "verified": true
+    },
+    "marblex|ui ux designer|kharar punjab india": {
+      "company": "MarbleX",
+      "message_id": "<010001a17cebaf91-5c08a79c-c64c-4764-8081-e0d1aabb553f-000000@email.amazonses.com>",
+      "score": 74.0,
+      "sent_at": "2026-10-27T10:32:13.651409+00:00",
+      "source_key": "jobfound:marblex:urn:jobfound:job:6ae0456b0006e5147608",
+      "thread_id": "a26ff8f2-47ec-465d-ab67-24a4731d9757",
+      "tier": "Good",
+      "title": "UI/UX Designer",
+      "url": "https://jobfound.org/job/marblex-is-hiring-for-ui-ux-designer-kharar-punjab-india-india-27-october-2026",
       "verified": true
     },
     "mars art craft pvt ltd|required product designer indian handicraft and furniture|jodhpur rajasthan india": {
@@ -930,6 +966,18 @@
       "tier": "Strong",
       "title": "Product Designer",
       "url": "https://jobfound.org/job/slice-is-hiring-for-product-designer-bengaluru-karnataka-india-india-23-october-2026",
+      "verified": true
+    },
+    "supr|ui ux designer landing pages growth|noida uttar pradesh india": {
+      "company": "SUPR",
+      "message_id": "<010001a17ceba9cb-7336c91e-8b87-4ad8-ab07-1997162ce65b-000000@email.amazonses.com>",
+      "score": 77.0,
+      "sent_at": "2026-10-27T10:32:13.651409+00:00",
+      "source_key": "jobfound:supr:urn:jobfound:job:6adff26e00226a347065",
+      "thread_id": "096ce8f6-401a-4364-964d-00cbb798a552",
+      "tier": "Strong",
+      "title": "UI/UX Designer (Landing Pages & Growth)",
+      "url": "https://jobfound.org/job/supr-is-hiring-for-ui-ux-designer-landing-pages-growth-noida-uttar-pradesh-india-india-27-october-2026",
       "verified": true
     },
     "the ri8 click|ui ux designer vadodara location only|vadodara gujarat india": {
