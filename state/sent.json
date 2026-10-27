@@ -1,26 +1,17 @@
 {
   "feeds_fetched": {
-    "himalayas/product designer": "2026-10-27T16:37:10.421011+00:00",
-    "jobfound/all": "2026-10-27T16:37:10.421011+00:00",
+    "himalayas/product designer": "2026-10-27T21:18:15.901397+00:00",
+    "jobfound/all": "2026-10-27T21:18:15.901397+00:00",
     "jobicy/designer": "2026-10-27T16:37:10.421011+00:00",
     "jobspresso/design": "2026-10-27T16:37:10.421011+00:00",
-    "nodesk/design": "2026-10-27T16:37:10.421011+00:00",
-    "remoteok/design": "2026-10-27T16:37:10.421011+00:00",
+    "nodesk/design": "2026-10-27T21:18:15.901397+00:00",
+    "remoteok/design": "2026-10-27T21:18:15.901397+00:00",
     "remotive/design": "2026-10-27T16:37:10.421011+00:00",
     "uxjobs/design": "2026-10-27T16:37:10.421011+00:00",
-    "weworkremotely/remote-design-jobs": "2026-10-27T16:37:10.421011+00:00",
-    "workingnomads/design": "2026-10-27T16:37:10.421011+00:00"
+    "weworkremotely/remote-design-jobs": "2026-10-27T21:18:15.901397+00:00",
+    "workingnomads/design": "2026-10-27T21:18:15.901397+00:00"
   },
   "runs": [
-    {
-      "discovered": 11110,
-      "failed": 0,
-      "matched": 7,
-      "mode": "send",
-      "new_unsent": 6,
-      "sent": 0,
-      "started_at": "2026-10-18T23:10:52.014379+00:00"
-    },
     {
       "discovered": 11232,
       "failed": 0,
@@ -461,6 +452,15 @@
       "new_unsent": 97,
       "sent": 0,
       "started_at": "2026-10-27T16:37:10.421011+00:00"
+    },
+    {
+      "discovered": 11558,
+      "failed": 0,
+      "matched": 13,
+      "mode": "send",
+      "new_unsent": 9,
+      "sent": 2,
+      "started_at": "2026-10-27T21:18:15.901397+00:00"
     }
   ],
   "sent": {
@@ -522,6 +522,18 @@
       "tier": "Good",
       "title": "UX Designer",
       "url": "https://jobs.smartrecruiters.com/BoschGroup/744000154383185",
+      "verified": true
+    },
+    "brahmaverse ai|ui ux designer|gurugram haryana india": {
+      "company": "Brahmaverse AI",
+      "message_id": "<010001a17f3b0923-f9562f9e-4a1d-41fa-a515-deb46d92acfa-000000@email.amazonses.com>",
+      "score": 73.0,
+      "sent_at": "2026-10-27T21:18:15.901397+00:00",
+      "source_key": "jobfound:brahmaverse ai:urn:jobfound:job:6ae0f1030036f6421306",
+      "thread_id": "b33da0a3-fc21-4393-a50c-1c1d6fc4331b",
+      "tier": "Possible",
+      "title": "UI/UX Designer",
+      "url": "https://jobfound.org/job/brahmaverse-ai-is-hiring-for-ui-ux-designer-gurugram-haryana-india-india-27-october-2026",
       "verified": true
     },
     "capco|ui ux designer pune bengaluru|bengaluru karnataka india": {
@@ -738,6 +750,18 @@
       "tier": "Good",
       "title": "Product Designer",
       "url": "https://jobs.lever.co/jito/97151aba-e3eb-483d-b56c-34711b873760",
+      "verified": true
+    },
+    "klypup|product designer ui ux|noida uttar pradesh india": {
+      "company": "Klypup",
+      "message_id": "<010001a17f3b0d2a-21b53eb9-672f-4d13-867f-94dac9fe2734-000000@email.amazonses.com>",
+      "score": 73.0,
+      "sent_at": "2026-10-27T21:18:15.901397+00:00",
+      "source_key": "jobfound:klypup:urn:jobfound:job:6ae0f102000aad5c1f2b",
+      "thread_id": "3730642c-8176-498e-ac36-cf9e9f42c5b9",
+      "tier": "Possible",
+      "title": "Product Designer (UI/UX",
+      "url": "https://jobfound.org/job/klypup-is-hiring-for-product-designer-ui-ux-noida-uttar-pradesh-india-india-27-october-2026",
       "verified": true
     },
     "koru ux design llp|ui ux designer|remote in": {
