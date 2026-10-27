@@ -1,26 +1,17 @@
 {
   "feeds_fetched": {
-    "himalayas/product designer": "2026-10-26T23:51:58.382810+00:00",
-    "jobfound/all": "2026-10-26T23:51:58.382810+00:00",
-    "jobicy/designer": "2026-10-26T19:17:55.972156+00:00",
-    "jobspresso/design": "2026-10-26T19:17:55.972156+00:00",
-    "nodesk/design": "2026-10-26T23:51:58.382810+00:00",
-    "remoteok/design": "2026-10-26T23:51:58.382810+00:00",
-    "remotive/design": "2026-10-26T19:17:55.972156+00:00",
-    "uxjobs/design": "2026-10-26T19:17:55.972156+00:00",
-    "weworkremotely/remote-design-jobs": "2026-10-26T23:51:58.382810+00:00",
-    "workingnomads/design": "2026-10-26T23:51:58.382810+00:00"
+    "himalayas/product designer": "2026-10-27T05:01:35.879880+00:00",
+    "jobfound/all": "2026-10-27T05:01:35.879880+00:00",
+    "jobicy/designer": "2026-10-27T05:01:35.879880+00:00",
+    "jobspresso/design": "2026-10-27T05:01:35.879880+00:00",
+    "nodesk/design": "2026-10-27T05:01:35.879880+00:00",
+    "remoteok/design": "2026-10-27T05:01:35.879880+00:00",
+    "remotive/design": "2026-10-27T05:01:35.879880+00:00",
+    "uxjobs/design": "2026-10-27T05:01:35.879880+00:00",
+    "weworkremotely/remote-design-jobs": "2026-10-27T05:01:35.879880+00:00",
+    "workingnomads/design": "2026-10-27T05:01:35.879880+00:00"
   },
   "runs": [
-    {
-      "discovered": 14899,
-      "failed": 0,
-      "matched": 114,
-      "mode": "send",
-      "new_unsent": 104,
-      "sent": 0,
-      "started_at": "2026-10-18T14:00:28.672483+00:00"
-    },
     {
       "discovered": 11233,
       "failed": 0,
@@ -461,6 +452,15 @@
       "new_unsent": 10,
       "sent": 2,
       "started_at": "2026-10-26T23:51:58.382810+00:00"
+    },
+    {
+      "discovered": 15384,
+      "failed": 0,
+      "matched": 113,
+      "mode": "send",
+      "new_unsent": 97,
+      "sent": 2,
+      "started_at": "2026-10-27T05:01:35.879880+00:00"
     }
   ],
   "sent": {
@@ -486,6 +486,18 @@
       "tier": "Strong",
       "title": "UI/UX Designer",
       "url": "https://jobs.gem.com/accellor/am9icG9zdDrwNK_3bUq5KPb7I7UZvPBP",
+      "verified": true
+    },
+    "bosch group|ui designer automotive domain|bangalore in": {
+      "company": "Bosch Group",
+      "message_id": "<010001a17bbcf444-1459a736-5dcb-4a96-8303-e1ab20d743d2-000000@email.amazonses.com>",
+      "score": 70.0,
+      "sent_at": "2026-10-27T05:01:35.879880+00:00",
+      "source_key": "uxjobs:bosch group:ui-designer-automotive-domain-bosch-group-rbdl1n",
+      "thread_id": "a1d2b798-ba85-4510-b2bb-47b986fc395b",
+      "tier": "Good",
+      "title": "UI Designer - Automotive Domain",
+      "url": "https://jobs.smartrecruiters.com/BoschGroup/744000157727758",
       "verified": true
     },
     "bosch group|ui designer|bangalore in": {
@@ -762,6 +774,18 @@
       "tier": "Good",
       "title": "UI/UX Designer",
       "url": "https://apply.workable.com/medvirtual/j/E220A25C3D/",
+      "verified": true
+    },
+    "michelin|ai ux ui designer researcher|pune": {
+      "company": "Michelin",
+      "message_id": "<010001a17bbcf17e-8bad6511-3bb2-417d-baec-1d4edd1577a1-000000@email.amazonses.com>",
+      "score": 78.0,
+      "sent_at": "2026-10-27T05:01:35.879880+00:00",
+      "source_key": "uxjobs:michelin:ai-ux-ui-designer-researcher-michelin-ibetoq",
+      "thread_id": "9b446aaa-faad-4572-ab5c-2e5818133002",
+      "tier": "Strong",
+      "title": "AI UX/UI Designer/Researcher",
+      "url": "https://michelinhr.wd3.myworkdayjobs.com/Michelin/job/Pune/AI-UX-UI-Designer-Researcher_R-2026034120",
       "verified": true
     },
     "minerva project|product designer|remote worldwide": {
