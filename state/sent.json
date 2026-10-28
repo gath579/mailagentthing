@@ -1,26 +1,17 @@
 {
   "feeds_fetched": {
-    "himalayas/product designer": "2026-10-28T01:20:04.706354+00:00",
-    "jobfound/all": "2026-10-28T01:20:04.706354+00:00",
-    "jobicy/designer": "2026-10-28T01:20:04.706354+00:00",
-    "jobspresso/design": "2026-10-28T01:20:04.706354+00:00",
-    "nodesk/design": "2026-10-28T01:20:04.706354+00:00",
-    "remoteok/design": "2026-10-28T01:20:04.706354+00:00",
-    "remotive/design": "2026-10-28T01:20:04.706354+00:00",
-    "uxjobs/design": "2026-10-28T01:20:04.706354+00:00",
-    "weworkremotely/remote-design-jobs": "2026-10-28T01:20:04.706354+00:00",
-    "workingnomads/design": "2026-10-28T01:20:04.706354+00:00"
+    "himalayas/product designer": "2026-10-28T08:28:01.666820+00:00",
+    "jobfound/all": "2026-10-28T08:28:01.666820+00:00",
+    "jobicy/designer": "2026-10-28T08:28:01.666820+00:00",
+    "jobspresso/design": "2026-10-28T08:28:01.666820+00:00",
+    "nodesk/design": "2026-10-28T08:28:01.666820+00:00",
+    "remoteok/design": "2026-10-28T08:28:01.666820+00:00",
+    "remotive/design": "2026-10-28T08:28:01.666820+00:00",
+    "uxjobs/design": "2026-10-28T08:28:01.666820+00:00",
+    "weworkremotely/remote-design-jobs": "2026-10-28T08:28:01.666820+00:00",
+    "workingnomads/design": "2026-10-28T08:28:01.666820+00:00"
   },
   "runs": [
-    {
-      "discovered": 14822,
-      "failed": 0,
-      "matched": 105,
-      "mode": "send",
-      "new_unsent": 95,
-      "sent": 0,
-      "started_at": "2026-10-19T06:14:55.595972+00:00"
-    },
     {
       "discovered": 14859,
       "failed": 0,
@@ -461,6 +452,15 @@
       "new_unsent": 99,
       "sent": 0,
       "started_at": "2026-10-28T01:20:04.706354+00:00"
+    },
+    {
+      "discovered": 15448,
+      "failed": 0,
+      "matched": 117,
+      "mode": "send",
+      "new_unsent": 99,
+      "sent": 2,
+      "started_at": "2026-10-28T08:28:01.666820+00:00"
     }
   ],
   "sent": {
@@ -486,6 +486,18 @@
       "tier": "Strong",
       "title": "UI/UX Designer",
       "url": "https://jobs.gem.com/accellor/am9icG9zdDrwNK_3bUq5KPb7I7UZvPBP",
+      "verified": true
+    },
+    "aifise|product designer|bhilai chhattisgarh india": {
+      "company": "AIFISE",
+      "message_id": "<010001a181a13941-62fb0472-150c-4371-8085-cd0be2cb34e8-000000@email.amazonses.com>",
+      "score": 70.0,
+      "sent_at": "2026-10-28T08:28:01.666820+00:00",
+      "source_key": "jobfound:aifise:urn:jobfound:job:6ae142fb0006635b9258",
+      "thread_id": "34d2f82c-adc6-4ef0-88e3-407ab5ef870e",
+      "tier": "Good",
+      "title": "Product Designer",
+      "url": "https://jobfound.org/job/aifise-is-hiring-for-product-designer-bhilai-chhattisgarh-india-india-28-october-2026",
       "verified": true
     },
     "bosch group|ui designer automotive domain|bangalore in": {
@@ -954,6 +966,18 @@
       "tier": "Good",
       "title": "Product Designer",
       "url": "https://jobfound.org/job/route-mobile-limited-is-hiring-for-product-designer-mumbai-metropolitan-region-india-23-october-2026",
+      "verified": true
+    },
+    "servicenow|product designer|hyderabad telangana india": {
+      "company": "ServiceNow",
+      "message_id": "<010001a181a136f3-bcaf365b-8753-448d-8e63-aea0a882744b-000000@email.amazonses.com>",
+      "score": 98.0,
+      "sent_at": "2026-10-28T08:28:01.666820+00:00",
+      "source_key": "smartrecruiters:servicenow:744000158193067",
+      "thread_id": "d99dbd84-b86b-481e-b368-daab06b93152",
+      "tier": "Strong",
+      "title": "Product Designer",
+      "url": "https://jobs.smartrecruiters.com/ServiceNow/744000158193067-product-designer",
       "verified": true
     },
     "servicenow|ui ux designer|hyderabad india": {
