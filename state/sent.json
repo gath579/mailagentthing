@@ -1,26 +1,17 @@
 {
   "feeds_fetched": {
-    "himalayas/product designer": "2026-10-29T14:16:46.022271+00:00",
-    "jobfound/all": "2026-10-29T14:16:46.022271+00:00",
+    "himalayas/product designer": "2026-10-29T19:41:12.985963+00:00",
+    "jobfound/all": "2026-10-29T19:41:12.985963+00:00",
     "jobicy/designer": "2026-10-29T14:16:46.022271+00:00",
     "jobspresso/design": "2026-10-29T14:16:46.022271+00:00",
-    "nodesk/design": "2026-10-29T14:16:46.022271+00:00",
-    "remoteok/design": "2026-10-29T14:16:46.022271+00:00",
+    "nodesk/design": "2026-10-29T19:41:12.985963+00:00",
+    "remoteok/design": "2026-10-29T19:41:12.985963+00:00",
     "remotive/design": "2026-10-29T14:16:46.022271+00:00",
     "uxjobs/design": "2026-10-29T14:16:46.022271+00:00",
-    "weworkremotely/remote-design-jobs": "2026-10-29T14:16:46.022271+00:00",
-    "workingnomads/design": "2026-10-29T14:16:46.022271+00:00"
+    "weworkremotely/remote-design-jobs": "2026-10-29T19:41:12.985963+00:00",
+    "workingnomads/design": "2026-10-29T19:41:12.985963+00:00"
   },
   "runs": [
-    {
-      "discovered": 14760,
-      "failed": 0,
-      "matched": 106,
-      "mode": "send",
-      "new_unsent": 96,
-      "sent": 0,
-      "started_at": "2026-10-20T15:04:26.047834+00:00"
-    },
     {
       "discovered": 11152,
       "failed": 0,
@@ -461,6 +452,15 @@
       "new_unsent": 98,
       "sent": 0,
       "started_at": "2026-10-29T14:16:46.022271+00:00"
+    },
+    {
+      "discovered": 11502,
+      "failed": 0,
+      "matched": 6,
+      "mode": "send",
+      "new_unsent": 4,
+      "sent": 1,
+      "started_at": "2026-10-29T19:41:12.985963+00:00"
     }
   ],
   "sent": {
@@ -630,6 +630,18 @@
       "tier": "Strong",
       "title": "UX Designer",
       "url": "https://ats.rippling.com/differentai/jobs/ec0bd627-3bab-43e0-9604-ffd792dd7ee6",
+      "verified": true
+    },
+    "ema|product designer|bengaluru karnataka india": {
+      "company": "Ema",
+      "message_id": "<010001a1892ef4b3-e99aa69d-2f09-4d6a-b7b7-2bee7eddb777-000000@email.amazonses.com>",
+      "score": 86.0,
+      "sent_at": "2026-10-29T19:41:12.985963+00:00",
+      "source_key": "jobfound:ema:urn:jobfound:job:6ae357a8002f2e2f447b",
+      "thread_id": "47c39a5c-2f08-429f-b95a-e1358c59ee26",
+      "tier": "Strong",
+      "title": "Product designer",
+      "url": "https://jobfound.org/job/ema-is-hiring-for-product-designer-bengaluru-karnataka-india-india-29-october-2026",
       "verified": true
     },
     "entegris|specialist ux designer|pune india": {
