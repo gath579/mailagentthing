@@ -1,26 +1,17 @@
 {
   "feeds_fetched": {
-    "himalayas/product designer": "2026-10-29T00:54:24.927333+00:00",
-    "jobfound/all": "2026-10-29T00:54:24.927333+00:00",
-    "jobicy/designer": "2026-10-29T00:54:24.927333+00:00",
-    "jobspresso/design": "2026-10-29T00:54:24.927333+00:00",
-    "nodesk/design": "2026-10-29T00:54:24.927333+00:00",
-    "remoteok/design": "2026-10-29T00:54:24.927333+00:00",
-    "remotive/design": "2026-10-29T00:54:24.927333+00:00",
-    "uxjobs/design": "2026-10-29T00:54:24.927333+00:00",
-    "weworkremotely/remote-design-jobs": "2026-10-29T00:54:24.927333+00:00",
-    "workingnomads/design": "2026-10-29T00:54:24.927333+00:00"
+    "himalayas/product designer": "2026-10-29T07:03:31.572125+00:00",
+    "jobfound/all": "2026-10-29T07:03:31.572125+00:00",
+    "jobicy/designer": "2026-10-29T07:03:31.572125+00:00",
+    "jobspresso/design": "2026-10-29T07:03:31.572125+00:00",
+    "nodesk/design": "2026-10-29T07:03:31.572125+00:00",
+    "remoteok/design": "2026-10-29T07:03:31.572125+00:00",
+    "remotive/design": "2026-10-29T07:03:31.572125+00:00",
+    "uxjobs/design": "2026-10-29T07:03:31.572125+00:00",
+    "weworkremotely/remote-design-jobs": "2026-10-29T07:03:31.572125+00:00",
+    "workingnomads/design": "2026-10-29T07:03:31.572125+00:00"
   },
   "runs": [
-    {
-      "discovered": 14813,
-      "failed": 0,
-      "matched": 107,
-      "mode": "send",
-      "new_unsent": 97,
-      "sent": 0,
-      "started_at": "2026-10-20T04:48:12.338477+00:00"
-    },
     {
       "discovered": 11201,
       "failed": 0,
@@ -461,6 +452,15 @@
       "new_unsent": 97,
       "sent": 0,
       "started_at": "2026-10-29T00:54:24.927333+00:00"
+    },
+    {
+      "discovered": 15367,
+      "failed": 0,
+      "matched": 118,
+      "mode": "send",
+      "new_unsent": 102,
+      "sent": 4,
+      "started_at": "2026-10-29T07:03:31.572125+00:00"
     }
   ],
   "sent": {
@@ -752,6 +752,18 @@
       "url": "https://efpv.fa.us6.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/job/8136",
       "verified": true
     },
+    "infosys|ai interaction designer|pune division maharashtra india": {
+      "company": "Infosys",
+      "message_id": "<010001a186795041-b7e1a640-c858-41e2-90a3-fbbe29c078dc-000000@email.amazonses.com>",
+      "score": 81.0,
+      "sent_at": "2026-10-29T07:03:31.572125+00:00",
+      "source_key": "jobfound:infosys:urn:jobfound:job:6ae2424b0038252cd926",
+      "thread_id": "cc490790-0bd1-490a-9d0d-1d4dd035ac97",
+      "tier": "Strong",
+      "title": "AI interaction designer",
+      "url": "https://jobfound.org/job/infosys-is-hiring-for-ai-interaction-designer-pune-division-maharashtra-india-india-28-october-2026",
+      "verified": true
+    },
     "jiostar|product designer design systems|bengaluru karnataka india": {
       "company": "JioStar",
       "message_id": "<010001a1644dd369-d1345a09-f100-40b5-b808-a2ea602a0109-000000@email.amazonses.com>",
@@ -810,6 +822,18 @@
       "tier": "Strong",
       "title": "UI/UX Designer",
       "url": "https://apply.workable.com/koru/j/065A1572C5/",
+      "verified": true
+    },
+    "lesser tax|ai ui ux designer|india": {
+      "company": "Lesser Tax",
+      "message_id": "<010001a18679535f-85faafde-5083-4573-b54f-5db46d6b2fd8-000000@email.amazonses.com>",
+      "score": 66.0,
+      "sent_at": "2026-10-29T07:03:31.572125+00:00",
+      "source_key": "jobfound:lesser tax:urn:jobfound:job:6ae2424f001111426232",
+      "thread_id": "243dd44c-29d3-48b1-ba57-75f3ad6b2b56",
+      "tier": "Good",
+      "title": "AI UI/UX Designer",
+      "url": "https://jobfound.org/job/lesser-tax-is-hiring-for-ai-ui-ux-designer-india-india-28-october-2026",
       "verified": true
     },
     "maayasthra|ui ux designer|chennai tamil nadu india": {
@@ -908,6 +932,18 @@
       "url": "https://jobfound.org/job/more-retail-private-limited-is-hiring-for-product-designer-bengaluru-karnataka-india-india-23-october-2026",
       "verified": true
     },
+    "namma yatri|product designer|bengaluru karnataka india": {
+      "company": "Namma Yatri",
+      "message_id": "<010001a186794a01-a7d2f377-bf94-46fb-9167-fe3aa0acabc1-000000@email.amazonses.com>",
+      "score": 88.0,
+      "sent_at": "2026-10-29T07:03:31.572125+00:00",
+      "source_key": "jobfound:namma yatri:urn:jobfound:job:6ae24248002f8d6cdc41",
+      "thread_id": "b8363fb1-f5ba-4563-8f1e-c3eba236357c",
+      "tier": "Strong",
+      "title": "Product Designer",
+      "url": "https://jobfound.org/job/namma-yatri-is-hiring-for-product-designer-bengaluru-karnataka-india-india-28-october-2026",
+      "verified": true
+    },
     "particle41|ui ux designer|india remote": {
       "company": "Particle41",
       "message_id": "<010001a1349b61d0-02be884a-d51b-4988-85ee-f4b19c732bfd-000000@email.amazonses.com>",
@@ -966,6 +1002,18 @@
       "tier": "Possible",
       "title": "Product Designer",
       "url": "https://jobfound.org/job/pw-physicswallah-is-hiring-for-product-designer-noida-uttar-pradesh-india-india-26-october-2026",
+      "verified": true
+    },
+    "rightsteps app|ux ui designer|india": {
+      "company": "RightSteps.App",
+      "message_id": "<010001a186794cfa-61937816-8382-4276-b289-92d4cd80c37a-000000@email.amazonses.com>",
+      "score": 82.0,
+      "sent_at": "2026-10-29T07:03:31.572125+00:00",
+      "source_key": "jobfound:rightsteps.app:urn:jobfound:job:6ae2424d0020a29e066c",
+      "thread_id": "bd65809d-abc9-4d25-98f2-093aecfe893d",
+      "tier": "Strong",
+      "title": "UX/UI Designer",
+      "url": "https://jobfound.org/job/rightsteps-app-is-hiring-for-ux-ui-designer-india-india-28-october-2026",
       "verified": true
     },
     "route mobile limited|product designer|mumbai metropolitan region india": {
