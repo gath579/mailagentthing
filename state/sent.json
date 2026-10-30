@@ -1,26 +1,17 @@
 {
   "feeds_fetched": {
-    "himalayas/product designer": "2026-10-29T23:56:21.186625+00:00",
-    "jobfound/all": "2026-10-29T23:56:21.186625+00:00",
-    "jobicy/designer": "2026-10-29T23:56:21.186625+00:00",
-    "jobspresso/design": "2026-10-29T23:56:21.186625+00:00",
-    "nodesk/design": "2026-10-29T23:56:21.186625+00:00",
-    "remoteok/design": "2026-10-29T23:56:21.186625+00:00",
-    "remotive/design": "2026-10-29T23:56:21.186625+00:00",
-    "uxjobs/design": "2026-10-29T23:56:21.186625+00:00",
-    "weworkremotely/remote-design-jobs": "2026-10-29T23:56:21.186625+00:00",
-    "workingnomads/design": "2026-10-29T23:56:21.186625+00:00"
+    "himalayas/product designer": "2026-10-30T05:45:40.571390+00:00",
+    "jobfound/all": "2026-10-30T05:45:40.571390+00:00",
+    "jobicy/designer": "2026-10-30T05:45:40.571390+00:00",
+    "jobspresso/design": "2026-10-30T05:45:40.571390+00:00",
+    "nodesk/design": "2026-10-30T05:45:40.571390+00:00",
+    "remoteok/design": "2026-10-30T05:45:40.571390+00:00",
+    "remotive/design": "2026-10-30T05:45:40.571390+00:00",
+    "uxjobs/design": "2026-10-30T05:45:40.571390+00:00",
+    "weworkremotely/remote-design-jobs": "2026-10-30T05:45:40.571390+00:00",
+    "workingnomads/design": "2026-10-30T05:45:40.571390+00:00"
   },
   "runs": [
-    {
-      "discovered": 14802,
-      "failed": 0,
-      "matched": 108,
-      "mode": "send",
-      "new_unsent": 98,
-      "sent": 0,
-      "started_at": "2026-10-20T22:19:42.256618+00:00"
-    },
     {
       "discovered": 11238,
       "failed": 0,
@@ -461,6 +452,15 @@
       "new_unsent": 98,
       "sent": 0,
       "started_at": "2026-10-29T23:56:21.186625+00:00"
+    },
+    {
+      "discovered": 15400,
+      "failed": 0,
+      "matched": 111,
+      "mode": "send",
+      "new_unsent": 94,
+      "sent": 1,
+      "started_at": "2026-10-30T05:45:40.571390+00:00"
     }
   ],
   "sent": {
@@ -498,6 +498,18 @@
       "tier": "Good",
       "title": "Product Designer",
       "url": "https://jobfound.org/job/aifise-is-hiring-for-product-designer-bhilai-chhattisgarh-india-india-28-october-2026",
+      "verified": true
+    },
+    "arrow electronics|junior ux designer|ahmedabad india": {
+      "company": "Arrow Electronics",
+      "message_id": "<010001a18b58572b-94151ec0-0a3f-4678-80f8-b4e260cfbcc0-000000@email.amazonses.com>",
+      "score": 72.0,
+      "sent_at": "2026-10-30T05:45:40.571390+00:00",
+      "source_key": "uxjobs:arrow electronics:junior-ux-designer-arrow-electronics-kqy88m",
+      "thread_id": "4ac66bb7-0567-462c-b849-c912639a6e54",
+      "tier": "Possible",
+      "title": "Junior UX Designer",
+      "url": "https://arrow.wd1.myworkdayjobs.com/ec/job/Ahmedabad-India/Junior-UX-Designer_R247512",
       "verified": true
     },
     "bosch group|ui designer automotive domain|bangalore in": {
