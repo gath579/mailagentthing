@@ -1,26 +1,17 @@
 {
   "feeds_fetched": {
-    "himalayas/product designer": "2026-10-30T12:52:35.953955+00:00",
-    "jobfound/all": "2026-10-30T12:52:35.953955+00:00",
+    "himalayas/product designer": "2026-10-30T18:36:15.065453+00:00",
+    "jobfound/all": "2026-10-30T18:36:15.065453+00:00",
     "jobicy/designer": "2026-10-30T12:52:35.953955+00:00",
     "jobspresso/design": "2026-10-30T12:52:35.953955+00:00",
-    "nodesk/design": "2026-10-30T12:52:35.953955+00:00",
-    "remoteok/design": "2026-10-30T12:52:35.953955+00:00",
+    "nodesk/design": "2026-10-30T18:36:15.065453+00:00",
+    "remoteok/design": "2026-10-30T18:36:15.065453+00:00",
     "remotive/design": "2026-10-30T12:52:35.953955+00:00",
     "uxjobs/design": "2026-10-30T12:52:35.953955+00:00",
-    "weworkremotely/remote-design-jobs": "2026-10-30T12:52:35.953955+00:00",
-    "workingnomads/design": "2026-10-30T12:52:35.953955+00:00"
+    "weworkremotely/remote-design-jobs": "2026-10-30T18:36:15.065453+00:00",
+    "workingnomads/design": "2026-10-30T18:36:15.065453+00:00"
   },
   "runs": [
-    {
-      "discovered": 14848,
-      "failed": 0,
-      "matched": 108,
-      "mode": "send",
-      "new_unsent": 98,
-      "sent": 0,
-      "started_at": "2026-10-21T07:37:47.922301+00:00"
-    },
     {
       "discovered": 11230,
       "failed": 0,
@@ -461,6 +452,15 @@
       "new_unsent": 94,
       "sent": 1,
       "started_at": "2026-10-30T12:52:35.953955+00:00"
+    },
+    {
+      "discovered": 11558,
+      "failed": 0,
+      "matched": 13,
+      "mode": "send",
+      "new_unsent": 11,
+      "sent": 7,
+      "started_at": "2026-10-30T18:36:15.065453+00:00"
     }
   ],
   "sent": {
@@ -752,6 +752,18 @@
       "url": "https://jobfound.org/job/growth-cx-is-hiring-for-junior-ui-ux-designer-kochi-kerala-india-india-27-october-2026",
       "verified": true
     },
+    "hekat industries private limited|product designer|mumbai maharashtra india": {
+      "company": "Hekat\u00e9 Industries Private Limited",
+      "message_id": "<010001a18e19b7fd-d2712fc2-6fa6-4e0e-a67e-0686df1fbc26-000000@email.amazonses.com>",
+      "score": 77.0,
+      "sent_at": "2026-10-30T18:36:15.065453+00:00",
+      "source_key": "jobfound:hekat\u00e9 industries private limited:urn:jobfound:job:6ae4c8530029fe39382c",
+      "thread_id": "38013ea2-de1f-4814-b30a-0adafb484b4b",
+      "tier": "Strong",
+      "title": "Product Designer",
+      "url": "https://jobfound.org/job/hekat-industries-private-limited-is-hiring-for-product-designer-mumbai-maharashtra-india-india-30-october-2026",
+      "verified": true
+    },
     "heymarvin|product designer|remote in": {
       "company": "Heymarvin",
       "message_id": "<010001a176d695fe-8203be99-1c8f-4ce6-b6ca-526676a2977c-000000@email.amazonses.com>",
@@ -944,6 +956,18 @@
       "url": "https://minerva-project.breezy.hr/p/16caca3b823c-product-designer",
       "verified": true
     },
+    "momentum services|ux ui designer mmh260917 3|navi mumbai maharashtra india": {
+      "company": "Momentum Services",
+      "message_id": "<010001a18e19bc30-7bd14ca3-6c36-4750-9e62-cf10cb04c7c8-000000@email.amazonses.com>",
+      "score": 73.0,
+      "sent_at": "2026-10-30T18:36:15.065453+00:00",
+      "source_key": "jobfound:momentum services:urn:jobfound:job:6ae4c857001909b0ba4f",
+      "thread_id": "c849227b-67bf-4bb3-8aeb-59771596a413",
+      "tier": "Good",
+      "title": "Ux/Ui Designer MMH260917-3",
+      "url": "https://jobfound.org/job/momentum-services-is-hiring-for-ux-ui-designer-mmh260917-3-navi-mumbai-maharashtra-india-india-30-october-2026",
+      "verified": true
+    },
     "monks|ux ui designer contract|gurugram": {
       "company": "Monks",
       "message_id": "<010001a1407eed4d-be4a8849-9d66-48c5-9b27-15cc42446649-000000@email.amazonses.com>",
@@ -978,6 +1002,18 @@
       "tier": "Strong",
       "title": "Product Designer",
       "url": "https://jobfound.org/job/namma-yatri-is-hiring-for-product-designer-bengaluru-karnataka-india-india-28-october-2026",
+      "verified": true
+    },
+    "nudge|junior product designer|bengaluru karnataka india": {
+      "company": "Nudge",
+      "message_id": "<010001a18e19ba21-2837328a-a112-475d-b833-494877d9a671-000000@email.amazonses.com>",
+      "score": 76.0,
+      "sent_at": "2026-10-30T18:36:15.065453+00:00",
+      "source_key": "jobfound:nudge:urn:jobfound:job:6ae4c84e002aaaa4d2d3",
+      "thread_id": "d1915127-909c-41fd-b5f3-a1ab9b7f89c9",
+      "tier": "Strong",
+      "title": "Junior Product Designer",
+      "url": "https://jobfound.org/job/nudge-is-hiring-for-junior-product-designer-bengaluru-karnataka-india-india-30-october-2026",
       "verified": true
     },
     "particle41|ui ux designer|india remote": {
@@ -1064,6 +1100,18 @@
       "url": "https://jobfound.org/job/route-mobile-limited-is-hiring-for-product-designer-mumbai-metropolitan-region-india-23-october-2026",
       "verified": true
     },
+    "script assist|product designer ui ux figma react|ahmedabad gujarat india": {
+      "company": "Script Assist",
+      "message_id": "<010001a18e19b5f2-6c808b46-e59d-4c13-80ec-8e03f85203e3-000000@email.amazonses.com>",
+      "score": 78.0,
+      "sent_at": "2026-10-30T18:36:15.065453+00:00",
+      "source_key": "jobfound:script assist:urn:jobfound:job:6ae4c76a003d594543dd",
+      "thread_id": "5d90a508-1471-45a3-b2ce-107899ef43f3",
+      "tier": "Possible",
+      "title": "Product Designer \u2013 UI/UX | Figma | React",
+      "url": "https://jobfound.org/job/script-assist-is-hiring-for-product-designer-ui-ux-figma-react-ahmedabad-gujarat-india-india-30-october-2026",
+      "verified": true
+    },
     "servicenow|product designer|hyderabad telangana india": {
       "company": "ServiceNow",
       "message_id": "<010001a181a136f3-bcaf365b-8753-448d-8e63-aea0a882744b-000000@email.amazonses.com>",
@@ -1110,6 +1158,18 @@
       "tier": "Strong",
       "title": "Product Designer",
       "url": "https://jobfound.org/job/slice-is-hiring-for-product-designer-bengaluru-karnataka-india-india-23-october-2026",
+      "verified": true
+    },
+    "staffnix|product designer bdes mdes from tier1 college nit nift iit only eligible b2c experience mandatory|pune city maharashtra india": {
+      "company": "Staffnix",
+      "message_id": "<010001a18e19be3f-ad832e8d-1170-4cc7-8ec9-8ef88c692898-000000@email.amazonses.com>",
+      "score": 72.0,
+      "sent_at": "2026-10-30T18:36:15.065453+00:00",
+      "source_key": "jobfound:staffnix:urn:jobfound:job:6ae4c85000138796d21a",
+      "thread_id": "fba37312-25d4-4987-a812-88174d977d0e",
+      "tier": "Good",
+      "title": "Product Designer BDes, MDes) from Tier1 college (NIT, NIFT. IIT) only eligible. B2C Experience mandatory",
+      "url": "https://jobfound.org/job/staffnix-is-hiring-for-product-designer-bdes-mdes-from-tier1-college-nit-nift-iit-only-eligible-b2c-experience-mandatory-pune-city-maharashtra-india-india-30-october-2026",
       "verified": true
     },
     "supr|ui ux designer landing pages growth|noida uttar pradesh india": {
@@ -1184,6 +1244,18 @@
       "url": "https://vyaparapp.keka.com/careers/jobdetails/132996",
       "verified": true
     },
+    "werize|product designer|bengaluru karnataka india": {
+      "company": "WeRize",
+      "message_id": "<010001a18e19b28e-ae077768-f4b4-4fd6-8a12-76bb1d25e36f-000000@email.amazonses.com>",
+      "score": 85.0,
+      "sent_at": "2026-10-30T18:36:15.065453+00:00",
+      "source_key": "jobfound:werize:urn:jobfound:job:6ae4c84d0001406bfc55",
+      "thread_id": "259ba372-e5d8-4535-832a-4c484672b294",
+      "tier": "Strong",
+      "title": "Product Designer",
+      "url": "https://jobfound.org/job/werize-is-hiring-for-product-designer-bengaluru-karnataka-india-india-30-october-2026",
+      "verified": true
+    },
     "wsp|ui ux designer|bengaluru karnataka india": {
       "company": "WSP",
       "message_id": "<010001a15e0d0c8b-b49e9436-a93f-4d61-8331-70456c256ed6-000000@email.amazonses.com>",
@@ -1206,6 +1278,18 @@
       "tier": "Strong",
       "title": "UI/UX Designer",
       "url": "https://jobfound.org/job/x-technologies-is-hiring-for-ui-ux-designer-india-india-25-october-2026",
+      "verified": true
+    },
+    "zyla health|ui ux designer|gurugram haryana india": {
+      "company": "Zyla Health",
+      "message_id": "<010001a18e19c056-d9c0a61d-aa68-4b40-aa63-c1c5565a3739-000000@email.amazonses.com>",
+      "score": 67.0,
+      "sent_at": "2026-10-30T18:36:15.065453+00:00",
+      "source_key": "jobfound:zyla health:urn:jobfound:job:6ae4c85500140f37fc92",
+      "thread_id": "f6622fa5-1314-47c3-bc66-16ccfffb94a7",
+      "tier": "Possible",
+      "title": "UI/UX Designer",
+      "url": "https://jobfound.org/job/zyla-health-is-hiring-for-ui-ux-designer-gurugram-haryana-india-india-30-october-2026",
       "verified": true
     }
   },
