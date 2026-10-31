@@ -1,26 +1,17 @@
 {
   "feeds_fetched": {
-    "himalayas/product designer": "2026-10-31T09:36:45.863207+00:00",
-    "jobfound/all": "2026-10-31T09:36:45.863207+00:00",
-    "jobicy/designer": "2026-10-31T09:36:45.863207+00:00",
-    "jobspresso/design": "2026-10-31T09:36:45.863207+00:00",
-    "nodesk/design": "2026-10-31T09:36:45.863207+00:00",
-    "remoteok/design": "2026-10-31T09:36:45.863207+00:00",
-    "remotive/design": "2026-10-31T09:36:45.863207+00:00",
-    "uxjobs/design": "2026-10-31T09:36:45.863207+00:00",
-    "weworkremotely/remote-design-jobs": "2026-10-31T09:36:45.863207+00:00",
-    "workingnomads/design": "2026-10-31T09:36:45.863207+00:00"
+    "himalayas/product designer": "2026-10-31T15:43:32.747736+00:00",
+    "jobfound/all": "2026-10-31T15:43:32.747736+00:00",
+    "jobicy/designer": "2026-10-31T15:43:32.747736+00:00",
+    "jobspresso/design": "2026-10-31T15:43:32.747736+00:00",
+    "nodesk/design": "2026-10-31T15:43:32.747736+00:00",
+    "remoteok/design": "2026-10-31T15:43:32.747736+00:00",
+    "remotive/design": "2026-10-31T15:43:32.747736+00:00",
+    "uxjobs/design": "2026-10-31T15:43:32.747736+00:00",
+    "weworkremotely/remote-design-jobs": "2026-10-31T15:43:32.747736+00:00",
+    "workingnomads/design": "2026-10-31T15:43:32.747736+00:00"
   },
   "runs": [
-    {
-      "discovered": 14900,
-      "failed": 0,
-      "matched": 107,
-      "mode": "send",
-      "new_unsent": 95,
-      "sent": 0,
-      "started_at": "2026-10-21T18:37:50.624927+00:00"
-    },
     {
       "discovered": 11287,
       "failed": 0,
@@ -461,6 +452,15 @@
       "new_unsent": 91,
       "sent": 0,
       "started_at": "2026-10-31T09:36:45.863207+00:00"
+    },
+    {
+      "discovered": 15375,
+      "failed": 0,
+      "matched": 115,
+      "mode": "send",
+      "new_unsent": 95,
+      "sent": 5,
+      "started_at": "2026-10-31T15:43:32.747736+00:00"
     }
   ],
   "sent": {
@@ -596,6 +596,18 @@
       "url": "https://jobfound.org/job/codewalla-is-hiring-for-product-designer-chennai-tamil-nadu-india-india-21-october-2026",
       "verified": true
     },
+    "corning|product user experience designer|pune maharashtra": {
+      "company": "Corning",
+      "message_id": "<010001a192a22750-1a3efab3-0710-41c2-b3d6-d46060cc7637-000000@email.amazonses.com>",
+      "score": 65.0,
+      "sent_at": "2026-10-31T15:43:32.747736+00:00",
+      "source_key": "uxjobs:corning:product-user-experience-designer-corning-oudypd",
+      "thread_id": "3b6284fc-4906-4975-a6da-226205f7e24e",
+      "tier": "Good",
+      "title": "Product/User Experience Designer",
+      "url": "https://careers.corning.com/us/en/job/77524/Product-User-Experience-Designer",
+      "verified": true
+    },
     "credgenics|product designer|noida uttar pradesh india": {
       "company": "Credgenics",
       "message_id": "<010001a184536b4a-ca48344b-495f-44bb-9e08-a201cac31ce1-000000@email.amazonses.com>",
@@ -618,6 +630,18 @@
       "tier": "Strong",
       "title": "Product Designer",
       "url": "https://jobfound.org/job/dailyrounds-marrow-is-hiring-for-product-designer-bengaluru-karnataka-india-india-23-october-2026",
+      "verified": true
+    },
+    "data eminence|ui ux designer|india": {
+      "company": "Data Eminence",
+      "message_id": "<010001a192a21906-a7045814-fdcb-4dcc-a528-dad3dd147ec5-000000@email.amazonses.com>",
+      "score": 92.0,
+      "sent_at": "2026-10-31T15:43:32.747736+00:00",
+      "source_key": "jobfound:data eminence:urn:jobfound:job:6ae58d1f0031327f986e",
+      "thread_id": "6ed1d53f-5411-4c59-aed3-8aad7cfafb80",
+      "tier": "Strong",
+      "title": "UI/UX Designer",
+      "url": "https://jobfound.org/job/data-eminence-is-hiring-for-ui-ux-designer-india-india-31-october-2026",
       "verified": true
     },
     "developer bazaar technologies|ui ux designer|indore madhya pradesh india": {
@@ -738,6 +762,18 @@
       "tier": "Strong",
       "title": "Junior Product Designer",
       "url": "https://job-boards.greenhouse.io/globalli/jobs/5241585007",
+      "verified": true
+    },
+    "growify digital|ai ui ux designer in delhi|delhi india": {
+      "company": "Growify Digital",
+      "message_id": "<010001a192a223fe-f130e03d-6d20-4d8e-bd72-1bc65376f88a-000000@email.amazonses.com>",
+      "score": 66.0,
+      "sent_at": "2026-10-31T15:43:32.747736+00:00",
+      "source_key": "jobfound:growify digital:urn:jobfound:job:6ae58d1e0008b598bca1",
+      "thread_id": "6027aa9b-60c6-4b83-b7fb-086ef6664658",
+      "tier": "Possible",
+      "title": "AI UI/UX Designer in Delhi",
+      "url": "https://jobfound.org/job/growify-digital-is-hiring-for-ai-ui-ux-designer-in-delhi-delhi-india-india-31-october-2026",
       "verified": true
     },
     "growth cx|junior ui ux designer|kochi kerala india": {
@@ -1184,6 +1220,18 @@
       "url": "https://jobfound.org/job/staffnix-is-hiring-for-product-designer-bdes-mdes-from-tier1-college-nit-nift-iit-only-eligible-b2c-experience-mandatory-pune-city-maharashtra-india-india-30-october-2026",
       "verified": true
     },
+    "staffnix|product designer bdes mdes from tier1 college nit nift iit|pune city maharashtra india": {
+      "company": "Staffnix",
+      "message_id": "<010001a192a21dc6-ee57ae08-a254-404f-a208-4cb9147dbed8-000000@email.amazonses.com>",
+      "score": 72.0,
+      "sent_at": "2026-10-31T15:43:32.747736+00:00",
+      "source_key": "jobfound:staffnix:urn:jobfound:job:6ae58d1c0017376eee2f",
+      "thread_id": "5605bfc3-6d81-4cd2-ab0c-80d2000fb341",
+      "tier": "Good",
+      "title": "Product Designer BDes, MDes) from Tier1 college (NIT, NIFT. IIT).",
+      "url": "https://jobfound.org/job/staffnix-is-hiring-for-product-designer-bdes-mdes-from-tier1-college-nit-nift-iit-pune-city-maharashtra-india-india-31-october-2026",
+      "verified": true
+    },
     "supr|ui ux designer landing pages growth|noida uttar pradesh india": {
       "company": "SUPR",
       "message_id": "<010001a17ceba9cb-7336c91e-8b87-4ad8-ab07-1997162ce65b-000000@email.amazonses.com>",
@@ -1206,6 +1254,18 @@
       "tier": "Possible",
       "title": "UI/UX Designer ( Vadodara Location ONLY )",
       "url": "https://jobfound.org/job/the-ri8-click-is-hiring-for-ui-ux-designer-vadodara-location-only-vadodara-gujarat-india-india-21-october-2026",
+      "verified": true
+    },
+    "thermo fisher scientific|product designer ai and enterprise software job posting title here|bangalore karn taka": {
+      "company": "Thermo Fisher Scientific",
+      "message_id": "<010001a192a22167-058765fb-4405-4020-b8f8-d0106cc929ed-000000@email.amazonses.com>",
+      "score": 70.0,
+      "sent_at": "2026-10-31T15:43:32.747736+00:00",
+      "source_key": "uxjobs:thermo fisher scientific:product-designer-ai-and-enterprise-software-job-posting-title-here-thermo-fisher-4r0j4n",
+      "thread_id": "22bf5dfd-bbe8-433a-b327-ce5083bcb154",
+      "tier": "Good",
+      "title": "Product Designer - AI and Enterprise Software Job Posting Title here",
+      "url": "https://jobs.thermofisher.com/global/en/job/R-01353684/Product-Designer-AI-and-Enterprise-Software-Job-Posting-Title-here",
       "verified": true
     },
     "tiaa|associate ux design in|mumbai ind": {
