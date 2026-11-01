@@ -1,26 +1,17 @@
 {
   "feeds_fetched": {
-    "himalayas/product designer": "2026-11-01T13:20:21.189648+00:00",
-    "jobfound/all": "2026-11-01T13:20:21.189648+00:00",
+    "himalayas/product designer": "2026-11-01T18:55:04.634656+00:00",
+    "jobfound/all": "2026-11-01T18:55:04.634656+00:00",
     "jobicy/designer": "2026-11-01T13:20:21.189648+00:00",
     "jobspresso/design": "2026-11-01T13:20:21.189648+00:00",
-    "nodesk/design": "2026-11-01T13:20:21.189648+00:00",
-    "remoteok/design": "2026-11-01T13:20:21.189648+00:00",
+    "nodesk/design": "2026-11-01T18:55:04.634656+00:00",
+    "remoteok/design": "2026-11-01T18:55:04.634656+00:00",
     "remotive/design": "2026-11-01T13:20:21.189648+00:00",
     "uxjobs/design": "2026-11-01T13:20:21.189648+00:00",
-    "weworkremotely/remote-design-jobs": "2026-11-01T13:20:21.189648+00:00",
-    "workingnomads/design": "2026-11-01T13:20:21.189648+00:00"
+    "weworkremotely/remote-design-jobs": "2026-11-01T18:55:04.634656+00:00",
+    "workingnomads/design": "2026-11-01T18:55:04.634656+00:00"
   },
   "runs": [
-    {
-      "discovered": 15636,
-      "failed": 0,
-      "matched": 117,
-      "mode": "send",
-      "new_unsent": 106,
-      "sent": 7,
-      "started_at": "2026-10-22T15:48:57.275680+00:00"
-    },
     {
       "discovered": 11330,
       "failed": 0,
@@ -461,6 +452,15 @@
       "new_unsent": 89,
       "sent": 0,
       "started_at": "2026-11-01T13:20:21.189648+00:00"
+    },
+    {
+      "discovered": 11563,
+      "failed": 0,
+      "matched": 9,
+      "mode": "send",
+      "new_unsent": 7,
+      "sent": 3,
+      "started_at": "2026-11-01T18:55:04.634656+00:00"
     }
   ],
   "sent": {
@@ -1088,6 +1088,18 @@
       "url": "https://jobfound.org/job/pinegap-ai-is-hiring-for-product-designer-bengaluru-karnataka-india-india-23-october-2026",
       "verified": true
     },
+    "purplemerit|product designer ui ux|india": {
+      "company": "PurpleMerit",
+      "message_id": "<010001a19877c65d-df7f7307-eb4f-442b-9ddf-3f6493f7978f-000000@email.amazonses.com>",
+      "score": 82.0,
+      "sent_at": "2026-11-01T18:55:04.634656+00:00",
+      "source_key": "jobfound:purplemerit:urn:jobfound:job:6ae6ea460036323a7fc2",
+      "thread_id": "5cf023f0-9307-4373-ac9f-dae4e1312814",
+      "tier": "Strong",
+      "title": "Product Designer - UI UX",
+      "url": "https://jobfound.org/job/purplemerit-is-hiring-for-product-designer-ui-ux-india-india-1-november-2026",
+      "verified": true
+    },
     "purplemerit|product designer ui|india": {
       "company": "PurpleMerit",
       "message_id": "<010001a173d94fbb-005d5e35-d91c-406a-bab5-f5e33aef3605-000000@email.amazonses.com>",
@@ -1220,6 +1232,18 @@
       "url": "https://jobfound.org/job/staffnix-is-hiring-for-product-designer-bdes-mdes-from-tier1-college-nit-nift-iit-only-eligible-b2c-experience-mandatory-pune-city-maharashtra-india-india-30-october-2026",
       "verified": true
     },
+    "staffnix|product designer bdes mdes from tier1 college nit nift iit only eligible|pune city maharashtra india": {
+      "company": "Staffnix",
+      "message_id": "<010001a19877c920-a13d627a-127e-4f71-9da9-401c0834b2aa-000000@email.amazonses.com>",
+      "score": 72.0,
+      "sent_at": "2026-11-01T18:55:04.634656+00:00",
+      "source_key": "jobfound:staffnix:urn:jobfound:job:6ae6ea4c002baead4643",
+      "thread_id": "f8e30627-d4d6-4790-90cf-d319127b26cf",
+      "tier": "Good",
+      "title": "Product Designer BDes, MDes) from Tier1 college (NIT, NIFT. IIT only eligible",
+      "url": "https://jobfound.org/job/staffnix-is-hiring-for-product-designer-bdes-mdes-from-tier1-college-nit-nift-iit-only-eligible-pune-city-maharashtra-india-india-1-november-2026",
+      "verified": true
+    },
     "staffnix|product designer bdes mdes from tier1 college nit nift iit|pune city maharashtra india": {
       "company": "Staffnix",
       "message_id": "<010001a192a21dc6-ee57ae08-a254-404f-a208-4cb9147dbed8-000000@email.amazonses.com>",
@@ -1290,6 +1314,18 @@
       "tier": "Good",
       "title": "Associate - UX Design - IN",
       "url": "https://tiaa.wd1.myworkdayjobs.com/Search/job/Mumbai-IND/Associate---UX-Design---IN_R261000172",
+      "verified": true
+    },
+    "traelli|product designer ui ux|trivandrum kerala india": {
+      "company": "Traelli",
+      "message_id": "<010001a19877cc2d-6e44d495-e832-4a32-b89c-d13a98a5d751-000000@email.amazonses.com>",
+      "score": 69.0,
+      "sent_at": "2026-11-01T18:55:04.634656+00:00",
+      "source_key": "jobfound:traelli:urn:jobfound:job:6ae6ea450016c564f814",
+      "thread_id": "2de93dc1-db22-442c-83a0-274d8f62a09f",
+      "tier": "Possible",
+      "title": "Product Designer (UI/UX)",
+      "url": "https://jobfound.org/job/traelli-is-hiring-for-product-designer-ui-ux-trivandrum-kerala-india-india-1-november-2026",
       "verified": true
     },
     "versatile club employer of record|product designer contract 6 months|bengaluru karnataka india": {
