@@ -1,26 +1,17 @@
 {
   "feeds_fetched": {
-    "himalayas/product designer": "2026-11-03T10:50:26.160674+00:00",
-    "jobfound/all": "2026-11-03T10:50:26.160674+00:00",
-    "jobicy/designer": "2026-11-03T10:50:26.160674+00:00",
-    "jobspresso/design": "2026-11-03T10:50:26.160674+00:00",
-    "nodesk/design": "2026-11-03T10:50:26.160674+00:00",
-    "remoteok/design": "2026-11-03T10:50:26.160674+00:00",
-    "remotive/design": "2026-11-03T10:50:26.160674+00:00",
-    "uxjobs/design": "2026-11-03T10:50:26.160674+00:00",
-    "weworkremotely/remote-design-jobs": "2026-11-03T10:50:26.160674+00:00",
-    "workingnomads/design": "2026-11-03T10:50:26.160674+00:00"
+    "himalayas/product designer": "2026-11-03T18:26:14.373893+00:00",
+    "jobfound/all": "2026-11-03T18:26:14.373893+00:00",
+    "jobicy/designer": "2026-11-03T18:26:14.373893+00:00",
+    "jobspresso/design": "2026-11-03T18:26:14.373893+00:00",
+    "nodesk/design": "2026-11-03T18:26:14.373893+00:00",
+    "remoteok/design": "2026-11-03T18:26:14.373893+00:00",
+    "remotive/design": "2026-11-03T18:26:14.373893+00:00",
+    "uxjobs/design": "2026-11-03T18:26:14.373893+00:00",
+    "weworkremotely/remote-design-jobs": "2026-11-03T18:26:14.373893+00:00",
+    "workingnomads/design": "2026-11-03T18:26:14.373893+00:00"
   },
   "runs": [
-    {
-      "discovered": 15471,
-      "failed": 0,
-      "matched": 113,
-      "mode": "send",
-      "new_unsent": 99,
-      "sent": 4,
-      "started_at": "2026-10-23T22:08:39.972515+00:00"
-    },
     {
       "discovered": 11359,
       "failed": 0,
@@ -461,6 +452,15 @@
       "new_unsent": 91,
       "sent": 0,
       "started_at": "2026-11-03T10:50:26.160674+00:00"
+    },
+    {
+      "discovered": 15354,
+      "failed": 0,
+      "matched": 107,
+      "mode": "send",
+      "new_unsent": 86,
+      "sent": 1,
+      "started_at": "2026-11-03T18:26:14.373893+00:00"
     }
   ],
   "sent": {
@@ -1254,6 +1254,18 @@
       "tier": "Good",
       "title": "Product Designer BDes, MDes) from Tier1 college (NIT, NIFT. IIT).",
       "url": "https://jobfound.org/job/staffnix-is-hiring-for-product-designer-bdes-mdes-from-tier1-college-nit-nift-iit-pune-city-maharashtra-india-india-31-october-2026",
+      "verified": true
+    },
+    "stax living|product designer furniture|mumbai maharashtra india": {
+      "company": "Stax Living",
+      "message_id": "<010001a1a2aa2209-1c2a29f0-8385-461e-90af-feffbafb254e-000000@email.amazonses.com>",
+      "score": 74.0,
+      "sent_at": "2026-11-03T18:26:14.373893+00:00",
+      "source_key": "jobfound:stax living:urn:jobfound:job:6ae8d8da000b936a23c3",
+      "thread_id": "dacbd74f-5cc3-4caf-a201-bb973c7a1e94",
+      "tier": "Good",
+      "title": "Product Designer, Furniture",
+      "url": "https://jobfound.org/job/stax-living-is-hiring-for-product-designer-furniture-mumbai-maharashtra-india-india-2-november-2026",
       "verified": true
     },
     "supr|ui ux designer landing pages growth|noida uttar pradesh india": {
