@@ -1,26 +1,17 @@
 {
   "feeds_fetched": {
-    "himalayas/product designer": "2026-11-03T23:58:25.737803+00:00",
-    "jobfound/all": "2026-11-03T23:58:25.737803+00:00",
-    "jobicy/designer": "2026-11-03T18:26:14.373893+00:00",
-    "jobspresso/design": "2026-11-03T18:26:14.373893+00:00",
-    "nodesk/design": "2026-11-03T23:58:25.737803+00:00",
-    "remoteok/design": "2026-11-03T23:58:25.737803+00:00",
-    "remotive/design": "2026-11-03T18:26:14.373893+00:00",
-    "uxjobs/design": "2026-11-03T18:26:14.373893+00:00",
-    "weworkremotely/remote-design-jobs": "2026-11-03T23:58:25.737803+00:00",
-    "workingnomads/design": "2026-11-03T23:58:25.737803+00:00"
+    "himalayas/product designer": "2026-11-04T06:17:34.811588+00:00",
+    "jobfound/all": "2026-11-04T06:17:34.811588+00:00",
+    "jobicy/designer": "2026-11-04T06:17:34.811588+00:00",
+    "jobspresso/design": "2026-11-04T06:17:34.811588+00:00",
+    "nodesk/design": "2026-11-04T06:17:34.811588+00:00",
+    "remoteok/design": "2026-11-04T06:17:34.811588+00:00",
+    "remotive/design": "2026-11-04T06:17:34.811588+00:00",
+    "uxjobs/design": "2026-11-04T06:17:34.811588+00:00",
+    "weworkremotely/remote-design-jobs": "2026-11-04T06:17:34.811588+00:00",
+    "workingnomads/design": "2026-11-04T06:17:34.811588+00:00"
   },
   "runs": [
-    {
-      "discovered": 15478,
-      "failed": 0,
-      "matched": 111,
-      "mode": "send",
-      "new_unsent": 96,
-      "sent": 1,
-      "started_at": "2026-10-24T05:51:26.520329+00:00"
-    },
     {
       "discovered": 11684,
       "failed": 0,
@@ -461,6 +452,15 @@
       "new_unsent": 2,
       "sent": 0,
       "started_at": "2026-11-03T23:58:25.737803+00:00"
+    },
+    {
+      "discovered": 15372,
+      "failed": 0,
+      "matched": 108,
+      "mode": "send",
+      "new_unsent": 87,
+      "sent": 1,
+      "started_at": "2026-11-04T06:17:34.811588+00:00"
     }
   ],
   "sent": {
@@ -918,6 +918,18 @@
       "tier": "Good",
       "title": "AI UI/UX Designer",
       "url": "https://jobfound.org/job/lesser-tax-is-hiring-for-ai-ui-ux-designer-india-india-28-october-2026",
+      "verified": true
+    },
+    "liminal|product designer|bengaluru": {
+      "company": "Liminal",
+      "message_id": "<010001a1a5355e03-fe84122a-bcd5-4932-ac77-e2fcb83d1f8d-000000@email.amazonses.com>",
+      "score": 88.0,
+      "sent_at": "2026-11-04T06:17:34.811588+00:00",
+      "source_key": "uxjobs:liminal:product-designer-liminal-5rhfy6",
+      "thread_id": "1e90e6cf-1ccb-4306-abe5-455348c2273c",
+      "tier": "Strong",
+      "title": "Product Designer",
+      "url": "https://liminal.keka.com/careers/jobdetails/168910",
       "verified": true
     },
     "lyzr ai|product designer ui ux|bengaluru in": {
