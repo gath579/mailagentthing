@@ -1,26 +1,17 @@
 {
   "feeds_fetched": {
-    "himalayas/product designer": "2026-11-05T02:26:09.475300+00:00",
-    "jobfound/all": "2026-11-05T02:26:09.475300+00:00",
-    "jobicy/designer": "2026-11-04T21:52:02.443736+00:00",
-    "jobspresso/design": "2026-11-04T21:52:02.443736+00:00",
-    "nodesk/design": "2026-11-05T02:26:09.475300+00:00",
-    "remoteok/design": "2026-11-05T02:26:09.475300+00:00",
-    "remotive/design": "2026-11-04T21:52:02.443736+00:00",
-    "uxjobs/design": "2026-11-04T21:52:02.443736+00:00",
-    "weworkremotely/remote-design-jobs": "2026-11-05T02:26:09.475300+00:00",
-    "workingnomads/design": "2026-11-05T02:26:09.475300+00:00"
+    "himalayas/product designer": "2026-11-05T10:53:01.187362+00:00",
+    "jobfound/all": "2026-11-05T10:53:01.187362+00:00",
+    "jobicy/designer": "2026-11-05T10:53:01.187362+00:00",
+    "jobspresso/design": "2026-11-05T10:53:01.187362+00:00",
+    "nodesk/design": "2026-11-05T10:53:01.187362+00:00",
+    "remoteok/design": "2026-11-05T10:53:01.187362+00:00",
+    "remotive/design": "2026-11-05T10:53:01.187362+00:00",
+    "uxjobs/design": "2026-11-05T10:53:01.187362+00:00",
+    "weworkremotely/remote-design-jobs": "2026-11-05T10:53:01.187362+00:00",
+    "workingnomads/design": "2026-11-05T10:53:01.187362+00:00"
   },
   "runs": [
-    {
-      "discovered": 15152,
-      "failed": 0,
-      "matched": 106,
-      "mode": "send",
-      "new_unsent": 94,
-      "sent": 0,
-      "started_at": "2026-10-24T20:47:09.241737+00:00"
-    },
     {
       "discovered": 11687,
       "failed": 0,
@@ -461,6 +452,15 @@
       "new_unsent": 2,
       "sent": 0,
       "started_at": "2026-11-05T02:26:09.475300+00:00"
+    },
+    {
+      "discovered": 15429,
+      "failed": 0,
+      "matched": 105,
+      "mode": "send",
+      "new_unsent": 83,
+      "sent": 1,
+      "started_at": "2026-11-05T10:53:01.187362+00:00"
     }
   ],
   "sent": {
@@ -990,6 +990,18 @@
       "tier": "Good",
       "title": "UI/UX Designer",
       "url": "https://apply.workable.com/medvirtual/j/E220A25C3D/",
+      "verified": true
+    },
+    "meesho|product designer ii design system|bangalore karnataka": {
+      "company": "Meesho",
+      "message_id": "<010001a1ab57d440-f1718b7e-c65d-4604-a136-f8930db22ce3-000000@email.amazonses.com>",
+      "score": 80.0,
+      "sent_at": "2026-11-05T10:53:01.187362+00:00",
+      "source_key": "lever:meesho:500264fe-e851-499a-b825-2eb588752aa3",
+      "thread_id": "cde16268-9675-4105-9e33-9ae61f618b39",
+      "tier": "Strong",
+      "title": "Product Designer - II (Design System)",
+      "url": "https://jobs.lever.co/meesho/500264fe-e851-499a-b825-2eb588752aa3",
       "verified": true
     },
     "michelin|ai ux ui designer researcher|pune": {
