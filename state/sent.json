@@ -1,26 +1,17 @@
 {
   "feeds_fetched": {
-    "himalayas/product designer": "2026-11-06T15:01:54.620609+00:00",
-    "jobfound/all": "2026-11-06T15:01:54.620609+00:00",
-    "jobicy/designer": "2026-11-06T15:01:54.620609+00:00",
-    "jobspresso/design": "2026-11-06T15:01:54.620609+00:00",
-    "nodesk/design": "2026-11-06T15:01:54.620609+00:00",
-    "remoteok/design": "2026-11-06T15:01:54.620609+00:00",
-    "remotive/design": "2026-11-06T15:01:54.620609+00:00",
-    "uxjobs/design": "2026-11-06T15:01:54.620609+00:00",
-    "weworkremotely/remote-design-jobs": "2026-11-06T15:01:54.620609+00:00",
-    "workingnomads/design": "2026-11-06T15:01:54.620609+00:00"
+    "himalayas/product designer": "2026-11-06T20:53:41.077342+00:00",
+    "jobfound/all": "2026-11-06T20:53:41.077342+00:00",
+    "jobicy/designer": "2026-11-06T20:53:41.077342+00:00",
+    "jobspresso/design": "2026-11-06T20:53:41.077342+00:00",
+    "nodesk/design": "2026-11-06T20:53:41.077342+00:00",
+    "remoteok/design": "2026-11-06T20:53:41.077342+00:00",
+    "remotive/design": "2026-11-06T20:53:41.077342+00:00",
+    "uxjobs/design": "2026-11-06T20:53:41.077342+00:00",
+    "weworkremotely/remote-design-jobs": "2026-11-06T20:53:41.077342+00:00",
+    "workingnomads/design": "2026-11-06T20:53:41.077342+00:00"
   },
   "runs": [
-    {
-      "discovered": 15514,
-      "failed": 0,
-      "matched": 107,
-      "mode": "send",
-      "new_unsent": 94,
-      "sent": 3,
-      "started_at": "2026-10-25T16:15:42.224203+00:00"
-    },
     {
       "discovered": 11678,
       "failed": 0,
@@ -461,6 +452,15 @@
       "new_unsent": 87,
       "sent": 1,
       "started_at": "2026-11-06T15:01:54.620609+00:00"
+    },
+    {
+      "discovered": 15532,
+      "failed": 0,
+      "matched": 109,
+      "mode": "send",
+      "new_unsent": 89,
+      "sent": 2,
+      "started_at": "2026-11-06T20:53:41.077342+00:00"
     }
   ],
   "sent": {
@@ -810,6 +810,18 @@
       "tier": "Strong",
       "title": "Product Designer",
       "url": "https://ats.rippling.com/heymarvin/jobs/a446aa95-c37d-49e4-b07c-60821eda7735",
+      "verified": true
+    },
+    "hownow|product designer|mumbai in": {
+      "company": "HowNow",
+      "message_id": "<010001a1b2a4232b-38ec7b19-84dc-42bb-9594-840d43031181-000000@email.amazonses.com>",
+      "score": 82.0,
+      "sent_at": "2026-11-06T20:53:41.077342+00:00",
+      "source_key": "uxjobs:hownow:product-designer-hownow-d37yyn",
+      "thread_id": "369379e2-29ed-4072-ab0f-9deb395842ee",
+      "tier": "Strong",
+      "title": "Product Designer",
+      "url": "https://careers.gethownow.com/jobs/8663923-product-designer",
       "verified": true
     },
     "indmoney|product designer|bangalore urban karnataka india": {
@@ -1458,6 +1470,18 @@
       "tier": "Strong",
       "title": "UI/UX Designer",
       "url": "https://jobfound.org/job/x-technologies-is-hiring-for-ui-ux-designer-india-india-25-october-2026",
+      "verified": true
+    },
+    "zensar|product designer|india": {
+      "company": "Zensar",
+      "message_id": "<010001a1b2a42546-0d1bbd9b-c721-44bc-b4c4-798371b71fae-000000@email.amazonses.com>",
+      "score": 75.0,
+      "sent_at": "2026-11-06T20:53:41.077342+00:00",
+      "source_key": "uxjobs:zensar:product-designer-zensar-uytuxs",
+      "thread_id": "deadddf9-762a-4b47-8c0d-d6c0413f7dd9",
+      "tier": "Strong",
+      "title": "Product Designer",
+      "url": "https://fa-etvl-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/job/152346_2",
       "verified": true
     },
     "zensar|ux designer|pune maharashtra india": {
