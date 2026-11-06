@@ -1,26 +1,17 @@
 {
   "feeds_fetched": {
-    "himalayas/product designer": "2026-11-06T06:49:35.693359+00:00",
-    "jobfound/all": "2026-11-06T06:49:35.693359+00:00",
-    "jobicy/designer": "2026-11-06T06:49:35.693359+00:00",
-    "jobspresso/design": "2026-11-06T06:49:35.693359+00:00",
-    "nodesk/design": "2026-11-06T06:49:35.693359+00:00",
-    "remoteok/design": "2026-11-06T06:49:35.693359+00:00",
-    "remotive/design": "2026-11-06T06:49:35.693359+00:00",
-    "uxjobs/design": "2026-11-06T06:49:35.693359+00:00",
-    "weworkremotely/remote-design-jobs": "2026-11-06T06:49:35.693359+00:00",
-    "workingnomads/design": "2026-11-06T06:49:35.693359+00:00"
+    "himalayas/product designer": "2026-11-06T15:01:54.620609+00:00",
+    "jobfound/all": "2026-11-06T15:01:54.620609+00:00",
+    "jobicy/designer": "2026-11-06T15:01:54.620609+00:00",
+    "jobspresso/design": "2026-11-06T15:01:54.620609+00:00",
+    "nodesk/design": "2026-11-06T15:01:54.620609+00:00",
+    "remoteok/design": "2026-11-06T15:01:54.620609+00:00",
+    "remotive/design": "2026-11-06T15:01:54.620609+00:00",
+    "uxjobs/design": "2026-11-06T15:01:54.620609+00:00",
+    "weworkremotely/remote-design-jobs": "2026-11-06T15:01:54.620609+00:00",
+    "workingnomads/design": "2026-11-06T15:01:54.620609+00:00"
   },
   "runs": [
-    {
-      "discovered": 11690,
-      "failed": 0,
-      "matched": 9,
-      "mode": "send",
-      "new_unsent": 7,
-      "sent": 0,
-      "started_at": "2026-10-25T11:25:20.022774+00:00"
-    },
     {
       "discovered": 15514,
       "failed": 0,
@@ -461,6 +452,15 @@
       "new_unsent": 86,
       "sent": 0,
       "started_at": "2026-11-06T06:49:35.693359+00:00"
+    },
+    {
+      "discovered": 15490,
+      "failed": 0,
+      "matched": 107,
+      "mode": "send",
+      "new_unsent": 87,
+      "sent": 1,
+      "started_at": "2026-11-06T15:01:54.620609+00:00"
     }
   ],
   "sent": {
@@ -870,6 +870,18 @@
       "tier": "Good",
       "title": "Product Designer",
       "url": "https://jobs.lever.co/jito/97151aba-e3eb-483d-b56c-34711b873760",
+      "verified": true
+    },
+    "keka technologies|visual ui designer|hyderabad bengaluru": {
+      "company": "Keka Technologies",
+      "message_id": "<010001a1b16229d7-bda39899-3534-4c58-b51e-1ce98fd20952-000000@email.amazonses.com>",
+      "score": 72.0,
+      "sent_at": "2026-11-06T15:01:54.620609+00:00",
+      "source_key": "uxjobs:keka technologies:visual-ui-designer-keka-technologies-qum5sd",
+      "thread_id": "8eb055a7-c0a9-40fa-939f-91af491174ef",
+      "tier": "Good",
+      "title": "Visual / UI Designer",
+      "url": "https://hr.keka.com/careers/jobdetails/146621",
       "verified": true
     },
     "klypup|product designer ui ux|noida uttar pradesh india": {
