@@ -1,26 +1,17 @@
 {
   "feeds_fetched": {
-    "himalayas/product designer": "2026-11-07T18:46:26.523925+00:00",
-    "jobfound/all": "2026-11-07T18:46:26.523925+00:00",
-    "jobicy/designer": "2026-11-07T13:59:45.929634+00:00",
-    "jobspresso/design": "2026-11-07T13:59:45.929634+00:00",
-    "nodesk/design": "2026-11-07T18:46:26.523925+00:00",
-    "remoteok/design": "2026-11-07T18:46:26.523925+00:00",
-    "remotive/design": "2026-11-07T13:59:45.929634+00:00",
-    "uxjobs/design": "2026-11-07T13:59:45.929634+00:00",
-    "weworkremotely/remote-design-jobs": "2026-11-07T18:46:26.523925+00:00",
-    "workingnomads/design": "2026-11-07T18:46:26.523925+00:00"
+    "himalayas/product designer": "2026-11-07T22:44:56.687135+00:00",
+    "jobfound/all": "2026-11-07T22:44:56.687135+00:00",
+    "jobicy/designer": "2026-11-07T22:44:56.687135+00:00",
+    "jobspresso/design": "2026-11-07T22:44:56.687135+00:00",
+    "nodesk/design": "2026-11-07T22:44:56.687135+00:00",
+    "remoteok/design": "2026-11-07T22:44:56.687135+00:00",
+    "remotive/design": "2026-11-07T22:44:56.687135+00:00",
+    "uxjobs/design": "2026-11-07T22:44:56.687135+00:00",
+    "weworkremotely/remote-design-jobs": "2026-11-07T22:44:56.687135+00:00",
+    "workingnomads/design": "2026-11-07T22:44:56.687135+00:00"
   },
   "runs": [
-    {
-      "discovered": 15519,
-      "failed": 0,
-      "matched": 113,
-      "mode": "send",
-      "new_unsent": 95,
-      "sent": 1,
-      "started_at": "2026-10-26T12:59:08.864265+00:00"
-    },
     {
       "discovered": 15440,
       "failed": 0,
@@ -461,6 +452,15 @@
       "new_unsent": 2,
       "sent": 0,
       "started_at": "2026-11-07T18:46:26.523925+00:00"
+    },
+    {
+      "discovered": 15583,
+      "failed": 0,
+      "matched": 109,
+      "mode": "send",
+      "new_unsent": 88,
+      "sent": 2,
+      "started_at": "2026-11-07T22:44:56.687135+00:00"
     }
   ],
   "sent": {
@@ -558,6 +558,30 @@
       "tier": "Possible",
       "title": "UI/UX Designer",
       "url": "https://jobfound.org/job/brahmaverse-ai-is-hiring-for-ui-ux-designer-gurugram-haryana-india-india-27-october-2026",
+      "verified": true
+    },
+    "candescent|associate product designer|in bengaluru office": {
+      "company": "Candescent",
+      "message_id": "<010001a1b8304b2c-cc30b48f-2547-4bea-b062-939ba8a527a5-000000@email.amazonses.com>",
+      "score": 74.0,
+      "sent_at": "2026-11-07T22:44:56.687135+00:00",
+      "source_key": "uxjobs:candescent:associate-product-designer-candescent-3jezwg",
+      "thread_id": "5fb239cc-2f88-4e4b-aa35-9b1a90623e4d",
+      "tier": "Good",
+      "title": "Associate Product Designer",
+      "url": "https://candescent.wd501.myworkdayjobs.com/Hiring/job/IN---Bengaluru---Office/Associate-Product-Designer_R0002266",
+      "verified": true
+    },
+    "candescent|product designer ai platform|in bengaluru office": {
+      "company": "Candescent",
+      "message_id": "<010001a1b8304ced-fff87eae-7874-4e1d-9c14-d474b0486d4e-000000@email.amazonses.com>",
+      "score": 63.0,
+      "sent_at": "2026-11-07T22:44:56.687135+00:00",
+      "source_key": "uxjobs:candescent:product-designer-ai-platform-candescent-u8xjrr",
+      "thread_id": "54b0f430-337b-4bb7-8d66-ab102cb501cd",
+      "tier": "Good",
+      "title": "Product Designer - AI Platform",
+      "url": "https://candescent.wd501.myworkdayjobs.com/Hiring/job/IN---Bengaluru---Office/Product-Designer---AI-Platform_R0002425",
       "verified": true
     },
     "capco|ui ux designer pune bengaluru|bengaluru karnataka india": {
