@@ -1,26 +1,17 @@
 {
   "feeds_fetched": {
-    "himalayas/product designer": "2026-11-07T00:55:54.916106+00:00",
-    "jobfound/all": "2026-11-07T00:55:54.916106+00:00",
-    "jobicy/designer": "2026-11-06T20:53:41.077342+00:00",
-    "jobspresso/design": "2026-11-06T20:53:41.077342+00:00",
-    "nodesk/design": "2026-11-07T00:55:54.916106+00:00",
-    "remoteok/design": "2026-11-07T00:55:54.916106+00:00",
-    "remotive/design": "2026-11-06T20:53:41.077342+00:00",
-    "uxjobs/design": "2026-11-06T20:53:41.077342+00:00",
-    "weworkremotely/remote-design-jobs": "2026-11-07T00:55:54.916106+00:00",
-    "workingnomads/design": "2026-11-07T00:55:54.916106+00:00"
+    "himalayas/product designer": "2026-11-07T07:08:11.881964+00:00",
+    "jobfound/all": "2026-11-07T07:08:11.881964+00:00",
+    "jobicy/designer": "2026-11-07T07:08:11.881964+00:00",
+    "jobspresso/design": "2026-11-07T07:08:11.881964+00:00",
+    "nodesk/design": "2026-11-07T07:08:11.881964+00:00",
+    "remoteok/design": "2026-11-07T07:08:11.881964+00:00",
+    "remotive/design": "2026-11-07T07:08:11.881964+00:00",
+    "uxjobs/design": "2026-11-07T07:08:11.881964+00:00",
+    "weworkremotely/remote-design-jobs": "2026-11-07T07:08:11.881964+00:00",
+    "workingnomads/design": "2026-11-07T07:08:11.881964+00:00"
   },
   "runs": [
-    {
-      "discovered": 11349,
-      "failed": 0,
-      "matched": 7,
-      "mode": "send",
-      "new_unsent": 6,
-      "sent": 0,
-      "started_at": "2026-10-25T21:46:25.892681+00:00"
-    },
     {
       "discovered": 15540,
       "failed": 0,
@@ -461,6 +452,15 @@
       "new_unsent": 2,
       "sent": 0,
       "started_at": "2026-11-07T00:55:54.916106+00:00"
+    },
+    {
+      "discovered": 15441,
+      "failed": 0,
+      "matched": 108,
+      "mode": "send",
+      "new_unsent": 88,
+      "sent": 1,
+      "started_at": "2026-11-07T07:08:11.881964+00:00"
     }
   ],
   "sent": {
@@ -1218,6 +1218,18 @@
       "tier": "Good",
       "title": "Product Designer",
       "url": "https://jobfound.org/job/route-mobile-limited-is-hiring-for-product-designer-mumbai-metropolitan-region-india-23-october-2026",
+      "verified": true
+    },
+    "salesforce|user interface user experience designer|india bangalore": {
+      "company": "Salesforce",
+      "message_id": "<010001a1b4d691d4-fb8a1bb4-064e-48be-b03b-2616289faf0d-000000@email.amazonses.com>",
+      "score": 67.0,
+      "sent_at": "2026-11-07T07:08:11.881964+00:00",
+      "source_key": "uxjobs:salesforce:user-interface-user-experience-designer-salesforce-32fec5",
+      "thread_id": "4b235150-fa5a-4c04-ae83-003fe84abc7b",
+      "tier": "Good",
+      "title": "User Interface/User Experience Designer",
+      "url": "https://salesforce.wd12.myworkdayjobs.com/External_Career_Site/job/India---Bangalore/User-Interface-User-Experience-Designer_JR363777",
       "verified": true
     },
     "script assist|product designer ui ux figma react|ahmedabad gujarat india": {
