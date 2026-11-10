@@ -1,26 +1,17 @@
 {
   "feeds_fetched": {
-    "himalayas/product designer": "2026-11-10T09:46:41.915343+00:00",
-    "jobfound/all": "2026-11-10T09:46:41.915343+00:00",
-    "jobicy/designer": "2026-11-10T09:46:41.915343+00:00",
-    "jobspresso/design": "2026-11-10T09:46:41.915343+00:00",
-    "nodesk/design": "2026-11-10T09:46:41.915343+00:00",
-    "remoteok/design": "2026-11-10T09:46:41.915343+00:00",
-    "remotive/design": "2026-11-10T09:46:41.915343+00:00",
-    "uxjobs/design": "2026-11-10T09:46:41.915343+00:00",
-    "weworkremotely/remote-design-jobs": "2026-11-10T09:46:41.915343+00:00",
-    "workingnomads/design": "2026-11-10T09:46:41.915343+00:00"
+    "himalayas/product designer": "2026-11-10T17:48:29.250077+00:00",
+    "jobfound/all": "2026-11-10T17:48:29.250077+00:00",
+    "jobicy/designer": "2026-11-10T17:48:29.250077+00:00",
+    "jobspresso/design": "2026-11-10T17:48:29.250077+00:00",
+    "nodesk/design": "2026-11-10T17:48:29.250077+00:00",
+    "remoteok/design": "2026-11-10T17:48:29.250077+00:00",
+    "remotive/design": "2026-11-10T17:48:29.250077+00:00",
+    "uxjobs/design": "2026-11-10T17:48:29.250077+00:00",
+    "weworkremotely/remote-design-jobs": "2026-11-10T17:48:29.250077+00:00",
+    "workingnomads/design": "2026-11-10T17:48:29.250077+00:00"
   },
   "runs": [
-    {
-      "discovered": 11552,
-      "failed": 0,
-      "matched": 9,
-      "mode": "send",
-      "new_unsent": 7,
-      "sent": 1,
-      "started_at": "2026-10-28T21:02:55.012940+00:00"
-    },
     {
       "discovered": 15359,
       "failed": 0,
@@ -461,9 +452,30 @@
       "new_unsent": 86,
       "sent": 0,
       "started_at": "2026-11-10T09:46:41.915343+00:00"
+    },
+    {
+      "discovered": 15555,
+      "failed": 0,
+      "matched": 108,
+      "mode": "send",
+      "new_unsent": 86,
+      "sent": 1,
+      "started_at": "2026-11-10T17:48:29.250077+00:00"
     }
   ],
   "sent": {
+    "20four7va|s cpt 0047 user interface ui designer|remote worldwide": {
+      "company": "20four7VA",
+      "message_id": "<010001a1c69480fc-ee468819-a753-4774-93bb-9e208f2c7e65-000000@email.amazonses.com>",
+      "score": 64.0,
+      "sent_at": "2026-11-10T17:48:29.250077+00:00",
+      "source_key": "uxjobs:20four7va:s-cpt-0047-user-interface-ui-designer-20four7va-lkojot",
+      "thread_id": "159f204f-34ce-4da6-a1ea-a55080dfc173",
+      "tier": "Good",
+      "title": "S-CPT-0047 User Interface (UI) Designer",
+      "url": "https://20four7va.breezy.hr/p/723ae2d57b9d-s-cpt-0047-user-interface-ui-designer",
+      "verified": true
+    },
     "abuem workifying llp|fresher ui ux cum product designer remote|karnataka india": {
       "company": "Abuem Workifying LLP",
       "message_id": "<010001a16acfb854-c690d688-ac8f-462a-9aad-7dbfbaa8bc37-000000@email.amazonses.com>",
