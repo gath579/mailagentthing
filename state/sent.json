@@ -1,26 +1,17 @@
 {
   "feeds_fetched": {
-    "himalayas/product designer": "2026-11-10T23:17:54.071293+00:00",
-    "jobfound/all": "2026-11-10T23:17:54.071293+00:00",
-    "jobicy/designer": "2026-11-10T17:48:29.250077+00:00",
-    "jobspresso/design": "2026-11-10T17:48:29.250077+00:00",
-    "nodesk/design": "2026-11-10T23:17:54.071293+00:00",
-    "remoteok/design": "2026-11-10T23:17:54.071293+00:00",
-    "remotive/design": "2026-11-10T17:48:29.250077+00:00",
-    "uxjobs/design": "2026-11-10T17:48:29.250077+00:00",
-    "weworkremotely/remote-design-jobs": "2026-11-10T23:17:54.071293+00:00",
-    "workingnomads/design": "2026-11-10T23:17:54.071293+00:00"
+    "himalayas/product designer": "2026-11-11T06:14:10.984665+00:00",
+    "jobfound/all": "2026-11-11T06:14:10.984665+00:00",
+    "jobicy/designer": "2026-11-11T06:14:10.984665+00:00",
+    "jobspresso/design": "2026-11-11T06:14:10.984665+00:00",
+    "nodesk/design": "2026-11-11T06:14:10.984665+00:00",
+    "remoteok/design": "2026-11-11T06:14:10.984665+00:00",
+    "remotive/design": "2026-11-11T06:14:10.984665+00:00",
+    "uxjobs/design": "2026-11-11T06:14:10.984665+00:00",
+    "weworkremotely/remote-design-jobs": "2026-11-11T06:14:10.984665+00:00",
+    "workingnomads/design": "2026-11-11T06:14:10.984665+00:00"
   },
   "runs": [
-    {
-      "discovered": 15367,
-      "failed": 0,
-      "matched": 118,
-      "mode": "send",
-      "new_unsent": 102,
-      "sent": 4,
-      "started_at": "2026-10-29T07:03:31.572125+00:00"
-    },
     {
       "discovered": 15360,
       "failed": 0,
@@ -461,6 +452,15 @@
       "new_unsent": 2,
       "sent": 0,
       "started_at": "2026-11-10T23:17:54.071293+00:00"
+    },
+    {
+      "discovered": 15612,
+      "failed": 0,
+      "matched": 108,
+      "mode": "send",
+      "new_unsent": 87,
+      "sent": 1,
+      "started_at": "2026-11-11T06:14:10.984665+00:00"
     }
   ],
   "sent": {
@@ -473,6 +473,18 @@
       "thread_id": "159f204f-34ce-4da6-a1ea-a55080dfc173",
       "tier": "Good",
       "title": "S-CPT-0047 User Interface (UI) Designer",
+      "url": "https://20four7va.breezy.hr/p/723ae2d57b9d-s-cpt-0047-user-interface-ui-designer",
+      "verified": true
+    },
+    "20four7va|user interface ui designer|remote worldwide": {
+      "company": "20four7VA",
+      "message_id": "<010001a1c93eada6-63ab6aa3-df84-465d-aa89-cfd9a19eff4c-000000@email.amazonses.com>",
+      "score": 64.0,
+      "sent_at": "2026-11-11T06:14:10.984665+00:00",
+      "source_key": "uxjobs:20four7va:user-interface-ui-designer-20four7va-lkojot",
+      "thread_id": "ffc33d8a-4a48-4211-b38a-cac150819faa",
+      "tier": "Good",
+      "title": "User Interface (UI) Designer",
       "url": "https://20four7va.breezy.hr/p/723ae2d57b9d-s-cpt-0047-user-interface-ui-designer",
       "verified": true
     },
