@@ -1,26 +1,17 @@
 {
   "feeds_fetched": {
-    "himalayas/product designer": "2026-11-11T14:24:47.705985+00:00",
-    "jobfound/all": "2026-11-11T14:24:47.705985+00:00",
-    "jobicy/designer": "2026-11-11T14:24:47.705985+00:00",
-    "jobspresso/design": "2026-11-11T14:24:47.705985+00:00",
-    "nodesk/design": "2026-11-11T14:24:47.705985+00:00",
-    "remoteok/design": "2026-11-11T14:24:47.705985+00:00",
-    "remotive/design": "2026-11-11T14:24:47.705985+00:00",
-    "uxjobs/design": "2026-11-11T14:24:47.705985+00:00",
-    "weworkremotely/remote-design-jobs": "2026-11-11T14:24:47.705985+00:00",
-    "workingnomads/design": "2026-11-11T14:24:47.705985+00:00"
+    "himalayas/product designer": "2026-11-11T21:56:14.714666+00:00",
+    "jobfound/all": "2026-11-11T21:56:14.714666+00:00",
+    "jobicy/designer": "2026-11-11T21:56:14.714666+00:00",
+    "jobspresso/design": "2026-11-11T21:56:14.714666+00:00",
+    "nodesk/design": "2026-11-11T21:56:14.714666+00:00",
+    "remoteok/design": "2026-11-11T21:56:14.714666+00:00",
+    "remotive/design": "2026-11-11T21:56:14.714666+00:00",
+    "uxjobs/design": "2026-11-11T21:56:14.714666+00:00",
+    "weworkremotely/remote-design-jobs": "2026-11-11T21:56:14.714666+00:00",
+    "workingnomads/design": "2026-11-11T21:56:14.714666+00:00"
   },
   "runs": [
-    {
-      "discovered": 11502,
-      "failed": 0,
-      "matched": 6,
-      "mode": "send",
-      "new_unsent": 4,
-      "sent": 1,
-      "started_at": "2026-10-29T19:41:12.985963+00:00"
-    },
     {
       "discovered": 15389,
       "failed": 0,
@@ -461,6 +452,15 @@
       "new_unsent": 86,
       "sent": 0,
       "started_at": "2026-11-11T14:24:47.705985+00:00"
+    },
+    {
+      "discovered": 15639,
+      "failed": 0,
+      "matched": 106,
+      "mode": "send",
+      "new_unsent": 86,
+      "sent": 2,
+      "started_at": "2026-11-11T21:56:14.714666+00:00"
     }
   ],
   "sent": {
@@ -534,6 +534,18 @@
       "tier": "Possible",
       "title": "Junior UX Designer",
       "url": "https://arrow.wd1.myworkdayjobs.com/ec/job/Ahmedabad-India/Junior-UX-Designer_R247512",
+      "verified": true
+    },
+    "blueprint|product designer mobile desktop experiences|united states remote global remote": {
+      "company": "Blueprint",
+      "message_id": "<010001a1cc9d3fb5-21cb2269-d98e-46d4-a301-fb6732ebaa7c-000000@email.amazonses.com>",
+      "score": 95.0,
+      "sent_at": "2026-11-11T21:56:14.714666+00:00",
+      "source_key": "jobfound:blueprint:urn:jobfound:job:6af4adf0003a829c3b59",
+      "thread_id": "73de3883-41eb-4bab-9ffd-f9de13bd5cb1",
+      "tier": "Strong",
+      "title": "Product Designer \u2013 Mobile & Desktop Experiences",
+      "url": "https://jobfound.org/job/blueprint-is-hiring-for-product-designer-mobile-desktop-experiences-united-states-remote-global-remote-11-november-2026",
       "verified": true
     },
     "bosch group|ui designer automotive domain|bangalore in": {
@@ -1494,6 +1506,18 @@
       "tier": "Good",
       "title": "Product Designer",
       "url": "https://vyaparapp.keka.com/careers/jobdetails/132996",
+      "verified": true
+    },
+    "webstaurantstore|product designer|united states remote global remote": {
+      "company": "WebstaurantStore",
+      "message_id": "<010001a1cc9d46b6-c4b2707c-2775-4a50-b7c1-8c0bc8254864-000000@email.amazonses.com>",
+      "score": 95.0,
+      "sent_at": "2026-11-11T21:56:14.714666+00:00",
+      "source_key": "jobfound:webstaurantstore:urn:jobfound:job:6af4adef001e065a4d72",
+      "thread_id": "d99f10cf-5fe9-409f-8c2f-2e5a312552f4",
+      "tier": "Strong",
+      "title": "Product Designer",
+      "url": "https://jobfound.org/job/webstaurantstore-is-hiring-for-product-designer-united-states-remote-global-remote-11-november-2026",
       "verified": true
     },
     "werize|product designer|bengaluru karnataka india": {
