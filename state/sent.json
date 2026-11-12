@@ -1,460 +1,505 @@
 {
   "feeds_fetched": {
-    "himalayas/product designer": "2026-10-23T07:30:24.325464+00:00",
-    "jobfound/all": "2026-10-23T07:30:24.325464+00:00",
-    "jobicy/designer": "2026-10-23T07:30:24.325464+00:00",
-    "jobspresso/design": "2026-10-23T07:30:24.325464+00:00",
-    "nodesk/design": "2026-10-23T07:30:24.325464+00:00",
-    "remoteok/design": "2026-10-23T07:30:24.325464+00:00",
-    "remotive/design": "2026-10-23T07:30:24.325464+00:00",
-    "uxjobs/design": "2026-10-23T07:30:24.325464+00:00",
-    "weworkremotely/remote-design-jobs": "2026-10-23T07:30:24.325464+00:00",
-    "workingnomads/design": "2026-10-23T07:30:24.325464+00:00"
+    "himalayas/product designer": "2026-11-12T11:03:32.217614+00:00",
+    "jobfound/all": "2026-11-12T11:03:32.217614+00:00",
+    "jobicy/designer": "2026-11-12T11:03:32.217614+00:00",
+    "jobspresso/design": "2026-11-12T11:03:32.217614+00:00",
+    "nodesk/design": "2026-11-12T11:03:32.217614+00:00",
+    "remoteok/design": "2026-11-12T11:03:32.217614+00:00",
+    "remotive/design": "2026-11-12T11:03:32.217614+00:00",
+    "uxjobs/design": "2026-11-12T11:03:32.217614+00:00",
+    "weworkremotely/remote-design-jobs": "2026-11-12T11:03:32.217614+00:00",
+    "workingnomads/design": "2026-11-12T11:03:32.217614+00:00"
   },
   "runs": [
     {
-      "discovered": 14714,
-      "failed": 1,
-      "matched": 105,
-      "mode": "send",
-      "new_unsent": 105,
-      "sent": 0,
-      "started_at": "2026-10-09T04:11:44.376335+00:00"
-    },
-    {
-      "discovered": 14664,
+      "discovered": 15336,
       "failed": 0,
-      "matched": 110,
+      "matched": 112,
       "mode": "send",
-      "new_unsent": 110,
+      "new_unsent": 94,
       "sent": 1,
-      "started_at": "2026-10-12T17:59:18.031242+00:00"
+      "started_at": "2026-10-30T12:52:35.953955+00:00"
     },
     {
-      "discovered": 14687,
+      "discovered": 11558,
       "failed": 0,
-      "matched": 115,
+      "matched": 13,
       "mode": "send",
-      "new_unsent": 114,
-      "sent": 8,
-      "started_at": "2026-10-13T09:31:17.106707+00:00"
+      "new_unsent": 11,
+      "sent": 7,
+      "started_at": "2026-10-30T18:36:15.065453+00:00"
     },
     {
-      "discovered": 14685,
+      "discovered": 15346,
       "failed": 0,
-      "matched": 110,
+      "matched": 119,
       "mode": "send",
-      "new_unsent": 104,
-      "sent": 2,
-      "started_at": "2026-10-15T16:56:28.826287+00:00"
-    },
-    {
-      "discovered": 11230,
-      "failed": 0,
-      "matched": 7,
-      "mode": "send",
-      "new_unsent": 6,
-      "sent": 0,
-      "started_at": "2026-10-15T21:28:56.584747+00:00"
-    },
-    {
-      "discovered": 14703,
-      "failed": 0,
-      "matched": 115,
-      "mode": "send",
-      "new_unsent": 107,
+      "new_unsent": 93,
       "sent": 1,
-      "started_at": "2026-10-16T00:23:58.806745+00:00"
+      "started_at": "2026-10-30T22:58:04.000024+00:00"
     },
     {
-      "discovered": 11205,
+      "discovered": 11573,
       "failed": 0,
-      "matched": 7,
+      "matched": 12,
       "mode": "send",
-      "new_unsent": 6,
+      "new_unsent": 3,
       "sent": 0,
-      "started_at": "2026-10-16T05:51:06.276852+00:00"
+      "started_at": "2026-10-31T02:20:23.944031+00:00"
     },
     {
-      "discovered": 14672,
-      "failed": 0,
-      "matched": 113,
-      "mode": "send",
-      "new_unsent": 104,
-      "sent": 1,
-      "started_at": "2026-10-16T11:21:30.495737+00:00"
-    },
-    {
-      "discovered": 11206,
-      "failed": 0,
-      "matched": 7,
-      "mode": "send",
-      "new_unsent": 6,
-      "sent": 0,
-      "started_at": "2026-10-16T16:37:48.642895+00:00"
-    },
-    {
-      "discovered": 14669,
-      "failed": 0,
-      "matched": 111,
-      "mode": "send",
-      "new_unsent": 101,
-      "sent": 0,
-      "started_at": "2026-10-16T19:56:57.478792+00:00"
-    },
-    {
-      "discovered": 11214,
-      "failed": 0,
-      "matched": 7,
-      "mode": "send",
-      "new_unsent": 6,
-      "sent": 0,
-      "started_at": "2026-10-16T22:50:45.666334+00:00"
-    },
-    {
-      "discovered": 11100,
-      "failed": 0,
-      "matched": 7,
-      "mode": "send",
-      "new_unsent": 6,
-      "sent": 0,
-      "started_at": "2026-10-17T01:18:41.090882+00:00"
-    },
-    {
-      "discovered": 14682,
-      "failed": 0,
-      "matched": 107,
-      "mode": "send",
-      "new_unsent": 97,
-      "sent": 0,
-      "started_at": "2026-10-17T06:56:00.377955+00:00"
-    },
-    {
-      "discovered": 11221,
-      "failed": 0,
-      "matched": 7,
-      "mode": "send",
-      "new_unsent": 6,
-      "sent": 0,
-      "started_at": "2026-10-17T11:36:26.348667+00:00"
-    },
-    {
-      "discovered": 14705,
-      "failed": 0,
-      "matched": 106,
-      "mode": "send",
-      "new_unsent": 96,
-      "sent": 0,
-      "started_at": "2026-10-17T15:32:53.423219+00:00"
-    },
-    {
-      "discovered": 11225,
-      "failed": 0,
-      "matched": 7,
-      "mode": "send",
-      "new_unsent": 6,
-      "sent": 0,
-      "started_at": "2026-10-17T18:29:34.771870+00:00"
-    },
-    {
-      "discovered": 14814,
-      "failed": 0,
-      "matched": 108,
-      "mode": "send",
-      "new_unsent": 98,
-      "sent": 0,
-      "started_at": "2026-10-17T21:27:15.389385+00:00"
-    },
-    {
-      "discovered": 11106,
-      "failed": 0,
-      "matched": 7,
-      "mode": "send",
-      "new_unsent": 6,
-      "sent": 0,
-      "started_at": "2026-10-18T00:01:41.064963+00:00"
-    },
-    {
-      "discovered": 14872,
-      "failed": 0,
-      "matched": 113,
-      "mode": "send",
-      "new_unsent": 103,
-      "sent": 0,
-      "started_at": "2026-10-18T04:30:28.521492+00:00"
-    },
-    {
-      "discovered": 11241,
-      "failed": 0,
-      "matched": 7,
-      "mode": "send",
-      "new_unsent": 6,
-      "sent": 0,
-      "started_at": "2026-10-18T09:36:29.143276+00:00"
-    },
-    {
-      "discovered": 14899,
-      "failed": 0,
-      "matched": 114,
-      "mode": "send",
-      "new_unsent": 104,
-      "sent": 0,
-      "started_at": "2026-10-18T14:00:28.672483+00:00"
-    },
-    {
-      "discovered": 11233,
-      "failed": 0,
-      "matched": 7,
-      "mode": "send",
-      "new_unsent": 6,
-      "sent": 0,
-      "started_at": "2026-10-18T17:22:14.550114+00:00"
-    },
-    {
-      "discovered": 14819,
-      "failed": 0,
-      "matched": 106,
-      "mode": "send",
-      "new_unsent": 96,
-      "sent": 0,
-      "started_at": "2026-10-18T20:41:03.465215+00:00"
-    },
-    {
-      "discovered": 11110,
-      "failed": 0,
-      "matched": 7,
-      "mode": "send",
-      "new_unsent": 6,
-      "sent": 0,
-      "started_at": "2026-10-18T23:10:52.014379+00:00"
-    },
-    {
-      "discovered": 11232,
-      "failed": 0,
-      "matched": 7,
-      "mode": "send",
-      "new_unsent": 6,
-      "sent": 0,
-      "started_at": "2026-10-19T01:15:20.097057+00:00"
-    },
-    {
-      "discovered": 14822,
-      "failed": 0,
-      "matched": 105,
-      "mode": "send",
-      "new_unsent": 95,
-      "sent": 0,
-      "started_at": "2026-10-19T06:14:55.595972+00:00"
-    },
-    {
-      "discovered": 14859,
-      "failed": 0,
-      "matched": 106,
-      "mode": "send",
-      "new_unsent": 96,
-      "sent": 0,
-      "started_at": "2026-10-19T13:21:07.686956+00:00"
-    },
-    {
-      "discovered": 14871,
-      "failed": 0,
-      "matched": 106,
-      "mode": "send",
-      "new_unsent": 96,
-      "sent": 0,
-      "started_at": "2026-10-19T19:55:09.428275+00:00"
-    },
-    {
-      "discovered": 11243,
-      "failed": 0,
-      "matched": 7,
-      "mode": "send",
-      "new_unsent": 6,
-      "sent": 0,
-      "started_at": "2026-10-19T23:39:33.110518+00:00"
-    },
-    {
-      "discovered": 14813,
-      "failed": 0,
-      "matched": 107,
-      "mode": "send",
-      "new_unsent": 97,
-      "sent": 0,
-      "started_at": "2026-10-20T04:48:12.338477+00:00"
-    },
-    {
-      "discovered": 11201,
-      "failed": 0,
-      "matched": 7,
-      "mode": "send",
-      "new_unsent": 6,
-      "sent": 0,
-      "started_at": "2026-10-20T10:02:47.753555+00:00"
-    },
-    {
-      "discovered": 14760,
-      "failed": 0,
-      "matched": 106,
-      "mode": "send",
-      "new_unsent": 96,
-      "sent": 0,
-      "started_at": "2026-10-20T15:04:26.047834+00:00"
-    },
-    {
-      "discovered": 11152,
-      "failed": 0,
-      "matched": 7,
-      "mode": "send",
-      "new_unsent": 6,
-      "sent": 0,
-      "started_at": "2026-10-20T19:15:27.120259+00:00"
-    },
-    {
-      "discovered": 14802,
-      "failed": 0,
-      "matched": 108,
-      "mode": "send",
-      "new_unsent": 98,
-      "sent": 0,
-      "started_at": "2026-10-20T22:19:42.256618+00:00"
-    },
-    {
-      "discovered": 11238,
-      "failed": 0,
-      "matched": 7,
-      "mode": "send",
-      "new_unsent": 6,
-      "sent": 0,
-      "started_at": "2026-10-21T01:34:20.365503+00:00"
-    },
-    {
-      "discovered": 14848,
-      "failed": 0,
-      "matched": 108,
-      "mode": "send",
-      "new_unsent": 98,
-      "sent": 0,
-      "started_at": "2026-10-21T07:37:47.922301+00:00"
-    },
-    {
-      "discovered": 11230,
-      "failed": 0,
-      "matched": 7,
-      "mode": "send",
-      "new_unsent": 6,
-      "sent": 0,
-      "started_at": "2026-10-21T10:38:02.900683+00:00"
-    },
-    {
-      "discovered": 14840,
-      "failed": 0,
-      "matched": 108,
-      "mode": "send",
-      "new_unsent": 98,
-      "sent": 2,
-      "started_at": "2026-10-21T10:40:46.966079+00:00"
-    },
-    {
-      "discovered": 11254,
-      "failed": 0,
-      "matched": 7,
-      "mode": "send",
-      "new_unsent": 6,
-      "sent": 0,
-      "started_at": "2026-10-21T13:47:02.439017+00:00"
-    },
-    {
-      "discovered": 14900,
-      "failed": 0,
-      "matched": 107,
-      "mode": "send",
-      "new_unsent": 95,
-      "sent": 0,
-      "started_at": "2026-10-21T18:37:50.624927+00:00"
-    },
-    {
-      "discovered": 11287,
-      "failed": 0,
-      "matched": 7,
-      "mode": "send",
-      "new_unsent": 6,
-      "sent": 0,
-      "started_at": "2026-10-21T22:19:49.419637+00:00"
-    },
-    {
-      "discovered": 14941,
-      "failed": 0,
-      "matched": 107,
-      "mode": "send",
-      "new_unsent": 96,
-      "sent": 0,
-      "started_at": "2026-10-22T01:30:43.681871+00:00"
-    },
-    {
-      "discovered": 14988,
-      "failed": 0,
-      "matched": 107,
-      "mode": "send",
-      "new_unsent": 96,
-      "sent": 0,
-      "started_at": "2026-10-22T07:33:22.342011+00:00"
-    },
-    {
-      "discovered": 14995,
-      "failed": 0,
-      "matched": 110,
-      "mode": "send",
-      "new_unsent": 99,
-      "sent": 1,
-      "started_at": "2026-10-22T13:46:53.265130+00:00"
-    },
-    {
-      "discovered": 15636,
+      "discovered": 15358,
       "failed": 0,
       "matched": 117,
       "mode": "send",
-      "new_unsent": 106,
-      "sent": 7,
-      "started_at": "2026-10-22T15:48:57.275680+00:00"
+      "new_unsent": 91,
+      "sent": 0,
+      "started_at": "2026-10-31T09:36:45.863207+00:00"
     },
     {
-      "discovered": 11330,
+      "discovered": 15375,
+      "failed": 0,
+      "matched": 115,
+      "mode": "send",
+      "new_unsent": 95,
+      "sent": 5,
+      "started_at": "2026-10-31T15:43:32.747736+00:00"
+    },
+    {
+      "discovered": 11572,
       "failed": 0,
       "matched": 7,
       "mode": "send",
-      "new_unsent": 6,
+      "new_unsent": 2,
       "sent": 0,
-      "started_at": "2026-10-22T18:31:49.205435+00:00"
+      "started_at": "2026-10-31T19:58:11.287149+00:00"
     },
     {
-      "discovered": 15373,
+      "discovered": 15357,
       "failed": 0,
-      "matched": 110,
+      "matched": 114,
       "mode": "send",
-      "new_unsent": 97,
-      "sent": 0,
-      "started_at": "2026-10-22T22:19:41.885758+00:00"
+      "new_unsent": 90,
+      "sent": 1,
+      "started_at": "2026-10-31T23:22:39.802837+00:00"
     },
     {
-      "discovered": 11679,
+      "discovered": 15349,
       "failed": 0,
-      "matched": 10,
+      "matched": 112,
+      "mode": "send",
+      "new_unsent": 89,
+      "sent": 0,
+      "started_at": "2026-11-01T05:59:49.799542+00:00"
+    },
+    {
+      "discovered": 15348,
+      "failed": 0,
+      "matched": 111,
+      "mode": "send",
+      "new_unsent": 89,
+      "sent": 0,
+      "started_at": "2026-11-01T13:20:21.189648+00:00"
+    },
+    {
+      "discovered": 11563,
+      "failed": 0,
+      "matched": 9,
       "mode": "send",
       "new_unsent": 7,
-      "sent": 0,
-      "started_at": "2026-10-23T01:30:14.462360+00:00"
+      "sent": 3,
+      "started_at": "2026-11-01T18:55:04.634656+00:00"
     },
     {
-      "discovered": 15463,
+      "discovered": 15332,
+      "failed": 0,
+      "matched": 115,
+      "mode": "send",
+      "new_unsent": 90,
+      "sent": 0,
+      "started_at": "2026-11-01T22:47:46.740636+00:00"
+    },
+    {
+      "discovered": 11566,
+      "failed": 0,
+      "matched": 9,
+      "mode": "send",
+      "new_unsent": 4,
+      "sent": 0,
+      "started_at": "2026-11-02T02:29:15.610374+00:00"
+    },
+    {
+      "discovered": 15350,
+      "failed": 0,
+      "matched": 117,
+      "mode": "send",
+      "new_unsent": 92,
+      "sent": 1,
+      "started_at": "2026-11-02T11:00:29.267684+00:00"
+    },
+    {
+      "discovered": 15312,
+      "failed": 0,
+      "matched": 119,
+      "mode": "send",
+      "new_unsent": 93,
+      "sent": 0,
+      "started_at": "2026-11-02T20:45:33.264049+00:00"
+    },
+    {
+      "discovered": 15293,
+      "failed": 0,
+      "matched": 118,
+      "mode": "send",
+      "new_unsent": 93,
+      "sent": 0,
+      "started_at": "2026-11-03T02:54:30.874817+00:00"
+    },
+    {
+      "discovered": 15277,
+      "failed": 0,
+      "matched": 116,
+      "mode": "send",
+      "new_unsent": 91,
+      "sent": 0,
+      "started_at": "2026-11-03T10:50:26.160674+00:00"
+    },
+    {
+      "discovered": 15354,
+      "failed": 0,
+      "matched": 107,
+      "mode": "send",
+      "new_unsent": 86,
+      "sent": 1,
+      "started_at": "2026-11-03T18:26:14.373893+00:00"
+    },
+    {
+      "discovered": 11491,
+      "failed": 0,
+      "matched": 3,
+      "mode": "send",
+      "new_unsent": 2,
+      "sent": 0,
+      "started_at": "2026-11-03T23:58:25.737803+00:00"
+    },
+    {
+      "discovered": 15372,
       "failed": 0,
       "matched": 108,
       "mode": "send",
-      "new_unsent": 95,
+      "new_unsent": 87,
+      "sent": 1,
+      "started_at": "2026-11-04T06:17:34.811588+00:00"
+    },
+    {
+      "discovered": 15414,
+      "failed": 0,
+      "matched": 106,
+      "mode": "send",
+      "new_unsent": 84,
       "sent": 0,
-      "started_at": "2026-10-23T07:30:24.325464+00:00"
+      "started_at": "2026-11-04T15:24:46.413824+00:00"
+    },
+    {
+      "discovered": 15466,
+      "failed": 0,
+      "matched": 105,
+      "mode": "send",
+      "new_unsent": 83,
+      "sent": 1,
+      "started_at": "2026-11-04T21:52:02.443736+00:00"
+    },
+    {
+      "discovered": 11592,
+      "failed": 0,
+      "matched": 4,
+      "mode": "send",
+      "new_unsent": 2,
+      "sent": 0,
+      "started_at": "2026-11-05T02:26:09.475300+00:00"
+    },
+    {
+      "discovered": 15429,
+      "failed": 0,
+      "matched": 105,
+      "mode": "send",
+      "new_unsent": 83,
+      "sent": 1,
+      "started_at": "2026-11-05T10:53:01.187362+00:00"
+    },
+    {
+      "discovered": 15421,
+      "failed": 0,
+      "matched": 104,
+      "mode": "send",
+      "new_unsent": 81,
+      "sent": 0,
+      "started_at": "2026-11-05T18:44:12.218082+00:00"
+    },
+    {
+      "discovered": 11602,
+      "failed": 0,
+      "matched": 4,
+      "mode": "send",
+      "new_unsent": 2,
+      "sent": 0,
+      "started_at": "2026-11-06T00:14:20.698390+00:00"
+    },
+    {
+      "discovered": 15479,
+      "failed": 0,
+      "matched": 106,
+      "mode": "send",
+      "new_unsent": 86,
+      "sent": 0,
+      "started_at": "2026-11-06T06:49:35.693359+00:00"
+    },
+    {
+      "discovered": 15490,
+      "failed": 0,
+      "matched": 107,
+      "mode": "send",
+      "new_unsent": 87,
+      "sent": 1,
+      "started_at": "2026-11-06T15:01:54.620609+00:00"
+    },
+    {
+      "discovered": 15532,
+      "failed": 0,
+      "matched": 109,
+      "mode": "send",
+      "new_unsent": 89,
+      "sent": 2,
+      "started_at": "2026-11-06T20:53:41.077342+00:00"
+    },
+    {
+      "discovered": 11646,
+      "failed": 0,
+      "matched": 3,
+      "mode": "send",
+      "new_unsent": 2,
+      "sent": 0,
+      "started_at": "2026-11-07T00:55:54.916106+00:00"
+    },
+    {
+      "discovered": 15441,
+      "failed": 0,
+      "matched": 108,
+      "mode": "send",
+      "new_unsent": 88,
+      "sent": 1,
+      "started_at": "2026-11-07T07:08:11.881964+00:00"
+    },
+    {
+      "discovered": 15585,
+      "failed": 0,
+      "matched": 109,
+      "mode": "send",
+      "new_unsent": 87,
+      "sent": 0,
+      "started_at": "2026-11-07T13:59:45.929634+00:00"
+    },
+    {
+      "discovered": 11651,
+      "failed": 0,
+      "matched": 3,
+      "mode": "send",
+      "new_unsent": 2,
+      "sent": 0,
+      "started_at": "2026-11-07T18:46:26.523925+00:00"
+    },
+    {
+      "discovered": 15583,
+      "failed": 0,
+      "matched": 109,
+      "mode": "send",
+      "new_unsent": 88,
+      "sent": 2,
+      "started_at": "2026-11-07T22:44:56.687135+00:00"
+    },
+    {
+      "discovered": 11651,
+      "failed": 0,
+      "matched": 3,
+      "mode": "send",
+      "new_unsent": 2,
+      "sent": 0,
+      "started_at": "2026-11-08T02:28:24.936243+00:00"
+    },
+    {
+      "discovered": 15592,
+      "failed": 0,
+      "matched": 112,
+      "mode": "send",
+      "new_unsent": 89,
+      "sent": 0,
+      "started_at": "2026-11-08T10:18:44.507804+00:00"
+    },
+    {
+      "discovered": 15594,
+      "failed": 0,
+      "matched": 111,
+      "mode": "send",
+      "new_unsent": 88,
+      "sent": 0,
+      "started_at": "2026-11-08T17:02:17.968537+00:00"
+    },
+    {
+      "discovered": 11651,
+      "failed": 0,
+      "matched": 3,
+      "mode": "send",
+      "new_unsent": 2,
+      "sent": 0,
+      "started_at": "2026-11-08T21:09:36.934055+00:00"
+    },
+    {
+      "discovered": 15585,
+      "failed": 0,
+      "matched": 111,
+      "mode": "send",
+      "new_unsent": 88,
+      "sent": 0,
+      "started_at": "2026-11-09T00:53:16.895049+00:00"
+    },
+    {
+      "discovered": 15605,
+      "failed": 0,
+      "matched": 109,
+      "mode": "send",
+      "new_unsent": 87,
+      "sent": 0,
+      "started_at": "2026-11-09T07:57:06.814430+00:00"
+    },
+    {
+      "discovered": 15562,
+      "failed": 0,
+      "matched": 110,
+      "mode": "send",
+      "new_unsent": 87,
+      "sent": 0,
+      "started_at": "2026-11-09T18:46:43.717986+00:00"
+    },
+    {
+      "discovered": 15578,
+      "failed": 0,
+      "matched": 109,
+      "mode": "send",
+      "new_unsent": 87,
+      "sent": 0,
+      "started_at": "2026-11-10T02:06:09.833726+00:00"
+    },
+    {
+      "discovered": 15577,
+      "failed": 0,
+      "matched": 109,
+      "mode": "send",
+      "new_unsent": 86,
+      "sent": 0,
+      "started_at": "2026-11-10T09:46:41.915343+00:00"
+    },
+    {
+      "discovered": 15555,
+      "failed": 0,
+      "matched": 108,
+      "mode": "send",
+      "new_unsent": 86,
+      "sent": 1,
+      "started_at": "2026-11-10T17:48:29.250077+00:00"
+    },
+    {
+      "discovered": 11684,
+      "failed": 0,
+      "matched": 3,
+      "mode": "send",
+      "new_unsent": 2,
+      "sent": 0,
+      "started_at": "2026-11-10T23:17:54.071293+00:00"
+    },
+    {
+      "discovered": 15612,
+      "failed": 0,
+      "matched": 108,
+      "mode": "send",
+      "new_unsent": 87,
+      "sent": 1,
+      "started_at": "2026-11-11T06:14:10.984665+00:00"
+    },
+    {
+      "discovered": 15623,
+      "failed": 0,
+      "matched": 109,
+      "mode": "send",
+      "new_unsent": 86,
+      "sent": 0,
+      "started_at": "2026-11-11T14:24:47.705985+00:00"
+    },
+    {
+      "discovered": 15639,
+      "failed": 0,
+      "matched": 106,
+      "mode": "send",
+      "new_unsent": 86,
+      "sent": 2,
+      "started_at": "2026-11-11T21:56:14.714666+00:00"
+    },
+    {
+      "discovered": 11743,
+      "failed": 0,
+      "matched": 5,
+      "mode": "send",
+      "new_unsent": 2,
+      "sent": 0,
+      "started_at": "2026-11-12T02:57:41.671269+00:00"
+    },
+    {
+      "discovered": 15613,
+      "failed": 0,
+      "matched": 103,
+      "mode": "send",
+      "new_unsent": 80,
+      "sent": 0,
+      "started_at": "2026-11-12T11:03:32.217614+00:00"
     }
   ],
   "sent": {
+    "20four7va|s cpt 0047 user interface ui designer|remote worldwide": {
+      "company": "20four7VA",
+      "message_id": "<010001a1c69480fc-ee468819-a753-4774-93bb-9e208f2c7e65-000000@email.amazonses.com>",
+      "score": 64.0,
+      "sent_at": "2026-11-10T17:48:29.250077+00:00",
+      "source_key": "uxjobs:20four7va:s-cpt-0047-user-interface-ui-designer-20four7va-lkojot",
+      "thread_id": "159f204f-34ce-4da6-a1ea-a55080dfc173",
+      "tier": "Good",
+      "title": "S-CPT-0047 User Interface (UI) Designer",
+      "url": "https://20four7va.breezy.hr/p/723ae2d57b9d-s-cpt-0047-user-interface-ui-designer",
+      "verified": true
+    },
+    "20four7va|user interface ui designer|remote worldwide": {
+      "company": "20four7VA",
+      "message_id": "<010001a1c93eada6-63ab6aa3-df84-465d-aa89-cfd9a19eff4c-000000@email.amazonses.com>",
+      "score": 64.0,
+      "sent_at": "2026-11-11T06:14:10.984665+00:00",
+      "source_key": "uxjobs:20four7va:user-interface-ui-designer-20four7va-lkojot",
+      "thread_id": "ffc33d8a-4a48-4211-b38a-cac150819faa",
+      "tier": "Good",
+      "title": "User Interface (UI) Designer",
+      "url": "https://20four7va.breezy.hr/p/723ae2d57b9d-s-cpt-0047-user-interface-ui-designer",
+      "verified": true
+    },
+    "abuem workifying llp|fresher ui ux cum product designer remote|karnataka india": {
+      "company": "Abuem Workifying LLP",
+      "message_id": "<010001a16acfb854-c690d688-ac8f-462a-9aad-7dbfbaa8bc37-000000@email.amazonses.com>",
+      "score": 79.0,
+      "sent_at": "2026-10-23T22:08:39.972515+00:00",
+      "source_key": "jobfound:abuem workifying llp:urn:jobfound:job:6adba9af003d73227fe3",
+      "thread_id": "0f392f91-0f6a-4048-83d0-cce03ad9ceb2",
+      "tier": "Strong",
+      "title": "Fresher UI/UX cum Product Designer (Remote)",
+      "url": "https://jobfound.org/job/abuem-workifying-llp-is-hiring-for-fresher-ui-ux-cum-product-designer-remote-karnataka-india-india-23-october-2026",
+      "verified": true
+    },
     "accellor|ui ux designer|hyderabad": {
       "company": "Accellor",
       "message_id": "<010001a14218b137-e6864d99-8eb9-4dc9-8c7e-dc1fae4ca947-000000@email.amazonses.com>",
@@ -465,6 +510,54 @@
       "tier": "Strong",
       "title": "UI/UX Designer",
       "url": "https://jobs.gem.com/accellor/am9icG9zdDrwNK_3bUq5KPb7I7UZvPBP",
+      "verified": true
+    },
+    "aifise|product designer|bhilai chhattisgarh india": {
+      "company": "AIFISE",
+      "message_id": "<010001a181a13941-62fb0472-150c-4371-8085-cd0be2cb34e8-000000@email.amazonses.com>",
+      "score": 70.0,
+      "sent_at": "2026-10-28T08:28:01.666820+00:00",
+      "source_key": "jobfound:aifise:urn:jobfound:job:6ae142fb0006635b9258",
+      "thread_id": "34d2f82c-adc6-4ef0-88e3-407ab5ef870e",
+      "tier": "Good",
+      "title": "Product Designer",
+      "url": "https://jobfound.org/job/aifise-is-hiring-for-product-designer-bhilai-chhattisgarh-india-india-28-october-2026",
+      "verified": true
+    },
+    "arrow electronics|junior ux designer|ahmedabad india": {
+      "company": "Arrow Electronics",
+      "message_id": "<010001a18b58572b-94151ec0-0a3f-4678-80f8-b4e260cfbcc0-000000@email.amazonses.com>",
+      "score": 72.0,
+      "sent_at": "2026-10-30T05:45:40.571390+00:00",
+      "source_key": "uxjobs:arrow electronics:junior-ux-designer-arrow-electronics-kqy88m",
+      "thread_id": "4ac66bb7-0567-462c-b849-c912639a6e54",
+      "tier": "Possible",
+      "title": "Junior UX Designer",
+      "url": "https://arrow.wd1.myworkdayjobs.com/ec/job/Ahmedabad-India/Junior-UX-Designer_R247512",
+      "verified": true
+    },
+    "blueprint|product designer mobile desktop experiences|united states remote global remote": {
+      "company": "Blueprint",
+      "message_id": "<010001a1cc9d3fb5-21cb2269-d98e-46d4-a301-fb6732ebaa7c-000000@email.amazonses.com>",
+      "score": 95.0,
+      "sent_at": "2026-11-11T21:56:14.714666+00:00",
+      "source_key": "jobfound:blueprint:urn:jobfound:job:6af4adf0003a829c3b59",
+      "thread_id": "73de3883-41eb-4bab-9ffd-f9de13bd5cb1",
+      "tier": "Strong",
+      "title": "Product Designer \u2013 Mobile & Desktop Experiences",
+      "url": "https://jobfound.org/job/blueprint-is-hiring-for-product-designer-mobile-desktop-experiences-united-states-remote-global-remote-11-november-2026",
+      "verified": true
+    },
+    "bosch group|ui designer automotive domain|bangalore in": {
+      "company": "Bosch Group",
+      "message_id": "<010001a17bbcf444-1459a736-5dcb-4a96-8303-e1ab20d743d2-000000@email.amazonses.com>",
+      "score": 70.0,
+      "sent_at": "2026-10-27T05:01:35.879880+00:00",
+      "source_key": "uxjobs:bosch group:ui-designer-automotive-domain-bosch-group-rbdl1n",
+      "thread_id": "a1d2b798-ba85-4510-b2bb-47b986fc395b",
+      "tier": "Good",
+      "title": "UI Designer - Automotive Domain",
+      "url": "https://jobs.smartrecruiters.com/BoschGroup/744000157727758",
       "verified": true
     },
     "bosch group|ui designer|bangalore in": {
@@ -489,6 +582,42 @@
       "tier": "Good",
       "title": "UX Designer",
       "url": "https://jobs.smartrecruiters.com/BoschGroup/744000154383185",
+      "verified": true
+    },
+    "brahmaverse ai|ui ux designer|gurugram haryana india": {
+      "company": "Brahmaverse AI",
+      "message_id": "<010001a17f3b0923-f9562f9e-4a1d-41fa-a515-deb46d92acfa-000000@email.amazonses.com>",
+      "score": 73.0,
+      "sent_at": "2026-10-27T21:18:15.901397+00:00",
+      "source_key": "jobfound:brahmaverse ai:urn:jobfound:job:6ae0f1030036f6421306",
+      "thread_id": "b33da0a3-fc21-4393-a50c-1c1d6fc4331b",
+      "tier": "Possible",
+      "title": "UI/UX Designer",
+      "url": "https://jobfound.org/job/brahmaverse-ai-is-hiring-for-ui-ux-designer-gurugram-haryana-india-india-27-october-2026",
+      "verified": true
+    },
+    "candescent|associate product designer|in bengaluru office": {
+      "company": "Candescent",
+      "message_id": "<010001a1b8304b2c-cc30b48f-2547-4bea-b062-939ba8a527a5-000000@email.amazonses.com>",
+      "score": 74.0,
+      "sent_at": "2026-11-07T22:44:56.687135+00:00",
+      "source_key": "uxjobs:candescent:associate-product-designer-candescent-3jezwg",
+      "thread_id": "5fb239cc-2f88-4e4b-aa35-9b1a90623e4d",
+      "tier": "Good",
+      "title": "Associate Product Designer",
+      "url": "https://candescent.wd501.myworkdayjobs.com/Hiring/job/IN---Bengaluru---Office/Associate-Product-Designer_R0002266",
+      "verified": true
+    },
+    "candescent|product designer ai platform|in bengaluru office": {
+      "company": "Candescent",
+      "message_id": "<010001a1b8304ced-fff87eae-7874-4e1d-9c14-d474b0486d4e-000000@email.amazonses.com>",
+      "score": 63.0,
+      "sent_at": "2026-11-07T22:44:56.687135+00:00",
+      "source_key": "uxjobs:candescent:product-designer-ai-platform-candescent-u8xjrr",
+      "thread_id": "54b0f430-337b-4bb7-8d66-ab102cb501cd",
+      "tier": "Good",
+      "title": "Product Designer - AI Platform",
+      "url": "https://candescent.wd501.myworkdayjobs.com/Hiring/job/IN---Bengaluru---Office/Product-Designer---AI-Platform_R0002425",
       "verified": true
     },
     "capco|ui ux designer pune bengaluru|bengaluru karnataka india": {
@@ -527,6 +656,114 @@
       "url": "https://jobfound.org/job/codewalla-is-hiring-for-product-designer-chennai-tamil-nadu-india-india-21-october-2026",
       "verified": true
     },
+    "corning|product user experience designer|pune maharashtra": {
+      "company": "Corning",
+      "message_id": "<010001a192a22750-1a3efab3-0710-41c2-b3d6-d46060cc7637-000000@email.amazonses.com>",
+      "score": 65.0,
+      "sent_at": "2026-10-31T15:43:32.747736+00:00",
+      "source_key": "uxjobs:corning:product-user-experience-designer-corning-oudypd",
+      "thread_id": "3b6284fc-4906-4975-a6da-226205f7e24e",
+      "tier": "Good",
+      "title": "Product/User Experience Designer",
+      "url": "https://careers.corning.com/us/en/job/77524/Product-User-Experience-Designer",
+      "verified": true
+    },
+    "credgenics|product designer|noida uttar pradesh india": {
+      "company": "Credgenics",
+      "message_id": "<010001a184536b4a-ca48344b-495f-44bb-9e08-a201cac31ce1-000000@email.amazonses.com>",
+      "score": 68.0,
+      "sent_at": "2026-10-28T21:02:55.012940+00:00",
+      "source_key": "jobfound:credgenics:urn:jobfound:job:6ae1ed84000596c00746",
+      "thread_id": "f79e8036-b86e-48ec-ae2b-e8f7a0bd018c",
+      "tier": "Possible",
+      "title": "Product Designer",
+      "url": "https://jobfound.org/job/credgenics-is-hiring-for-product-designer-noida-uttar-pradesh-india-india-28-october-2026",
+      "verified": true
+    },
+    "dailyrounds marrow|product designer|bengaluru karnataka india": {
+      "company": "DailyRounds / Marrow",
+      "message_id": "<010001a169fe6431-9b0fc745-ac42-43a7-a6e2-f3537ad05e99-000000@email.amazonses.com>",
+      "score": 84.0,
+      "sent_at": "2026-10-23T18:20:00.069937+00:00",
+      "source_key": "jobfound:dailyrounds / marrow:urn:jobfound:job:6adafe43002bb4ca74f7",
+      "thread_id": "d93f8600-0c48-4c69-b12d-2e263fc6f09e",
+      "tier": "Strong",
+      "title": "Product Designer",
+      "url": "https://jobfound.org/job/dailyrounds-marrow-is-hiring-for-product-designer-bengaluru-karnataka-india-india-23-october-2026",
+      "verified": true
+    },
+    "data eminence|ui ux designer|india": {
+      "company": "Data Eminence",
+      "message_id": "<010001a192a21906-a7045814-fdcb-4dcc-a528-dad3dd147ec5-000000@email.amazonses.com>",
+      "score": 92.0,
+      "sent_at": "2026-10-31T15:43:32.747736+00:00",
+      "source_key": "jobfound:data eminence:urn:jobfound:job:6ae58d1f0031327f986e",
+      "thread_id": "6ed1d53f-5411-4c59-aed3-8aad7cfafb80",
+      "tier": "Strong",
+      "title": "UI/UX Designer",
+      "url": "https://jobfound.org/job/data-eminence-is-hiring-for-ui-ux-designer-india-india-31-october-2026",
+      "verified": true
+    },
+    "developer bazaar technologies|ui ux designer|indore madhya pradesh india": {
+      "company": "Developer Bazaar Technologies",
+      "message_id": "<010001a16acfbf5c-f0642bdb-eff1-4f10-ac30-7851e2947a8e-000000@email.amazonses.com>",
+      "score": 69.0,
+      "sent_at": "2026-10-23T22:08:39.972515+00:00",
+      "source_key": "jobfound:developer bazaar technologies:urn:jobfound:job:6adba9b200185337351e",
+      "thread_id": "4c6494f0-0915-4598-a96f-c8891f5da1fe",
+      "tier": "Possible",
+      "title": "UI/UX Designer",
+      "url": "https://jobfound.org/job/developer-bazaar-technologies-is-hiring-for-ui-ux-designer-indore-madhya-pradesh-india-india-23-october-2026",
+      "verified": true
+    },
+    "differentai|ux designer|bengaluru india": {
+      "company": "Differentai",
+      "message_id": "<010001a176d693c1-dadda3a3-be8c-43c8-8ae8-796563407d18-000000@email.amazonses.com>",
+      "score": 81.0,
+      "sent_at": "2026-10-26T06:11:36.431060+00:00",
+      "source_key": "uxjobs:differentai:ux-designer-differentai-f1rzrd",
+      "thread_id": "a7f3697d-4949-4d13-abfd-3798f4700150",
+      "tier": "Strong",
+      "title": "UX Designer",
+      "url": "https://ats.rippling.com/differentai/jobs/ec0bd627-3bab-43e0-9604-ffd792dd7ee6",
+      "verified": true
+    },
+    "ecolab|ui ux designer|bengaluru east karnataka india": {
+      "company": "Ecolab",
+      "message_id": "<010001a18cdf4f09-f38be6ba-dec5-4c63-86b4-7c4ea6318bb2-000000@email.amazonses.com>",
+      "score": 88.0,
+      "sent_at": "2026-10-30T12:52:35.953955+00:00",
+      "source_key": "jobfound:ecolab:urn:jobfound:job:6ae3a222002beab3aa88",
+      "thread_id": "d23ab881-e8bb-428a-9d44-a1535d88b30c",
+      "tier": "Strong",
+      "title": "UI/UX Designer",
+      "url": "https://jobfound.org/job/ecolab-is-hiring-for-ui-ux-designer-bengaluru-east-karnataka-india-india-29-october-2026",
+      "verified": true
+    },
+    "ema|product designer|bengaluru karnataka india": {
+      "company": "Ema",
+      "message_id": "<010001a1892ef4b3-e99aa69d-2f09-4d6a-b7b7-2bee7eddb777-000000@email.amazonses.com>",
+      "score": 86.0,
+      "sent_at": "2026-10-29T19:41:12.985963+00:00",
+      "source_key": "jobfound:ema:urn:jobfound:job:6ae357a8002f2e2f447b",
+      "thread_id": "47c39a5c-2f08-429f-b95a-e1358c59ee26",
+      "tier": "Strong",
+      "title": "Product designer",
+      "url": "https://jobfound.org/job/ema-is-hiring-for-product-designer-bengaluru-karnataka-india-india-29-october-2026",
+      "verified": true
+    },
+    "entegris|specialist ux designer|pune india": {
+      "company": "Entegris",
+      "message_id": "<010001a171ab8346-756d562a-43d3-4143-a9f8-845e500bd5aa-000000@email.amazonses.com>",
+      "score": 75.0,
+      "sent_at": "2026-10-25T06:06:25.570205+00:00",
+      "source_key": "uxjobs:entegris:specialist-ux-designer-entegris-ia6dwk",
+      "thread_id": "81c723c5-ceaa-4938-8e93-4991e9d99136",
+      "tier": "Strong",
+      "title": "Specialist, UX Designer",
+      "url": "https://entegris.wd1.myworkdayjobs.com/EntegrisCareers/job/Pune-India/Specialist--UX-Designer_REQ-15384",
+      "verified": true
+    },
     "entermotion|product designer|remote worldwide": {
       "company": "Entermotion",
       "message_id": "<010001a1349b5f36-32532daa-9205-496d-b07d-3da966a2eb4f-000000@email.amazonses.com>",
@@ -537,6 +774,18 @@
       "tier": "Good",
       "title": "Product Designer",
       "url": "https://entermotion.breezy.hr/p/3ce16af7f896-product-designer",
+      "verified": true
+    },
+    "envision next|associate ui ux designer in thane navi mumbai vashi panvel|panvel maharashtra india": {
+      "company": "Envision Next",
+      "message_id": "<010001a17cebb37c-07aa9e63-7b77-42c1-b636-d9e6ee1241a4-000000@email.amazonses.com>",
+      "score": 73.0,
+      "sent_at": "2026-10-27T10:32:13.651409+00:00",
+      "source_key": "jobfound:envision next:urn:jobfound:job:6adff274000712097d82",
+      "thread_id": "5b6d134b-cbad-493c-85cf-05d1ad3ceec7",
+      "tier": "Good",
+      "title": "Associate UI/UX Designer in Thane, Navi Mumbai, Vashi, Panvel",
+      "url": "https://jobfound.org/job/envision-next-is-hiring-for-associate-ui-ux-designer-in-thane-navi-mumbai-vashi-panvel-panvel-maharashtra-india-india-27-october-2026",
       "verified": true
     },
     "fluid touch pte ltd|ui ux designer|hyderabad telangana india": {
@@ -575,6 +824,78 @@
       "url": "https://job-boards.greenhouse.io/globalli/jobs/5241585007",
       "verified": true
     },
+    "growify digital|ai ui ux designer in delhi|delhi india": {
+      "company": "Growify Digital",
+      "message_id": "<010001a192a223fe-f130e03d-6d20-4d8e-bd72-1bc65376f88a-000000@email.amazonses.com>",
+      "score": 66.0,
+      "sent_at": "2026-10-31T15:43:32.747736+00:00",
+      "source_key": "jobfound:growify digital:urn:jobfound:job:6ae58d1e0008b598bca1",
+      "thread_id": "6027aa9b-60c6-4b83-b7fb-086ef6664658",
+      "tier": "Possible",
+      "title": "AI UI/UX Designer in Delhi",
+      "url": "https://jobfound.org/job/growify-digital-is-hiring-for-ai-ui-ux-designer-in-delhi-delhi-india-india-31-october-2026",
+      "verified": true
+    },
+    "growth cx|junior ui ux designer|kochi kerala india": {
+      "company": "growth.cx",
+      "message_id": "<010001a17cebacfe-8ebd4d45-177b-41da-b405-c6105e099bb8-000000@email.amazonses.com>",
+      "score": 75.0,
+      "sent_at": "2026-10-27T10:32:13.651409+00:00",
+      "source_key": "jobfound:growth.cx:urn:jobfound:job:6ae0456e001ad3172068",
+      "thread_id": "57eefc38-a429-49b2-9bcf-951f355d073b",
+      "tier": "Strong",
+      "title": "Junior UI/UX Designer",
+      "url": "https://jobfound.org/job/growth-cx-is-hiring-for-junior-ui-ux-designer-kochi-kerala-india-india-27-october-2026",
+      "verified": true
+    },
+    "hekat industries private limited|product designer|mumbai maharashtra india": {
+      "company": "Hekat\u00e9 Industries Private Limited",
+      "message_id": "<010001a18e19b7fd-d2712fc2-6fa6-4e0e-a67e-0686df1fbc26-000000@email.amazonses.com>",
+      "score": 77.0,
+      "sent_at": "2026-10-30T18:36:15.065453+00:00",
+      "source_key": "jobfound:hekat\u00e9 industries private limited:urn:jobfound:job:6ae4c8530029fe39382c",
+      "thread_id": "38013ea2-de1f-4814-b30a-0adafb484b4b",
+      "tier": "Strong",
+      "title": "Product Designer",
+      "url": "https://jobfound.org/job/hekat-industries-private-limited-is-hiring-for-product-designer-mumbai-maharashtra-india-india-30-october-2026",
+      "verified": true
+    },
+    "heymarvin|product designer|remote in": {
+      "company": "Heymarvin",
+      "message_id": "<010001a176d695fe-8203be99-1c8f-4ce6-b6ca-526676a2977c-000000@email.amazonses.com>",
+      "score": 79.0,
+      "sent_at": "2026-10-26T06:11:36.431060+00:00",
+      "source_key": "uxjobs:heymarvin:product-designer-heymarvin-eiwddl",
+      "thread_id": "0da9054a-9cfc-46ae-9ab7-3eea7432676e",
+      "tier": "Strong",
+      "title": "Product Designer",
+      "url": "https://ats.rippling.com/heymarvin/jobs/a446aa95-c37d-49e4-b07c-60821eda7735",
+      "verified": true
+    },
+    "hownow|product designer|mumbai in": {
+      "company": "HowNow",
+      "message_id": "<010001a1b2a4232b-38ec7b19-84dc-42bb-9594-840d43031181-000000@email.amazonses.com>",
+      "score": 82.0,
+      "sent_at": "2026-11-06T20:53:41.077342+00:00",
+      "source_key": "uxjobs:hownow:product-designer-hownow-d37yyn",
+      "thread_id": "369379e2-29ed-4072-ab0f-9deb395842ee",
+      "tier": "Strong",
+      "title": "Product Designer",
+      "url": "https://careers.gethownow.com/jobs/8663923-product-designer",
+      "verified": true
+    },
+    "indmoney|product designer|bangalore urban karnataka india": {
+      "company": "INDmoney",
+      "message_id": "<010001a17aa16018-1c5ee5e0-9e4e-4b48-9063-fdc18c09810c-000000@email.amazonses.com>",
+      "score": 88.0,
+      "sent_at": "2026-10-26T23:51:58.382810+00:00",
+      "source_key": "jobfound:indmoney:urn:jobfound:job:6adf489b0012b435797e",
+      "thread_id": "bfe70b3c-5fdd-4132-9874-e077b00c4c36",
+      "tier": "Strong",
+      "title": "Product Designer",
+      "url": "https://jobfound.org/job/indmoney-is-hiring-for-product-designer-bangalore-urban-karnataka-india-india-26-october-2026",
+      "verified": true
+    },
     "infoblox|ux designer ii|pune maharashtra india": {
       "company": "Infoblox",
       "message_id": "<010001a15e0d0ea3-f486a02e-c1cd-405e-9ad5-68c49da74d90-000000@email.amazonses.com>",
@@ -585,6 +906,18 @@
       "tier": "Good",
       "title": "UX Designer II",
       "url": "https://efpv.fa.us6.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/job/8136",
+      "verified": true
+    },
+    "infosys|ai interaction designer|pune division maharashtra india": {
+      "company": "Infosys",
+      "message_id": "<010001a186795041-b7e1a640-c858-41e2-90a3-fbbe29c078dc-000000@email.amazonses.com>",
+      "score": 81.0,
+      "sent_at": "2026-10-29T07:03:31.572125+00:00",
+      "source_key": "jobfound:infosys:urn:jobfound:job:6ae2424b0038252cd926",
+      "thread_id": "cc490790-0bd1-490a-9d0d-1d4dd035ac97",
+      "tier": "Strong",
+      "title": "AI interaction designer",
+      "url": "https://jobfound.org/job/infosys-is-hiring-for-ai-interaction-designer-pune-division-maharashtra-india-india-28-october-2026",
       "verified": true
     },
     "jiostar|product designer design systems|bengaluru karnataka india": {
@@ -611,6 +944,174 @@
       "url": "https://jobs.lever.co/jito/97151aba-e3eb-483d-b56c-34711b873760",
       "verified": true
     },
+    "keka technologies|visual ui designer|hyderabad bengaluru": {
+      "company": "Keka Technologies",
+      "message_id": "<010001a1b16229d7-bda39899-3534-4c58-b51e-1ce98fd20952-000000@email.amazonses.com>",
+      "score": 72.0,
+      "sent_at": "2026-11-06T15:01:54.620609+00:00",
+      "source_key": "uxjobs:keka technologies:visual-ui-designer-keka-technologies-qum5sd",
+      "thread_id": "8eb055a7-c0a9-40fa-939f-91af491174ef",
+      "tier": "Good",
+      "title": "Visual / UI Designer",
+      "url": "https://hr.keka.com/careers/jobdetails/146621",
+      "verified": true
+    },
+    "klypup|product designer ui ux|noida uttar pradesh india": {
+      "company": "Klypup",
+      "message_id": "<010001a17f3b0d2a-21b53eb9-672f-4d13-867f-94dac9fe2734-000000@email.amazonses.com>",
+      "score": 73.0,
+      "sent_at": "2026-10-27T21:18:15.901397+00:00",
+      "source_key": "jobfound:klypup:urn:jobfound:job:6ae0f102000aad5c1f2b",
+      "thread_id": "3730642c-8176-498e-ac36-cf9e9f42c5b9",
+      "tier": "Possible",
+      "title": "Product Designer (UI/UX",
+      "url": "https://jobfound.org/job/klypup-is-hiring-for-product-designer-ui-ux-noida-uttar-pradesh-india-india-27-october-2026",
+      "verified": true
+    },
+    "koru ux design llp|ui ux designer|remote in": {
+      "company": "Koru UX Design LLP",
+      "message_id": "<010001a1784bc29a-a1f47188-cdc9-42ff-ba42-e3a244c11c64-000000@email.amazonses.com>",
+      "score": 92.0,
+      "sent_at": "2026-10-26T12:59:08.864265+00:00",
+      "source_key": "uxjobs:koru ux design llp:ui-ux-designer-koru-ux-design-llp-z6y7vw",
+      "thread_id": "52e98c93-887e-4c7e-9608-5d8f2b22ca36",
+      "tier": "Strong",
+      "title": "UI/UX Designer",
+      "url": "https://jobs.workable.com/view/niwqX53sRSFt7XKLCzg1Pi/remote-ui%2Fux-designer-(des-1-102026)-in-india-at-koru-ux-design-llp",
+      "verified": true
+    },
+    "koru|ui ux designer|remote in": {
+      "company": "Koru",
+      "message_id": "<010001a176d691f4-bbdbdd01-c29a-43e4-aee4-fc5f74481f97-000000@email.amazonses.com>",
+      "score": 92.0,
+      "sent_at": "2026-10-26T06:11:36.431060+00:00",
+      "source_key": "uxjobs:koru:ui-ux-designer-koru-erkabn",
+      "thread_id": "9116d7d8-d3d0-4f42-b5ac-5b1ecbac17ea",
+      "tier": "Strong",
+      "title": "UI/UX Designer",
+      "url": "https://apply.workable.com/koru/j/065A1572C5/",
+      "verified": true
+    },
+    "lesser tax|ai ui ux designer|india": {
+      "company": "Lesser Tax",
+      "message_id": "<010001a18679535f-85faafde-5083-4573-b54f-5db46d6b2fd8-000000@email.amazonses.com>",
+      "score": 66.0,
+      "sent_at": "2026-10-29T07:03:31.572125+00:00",
+      "source_key": "jobfound:lesser tax:urn:jobfound:job:6ae2424f001111426232",
+      "thread_id": "243dd44c-29d3-48b1-ba57-75f3ad6b2b56",
+      "tier": "Good",
+      "title": "AI UI/UX Designer",
+      "url": "https://jobfound.org/job/lesser-tax-is-hiring-for-ai-ui-ux-designer-india-india-28-october-2026",
+      "verified": true
+    },
+    "liminal|product designer|bengaluru": {
+      "company": "Liminal",
+      "message_id": "<010001a1a5355e03-fe84122a-bcd5-4932-ac77-e2fcb83d1f8d-000000@email.amazonses.com>",
+      "score": 88.0,
+      "sent_at": "2026-11-04T06:17:34.811588+00:00",
+      "source_key": "uxjobs:liminal:product-designer-liminal-5rhfy6",
+      "thread_id": "1e90e6cf-1ccb-4306-abe5-455348c2273c",
+      "tier": "Strong",
+      "title": "Product Designer",
+      "url": "https://liminal.keka.com/careers/jobdetails/168910",
+      "verified": true
+    },
+    "lyzr ai|product designer ui ux|bengaluru in": {
+      "company": "Lyzr AI",
+      "message_id": "<010001a18f09793c-c89aeaf8-fc5e-41d1-83f3-4f2eba61ed9d-000000@email.amazonses.com>",
+      "score": 80.0,
+      "sent_at": "2026-10-30T22:58:04.000024+00:00",
+      "source_key": "uxjobs:lyzr ai:product-designer-ui-ux-lyzr-ai-0dyvri",
+      "thread_id": "1124092d-07bd-447e-b6b2-6760c00e781a",
+      "tier": "Strong",
+      "title": "Product Designer (UI/UX)",
+      "url": "https://careers.lyzr.ai/jobs/701169-product-designer-ui-ux",
+      "verified": true
+    },
+    "maayasthra|ui ux designer|chennai tamil nadu india": {
+      "company": "Maayasthra",
+      "message_id": "<010001a169fe6ab3-6e49b3ff-4c3a-4cae-8d84-ec73b78f6135-000000@email.amazonses.com>",
+      "score": 73.0,
+      "sent_at": "2026-10-23T18:20:00.069937+00:00",
+      "source_key": "jobfound:maayasthra:urn:jobfound:job:6adb53e900222d996a1a",
+      "thread_id": "ecf329be-647a-4f9f-97e6-c4a290fb1545",
+      "tier": "Possible",
+      "title": "UI/UX Designer",
+      "url": "https://jobfound.org/job/maayasthra-is-hiring-for-ui-ux-designer-chennai-tamil-nadu-india-india-23-october-2026",
+      "verified": true
+    },
+    "marblex|ui ux designer|kharar punjab india": {
+      "company": "MarbleX",
+      "message_id": "<010001a17cebaf91-5c08a79c-c64c-4764-8081-e0d1aabb553f-000000@email.amazonses.com>",
+      "score": 74.0,
+      "sent_at": "2026-10-27T10:32:13.651409+00:00",
+      "source_key": "jobfound:marblex:urn:jobfound:job:6ae0456b0006e5147608",
+      "thread_id": "a26ff8f2-47ec-465d-ab67-24a4731d9757",
+      "tier": "Good",
+      "title": "UI/UX Designer",
+      "url": "https://jobfound.org/job/marblex-is-hiring-for-ui-ux-designer-kharar-punjab-india-india-27-october-2026",
+      "verified": true
+    },
+    "mars art craft pvt ltd|required product designer indian handicraft and furniture|jodhpur rajasthan india": {
+      "company": "MARS ART & CRAFT PVT. LTD.",
+      "message_id": "<010001a16f19a299-e791b32d-70ca-4e66-a665-0c9015d0646d-000000@email.amazonses.com>",
+      "score": 67.0,
+      "sent_at": "2026-10-24T18:07:52.950384+00:00",
+      "source_key": "jobfound:mars art & craft pvt. ltd.:urn:jobfound:job:6adca3f60002b9c78eff",
+      "thread_id": "e5283970-4905-4ab5-96c4-afb68a19cc49",
+      "tier": "Good",
+      "title": "Required product designer indian handicraft and furniture",
+      "url": "https://jobfound.org/job/mars-art-craft-pvt-ltd-is-hiring-for-required-product-designer-indian-handicraft-and-furniture-jodhpur-rajasthan-india-india-24-october-2026",
+      "verified": true
+    },
+    "medvirtual|ui ux designer|remote india": {
+      "company": "Medvirtual",
+      "message_id": "<010001a176d6979e-ffde4f6a-72fb-447e-8a0c-da715e500614-000000@email.amazonses.com>",
+      "score": 64.0,
+      "sent_at": "2026-10-26T06:11:36.431060+00:00",
+      "source_key": "uxjobs:medvirtual:ui-ux-designer-medvirtual-vlipuf",
+      "thread_id": "36b1ec5b-2bc1-451e-99d5-34a9f0280bca",
+      "tier": "Good",
+      "title": "UI/UX Designer",
+      "url": "https://apply.workable.com/medvirtual/j/E220A25C3D/",
+      "verified": true
+    },
+    "meesho|product designer ii design system|bangalore karnataka": {
+      "company": "Meesho",
+      "message_id": "<010001a1ab57d440-f1718b7e-c65d-4604-a136-f8930db22ce3-000000@email.amazonses.com>",
+      "score": 80.0,
+      "sent_at": "2026-11-05T10:53:01.187362+00:00",
+      "source_key": "lever:meesho:500264fe-e851-499a-b825-2eb588752aa3",
+      "thread_id": "cde16268-9675-4105-9e33-9ae61f618b39",
+      "tier": "Strong",
+      "title": "Product Designer - II (Design System)",
+      "url": "https://jobs.lever.co/meesho/500264fe-e851-499a-b825-2eb588752aa3",
+      "verified": true
+    },
+    "michelin|ai ux ui designer researcher|pune": {
+      "company": "Michelin",
+      "message_id": "<010001a17bbcf17e-8bad6511-3bb2-417d-baec-1d4edd1577a1-000000@email.amazonses.com>",
+      "score": 78.0,
+      "sent_at": "2026-10-27T05:01:35.879880+00:00",
+      "source_key": "uxjobs:michelin:ai-ux-ui-designer-researcher-michelin-ibetoq",
+      "thread_id": "9b446aaa-faad-4572-ab5c-2e5818133002",
+      "tier": "Strong",
+      "title": "AI UX/UI Designer/Researcher",
+      "url": "https://michelinhr.wd3.myworkdayjobs.com/Michelin/job/Pune/AI-UX-UI-Designer-Researcher_R-2026034120",
+      "verified": true
+    },
+    "michelin|ux ui designer researcher|pune": {
+      "company": "Michelin",
+      "message_id": "<010001a1a88ce33c-b16e5115-a737-457d-8134-884fa3abc239-000000@email.amazonses.com>",
+      "score": 82.0,
+      "sent_at": "2026-11-04T21:52:02.443736+00:00",
+      "source_key": "uxjobs:michelin:ux-ui-designer-researcher-michelin-ibetoq",
+      "thread_id": "1388a4cb-4d00-4d3e-b368-1fc8e3700674",
+      "tier": "Strong",
+      "title": "UX/UI Designer/Researcher",
+      "url": "https://michelinhr.wd3.myworkdayjobs.com/Michelin/job/Pune/AI-UX-UI-Designer-Researcher_R-2026034120",
+      "verified": true
+    },
     "minerva project|product designer|remote worldwide": {
       "company": "Minerva Project",
       "message_id": "<010001a1447296ee-ec81e3f0-370c-4e9b-966c-6b277858001f-000000@email.amazonses.com>",
@@ -621,6 +1122,18 @@
       "tier": "Good",
       "title": "Product Designer",
       "url": "https://minerva-project.breezy.hr/p/16caca3b823c-product-designer",
+      "verified": true
+    },
+    "momentum services|ux ui designer mmh260917 3|navi mumbai maharashtra india": {
+      "company": "Momentum Services",
+      "message_id": "<010001a18e19bc30-7bd14ca3-6c36-4750-9e62-cf10cb04c7c8-000000@email.amazonses.com>",
+      "score": 73.0,
+      "sent_at": "2026-10-30T18:36:15.065453+00:00",
+      "source_key": "jobfound:momentum services:urn:jobfound:job:6ae4c857001909b0ba4f",
+      "thread_id": "c849227b-67bf-4bb3-8aeb-59771596a413",
+      "tier": "Good",
+      "title": "Ux/Ui Designer MMH260917-3",
+      "url": "https://jobfound.org/job/momentum-services-is-hiring-for-ux-ui-designer-mmh260917-3-navi-mumbai-maharashtra-india-india-30-october-2026",
       "verified": true
     },
     "monks|ux ui designer contract|gurugram": {
@@ -635,6 +1148,42 @@
       "url": "https://www.monks.com/careers/6223966004/job?gh_jid=6223966004",
       "verified": true
     },
+    "more retail private limited|product designer|bengaluru karnataka india": {
+      "company": "More Retail Private Limited",
+      "message_id": "<010001a169fe5c84-f088249f-6102-4e57-b105-ae9ae03da8e0-000000@email.amazonses.com>",
+      "score": 86.0,
+      "sent_at": "2026-10-23T18:20:00.069937+00:00",
+      "source_key": "jobfound:more retail private limited:urn:jobfound:job:6adb53e700321c2aa743",
+      "thread_id": "998dbd87-8a0e-4ff9-81e6-ac4a27afd8ec",
+      "tier": "Strong",
+      "title": "Product Designer",
+      "url": "https://jobfound.org/job/more-retail-private-limited-is-hiring-for-product-designer-bengaluru-karnataka-india-india-23-october-2026",
+      "verified": true
+    },
+    "namma yatri|product designer|bengaluru karnataka india": {
+      "company": "Namma Yatri",
+      "message_id": "<010001a186794a01-a7d2f377-bf94-46fb-9167-fe3aa0acabc1-000000@email.amazonses.com>",
+      "score": 88.0,
+      "sent_at": "2026-10-29T07:03:31.572125+00:00",
+      "source_key": "jobfound:namma yatri:urn:jobfound:job:6ae24248002f8d6cdc41",
+      "thread_id": "b8363fb1-f5ba-4563-8f1e-c3eba236357c",
+      "tier": "Strong",
+      "title": "Product Designer",
+      "url": "https://jobfound.org/job/namma-yatri-is-hiring-for-product-designer-bengaluru-karnataka-india-india-28-october-2026",
+      "verified": true
+    },
+    "nudge|junior product designer|bengaluru karnataka india": {
+      "company": "Nudge",
+      "message_id": "<010001a18e19ba21-2837328a-a112-475d-b833-494877d9a671-000000@email.amazonses.com>",
+      "score": 76.0,
+      "sent_at": "2026-10-30T18:36:15.065453+00:00",
+      "source_key": "jobfound:nudge:urn:jobfound:job:6ae4c84e002aaaa4d2d3",
+      "thread_id": "d1915127-909c-41fd-b5f3-a1ab9b7f89c9",
+      "tier": "Strong",
+      "title": "Junior Product Designer",
+      "url": "https://jobfound.org/job/nudge-is-hiring-for-junior-product-designer-bengaluru-karnataka-india-india-30-october-2026",
+      "verified": true
+    },
     "particle41|ui ux designer|india remote": {
       "company": "Particle41",
       "message_id": "<010001a1349b61d0-02be884a-d51b-4988-85ee-f4b19c732bfd-000000@email.amazonses.com>",
@@ -645,6 +1194,126 @@
       "tier": "Good",
       "title": "UI/UX Designer",
       "url": "https://job-boards.greenhouse.io/particle41llc/jobs/5432621008",
+      "verified": true
+    },
+    "pinegap ai|product designer|bengaluru karnataka india": {
+      "company": "PineGap.ai",
+      "message_id": "<010001a16acfbaca-c76d2118-babb-4e1e-ad7e-87162b54a83d-000000@email.amazonses.com>",
+      "score": 77.0,
+      "sent_at": "2026-10-23T22:08:39.972515+00:00",
+      "source_key": "jobfound:pinegap.ai:urn:jobfound:job:6adba9ae0016404bbafc",
+      "thread_id": "1aa10a5a-7eaa-4b1b-8149-3cf0eb260084",
+      "tier": "Strong",
+      "title": "Product Designer",
+      "url": "https://jobfound.org/job/pinegap-ai-is-hiring-for-product-designer-bengaluru-karnataka-india-india-23-october-2026",
+      "verified": true
+    },
+    "purplemerit|product designer ui ux|india": {
+      "company": "PurpleMerit",
+      "message_id": "<010001a19877c65d-df7f7307-eb4f-442b-9ddf-3f6493f7978f-000000@email.amazonses.com>",
+      "score": 82.0,
+      "sent_at": "2026-11-01T18:55:04.634656+00:00",
+      "source_key": "jobfound:purplemerit:urn:jobfound:job:6ae6ea460036323a7fc2",
+      "thread_id": "5cf023f0-9307-4373-ac9f-dae4e1312814",
+      "tier": "Strong",
+      "title": "Product Designer - UI UX",
+      "url": "https://jobfound.org/job/purplemerit-is-hiring-for-product-designer-ui-ux-india-india-1-november-2026",
+      "verified": true
+    },
+    "purplemerit|product designer ui|india": {
+      "company": "PurpleMerit",
+      "message_id": "<010001a173d94fbb-005d5e35-d91c-406a-bab5-f5e33aef3605-000000@email.amazonses.com>",
+      "score": 69.0,
+      "sent_at": "2026-10-25T16:15:42.224203+00:00",
+      "source_key": "jobfound:purplemerit:urn:jobfound:job:6adda023002c578f3615",
+      "thread_id": "580a06a7-c6cf-4137-bb6c-b7052cc85ff3",
+      "tier": "Good",
+      "title": "Product Designer (UI)",
+      "url": "https://jobfound.org/job/purplemerit-is-hiring-for-product-designer-ui-india-india-25-october-2026",
+      "verified": true
+    },
+    "purplemerit|product designer|india": {
+      "company": "PurpleMerit",
+      "message_id": "<010001a173d94da5-ef47e732-236c-4785-a1c3-b6cf8b270d45-000000@email.amazonses.com>",
+      "score": 72.0,
+      "sent_at": "2026-10-25T16:15:42.224203+00:00",
+      "source_key": "jobfound:purplemerit:urn:jobfound:job:6adcf8af002eaff02263",
+      "thread_id": "511f86f9-815b-4c59-b583-622424fcc3fc",
+      "tier": "Good",
+      "title": "Product Designer",
+      "url": "https://jobfound.org/job/purplemerit-is-hiring-for-product-designer-india-india-24-october-2026",
+      "verified": true
+    },
+    "pw physicswallah|product designer|noida uttar pradesh india": {
+      "company": "PW (PhysicsWallah)",
+      "message_id": "<010001a17aa165db-597da111-7a17-43f8-aeea-db5e1ed30e92-000000@email.amazonses.com>",
+      "score": 73.0,
+      "sent_at": "2026-10-26T23:51:58.382810+00:00",
+      "source_key": "jobfound:pw (physicswallah):urn:jobfound:job:6adf9d2300116be2215c",
+      "thread_id": "55e3bbed-981a-4fe0-a89e-3002323eb8fe",
+      "tier": "Possible",
+      "title": "Product Designer",
+      "url": "https://jobfound.org/job/pw-physicswallah-is-hiring-for-product-designer-noida-uttar-pradesh-india-india-26-october-2026",
+      "verified": true
+    },
+    "rightsteps app|ux ui designer|india": {
+      "company": "RightSteps.App",
+      "message_id": "<010001a186794cfa-61937816-8382-4276-b289-92d4cd80c37a-000000@email.amazonses.com>",
+      "score": 82.0,
+      "sent_at": "2026-10-29T07:03:31.572125+00:00",
+      "source_key": "jobfound:rightsteps.app:urn:jobfound:job:6ae2424d0020a29e066c",
+      "thread_id": "bd65809d-abc9-4d25-98f2-093aecfe893d",
+      "tier": "Strong",
+      "title": "UX/UI Designer",
+      "url": "https://jobfound.org/job/rightsteps-app-is-hiring-for-ux-ui-designer-india-india-28-october-2026",
+      "verified": true
+    },
+    "route mobile limited|product designer|mumbai metropolitan region india": {
+      "company": "Route Mobile Limited",
+      "message_id": "<010001a16acfbcfb-ecd97dc4-1901-40c4-9cde-74c9346dfb08-000000@email.amazonses.com>",
+      "score": 72.0,
+      "sent_at": "2026-10-23T22:08:39.972515+00:00",
+      "source_key": "jobfound:route mobile limited:urn:jobfound:job:6adba9ac0031858fac19",
+      "thread_id": "8dbcac58-eaad-4b6a-af06-93a7b054d7b0",
+      "tier": "Good",
+      "title": "Product Designer",
+      "url": "https://jobfound.org/job/route-mobile-limited-is-hiring-for-product-designer-mumbai-metropolitan-region-india-23-october-2026",
+      "verified": true
+    },
+    "salesforce|user interface user experience designer|india bangalore": {
+      "company": "Salesforce",
+      "message_id": "<010001a1b4d691d4-fb8a1bb4-064e-48be-b03b-2616289faf0d-000000@email.amazonses.com>",
+      "score": 67.0,
+      "sent_at": "2026-11-07T07:08:11.881964+00:00",
+      "source_key": "uxjobs:salesforce:user-interface-user-experience-designer-salesforce-32fec5",
+      "thread_id": "4b235150-fa5a-4c04-ae83-003fe84abc7b",
+      "tier": "Good",
+      "title": "User Interface/User Experience Designer",
+      "url": "https://salesforce.wd12.myworkdayjobs.com/External_Career_Site/job/India---Bangalore/User-Interface-User-Experience-Designer_JR363777",
+      "verified": true
+    },
+    "script assist|product designer ui ux figma react|ahmedabad gujarat india": {
+      "company": "Script Assist",
+      "message_id": "<010001a18e19b5f2-6c808b46-e59d-4c13-80ec-8e03f85203e3-000000@email.amazonses.com>",
+      "score": 78.0,
+      "sent_at": "2026-10-30T18:36:15.065453+00:00",
+      "source_key": "jobfound:script assist:urn:jobfound:job:6ae4c76a003d594543dd",
+      "thread_id": "5d90a508-1471-45a3-b2ce-107899ef43f3",
+      "tier": "Possible",
+      "title": "Product Designer \u2013 UI/UX | Figma | React",
+      "url": "https://jobfound.org/job/script-assist-is-hiring-for-product-designer-ui-ux-figma-react-ahmedabad-gujarat-india-india-30-october-2026",
+      "verified": true
+    },
+    "servicenow|product designer|hyderabad telangana india": {
+      "company": "ServiceNow",
+      "message_id": "<010001a181a136f3-bcaf365b-8753-448d-8e63-aea0a882744b-000000@email.amazonses.com>",
+      "score": 98.0,
+      "sent_at": "2026-10-28T08:28:01.666820+00:00",
+      "source_key": "smartrecruiters:servicenow:744000158193067",
+      "thread_id": "d99dbd84-b86b-481e-b368-daab06b93152",
+      "tier": "Strong",
+      "title": "Product Designer",
+      "url": "https://jobs.smartrecruiters.com/ServiceNow/744000158193067-product-designer",
       "verified": true
     },
     "servicenow|ui ux designer|hyderabad india": {
@@ -671,6 +1340,78 @@
       "url": "https://vyaparapp.keka.com/careers/jobdetails/132996",
       "verified": true
     },
+    "slice|product designer|bengaluru karnataka india": {
+      "company": "slice",
+      "message_id": "<010001a169fe6770-19ea79de-8ceb-4333-8c1a-e84884dbdc3f-000000@email.amazonses.com>",
+      "score": 82.0,
+      "sent_at": "2026-10-23T18:20:00.069937+00:00",
+      "source_key": "jobfound:slice:urn:jobfound:job:6adb53ee0007e370c888",
+      "thread_id": "d59e22c5-0f83-47cf-8730-06c08142a2db",
+      "tier": "Strong",
+      "title": "Product Designer",
+      "url": "https://jobfound.org/job/slice-is-hiring-for-product-designer-bengaluru-karnataka-india-india-23-october-2026",
+      "verified": true
+    },
+    "staffnix|product designer bdes mdes from tier1 college nit nift iit only eligible b2c experience mandatory|pune city maharashtra india": {
+      "company": "Staffnix",
+      "message_id": "<010001a18e19be3f-ad832e8d-1170-4cc7-8ec9-8ef88c692898-000000@email.amazonses.com>",
+      "score": 72.0,
+      "sent_at": "2026-10-30T18:36:15.065453+00:00",
+      "source_key": "jobfound:staffnix:urn:jobfound:job:6ae4c85000138796d21a",
+      "thread_id": "fba37312-25d4-4987-a812-88174d977d0e",
+      "tier": "Good",
+      "title": "Product Designer BDes, MDes) from Tier1 college (NIT, NIFT. IIT) only eligible. B2C Experience mandatory",
+      "url": "https://jobfound.org/job/staffnix-is-hiring-for-product-designer-bdes-mdes-from-tier1-college-nit-nift-iit-only-eligible-b2c-experience-mandatory-pune-city-maharashtra-india-india-30-october-2026",
+      "verified": true
+    },
+    "staffnix|product designer bdes mdes from tier1 college nit nift iit only eligible|pune city maharashtra india": {
+      "company": "Staffnix",
+      "message_id": "<010001a19877c920-a13d627a-127e-4f71-9da9-401c0834b2aa-000000@email.amazonses.com>",
+      "score": 72.0,
+      "sent_at": "2026-11-01T18:55:04.634656+00:00",
+      "source_key": "jobfound:staffnix:urn:jobfound:job:6ae6ea4c002baead4643",
+      "thread_id": "f8e30627-d4d6-4790-90cf-d319127b26cf",
+      "tier": "Good",
+      "title": "Product Designer BDes, MDes) from Tier1 college (NIT, NIFT. IIT only eligible",
+      "url": "https://jobfound.org/job/staffnix-is-hiring-for-product-designer-bdes-mdes-from-tier1-college-nit-nift-iit-only-eligible-pune-city-maharashtra-india-india-1-november-2026",
+      "verified": true
+    },
+    "staffnix|product designer bdes mdes from tier1 college nit nift iit|pune city maharashtra india": {
+      "company": "Staffnix",
+      "message_id": "<010001a192a21dc6-ee57ae08-a254-404f-a208-4cb9147dbed8-000000@email.amazonses.com>",
+      "score": 72.0,
+      "sent_at": "2026-10-31T15:43:32.747736+00:00",
+      "source_key": "jobfound:staffnix:urn:jobfound:job:6ae58d1c0017376eee2f",
+      "thread_id": "5605bfc3-6d81-4cd2-ab0c-80d2000fb341",
+      "tier": "Good",
+      "title": "Product Designer BDes, MDes) from Tier1 college (NIT, NIFT. IIT).",
+      "url": "https://jobfound.org/job/staffnix-is-hiring-for-product-designer-bdes-mdes-from-tier1-college-nit-nift-iit-pune-city-maharashtra-india-india-31-october-2026",
+      "verified": true
+    },
+    "stax living|product designer furniture|mumbai maharashtra india": {
+      "company": "Stax Living",
+      "message_id": "<010001a1a2aa2209-1c2a29f0-8385-461e-90af-feffbafb254e-000000@email.amazonses.com>",
+      "score": 74.0,
+      "sent_at": "2026-11-03T18:26:14.373893+00:00",
+      "source_key": "jobfound:stax living:urn:jobfound:job:6ae8d8da000b936a23c3",
+      "thread_id": "dacbd74f-5cc3-4caf-a201-bb973c7a1e94",
+      "tier": "Good",
+      "title": "Product Designer, Furniture",
+      "url": "https://jobfound.org/job/stax-living-is-hiring-for-product-designer-furniture-mumbai-maharashtra-india-india-2-november-2026",
+      "verified": true
+    },
+    "supr|ui ux designer landing pages growth|noida uttar pradesh india": {
+      "company": "SUPR",
+      "message_id": "<010001a17ceba9cb-7336c91e-8b87-4ad8-ab07-1997162ce65b-000000@email.amazonses.com>",
+      "score": 77.0,
+      "sent_at": "2026-10-27T10:32:13.651409+00:00",
+      "source_key": "jobfound:supr:urn:jobfound:job:6adff26e00226a347065",
+      "thread_id": "096ce8f6-401a-4364-964d-00cbb798a552",
+      "tier": "Strong",
+      "title": "UI/UX Designer (Landing Pages & Growth)",
+      "url": "https://jobfound.org/job/supr-is-hiring-for-ui-ux-designer-landing-pages-growth-noida-uttar-pradesh-india-india-27-october-2026",
+      "verified": true
+    },
     "the ri8 click|ui ux designer vadodara location only|vadodara gujarat india": {
       "company": "The Ri8 Click",
       "message_id": "<010001a1644ddfd4-b57304b7-a72c-4ad6-a573-46d858ef68d0-000000@email.amazonses.com>",
@@ -681,6 +1422,54 @@
       "tier": "Possible",
       "title": "UI/UX Designer ( Vadodara Location ONLY )",
       "url": "https://jobfound.org/job/the-ri8-click-is-hiring-for-ui-ux-designer-vadodara-location-only-vadodara-gujarat-india-india-21-october-2026",
+      "verified": true
+    },
+    "thermo fisher scientific|product designer ai and enterprise software job posting title here|bangalore karn taka": {
+      "company": "Thermo Fisher Scientific",
+      "message_id": "<010001a192a22167-058765fb-4405-4020-b8f8-d0106cc929ed-000000@email.amazonses.com>",
+      "score": 70.0,
+      "sent_at": "2026-10-31T15:43:32.747736+00:00",
+      "source_key": "uxjobs:thermo fisher scientific:product-designer-ai-and-enterprise-software-job-posting-title-here-thermo-fisher-4r0j4n",
+      "thread_id": "22bf5dfd-bbe8-433a-b327-ce5083bcb154",
+      "tier": "Good",
+      "title": "Product Designer - AI and Enterprise Software Job Posting Title here",
+      "url": "https://jobs.thermofisher.com/global/en/job/R-01353684/Product-Designer-AI-and-Enterprise-Software-Job-Posting-Title-here",
+      "verified": true
+    },
+    "thermo fisher scientific|product designer ai and enterprise software|bangalore karn taka": {
+      "company": "Thermo Fisher Scientific",
+      "message_id": "<010001a194464334-65214079-ed6d-4c85-9250-d48e03a1873f-000000@email.amazonses.com>",
+      "score": 70.0,
+      "sent_at": "2026-10-31T23:22:39.802837+00:00",
+      "source_key": "uxjobs:thermo fisher scientific:product-designer-ai-and-enterprise-software-thermo-fisher-scientific-4r0j4n",
+      "thread_id": "4b091475-14d1-4a6e-a1c9-c6b46782bdb4",
+      "tier": "Good",
+      "title": "Product Designer - AI and Enterprise Software",
+      "url": "https://jobs.thermofisher.com/global/en/job/R-01353684/Product-Designer-AI-and-Enterprise-Software-Job-Posting-Title-here",
+      "verified": true
+    },
+    "tiaa|associate ux design in|mumbai ind": {
+      "company": "TIAA",
+      "message_id": "<010001a16c776718-f9515b4c-67fd-4b98-a3ea-c7c3277c25cb-000000@email.amazonses.com>",
+      "score": 64.0,
+      "sent_at": "2026-10-24T05:51:26.520329+00:00",
+      "source_key": "uxjobs:tiaa:associate-ux-design-in-tiaa-ucgm30",
+      "thread_id": "eba442e5-98ad-4543-94cb-7b7227de06f3",
+      "tier": "Good",
+      "title": "Associate - UX Design - IN",
+      "url": "https://tiaa.wd1.myworkdayjobs.com/Search/job/Mumbai-IND/Associate---UX-Design---IN_R261000172",
+      "verified": true
+    },
+    "traelli|product designer ui ux|trivandrum kerala india": {
+      "company": "Traelli",
+      "message_id": "<010001a19877cc2d-6e44d495-e832-4a32-b89c-d13a98a5d751-000000@email.amazonses.com>",
+      "score": 69.0,
+      "sent_at": "2026-11-01T18:55:04.634656+00:00",
+      "source_key": "jobfound:traelli:urn:jobfound:job:6ae6ea450016c564f814",
+      "thread_id": "2de93dc1-db22-442c-83a0-274d8f62a09f",
+      "tier": "Possible",
+      "title": "Product Designer (UI/UX)",
+      "url": "https://jobfound.org/job/traelli-is-hiring-for-product-designer-ui-ux-trivandrum-kerala-india-india-1-november-2026",
       "verified": true
     },
     "versatile club employer of record|product designer contract 6 months|bengaluru karnataka india": {
@@ -719,6 +1508,30 @@
       "url": "https://vyaparapp.keka.com/careers/jobdetails/132996",
       "verified": true
     },
+    "webstaurantstore|product designer|united states remote global remote": {
+      "company": "WebstaurantStore",
+      "message_id": "<010001a1cc9d46b6-c4b2707c-2775-4a50-b7c1-8c0bc8254864-000000@email.amazonses.com>",
+      "score": 95.0,
+      "sent_at": "2026-11-11T21:56:14.714666+00:00",
+      "source_key": "jobfound:webstaurantstore:urn:jobfound:job:6af4adef001e065a4d72",
+      "thread_id": "d99f10cf-5fe9-409f-8c2f-2e5a312552f4",
+      "tier": "Strong",
+      "title": "Product Designer",
+      "url": "https://jobfound.org/job/webstaurantstore-is-hiring-for-product-designer-united-states-remote-global-remote-11-november-2026",
+      "verified": true
+    },
+    "werize|product designer|bengaluru karnataka india": {
+      "company": "WeRize",
+      "message_id": "<010001a18e19b28e-ae077768-f4b4-4fd6-8a12-76bb1d25e36f-000000@email.amazonses.com>",
+      "score": 85.0,
+      "sent_at": "2026-10-30T18:36:15.065453+00:00",
+      "source_key": "jobfound:werize:urn:jobfound:job:6ae4c84d0001406bfc55",
+      "thread_id": "259ba372-e5d8-4535-832a-4c484672b294",
+      "tier": "Strong",
+      "title": "Product Designer",
+      "url": "https://jobfound.org/job/werize-is-hiring-for-product-designer-bengaluru-karnataka-india-india-30-october-2026",
+      "verified": true
+    },
     "wsp|ui ux designer|bengaluru karnataka india": {
       "company": "WSP",
       "message_id": "<010001a15e0d0c8b-b49e9436-a93f-4d61-8331-70456c256ed6-000000@email.amazonses.com>",
@@ -729,6 +1542,54 @@
       "tier": "Possible",
       "title": "UI-UX Designer",
       "url": "https://emit.fa.ca3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX/job/97579",
+      "verified": true
+    },
+    "x technologies|ui ux designer|india": {
+      "company": "X Technologies",
+      "message_id": "<010001a173d94b78-4e4578ae-c367-4ea8-8281-1f6ebb0628ba-000000@email.amazonses.com>",
+      "score": 92.0,
+      "sent_at": "2026-10-25T16:15:42.224203+00:00",
+      "source_key": "jobfound:x technologies:urn:jobfound:job:6addf480000e8a46cf97",
+      "thread_id": "6d2177de-b8c3-496d-aa9c-ef57ff0f7c8d",
+      "tier": "Strong",
+      "title": "UI/UX Designer",
+      "url": "https://jobfound.org/job/x-technologies-is-hiring-for-ui-ux-designer-india-india-25-october-2026",
+      "verified": true
+    },
+    "zensar|product designer|india": {
+      "company": "Zensar",
+      "message_id": "<010001a1b2a42546-0d1bbd9b-c721-44bc-b4c4-798371b71fae-000000@email.amazonses.com>",
+      "score": 75.0,
+      "sent_at": "2026-11-06T20:53:41.077342+00:00",
+      "source_key": "uxjobs:zensar:product-designer-zensar-uytuxs",
+      "thread_id": "deadddf9-762a-4b47-8c0d-d6c0413f7dd9",
+      "tier": "Strong",
+      "title": "Product Designer",
+      "url": "https://fa-etvl-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/job/152346_2",
+      "verified": true
+    },
+    "zensar|ux designer|pune maharashtra india": {
+      "company": "Zensar",
+      "message_id": "<010001a19bebcabe-5a1bcc8d-3dab-4497-9153-a6e1620ade61-000000@email.amazonses.com>",
+      "score": 80.0,
+      "sent_at": "2026-11-02T11:00:29.267684+00:00",
+      "source_key": "uxjobs:zensar:ux-designer-zensar-y6gak0",
+      "thread_id": "97adc262-b85a-435a-8486-7ad927997885",
+      "tier": "Strong",
+      "title": "UX Designer",
+      "url": "https://fa-etvl-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/job/152329",
+      "verified": true
+    },
+    "zyla health|ui ux designer|gurugram haryana india": {
+      "company": "Zyla Health",
+      "message_id": "<010001a18e19c056-d9c0a61d-aa68-4b40-aa63-c1c5565a3739-000000@email.amazonses.com>",
+      "score": 67.0,
+      "sent_at": "2026-10-30T18:36:15.065453+00:00",
+      "source_key": "jobfound:zyla health:urn:jobfound:job:6ae4c85500140f37fc92",
+      "thread_id": "f6622fa5-1314-47c3-bc66-16ccfffb94a7",
+      "tier": "Possible",
+      "title": "UI/UX Designer",
+      "url": "https://jobfound.org/job/zyla-health-is-hiring-for-ui-ux-designer-gurugram-haryana-india-india-30-october-2026",
       "verified": true
     }
   },
