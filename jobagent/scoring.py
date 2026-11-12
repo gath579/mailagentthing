@@ -95,6 +95,9 @@ OTHER_CITY = "isn’t one of your priority cities"
 DEPRIORITIZED_CITY = "is a deprioritized location"
 INDIA_UNCONFIRMED = "India eligibility unconfirmed — remote role with no stated hiring region (not assumed worldwide)"
 
+_FOREIGN_REGIONS = ["united states", "usa", "us only", "canada", "united kingdom", "uk", "europe", "emea",
+                    "european union", "germany", "france", "netherlands", "spain", "australia", "new zealand",
+                    "latam", "latin america", "north america", "americas", "mexico", "brazil"]
 _SPLIT_RE = re.compile(r"[;|/\n]|\bor\b", re.I)
 _REMOTE_WORDS = ("remote", "anywhere", "work from home", "wfh", "fully remote", "distributed", "hybrid",
                  "on site", "onsite", "office", "location", "locations", "flexible", "multiple")
@@ -109,7 +112,13 @@ def _segment_score(seg: str, job: Job, loc: Locations):
     is_hybrid = job.work_mode == "hybrid" or has(c, "hybrid")
 
     if is_remote and not is_hybrid:
-        if india or first(c, loc.remote_ok_regions):
+        if india:
+            return 25, f"Remote, open to India ({seg.strip()})", None
+        if first(c, loc.remote_ok_regions):
+            # "United States remote / global remote": a named foreign country next to "global"
+            # doesn't prove India hiring, so treat it as unconfirmed rather than open.
+            if first(c, _FOREIGN_REGIONS):
+                return 12, REMOTE_UNSTATED, None
             return 25, f"Remote, open to India ({seg.strip()})", None
         rest = c
         for w in _REMOTE_WORDS:
