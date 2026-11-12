@@ -8,6 +8,7 @@ email; a failed delivery is never recorded and stays eligible for retry.
 from __future__ import annotations
 
 import json
+import re
 import os
 import tempfile
 from datetime import datetime, timedelta, timezone
@@ -35,8 +36,19 @@ def _company_title(company: str | None, title: str | None) -> str:
     return f"{canonical_text(company or '')}|{canonical_text(title or '')}"
 
 
+_JOB_ID_SEGMENT = re.compile(r"[0-9a-f]{6,}|\d{4,}", re.I)
+
+
+def _job_specific(url: str) -> bool:
+    """True when the URL path carries a job id (e.g. /p/723ae2d57b9d-..., /jobs/8280665), not a generic page."""
+    return any(_JOB_ID_SEGMENT.search(seg) for seg in canonical_url(url).split("/")[1:])
+
+
 def _url_key(url: str | None, title: str | None) -> tuple[str, str]:
-    # Same link *and* same title: some boards point several roles at one generic careers page.
+    # A job-specific link identifies the posting on its own (titles get prefixes like "S-CPT-0047 ...").
+    # A generic careers page can list several roles, so there the title must match too.
+    if _job_specific(url or ""):
+        return canonical_url(url), ""
     return canonical_url(url), " ".join((title or "").lower().split())
 
 

@@ -239,7 +239,11 @@ def test_sent_store_catches_same_posting_under_renamed_company(tmp_path):
     renamed = _job(source="uxjobs", source_id="b", company="Vyapar", url="http://www." + url[8:] + "/#apply")
     assert again.already_sent(renamed)
     assert not again.already_sent(_job(source="uxjobs", source_id="c", company="Other", url="https://other.test/1"))
-    assert not again.already_sent(_job(source="uxjobs", source_id="d", company="Vyapar", title="UX Researcher", url=url))
+    # a generic careers page can list several roles: there a different title is a different job
+    store.record_sent(_job(source="uxjobs", source_id="e", company="Vyapar", url="https://vyaparapp.keka.com/careers"),
+                      {"message_id": "m3", "thread_id": "t3"}, NOW)
+    assert not store.already_sent(_job(source="uxjobs", source_id="d", company="Vyapar2", title="UX Researcher",
+                                       url="https://vyaparapp.keka.com/careers"))
 
 
 def test_sent_store_prunes_old_entries(tmp_path):
@@ -566,3 +570,29 @@ def test_same_company_and_title_from_another_source_is_not_resent(tmp_path):
     assert not again.already_sent(relisted, NOW + timedelta(days=61))      # a re-opened role months later
     assert not again.already_sent(_job(source="jobfound", source_id="c", company="Capco", title="Product Designer",
                                        url="https://jobfound.org/job/capco-y"), NOW)
+
+
+def test_same_job_link_with_prefixed_title_is_not_resent(tmp_path):
+    url = "https://20four7va.breezy.hr/p/723ae2d57b9d-s-cpt-0047-user-interface-ui-designer"
+    store = SentStore(tmp_path / "s.json")
+    store.record_sent(_job(source="uxjobs", source_id="a", company="20four7VA",
+                           title="S-CPT-0047 User Interface (UI) Designer", url=url),
+                      {"message_id": "m", "thread_id": "t"}, NOW)
+    store.save()
+    again = SentStore(tmp_path / "s.json")
+    assert again.already_sent(_job(source="uxjobs", source_id="b", company="20four7VA",
+                                   title="User Interface (UI) Designer", url=url), NOW)
+    generic = "https://acme.example/careers"
+    store.record_sent(_job(source="x", source_id="c", company="Acme", title="UX Designer", url=generic),
+                      {"message_id": "m2", "thread_id": "t2"}, NOW)
+    assert not store.already_sent(_job(source="x", source_id="d", company="Acme2", title="UI Designer",
+                                       url=generic), NOW)
+
+
+def test_us_named_global_remote_is_not_assumed_open_to_india(config):
+    desc = "2-4 years. Figma, prototyping, design systems, user flows, end to end ownership."
+    us_global = _job(location="United States Remote Global Remote", work_mode="remote", description=desc)
+    assert evaluate(us_global, config, NOW) is None
+    assert us_global.conditional and us_global.tier != "Strong"
+    worldwide = _job(location="Remote (Worldwide)", work_mode="remote", description=desc)
+    assert evaluate(worldwide, config, NOW) is None and not worldwide.conditional
