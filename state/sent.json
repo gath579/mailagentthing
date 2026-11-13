@@ -1,26 +1,17 @@
 {
   "feeds_fetched": {
-    "himalayas/product designer": "2026-11-13T16:20:10.963686+00:00",
-    "jobfound/all": "2026-11-13T16:20:10.963686+00:00",
-    "jobicy/designer": "2026-11-13T16:20:10.963686+00:00",
-    "jobspresso/design": "2026-11-13T16:20:10.963686+00:00",
-    "nodesk/design": "2026-11-13T16:20:10.963686+00:00",
-    "remoteok/design": "2026-11-13T16:20:10.963686+00:00",
-    "remotive/design": "2026-11-13T16:20:10.963686+00:00",
-    "uxjobs/design": "2026-11-13T16:20:10.963686+00:00",
-    "weworkremotely/remote-design-jobs": "2026-11-13T16:20:10.963686+00:00",
-    "workingnomads/design": "2026-11-13T16:20:10.963686+00:00"
+    "himalayas/product designer": "2026-11-13T22:35:59.719521+00:00",
+    "jobfound/all": "2026-11-13T22:35:59.719521+00:00",
+    "jobicy/designer": "2026-11-13T22:35:59.719521+00:00",
+    "jobspresso/design": "2026-11-13T22:35:59.719521+00:00",
+    "nodesk/design": "2026-11-13T22:35:59.719521+00:00",
+    "remoteok/design": "2026-11-13T22:35:59.719521+00:00",
+    "remotive/design": "2026-11-13T22:35:59.719521+00:00",
+    "uxjobs/design": "2026-11-13T22:35:59.719521+00:00",
+    "weworkremotely/remote-design-jobs": "2026-11-13T22:35:59.719521+00:00",
+    "workingnomads/design": "2026-11-13T22:35:59.719521+00:00"
   },
   "runs": [
-    {
-      "discovered": 15358,
-      "failed": 0,
-      "matched": 117,
-      "mode": "send",
-      "new_unsent": 91,
-      "sent": 0,
-      "started_at": "2026-10-31T09:36:45.863207+00:00"
-    },
     {
       "discovered": 15375,
       "failed": 0,
@@ -461,6 +452,15 @@
       "new_unsent": 82,
       "sent": 2,
       "started_at": "2026-11-13T16:20:10.963686+00:00"
+    },
+    {
+      "discovered": 15664,
+      "failed": 0,
+      "matched": 97,
+      "mode": "send",
+      "new_unsent": 78,
+      "sent": 1,
+      "started_at": "2026-11-13T22:35:59.719521+00:00"
     }
   ],
   "sent": {
@@ -1554,6 +1554,18 @@
       "tier": "Strong",
       "title": "Product Designer",
       "url": "https://jobfound.org/job/werize-is-hiring-for-product-designer-bengaluru-karnataka-india-india-30-october-2026",
+      "verified": true
+    },
+    "whippy|product designer|remote worldwide": {
+      "company": "Whippy",
+      "message_id": "<010001a1d70e4300-b11a99b2-d913-407c-88b3-4bebeacabe11-000000@email.amazonses.com>",
+      "score": 64.0,
+      "sent_at": "2026-11-13T22:35:59.719521+00:00",
+      "source_key": "uxjobs:whippy:product-designer-whippy-ljw8iv",
+      "thread_id": "89c6ce40-81e4-47b5-b690-b50fd3ec2e80",
+      "tier": "Good",
+      "title": "Product Designer",
+      "url": "https://jobs.ashbyhq.com/whippy/cf118ed1-886b-4e15-ae95-fff366948aac",
       "verified": true
     },
     "wsp|ui ux designer|bengaluru karnataka india": {
