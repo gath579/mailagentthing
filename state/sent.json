@@ -1,26 +1,17 @@
 {
   "feeds_fetched": {
-    "himalayas/product designer": "2026-11-13T07:55:36.676864+00:00",
-    "jobfound/all": "2026-11-13T07:55:36.676864+00:00",
-    "jobicy/designer": "2026-11-13T07:55:36.676864+00:00",
-    "jobspresso/design": "2026-11-13T07:55:36.676864+00:00",
-    "nodesk/design": "2026-11-13T07:55:36.676864+00:00",
-    "remoteok/design": "2026-11-13T07:55:36.676864+00:00",
-    "remotive/design": "2026-11-13T07:55:36.676864+00:00",
-    "uxjobs/design": "2026-11-13T07:55:36.676864+00:00",
-    "weworkremotely/remote-design-jobs": "2026-11-13T07:55:36.676864+00:00",
-    "workingnomads/design": "2026-11-13T07:55:36.676864+00:00"
+    "himalayas/product designer": "2026-11-13T16:20:10.963686+00:00",
+    "jobfound/all": "2026-11-13T16:20:10.963686+00:00",
+    "jobicy/designer": "2026-11-13T16:20:10.963686+00:00",
+    "jobspresso/design": "2026-11-13T16:20:10.963686+00:00",
+    "nodesk/design": "2026-11-13T16:20:10.963686+00:00",
+    "remoteok/design": "2026-11-13T16:20:10.963686+00:00",
+    "remotive/design": "2026-11-13T16:20:10.963686+00:00",
+    "uxjobs/design": "2026-11-13T16:20:10.963686+00:00",
+    "weworkremotely/remote-design-jobs": "2026-11-13T16:20:10.963686+00:00",
+    "workingnomads/design": "2026-11-13T16:20:10.963686+00:00"
   },
   "runs": [
-    {
-      "discovered": 11573,
-      "failed": 0,
-      "matched": 12,
-      "mode": "send",
-      "new_unsent": 3,
-      "sent": 0,
-      "started_at": "2026-10-31T02:20:23.944031+00:00"
-    },
     {
       "discovered": 15358,
       "failed": 0,
@@ -461,6 +452,15 @@
       "new_unsent": 80,
       "sent": 0,
       "started_at": "2026-11-13T07:55:36.676864+00:00"
+    },
+    {
+      "discovered": 15704,
+      "failed": 0,
+      "matched": 99,
+      "mode": "send",
+      "new_unsent": 82,
+      "sent": 2,
+      "started_at": "2026-11-13T16:20:10.963686+00:00"
     }
   ],
   "sent": {
@@ -522,6 +522,18 @@
       "tier": "Good",
       "title": "Product Designer",
       "url": "https://jobfound.org/job/aifise-is-hiring-for-product-designer-bhilai-chhattisgarh-india-india-28-october-2026",
+      "verified": true
+    },
+    "amazon|ux designer amazon now amazon now|bengaluru karnataka ind": {
+      "company": "Amazon",
+      "message_id": "<010001a1d5be1566-434e48bd-62a3-4130-a688-e716f4b52bd0-000000@email.amazonses.com>",
+      "score": 72.0,
+      "sent_at": "2026-11-13T16:20:10.963686+00:00",
+      "source_key": "uxjobs:amazon:ux-designer-amazon-now-amazon-now-amazon-aoq4ia",
+      "thread_id": "04ef103c-6f89-46ec-9753-9b7a4fadfc01",
+      "tier": "Good",
+      "title": "UX Designer | Amazon Now, Amazon Now",
+      "url": "https://www.amazon.jobs/en/jobs/10603991/ux-designer-amazon-now-amazon-now",
       "verified": true
     },
     "arrow electronics|junior ux designer|ahmedabad india": {
@@ -1410,6 +1422,18 @@
       "tier": "Strong",
       "title": "UI/UX Designer (Landing Pages & Growth)",
       "url": "https://jobfound.org/job/supr-is-hiring-for-ui-ux-designer-landing-pages-growth-noida-uttar-pradesh-india-india-27-october-2026",
+      "verified": true
+    },
+    "techdome|ui ux designer|indore hyderabad": {
+      "company": "Techdome",
+      "message_id": "<010001a1d5be12d0-34cb5359-cba1-49a8-a4d7-195fb459e366-000000@email.amazonses.com>",
+      "score": 74.0,
+      "sent_at": "2026-11-13T16:20:10.963686+00:00",
+      "source_key": "uxjobs:techdome:ui-ux-designer-techdome-6ztt21",
+      "thread_id": "e66feea0-ded1-4673-82dc-9a268f84ec76",
+      "tier": "Possible",
+      "title": "UI/UX Designer",
+      "url": "https://techdome.keka.com/careers/jobdetails/170144",
       "verified": true
     },
     "the ri8 click|ui ux designer vadodara location only|vadodara gujarat india": {
