@@ -1,26 +1,17 @@
 {
   "feeds_fetched": {
-    "himalayas/product designer": "2026-11-17T22:20:59.376574+00:00",
-    "jobfound/all": "2026-11-17T22:20:59.376574+00:00",
-    "jobicy/designer": "2026-11-17T22:20:59.376574+00:00",
-    "jobspresso/design": "2026-11-17T22:20:59.376574+00:00",
-    "nodesk/design": "2026-11-17T22:20:59.376574+00:00",
-    "remoteok/design": "2026-11-17T22:20:59.376574+00:00",
-    "remotive/design": "2026-11-17T22:20:59.376574+00:00",
-    "uxjobs/design": "2026-11-17T22:20:59.376574+00:00",
-    "weworkremotely/remote-design-jobs": "2026-11-17T22:20:59.376574+00:00",
-    "workingnomads/design": "2026-11-17T22:20:59.376574+00:00"
+    "himalayas/product designer": "2026-11-18T04:17:57.994195+00:00",
+    "jobfound/all": "2026-11-18T04:17:57.994195+00:00",
+    "jobicy/designer": "2026-11-18T04:17:57.994195+00:00",
+    "jobspresso/design": "2026-11-18T04:17:57.994195+00:00",
+    "nodesk/design": "2026-11-18T04:17:57.994195+00:00",
+    "remoteok/design": "2026-11-18T04:17:57.994195+00:00",
+    "remotive/design": "2026-11-18T04:17:57.994195+00:00",
+    "uxjobs/design": "2026-11-18T04:17:57.994195+00:00",
+    "weworkremotely/remote-design-jobs": "2026-11-18T04:17:57.994195+00:00",
+    "workingnomads/design": "2026-11-18T04:17:57.994195+00:00"
   },
   "runs": [
-    {
-      "discovered": 15372,
-      "failed": 0,
-      "matched": 108,
-      "mode": "send",
-      "new_unsent": 87,
-      "sent": 1,
-      "started_at": "2026-11-04T06:17:34.811588+00:00"
-    },
     {
       "discovered": 15414,
       "failed": 0,
@@ -461,6 +452,15 @@
       "new_unsent": 78,
       "sent": 0,
       "started_at": "2026-11-17T22:20:59.376574+00:00"
+    },
+    {
+      "discovered": 15564,
+      "failed": 0,
+      "matched": 97,
+      "mode": "send",
+      "new_unsent": 80,
+      "sent": 1,
+      "started_at": "2026-11-18T04:17:57.994195+00:00"
     }
   ],
   "sent": {
@@ -1026,6 +1026,18 @@
       "tier": "Strong",
       "title": "Product Designer",
       "url": "https://liminal.keka.com/careers/jobdetails/168910",
+      "verified": true
+    },
+    "lokal app|product designer lokal jobs|bengaluru india": {
+      "company": "Lokal App",
+      "message_id": "<010001a1ece0c98b-7b2149eb-369e-4cfa-b9fd-74e93a491ba9-000000@email.amazonses.com>",
+      "score": 64.0,
+      "sent_at": "2026-11-18T04:17:57.994195+00:00",
+      "source_key": "uxjobs:lokal app:product-designer-lokal-jobs-lokal-app-1ey5y3",
+      "thread_id": "1f1810a7-aee6-44c6-ad14-d72c382318e6",
+      "tier": "Good",
+      "title": "Product Designer- Lokal Jobs",
+      "url": "https://apply.workable.com/lokal-app/j/21CB4A80F0/",
       "verified": true
     },
     "lyzr ai|product designer ui ux|bengaluru in": {
