@@ -1,26 +1,17 @@
 {
   "feeds_fetched": {
-    "himalayas/product designer": "2026-11-19T13:01:47.839317+00:00",
-    "jobfound/all": "2026-11-19T13:01:47.839317+00:00",
-    "jobicy/designer": "2026-11-19T13:01:47.839317+00:00",
-    "jobspresso/design": "2026-11-19T13:01:47.839317+00:00",
-    "nodesk/design": "2026-11-19T13:01:47.839317+00:00",
-    "remoteok/design": "2026-11-19T13:01:47.839317+00:00",
-    "remotive/design": "2026-11-19T13:01:47.839317+00:00",
-    "uxjobs/design": "2026-11-19T13:01:47.839317+00:00",
-    "weworkremotely/remote-design-jobs": "2026-11-19T13:01:47.839317+00:00",
-    "workingnomads/design": "2026-11-19T13:01:47.839317+00:00"
+    "himalayas/product designer": "2026-11-19T21:30:19.966011+00:00",
+    "jobfound/all": "2026-11-19T21:30:19.966011+00:00",
+    "jobicy/designer": "2026-11-19T21:30:19.966011+00:00",
+    "jobspresso/design": "2026-11-19T21:30:19.966011+00:00",
+    "nodesk/design": "2026-11-19T21:30:19.966011+00:00",
+    "remoteok/design": "2026-11-19T21:30:19.966011+00:00",
+    "remotive/design": "2026-11-19T21:30:19.966011+00:00",
+    "uxjobs/design": "2026-11-19T21:30:19.966011+00:00",
+    "weworkremotely/remote-design-jobs": "2026-11-19T21:30:19.966011+00:00",
+    "workingnomads/design": "2026-11-19T21:30:19.966011+00:00"
   },
   "runs": [
-    {
-      "discovered": 15421,
-      "failed": 0,
-      "matched": 104,
-      "mode": "send",
-      "new_unsent": 81,
-      "sent": 0,
-      "started_at": "2026-11-05T18:44:12.218082+00:00"
-    },
     {
       "discovered": 11602,
       "failed": 0,
@@ -461,6 +452,15 @@
       "new_unsent": 73,
       "sent": 1,
       "started_at": "2026-11-19T13:01:47.839317+00:00"
+    },
+    {
+      "discovered": 15366,
+      "failed": 0,
+      "matched": 90,
+      "mode": "send",
+      "new_unsent": 72,
+      "sent": 1,
+      "started_at": "2026-11-19T21:30:19.966011+00:00"
     }
   ],
   "sent": {
@@ -1446,6 +1446,18 @@
       "tier": "Strong",
       "title": "UI/UX Designer (Landing Pages & Growth)",
       "url": "https://jobfound.org/job/supr-is-hiring-for-ui-ux-designer-landing-pages-growth-noida-uttar-pradesh-india-india-27-october-2026",
+      "verified": true
+    },
+    "tebra|product designer|remote anywhere in the world": {
+      "company": "Tebra",
+      "message_id": "<010001a1f5b87226-7df9e40b-ae2b-4401-af7f-8914a4ee5a1c-000000@email.amazonses.com>",
+      "score": 93.0,
+      "sent_at": "2026-11-19T21:30:19.966011+00:00",
+      "source_key": "weworkremotely:tebra:https://weworkremotely.com/remote-jobs/tebra-product-designer",
+      "thread_id": "7f472f4c-c380-4c69-8c50-718f5bd7959f",
+      "tier": "Strong",
+      "title": "Product Designer",
+      "url": "https://weworkremotely.com/remote-jobs/tebra-product-designer",
       "verified": true
     },
     "techdome|ui ux designer|indore hyderabad": {
