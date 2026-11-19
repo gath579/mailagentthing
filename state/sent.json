@@ -1,26 +1,17 @@
 {
   "feeds_fetched": {
-    "himalayas/product designer": "2026-11-19T03:24:43.460500+00:00",
-    "jobfound/all": "2026-11-19T03:24:43.460500+00:00",
-    "jobicy/designer": "2026-11-18T21:55:09.058344+00:00",
-    "jobspresso/design": "2026-11-18T21:55:09.058344+00:00",
-    "nodesk/design": "2026-11-19T03:24:43.460500+00:00",
-    "remoteok/design": "2026-11-19T03:24:43.460500+00:00",
-    "remotive/design": "2026-11-18T21:55:09.058344+00:00",
-    "uxjobs/design": "2026-11-18T21:55:09.058344+00:00",
-    "weworkremotely/remote-design-jobs": "2026-11-19T03:24:43.460500+00:00",
-    "workingnomads/design": "2026-11-19T03:24:43.460500+00:00"
+    "himalayas/product designer": "2026-11-19T13:01:47.839317+00:00",
+    "jobfound/all": "2026-11-19T13:01:47.839317+00:00",
+    "jobicy/designer": "2026-11-19T13:01:47.839317+00:00",
+    "jobspresso/design": "2026-11-19T13:01:47.839317+00:00",
+    "nodesk/design": "2026-11-19T13:01:47.839317+00:00",
+    "remoteok/design": "2026-11-19T13:01:47.839317+00:00",
+    "remotive/design": "2026-11-19T13:01:47.839317+00:00",
+    "uxjobs/design": "2026-11-19T13:01:47.839317+00:00",
+    "weworkremotely/remote-design-jobs": "2026-11-19T13:01:47.839317+00:00",
+    "workingnomads/design": "2026-11-19T13:01:47.839317+00:00"
   },
   "runs": [
-    {
-      "discovered": 15429,
-      "failed": 0,
-      "matched": 105,
-      "mode": "send",
-      "new_unsent": 83,
-      "sent": 1,
-      "started_at": "2026-11-05T10:53:01.187362+00:00"
-    },
     {
       "discovered": 15421,
       "failed": 0,
@@ -461,6 +452,15 @@
       "new_unsent": 1,
       "sent": 0,
       "started_at": "2026-11-19T03:24:43.460500+00:00"
+    },
+    {
+      "discovered": 15355,
+      "failed": 0,
+      "matched": 90,
+      "mode": "send",
+      "new_unsent": 73,
+      "sent": 1,
+      "started_at": "2026-11-19T13:01:47.839317+00:00"
     }
   ],
   "sent": {
@@ -1194,6 +1194,18 @@
       "tier": "Strong",
       "title": "Product Designer",
       "url": "https://jobfound.org/job/namma-yatri-is-hiring-for-product-designer-bengaluru-karnataka-india-india-28-october-2026",
+      "verified": true
+    },
+    "netgear|ux designer|multiple locations": {
+      "company": "Netgear",
+      "message_id": "<010001a1f3e6cf19-cb051343-9bb3-4f26-83b9-ec69cd78342d-000000@email.amazonses.com>",
+      "score": 67.0,
+      "sent_at": "2026-11-19T13:01:47.839317+00:00",
+      "source_key": "uxjobs:netgear:ux-designer-netgear-p6hx9p",
+      "thread_id": "cddff65c-8be5-4f8e-8b26-478b860926c3",
+      "tier": "Possible",
+      "title": "UX Designer",
+      "url": "https://jobs.ashbyhq.com/netgear/dcd5a4c2-e09f-4de8-9b92-2b1b22c2e0bd",
       "verified": true
     },
     "nudge|junior product designer|bengaluru karnataka india": {
