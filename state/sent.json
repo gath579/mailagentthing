@@ -1,26 +1,17 @@
 {
   "feeds_fetched": {
-    "himalayas/product designer": "2026-11-20T11:35:52.202597+00:00",
-    "jobfound/all": "2026-11-20T11:35:52.202597+00:00",
-    "jobicy/designer": "2026-11-20T11:35:52.202597+00:00",
-    "jobspresso/design": "2026-11-20T11:35:52.202597+00:00",
-    "nodesk/design": "2026-11-20T11:35:52.202597+00:00",
-    "remoteok/design": "2026-11-20T11:35:52.202597+00:00",
-    "remotive/design": "2026-11-20T11:35:52.202597+00:00",
-    "uxjobs/design": "2026-11-20T11:35:52.202597+00:00",
-    "weworkremotely/remote-design-jobs": "2026-11-20T11:35:52.202597+00:00",
-    "workingnomads/design": "2026-11-20T11:35:52.202597+00:00"
+    "himalayas/product designer": "2026-11-20T20:14:01.389087+00:00",
+    "jobfound/all": "2026-11-20T20:14:01.389087+00:00",
+    "jobicy/designer": "2026-11-20T20:14:01.389087+00:00",
+    "jobspresso/design": "2026-11-20T20:14:01.389087+00:00",
+    "nodesk/design": "2026-11-20T20:14:01.389087+00:00",
+    "remoteok/design": "2026-11-20T20:14:01.389087+00:00",
+    "remotive/design": "2026-11-20T20:14:01.389087+00:00",
+    "uxjobs/design": "2026-11-20T20:14:01.389087+00:00",
+    "weworkremotely/remote-design-jobs": "2026-11-20T20:14:01.389087+00:00",
+    "workingnomads/design": "2026-11-20T20:14:01.389087+00:00"
   },
   "runs": [
-    {
-      "discovered": 15490,
-      "failed": 0,
-      "matched": 107,
-      "mode": "send",
-      "new_unsent": 87,
-      "sent": 1,
-      "started_at": "2026-11-06T15:01:54.620609+00:00"
-    },
     {
       "discovered": 15532,
       "failed": 0,
@@ -461,6 +452,15 @@
       "new_unsent": 72,
       "sent": 0,
       "started_at": "2026-11-20T11:35:52.202597+00:00"
+    },
+    {
+      "discovered": 15433,
+      "failed": 0,
+      "matched": 90,
+      "mode": "send",
+      "new_unsent": 72,
+      "sent": 1,
+      "started_at": "2026-11-20T20:14:01.389087+00:00"
     }
   ],
   "sent": {
@@ -810,6 +810,18 @@
       "tier": "Strong",
       "title": "UI/UX Designer",
       "url": "https://jobfound.org/job/fluid-touch-pte-ltd-is-hiring-for-ui-ux-designer-hyderabad-telangana-india-india-21-october-2026",
+      "verified": true
+    },
+    "freehand|product designer|india": {
+      "company": "Freehand",
+      "message_id": "<010001a1fa98fef9-4485b8d9-8c65-4f7f-9229-404205a0b2bb-000000@email.amazonses.com>",
+      "score": 68.0,
+      "sent_at": "2026-11-20T20:14:01.389087+00:00",
+      "source_key": "uxjobs:freehand:product-designer-freehand-ojprs9",
+      "thread_id": "15683542-673a-437a-a4e5-1c92712901fb",
+      "tier": "Good",
+      "title": "Product Designer",
+      "url": "https://jobs.ashbyhq.com/freehand/24bfd138-3d52-4c56-b093-eb9a7db29677",
       "verified": true
     },
     "glance|ux designer|bangalore": {
