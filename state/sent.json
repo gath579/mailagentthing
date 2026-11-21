@@ -1,26 +1,17 @@
 {
   "feeds_fetched": {
-    "himalayas/product designer": "2026-11-21T01:31:45.375647+00:00",
-    "jobfound/all": "2026-11-21T01:31:45.375647+00:00",
-    "jobicy/designer": "2026-11-20T20:14:01.389087+00:00",
-    "jobspresso/design": "2026-11-20T20:14:01.389087+00:00",
-    "nodesk/design": "2026-11-21T01:31:45.375647+00:00",
-    "remoteok/design": "2026-11-21T01:31:45.375647+00:00",
-    "remotive/design": "2026-11-20T20:14:01.389087+00:00",
-    "uxjobs/design": "2026-11-20T20:14:01.389087+00:00",
-    "weworkremotely/remote-design-jobs": "2026-11-21T01:31:45.375647+00:00",
-    "workingnomads/design": "2026-11-21T01:31:45.375647+00:00"
+    "himalayas/product designer": "2026-11-21T09:47:17.599937+00:00",
+    "jobfound/all": "2026-11-21T09:47:17.599937+00:00",
+    "jobicy/designer": "2026-11-21T09:47:17.599937+00:00",
+    "jobspresso/design": "2026-11-21T09:47:17.599937+00:00",
+    "nodesk/design": "2026-11-21T09:47:17.599937+00:00",
+    "remoteok/design": "2026-11-21T09:47:17.599937+00:00",
+    "remotive/design": "2026-11-21T09:47:17.599937+00:00",
+    "uxjobs/design": "2026-11-21T09:47:17.599937+00:00",
+    "weworkremotely/remote-design-jobs": "2026-11-21T09:47:17.599937+00:00",
+    "workingnomads/design": "2026-11-21T09:47:17.599937+00:00"
   },
   "runs": [
-    {
-      "discovered": 11646,
-      "failed": 0,
-      "matched": 3,
-      "mode": "send",
-      "new_unsent": 2,
-      "sent": 0,
-      "started_at": "2026-11-07T00:55:54.916106+00:00"
-    },
     {
       "discovered": 15441,
       "failed": 0,
@@ -461,6 +452,15 @@
       "new_unsent": 1,
       "sent": 0,
       "started_at": "2026-11-21T01:31:45.375647+00:00"
+    },
+    {
+      "discovered": 15794,
+      "failed": 0,
+      "matched": 96,
+      "mode": "send",
+      "new_unsent": 78,
+      "sent": 2,
+      "started_at": "2026-11-21T09:47:17.599937+00:00"
     }
   ],
   "sent": {
@@ -546,6 +546,18 @@
       "tier": "Possible",
       "title": "Junior UX Designer",
       "url": "https://arrow.wd1.myworkdayjobs.com/ec/job/Ahmedabad-India/Junior-UX-Designer_R247512",
+      "verified": true
+    },
+    "artha energy projects|ui ux designer|mumbai": {
+      "company": "ARTHA ENERGY PROJECTS",
+      "message_id": "<010001a1fd816dfd-8d7bce03-1f90-4160-9f48-d6a334347c20-000000@email.amazonses.com>",
+      "score": 71.0,
+      "sent_at": "2026-11-21T09:47:17.599937+00:00",
+      "source_key": "uxjobs:artha energy projects:ui-ux-designer-artha-energy-projects-3xv5rf",
+      "thread_id": "3920d746-13cd-4a4d-bae9-c763e2c0cd4b",
+      "tier": "Good",
+      "title": "UI/UX Designer",
+      "url": "https://arthanergy.keka.com/careers/jobdetails/170096",
       "verified": true
     },
     "blueprint|product designer mobile desktop experiences|united states remote global remote": {
@@ -1638,6 +1650,18 @@
       "tier": "Strong",
       "title": "UI/UX Designer",
       "url": "https://jobfound.org/job/x-technologies-is-hiring-for-ui-ux-designer-india-india-25-october-2026",
+      "verified": true
+    },
+    "zebra|ux designer professional i|bengaluru india": {
+      "company": "Zebra",
+      "message_id": "<010001a1fd817246-afb52b17-9bd6-41c4-8a1f-eb5bab67fa1b-000000@email.amazonses.com>",
+      "score": 65.0,
+      "sent_at": "2026-11-21T09:47:17.599937+00:00",
+      "source_key": "uxjobs:zebra:ux-designer-professional-i-zebra-3206gr",
+      "thread_id": "ce2887cd-34ee-479a-a3c3-9695901170c5",
+      "tier": "Good",
+      "title": "UX Designer, Professional I",
+      "url": "https://zebra.wd501.myworkdayjobs.com/Zebra_careers/job/Bengaluru-India/UX-Designer--Professional-I_JR103954",
       "verified": true
     },
     "zensar|product designer|india": {
