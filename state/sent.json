@@ -1,26 +1,17 @@
 {
   "feeds_fetched": {
-    "himalayas/product designer": "2026-11-20T20:14:01.389087+00:00",
-    "jobfound/all": "2026-11-20T20:14:01.389087+00:00",
+    "himalayas/product designer": "2026-11-21T01:31:45.375647+00:00",
+    "jobfound/all": "2026-11-21T01:31:45.375647+00:00",
     "jobicy/designer": "2026-11-20T20:14:01.389087+00:00",
     "jobspresso/design": "2026-11-20T20:14:01.389087+00:00",
-    "nodesk/design": "2026-11-20T20:14:01.389087+00:00",
-    "remoteok/design": "2026-11-20T20:14:01.389087+00:00",
+    "nodesk/design": "2026-11-21T01:31:45.375647+00:00",
+    "remoteok/design": "2026-11-21T01:31:45.375647+00:00",
     "remotive/design": "2026-11-20T20:14:01.389087+00:00",
     "uxjobs/design": "2026-11-20T20:14:01.389087+00:00",
-    "weworkremotely/remote-design-jobs": "2026-11-20T20:14:01.389087+00:00",
-    "workingnomads/design": "2026-11-20T20:14:01.389087+00:00"
+    "weworkremotely/remote-design-jobs": "2026-11-21T01:31:45.375647+00:00",
+    "workingnomads/design": "2026-11-21T01:31:45.375647+00:00"
   },
   "runs": [
-    {
-      "discovered": 15532,
-      "failed": 0,
-      "matched": 109,
-      "mode": "send",
-      "new_unsent": 89,
-      "sent": 2,
-      "started_at": "2026-11-06T20:53:41.077342+00:00"
-    },
     {
       "discovered": 11646,
       "failed": 0,
@@ -461,6 +452,15 @@
       "new_unsent": 72,
       "sent": 1,
       "started_at": "2026-11-20T20:14:01.389087+00:00"
+    },
+    {
+      "discovered": 11928,
+      "failed": 0,
+      "matched": 2,
+      "mode": "send",
+      "new_unsent": 1,
+      "sent": 0,
+      "started_at": "2026-11-21T01:31:45.375647+00:00"
     }
   ],
   "sent": {
