@@ -1,26 +1,17 @@
 {
   "feeds_fetched": {
-    "himalayas/product designer": "2026-11-23T09:00:51.460675+00:00",
-    "jobfound/all": "2026-11-23T09:00:51.460675+00:00",
-    "jobicy/designer": "2026-11-23T09:00:51.460675+00:00",
-    "jobspresso/design": "2026-11-23T09:00:51.460675+00:00",
-    "nodesk/design": "2026-11-23T09:00:51.460675+00:00",
-    "remoteok/design": "2026-11-23T09:00:51.460675+00:00",
-    "remotive/design": "2026-11-23T09:00:51.460675+00:00",
-    "uxjobs/design": "2026-11-23T09:00:51.460675+00:00",
-    "weworkremotely/remote-design-jobs": "2026-11-23T09:00:51.460675+00:00",
-    "workingnomads/design": "2026-11-23T09:00:51.460675+00:00"
+    "himalayas/product designer": "2026-11-23T21:19:56.291836+00:00",
+    "jobfound/all": "2026-11-23T21:19:56.291836+00:00",
+    "jobicy/designer": "2026-11-23T21:19:56.291836+00:00",
+    "jobspresso/design": "2026-11-23T21:19:56.291836+00:00",
+    "nodesk/design": "2026-11-23T21:19:56.291836+00:00",
+    "remoteok/design": "2026-11-23T21:19:56.291836+00:00",
+    "remotive/design": "2026-11-23T21:19:56.291836+00:00",
+    "uxjobs/design": "2026-11-23T21:19:56.291836+00:00",
+    "weworkremotely/remote-design-jobs": "2026-11-23T21:19:56.291836+00:00",
+    "workingnomads/design": "2026-11-23T21:19:56.291836+00:00"
   },
   "runs": [
-    {
-      "discovered": 11651,
-      "failed": 0,
-      "matched": 3,
-      "mode": "send",
-      "new_unsent": 2,
-      "sent": 0,
-      "started_at": "2026-11-08T21:09:36.934055+00:00"
-    },
     {
       "discovered": 15585,
       "failed": 0,
@@ -461,6 +452,15 @@
       "new_unsent": 65,
       "sent": 1,
       "started_at": "2026-11-23T09:00:51.460675+00:00"
+    },
+    {
+      "discovered": 15817,
+      "failed": 0,
+      "matched": 85,
+      "mode": "send",
+      "new_unsent": 64,
+      "sent": 2,
+      "started_at": "2026-11-23T21:19:56.291836+00:00"
     }
   ],
   "sent": {
@@ -714,6 +714,18 @@
       "tier": "Possible",
       "title": "Product Designer",
       "url": "https://jobfound.org/job/credgenics-is-hiring-for-product-designer-noida-uttar-pradesh-india-india-28-october-2026",
+      "verified": true
+    },
+    "cred|product design|bengaluru": {
+      "company": "CRED",
+      "message_id": "<010001a20a487977-7b4eeb38-fd30-43dd-997d-30558aa56cd8-000000@email.amazonses.com>",
+      "score": 73.0,
+      "sent_at": "2026-11-23T21:19:56.291836+00:00",
+      "source_key": "lever:cred:70783f5e-1264-4149-b165-bd3b72854da8",
+      "thread_id": "27b2e8bb-bca4-4bca-8ad0-6506951eef15",
+      "tier": "Good",
+      "title": "product design",
+      "url": "https://jobs.lever.co/cred/70783f5e-1264-4149-b165-bd3b72854da8",
       "verified": true
     },
     "dailyrounds marrow|product designer|bengaluru karnataka india": {
@@ -1326,6 +1338,18 @@
       "tier": "Possible",
       "title": "Product Designer",
       "url": "https://jobfound.org/job/pw-physicswallah-is-hiring-for-product-designer-noida-uttar-pradesh-india-india-26-october-2026",
+      "verified": true
+    },
+    "razorpay software private limited|product designer ii|bengaluru": {
+      "company": "Razorpay Software Private Limited",
+      "message_id": "<010001a20a4876d1-2f8a3718-f5f0-4e67-9306-fbc6dee9dee6-000000@email.amazonses.com>",
+      "score": 74.0,
+      "sent_at": "2026-11-23T21:19:56.291836+00:00",
+      "source_key": "greenhouse:razorpay software private limited:4757185005",
+      "thread_id": "564c0831-ef3c-4981-bb66-9e1c73e1d9f5",
+      "tier": "Possible",
+      "title": "Product Designer II",
+      "url": "https://job-boards.greenhouse.io/razorpaysoftwareprivatelimited/jobs/4757185005",
       "verified": true
     },
     "rightsteps app|ux ui designer|india": {
