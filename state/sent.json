@@ -1,26 +1,17 @@
 {
   "feeds_fetched": {
-    "himalayas/product designer": "2026-11-23T00:50:33.820864+00:00",
-    "jobfound/all": "2026-11-23T00:50:33.820864+00:00",
-    "jobicy/designer": "2026-11-22T19:36:41.778612+00:00",
-    "jobspresso/design": "2026-11-22T19:36:41.778612+00:00",
-    "nodesk/design": "2026-11-23T00:50:33.820864+00:00",
-    "remoteok/design": "2026-11-23T00:50:33.820864+00:00",
-    "remotive/design": "2026-11-22T19:36:41.778612+00:00",
-    "uxjobs/design": "2026-11-22T19:36:41.778612+00:00",
-    "weworkremotely/remote-design-jobs": "2026-11-23T00:50:33.820864+00:00",
-    "workingnomads/design": "2026-11-23T00:50:33.820864+00:00"
+    "himalayas/product designer": "2026-11-23T09:00:51.460675+00:00",
+    "jobfound/all": "2026-11-23T09:00:51.460675+00:00",
+    "jobicy/designer": "2026-11-23T09:00:51.460675+00:00",
+    "jobspresso/design": "2026-11-23T09:00:51.460675+00:00",
+    "nodesk/design": "2026-11-23T09:00:51.460675+00:00",
+    "remoteok/design": "2026-11-23T09:00:51.460675+00:00",
+    "remotive/design": "2026-11-23T09:00:51.460675+00:00",
+    "uxjobs/design": "2026-11-23T09:00:51.460675+00:00",
+    "weworkremotely/remote-design-jobs": "2026-11-23T09:00:51.460675+00:00",
+    "workingnomads/design": "2026-11-23T09:00:51.460675+00:00"
   },
   "runs": [
-    {
-      "discovered": 15594,
-      "failed": 0,
-      "matched": 111,
-      "mode": "send",
-      "new_unsent": 88,
-      "sent": 0,
-      "started_at": "2026-11-08T17:02:17.968537+00:00"
-    },
     {
       "discovered": 11651,
       "failed": 0,
@@ -461,6 +452,15 @@
       "new_unsent": 1,
       "sent": 0,
       "started_at": "2026-11-23T00:50:33.820864+00:00"
+    },
+    {
+      "discovered": 15865,
+      "failed": 0,
+      "matched": 85,
+      "mode": "send",
+      "new_unsent": 65,
+      "sent": 1,
+      "started_at": "2026-11-23T09:00:51.460675+00:00"
     }
   ],
   "sent": {
@@ -618,6 +618,18 @@
       "tier": "Possible",
       "title": "UI/UX Designer",
       "url": "https://jobfound.org/job/brahmaverse-ai-is-hiring-for-ui-ux-designer-gurugram-haryana-india-india-27-october-2026",
+      "verified": true
+    },
+    "bright future|ui ux designer fresher|mumbai": {
+      "company": "Bright Future",
+      "message_id": "<010001a207a3a801-db472bce-3f13-4c56-968a-b248a2dc3e9c-000000@email.amazonses.com>",
+      "score": 64.0,
+      "sent_at": "2026-11-23T09:00:51.460675+00:00",
+      "source_key": "uxjobs:bright future:ui-ux-designer-fresher-bright-future-1rlbqd",
+      "thread_id": "3d2b97cd-37e6-4530-b346-cf84cff62209",
+      "tier": "Good",
+      "title": "UI/UX Designer \u2013 Fresher",
+      "url": "https://100.keka.com/careers/jobdetails/170616",
       "verified": true
     },
     "candescent|associate product designer|in bengaluru office": {
