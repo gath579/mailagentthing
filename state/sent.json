@@ -1,26 +1,17 @@
 {
   "feeds_fetched": {
-    "himalayas/product designer": "2026-11-25T02:25:03.874672+00:00",
-    "jobfound/all": "2026-11-25T02:25:03.874672+00:00",
-    "jobicy/designer": "2026-11-25T02:25:03.874672+00:00",
-    "jobspresso/design": "2026-11-25T02:25:03.874672+00:00",
-    "nodesk/design": "2026-11-25T02:25:03.874672+00:00",
-    "remoteok/design": "2026-11-25T02:25:03.874672+00:00",
-    "remotive/design": "2026-11-25T02:25:03.874672+00:00",
-    "uxjobs/design": "2026-11-25T02:25:03.874672+00:00",
-    "weworkremotely/remote-design-jobs": "2026-11-25T02:25:03.874672+00:00",
-    "workingnomads/design": "2026-11-25T02:25:03.874672+00:00"
+    "himalayas/product designer": "2026-11-25T12:51:06.876050+00:00",
+    "jobfound/all": "2026-11-25T12:51:06.876050+00:00",
+    "jobicy/designer": "2026-11-25T12:51:06.876050+00:00",
+    "jobspresso/design": "2026-11-25T12:51:06.876050+00:00",
+    "nodesk/design": "2026-11-25T12:51:06.876050+00:00",
+    "remoteok/design": "2026-11-25T12:51:06.876050+00:00",
+    "remotive/design": "2026-11-25T12:51:06.876050+00:00",
+    "uxjobs/design": "2026-11-25T12:51:06.876050+00:00",
+    "weworkremotely/remote-design-jobs": "2026-11-25T12:51:06.876050+00:00",
+    "workingnomads/design": "2026-11-25T12:51:06.876050+00:00"
   },
   "runs": [
-    {
-      "discovered": 15578,
-      "failed": 0,
-      "matched": 109,
-      "mode": "send",
-      "new_unsent": 87,
-      "sent": 0,
-      "started_at": "2026-11-10T02:06:09.833726+00:00"
-    },
     {
       "discovered": 15577,
       "failed": 0,
@@ -461,6 +452,15 @@
       "new_unsent": 62,
       "sent": 0,
       "started_at": "2026-11-25T02:25:03.874672+00:00"
+    },
+    {
+      "discovered": 15815,
+      "failed": 0,
+      "matched": 83,
+      "mode": "send",
+      "new_unsent": 62,
+      "sent": 1,
+      "started_at": "2026-11-25T12:51:06.876050+00:00"
     }
   ],
   "sent": {
@@ -1278,6 +1278,18 @@
       "tier": "Good",
       "title": "UI/UX Designer",
       "url": "https://job-boards.greenhouse.io/particle41llc/jobs/5432621008",
+      "verified": true
+    },
+    "pditechnologies|ux designer iii|chennai bangalore hyderabad": {
+      "company": "Pditechnologies",
+      "message_id": "<010001a212c3355f-0bf15da6-3eb6-40ea-bcfd-ef02051dc71d-000000@email.amazonses.com>",
+      "score": 70.0,
+      "sent_at": "2026-11-25T12:51:06.876050+00:00",
+      "source_key": "uxjobs:pditechnologies:ux-designer-iii-pditechnologies-dye32m",
+      "thread_id": "bd15a232-0f2f-4ead-86d3-7c9113aee9af",
+      "tier": "Good",
+      "title": "UX Designer III",
+      "url": "https://jobs.lever.co/pditechnologies/49a69137-4da4-46e5-a3a1-b5b1d1a8a89a",
       "verified": true
     },
     "pinegap ai|product designer|bengaluru karnataka india": {
