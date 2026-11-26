@@ -1,26 +1,17 @@
 {
   "feeds_fetched": {
-    "himalayas/product designer": "2026-11-26T15:12:14.375401+00:00",
-    "jobfound/all": "2026-11-26T15:12:14.375401+00:00",
-    "jobicy/designer": "2026-11-26T15:12:14.375401+00:00",
-    "jobspresso/design": "2026-11-26T15:12:14.375401+00:00",
-    "nodesk/design": "2026-11-26T15:12:14.375401+00:00",
-    "remoteok/design": "2026-11-26T15:12:14.375401+00:00",
-    "remotive/design": "2026-11-26T15:12:14.375401+00:00",
-    "uxjobs/design": "2026-11-26T15:12:14.375401+00:00",
-    "weworkremotely/remote-design-jobs": "2026-11-26T15:12:14.375401+00:00",
-    "workingnomads/design": "2026-11-26T15:12:14.375401+00:00"
+    "himalayas/product designer": "2026-11-26T23:50:31.100813+00:00",
+    "jobfound/all": "2026-11-26T23:50:31.100813+00:00",
+    "jobicy/designer": "2026-11-26T23:50:31.100813+00:00",
+    "jobspresso/design": "2026-11-26T23:50:31.100813+00:00",
+    "nodesk/design": "2026-11-26T23:50:31.100813+00:00",
+    "remoteok/design": "2026-11-26T23:50:31.100813+00:00",
+    "remotive/design": "2026-11-26T23:50:31.100813+00:00",
+    "uxjobs/design": "2026-11-26T23:50:31.100813+00:00",
+    "weworkremotely/remote-design-jobs": "2026-11-26T23:50:31.100813+00:00",
+    "workingnomads/design": "2026-11-26T23:50:31.100813+00:00"
   },
   "runs": [
-    {
-      "discovered": 15612,
-      "failed": 0,
-      "matched": 108,
-      "mode": "send",
-      "new_unsent": 87,
-      "sent": 1,
-      "started_at": "2026-11-11T06:14:10.984665+00:00"
-    },
     {
       "discovered": 15623,
       "failed": 0,
@@ -461,6 +452,15 @@
       "new_unsent": 60,
       "sent": 0,
       "started_at": "2026-11-26T15:12:14.375401+00:00"
+    },
+    {
+      "discovered": 15818,
+      "failed": 0,
+      "matched": 83,
+      "mode": "send",
+      "new_unsent": 61,
+      "sent": 1,
+      "started_at": "2026-11-26T23:50:31.100813+00:00"
     }
   ],
   "sent": {
@@ -1158,6 +1158,18 @@
       "tier": "Strong",
       "title": "Product Designer - II (Design System)",
       "url": "https://jobs.lever.co/meesho/500264fe-e851-499a-b825-2eb588752aa3",
+      "verified": true
+    },
+    "meesho|product designer ii kirana club|bangalore karnataka": {
+      "company": "Meesho",
+      "message_id": "<010001a21a453130-7204a7ef-4607-4d9c-862d-d1b00a2e16a2-000000@email.amazonses.com>",
+      "score": 80.0,
+      "sent_at": "2026-11-26T23:50:31.100813+00:00",
+      "source_key": "lever:meesho:15cbdb02-e678-462b-b3ac-d70f48144eb8",
+      "thread_id": "1716adfc-0dbc-434a-a461-e4122e599f71",
+      "tier": "Strong",
+      "title": "Product Designer II (Kirana Club)",
+      "url": "https://jobs.lever.co/meesho/15cbdb02-e678-462b-b3ac-d70f48144eb8",
       "verified": true
     },
     "michelin|ai ux ui designer researcher|pune": {
